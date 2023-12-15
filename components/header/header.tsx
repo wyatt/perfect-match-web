@@ -39,6 +39,9 @@ function Header(props: any) {
                                 <Link href="/statistics"> Statistics</Link>
                             </li>
                             <li className="hover:text-rose-400">
+                                <Link href="/blog"> Blog</Link>
+                            </li>
+                            <li className="hover:text-rose-400">
                                 <Link href="/about"> About & Contact</Link>
                             </li>
                         </ul>
