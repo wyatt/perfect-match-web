@@ -49,7 +49,7 @@ const Blog: any = (props: any) => {
             </div >
 
             <div>
-                <p>Blog Post Here</p>
+
             </div>
 
             <Footer />
