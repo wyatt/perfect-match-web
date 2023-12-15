@@ -9,6 +9,9 @@ import Stats2023 from '@/components/analytics/2023Analytics';
 import Stats2022 from '@/components/analytics/2022Analytics';
 import { Stats } from 'fs';
 import { useState } from 'react';
+import Blogposts from '@/components/blogposts/index';
+import Members from '@/components/members';
+
 
 const Blog: any = (props: any) => {
     const [year, setYear] = useState(2023);
@@ -49,7 +52,7 @@ const Blog: any = (props: any) => {
             </div >
 
             <div>
-
+                <Blogposts />
             </div>
 
             <Footer />
