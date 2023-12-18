@@ -27,16 +27,16 @@ const Blog: any = (props: any) => {
                     className="sm:mr-0"
                     style={{
                         paddingBottom: '20px',
-                        paddingTop: '20px',
-                        height: '20%',
+                        paddingTop: '10px',
+                        height: '10%',
                         backgroundSize: 'contain',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'right top',
                         // backgroundImage: 'url("valentine.png")',
                     }}
                 >
-                    <div className="pb-6 pt-56 sm:pt-64 lg:pt-64 lg:pb-36">
-                        <div className="max-w-xl text-center sm:text-left sm:ml-[15%] mt-8 sm:mt-0 opacity-100">
+                    <div className="pb-4 pt-32 sm:pt-48 lg:pt-48 lg:pb-24">
+                        <div className="max-w-l text-center sm:text-left sm:ml-[15%] mt-8 sm:mt-0 opacity-100">
                             <h1 className="text-2xl sm:text-3xl font-extrabold text-rose-400 lg:text-5xl opacity-100">
                                 Blog
                             </h1>

@@ -1,22 +1,25 @@
 import React from 'react';
 
 const componentFiles = [
+    'sampleinterview',
     'samplepost',
+
 
 ];
 
 const Blogposts: React.FC = () => {
     return (
-        <div>
-            <h1>Your Page</h1>
-            {componentFiles.map((componentName, index) => {
-                const DynamicComponent = React.lazy(() =>
-                    import("@/components/blogposts/posts/samplepost")
-                );
+        <div className='pr-4' style={{ paddingRight: '15%', paddingLeft: '15%' }}>
+            {
+                componentFiles.map((componentName, index) => {
+                    const DynamicComponent = React.lazy(() =>
+                        import("@/components/blogposts/posts/" + componentName + ".tsx")
+                    );
 
-                return <DynamicComponent key={index} />;
-            })}
-        </div>
+                    return <DynamicComponent key={index} />;
+                })
+            }
+        </div >
     );
 };
 
