@@ -16,7 +16,7 @@ const samplepost = () => {
                     </div>
                     <div className="mt-4 text-gray-500">
                         <p>
-                            Perfect Match, a student-run matchmaking service at Cornell University. Founded in 2019, it uses a survey and machine learning algorithm to match Cornell students and alumni with potential dates or friends. The service runs annually, typically around Valentine's Day. It was founded by Jamal Hashim in 2019 and has since helped match over 5,600 participants.  The latest event, PM23, matched over 3,900 Cornellians, resulting in more than 22,000 potential connections.
+                            Perfect Match, a student-run matchmaking service at Cornell University. Founded in 2019, it uses a survey and machine learning algorithm to match Cornell students and alumni with potential dates or friends. The service runs annually, typically around Valentines Day. It was founded by Jamal Hashim in 2019 and has since helped match over 5,600 participants.  The latest event, PM23, matched over 3,900 Cornellians, resulting in more than 22,000 potential connections.
                         </p>
 
 
