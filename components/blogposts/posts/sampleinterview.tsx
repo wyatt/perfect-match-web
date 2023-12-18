@@ -17,12 +17,22 @@ const sampleinterview = () => {
                         <p className="text-gray-500 dark:text-gray-400">Kavita Bala</p>
 
                     </div>
-                    <div className="mt-4 text-gray-500">
+                    <div className="mt-4 text-rose-400">
                         <p>
-                            Perfect Match, a student-run matchmaking service at Cornell University. Founded in 2019, it uses a survey and machine learning algorithm to match Cornell students and alumni with potential dates or friends. The service runs annually, typically around Valentine's Day. It was founded by Jamal Hashim in 2019 and has since helped match over 5,600 participants.  The latest event, PM23, matched over 3,900 Cornellians, resulting in more than 22,000 potential connections.
+                            <strong>Interview with LoveLink User</strong>
                         </p>
-                        <Image className="w-24" src={slopePic} alt=" Picture of Cornell Slope" height={100} width={100} />
+                        <p className="mt-4 text-gray-500">
+                            Emma: I heard about LoveLink from a friend who had a fantastic experience last year. She met her now-boyfriend through the platform, and I thought, why not give it a try? Plus, who doesn't love the idea of technology helping you find your perfect match?
+                        </p>
+                        <p className="mt-4 text-gray-500">
+                            Emma: I've always been open to new ways of meeting people. LoveLink's approach of using technology and algorithms to match people based on their interests and preferences sounded intriguing. I figured it was a fun way to potentially connect with someone who shares my values.
+                        </p>
+                        <p className="mt-4 text-gray-500">
+                            Emma: Absolutely! I matched with someone during LoveLink's last event, and we hit it off right away. We discovered we had a mutual love for hiking, and the algorithm did a fantastic job pairing us based on our interests. We decided to meet up for a hike, and it turned into a day filled with laughter and great conversation. It's amazing how technology can bring two people together like that.
+                        </p>
+                        {/* <Image className="w-24" src={fakeProfilePic} alt="Picture of Emma" height={100} width={100} /> */}
                     </div>
+
                     <div>
                         <p className='text-rose-400 p-4'>About the Author: Kavita Bala is a Junior Computer Science major in the College of Engineering. She is an analyst on the Perfect Match Engineering Team.</p>
                     </div>
