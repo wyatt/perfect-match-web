@@ -45,13 +45,13 @@ const About: any = (props: any) => {
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="sm:-mt-5 text-3xl -ml-1">💓</div>
-                                    <p className="text-rose-400 text-l my-2 font-bold">02-01-23 5PM</p>
+                                    <p className="text-rose-400 text-l my-2 font-bold">Early Feburary</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                    <h4 className="text-gray-700 font-semibold text-xl mb-1.5">PM2023 is Launched!</h4>
+                                    <h4 className="text-gray-700 font-semibold text-xl mb-1.5">Perfect Match is Launched!</h4>
                                     <p className="text-gray-500 mb-3">
                                         Sign in with your Cornell email. Then fill out your profile and the survey! For
-                                        updates on PM23, follow us on{' '}
+                                        updates on PM, follow us on{' '}
                                         <a
                                             className="underline"
                                             href="https://www.instagram.com/cornellperfectmatch/"
@@ -67,10 +67,10 @@ const About: any = (props: any) => {
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="sm:-mt-5 text-3xl">💘</div>
-                                    <p className="text-rose-400 text-l my-2 font-bold">02-13-23 Noon</p>
+                                    <p className="text-rose-400 text-l my-2 font-bold">Valentine&apos;s Day @ Noon</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                    <h4 className="text-gray-700 font-semibold text-xl mb-1.5">PM Closes!</h4>
+                                    <h4 className="text-gray-700 font-semibold text-xl mb-1.5"> PM Closes!</h4>
                                     <p className="text-gray-500 mb-3">
                                         Hurry up! Cupid is flying away! Make sure to submit your response on time.
                                     </p>
@@ -79,7 +79,7 @@ const About: any = (props: any) => {
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="sm:-mt-5 text-3xl">💞</div>
-                                    <p className="text-rose-400 text-l my-2 font-bold">02-13-23 Night</p>
+                                    <p className="text-rose-400 text-l my-2 font-bold"> Valentine&apos;s Day @ Night</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
                                     <h4 className="text-gray-700 font-semibold text-xl mb-1.5">Matches Out!</h4>
@@ -92,11 +92,11 @@ const About: any = (props: any) => {
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="sm:-mt-5 text-3xl">❤️‍🔥</div>
-                                    <p className="text-rose-400 text-l my-2 font-bold">02-14-23</p>
+                                    <p className="text-rose-400 text-l my-2 font-bold">Feburary 14th</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
                                     <h4 className="text-gray-700 font-semibold text-xl mb-1.5">
-                                        It&apos;s Valentine&apos;s Day!
+                                        Valentine&apos;s Day
                                     </h4>
                                     <p className="text-gray-500 mb-3">
                                         It&apos;s that time of the year! Grab some food with your perfect matches!
@@ -105,7 +105,7 @@ const About: any = (props: any) => {
                             </li>
                         </ol>
 
-                        <ol className="border-l-2 border-rose-300 sm:hidden">
+                        {/* <ol className="border-l-2 border-rose-300 sm:hidden">
                             <li>
                                 <div className="flex flex-start items-center pt-3">
                                     <div className="-ml-3 mr-3 text-2xl">💓</div>
@@ -115,7 +115,7 @@ const About: any = (props: any) => {
                                     <h4 className="text-gray-700 font-semibold text-lg mb-1.5">PM2023 is Launched!</h4>
                                     <p className="text-gray-500 mb-3">
                                         Sign in with your Cornell email. Then fill out your profile and the survey! For
-                                        updates on PM23, follow us on{' '}
+                                        updates on PM, follow us on{' '}
                                         <a
                                             className="underline"
                                             href="https://www.instagram.com/cornellperfectmatch/"
@@ -163,11 +163,11 @@ const About: any = (props: any) => {
                                         It&apos;s Valentine&apos;s Day!
                                     </h4>
                                     <p className="text-gray-500 mb-3">
-                                        It&apos;s that time of the year! Grab some food with your perfect matches!
+                                        It&apos;s that time of the year! Grab some food with your Perfect Matches!
                                     </p>
                                 </div>
                             </li>
-                        </ol>
+                        </ol> */}
                     </div>
                 </section>
 

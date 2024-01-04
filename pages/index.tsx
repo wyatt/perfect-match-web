@@ -30,7 +30,137 @@ const Home: NextPage = (props: any) => {
 
 
             <Countdown />
+            <section className='bg-slate-100'>
+                <div className="mx-[10%] lg:mx-[15%]">
+                    <ol className="hidden sm:block sm:border-xl-0 sm:border-t-2 border-rose-300 sm:flex sm:gap-6">
+                        <li>
+                            <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
+                                <div className="sm:-mt-5 text-3xl -ml-1">💓</div>
+                                <p className="text-rose-400 text-l my-2 font-bold">Early Feburary</p>
+                            </div>
+                            <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
+                                <h4 className="text-gray-700 font-semibold text-xl mb-1.5">Perfect Match is Launched!</h4>
+                                <p className="text-gray-500 mb-3">
+                                    Sign in with your Cornell email. Then fill out your profile and the survey! For
+                                    updates on PM, follow us on{' '}
+                                    <a
+                                        className="underline"
+                                        href="https://www.instagram.com/cornellperfectmatch/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        IG
+                                    </a>
+                                    .
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
+                                <div className="sm:-mt-5 text-3xl">💘</div>
+                                <p className="text-rose-400 text-l my-2 font-bold">Valentine&apos;s Day @ Noon</p>
+                            </div>
+                            <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
+                                <h4 className="text-gray-700 font-semibold text-xl mb-1.5"> PM Closes!</h4>
+                                <p className="text-gray-500 mb-3">
+                                    Hurry up! Cupid is flying away! Make sure to submit your response on time.
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
+                                <div className="sm:-mt-5 text-3xl">💞</div>
+                                <p className="text-rose-400 text-l my-2 font-bold"> Valentine&apos;s Day @ Night</p>
+                            </div>
+                            <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
+                                <h4 className="text-gray-700 font-semibold text-xl mb-1.5">Matches Out!</h4>
+                                <p className="text-gray-500 mb-3">
+                                    An email will be sent to you when your perfect matches are out. Go ahead and
+                                    shoot your shot!{' '}
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
+                                <div className="sm:-mt-5 text-3xl">❤️‍🔥</div>
+                                <p className="text-rose-400 text-l my-2 font-bold">Feburary 14th</p>
+                            </div>
+                            <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
+                                <h4 className="text-gray-700 font-semibold text-xl mb-1.5">
+                                    Valentine&apos;s Day
+                                </h4>
+                                <p className="text-gray-500 mb-3">
+                                    It&apos;s that time of the year! Grab some food with your perfect matches!
+                                </p>
+                            </div>
+                        </li>
+                    </ol>
 
+                    {/* <ol className="border-l-2 border-rose-300 sm:hidden">
+                            <li>
+                                <div className="flex flex-start items-center pt-3">
+                                    <div className="-ml-3 mr-3 text-2xl">💓</div>
+                                    <p className="text-rose-400 text-l font-bold">02-01-23 5PM</p>
+                                </div>
+                                <div className="mt-0.5 ml-4 mb-6">
+                                    <h4 className="text-gray-700 font-semibold text-lg mb-1.5">PM2023 is Launched!</h4>
+                                    <p className="text-gray-500 mb-3">
+                                        Sign in with your Cornell email. Then fill out your profile and the survey! For
+                                        updates on PM, follow us on{' '}
+                                        <a
+                                            className="underline"
+                                            href="https://www.instagram.com/cornellperfectmatch/"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            IG
+                                        </a>
+                                        .
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="flex flex-start items-center pt-2">
+                                    <div className="-ml-3 mr-3 text-2xl">💘</div>
+                                    <p className="text-rose-400 text-l font-bold">02-13-23 Noon</p>
+                                </div>
+                                <div className="mt-0.5 ml-4 mb-6">
+                                    <h4 className="text-gray-700 font-semibold text-lg mb-1.5">PM Closes!</h4>
+                                    <p className="text-gray-500 mb-3">
+                                        Hurry up! Cupid is flying away! Make sure to submit your response on time.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="flex flex-start items-center pt-2">
+                                    <div className="-ml-3 mr-3 text-2xl">💞</div>
+                                    <p className="text-rose-400 font-bold">02-13-23 Night</p>
+                                </div>
+                                <div className="mt-0.5 ml-4 pb-5">
+                                    <h4 className="text-gray-700 font-semibold text-lg mb-1.5">Matches Out!</h4>
+                                    <p className="text-gray-500 mb-3">
+                                        An email will be sent to you when your perfect matches are out. Go ahead and
+                                        shoot your shot!
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="flex flex-start items-center pt-2">
+                                    <div className="-ml-3 mr-3 text-2xl">❤️‍🔥</div>
+                                    <p className="text-rose-400 font-bold">02-14-23</p>
+                                </div>
+                                <div className="mt-0.5 ml-4 pb-5">
+                                    <h4 className="text-gray-700 font-semibold text-lg mb-1.5">
+                                        It&apos;s Valentine&apos;s Day!
+                                    </h4>
+                                    <p className="text-gray-500 mb-3">
+                                        It&apos;s that time of the year! Grab some food with your Perfect Matches!
+                                    </p>
+                                </div>
+                            </li>
+                        </ol> */}
+                </div>
+            </section>
 
             <section className="grid lg:grid-cols-2">
                 <div className="bg-white">
