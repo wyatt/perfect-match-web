@@ -7,12 +7,12 @@ import { Header } from '@/components/header';
 import { fetcher } from '@/utils/fetch';
 import useSWR from 'swr';
 import styles from '@/styles/Home.module.css';
-
 import Link from 'next/link';
 import Script from 'next/script';
 import Image from 'next/image';
 import BestAlternative from '@/components/analytics/apex-charts/bestAlternative';
 import demo from 'public/feedback-demo.gif';
+import Countdown from '@/components/countdown';
 
 const Home: NextPage = (props: any) => {
     const { data: currentCount, error } = useSWR('/api/count', fetcher, {
@@ -26,6 +26,11 @@ const Home: NextPage = (props: any) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
+
+
+
+            <Countdown />
+
 
             <section className="grid lg:grid-cols-2">
                 <div className="bg-white">
@@ -92,7 +97,7 @@ const Home: NextPage = (props: any) => {
                 </div>
             </section>
             <Footer />
-        </div>
+        </div >
     );
 };
 
