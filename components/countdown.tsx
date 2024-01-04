@@ -7,7 +7,7 @@ function CountDown() {
 
     const renderer = ({ days, hours, minutes, seconds, completed }: CountdownRenderProps) => {
         if (completed) {
-            return <span>It's Perfect Match Time!</span>;
+            return <span>It is Perfect Match Time!</span>;
         } else {
             return (
                 <div>
@@ -38,10 +38,10 @@ function CountDown() {
                         <Countdown date={countdownDate} renderer={renderer} />
                     </h2>
                 </div>
-
-
             </div>
-        </section>
+
+
+        </section >
 
     );
 }
