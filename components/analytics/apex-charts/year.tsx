@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import { fetcher } from '@/utils/fetch';
+import { fetcher, analysisURL } from '@/utils/fetch';
 import dynamic from 'next/dynamic';
 
 const ReactApexChart = dynamic(() => import('react-apexcharts'), {
@@ -7,7 +7,7 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), {
 });
 
 const Year = () => {
-    const { data: yearsCount, error, isLoading } = useSWR('http://localhost:8080/years', fetcher);
+    const { data: yearsCount, error, isLoading } = useSWR(analysisURL, fetcher);
     if (isLoading || error) return;
 
     const series = [
