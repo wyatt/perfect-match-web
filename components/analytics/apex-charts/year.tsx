@@ -7,7 +7,7 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), {
 });
 
 const Year = () => {
-    const { data: yearsCount, error, isLoading } = useSWR(analysisURL, fetcher);
+    const { data: yearsCount, error, isLoading } = useSWR(`${analysisURL}/years`, fetcher);
     if (isLoading || error) return null;
 
     const series = [
