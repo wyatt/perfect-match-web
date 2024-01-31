@@ -8,7 +8,7 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), {
 
 const Year = () => {
     const { data: yearsCount, error, isLoading } = useSWR(analysisURL, fetcher);
-    if (isLoading || error) return;
+    if (isLoading || error) return null;
 
     const series = [
         {
