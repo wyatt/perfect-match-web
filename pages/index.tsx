@@ -14,6 +14,8 @@ import Image from 'next/image';
 import BestAlternative from '@/components/analytics/apex-charts/bestAlternative';
 import demo from 'public/feedback-demo.gif';
 import Countdown from '@/components/countdown';
+import word from 'public/wordcloud-hq.gif';
+
 
 const Home: NextPage = (props: any) => {
     const { data: currentCount, error } = useSWR('/api/count', fetcher, {
@@ -27,6 +29,20 @@ const Home: NextPage = (props: any) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
+
+            <section className="bg-white flex">
+                <div className="pb-6 pt-56 sm:pt-64 lg:pt-64 lg:pb-36 w-3/5">
+                    <div className="max-w-xl text-center sm:text-left sm:ml-[15%] mt-8 sm:mt-0 opacity-100">
+                        <h1 className="text-2xl sm:text-3xl font-extrabold text-rose-400 lg:text-5xl opacity-100">
+                            title
+                        </h1>
+                        <p className="mt-4 mx-[10%] sm:mx-0 max-w-lg sm:text-lg text-gray-500 sm:leading-relaxed">
+                            sign in
+                        </p>
+                    </div>
+                </div>
+                <Image priority={true} src={word} alt="Loading..." className="w-2/5"></Image>
+            </section>
 
             <LiveDashboard />
 
