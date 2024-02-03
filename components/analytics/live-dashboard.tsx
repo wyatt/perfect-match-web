@@ -3,6 +3,8 @@ import Bar from './live-charts/barTemplate';
 import Pie from './live-charts/pieTemplate';
 import TreeMap from './live-charts/treeMapTemplate';
 import DescribeSelf from './live-charts/describeSelf';
+import Alternative from './live-charts/bestAlternativeLive'
+import BestAlternativeLive from './live-charts/bestAlternativeLive';
 
 
 function LiveDashboard() {
@@ -36,7 +38,7 @@ function LiveDashboard() {
                     </div>
                     <div className="w-3/5 shadow-lg">
                         <h3>TITLE</h3>
-                        <Bar />
+                        <BestAlternativeLive />
                     </div>
                 </div>
             </div>
