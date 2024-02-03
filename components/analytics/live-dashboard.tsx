@@ -2,6 +2,7 @@ import React from 'react';
 import Bar from './live-charts/barTemplate';
 import Pie from './live-charts/pieTemplate';
 import TreeMap from './live-charts/treeMapTemplate';
+import DescribeSelf from './live-charts/describeSelf';
 
 
 function LiveDashboard() {
@@ -11,7 +12,7 @@ function LiveDashboard() {
                 <div className="flex p-3 gap-4">
                     <div className="w-1/2 shadow-lg">
                         <h3>TITLE</h3>
-                        <TreeMap />
+                        <DescribeSelf />
                     </div>
                     <div className="w-1/2 shadow-lg">
                         <h3>TITLE</h3>

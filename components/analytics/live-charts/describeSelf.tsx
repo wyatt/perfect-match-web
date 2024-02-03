@@ -6,7 +6,7 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), {
     ssr: false,
 });
 
-const TreeMap = () => {
+const DescribeSelf = () => {
     const { data: describeselfCount, error, isLoading } = useSWR(`${analysisURL}/describeself`, fetcher);
     if (isLoading || error) return null;
 
@@ -15,56 +15,44 @@ const TreeMap = () => {
             data: [
                 {
                     x: Object.keys(describeselfCount)[0],
-                    y: Object.values(describeselfCount)[0],
+                    y: Object.values(describeselfCount)[0]
                 },
                 {
                     x: Object.keys(describeselfCount)[1],
-                    y: Object.values(describeselfCount)[1],
+                    y: Object.values(describeselfCount)[1]
                 },
                 {
-                    x: 'Kind',
-                    y: 10.3
+                    x: Object.keys(describeselfCount)[2],
+                    y: Object.values(describeselfCount)[2]
                 },
                 {
-                    x: 'Outgoing',
-                    y: 8.6
+                    x: Object.keys(describeselfCount)[3],
+                    y: Object.values(describeselfCount)[3]
                 },
                 {
-                    x: 'Thoughtful',
-                    y: 8.4
+                    x: Object.keys(describeselfCount)[4],
+                    y: Object.values(describeselfCount)[4]
                 },
                 {
-                    x: 'Adventurous',
-                    y: 8.0
+                    x: Object.keys(describeselfCount)[5],
+                    y: Object.values(describeselfCount)[5]
                 },
                 {
-                    x: 'Creative',
-                    y: 6.8
+                    x: Object.keys(describeselfCount)[6],
+                    y: Object.values(describeselfCount)[6]
                 },
                 {
-                    x: 'Loyal',
-                    y: 6.6
+                    x: Object.keys(describeselfCount)[7],
+                    y: Object.values(describeselfCount)[7]
                 },
                 {
-                    x: 'Smart',
-                    y: 6.5
+                    x: Object.keys(describeselfCount)[8],
+                    y: Object.values(describeselfCount)[8]
                 },
                 {
-                    x: 'Witty',
-                    y: 5.5
-                },
-                {
-                    x: 'Fun',
-                    y: 5.2
-                },
-                {
-                    x: 'Passionate',
-                    y: 5.2
-                },
-                {
-                    x: 'Bubbly',
-                    y: 5.1
-                },
+                    x: Object.keys(describeselfCount)[9],
+                    y: Object.values(describeselfCount)[9]
+                }
             ],
         },
     ];
@@ -114,4 +102,4 @@ const TreeMap = () => {
     return <ReactApexChart type="treemap" series={series} options={options as ApexCharts.ApexOptions} />;
 };
 
-export default TreeMap;
+export default DescribeSelf;
