@@ -90,8 +90,6 @@ const Home: NextPage = (props: any) => {
 
 export async function getServerSideProps(context: any) {
     const session = await getSession(context);
-    console.log('session: ', session);
-    console.log('context: ', context);
     return {
         props: {
             user: session?.user || null,
