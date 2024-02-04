@@ -46,10 +46,10 @@ function Header(props: any) {
                 </div>
             </nav>
             <div className="bg-rose-400">
-                <div className="py-2 px-3 sm:px-0 sm:py-3 md:pt-1 sm:pb-0 flex">
+                <div className="py-2 px-3 sm:px-0 sm:py-3 md:pt-1 md:pb-0 flex">
                     <div className="flex flex-wrap items-center sm:mx-auto">
                         <div>
-                            <p className="ml-2 font-small text-white sm:text-lg sm:text-base pb-1">
+                            <p className="ml-2 font-small text-white sm:text-lg md:text-base pb-1">
                                 Interested in joining the Perfect Match Team?
                             </p>
                         </div>
@@ -58,7 +58,7 @@ function Header(props: any) {
                                 href="https://forms.gle/Jv5th8zbajVF6qN6A"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="flex items-center justify-center rounded-md border border-transparent bg-white sm:px-4 sm:px-2 mb-1 text-sm font-small text-rose-400 shadow-sm hover:bg-rose-50 sm:text-lg md:text-base"
+                                className="flex items-center justify-center rounded-md border border-transparent bg-white sm:px-4 md:px-2 mb-1 text-sm font-small text-rose-400 shadow-sm hover:bg-rose-50 sm:text-lg md:text-base"
                             >
                                 Apply Here!
                             </a>
