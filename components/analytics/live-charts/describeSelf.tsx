@@ -57,6 +57,17 @@ const DescribeSelf = () => {
         },
     ];
     const options = {
+        noData: {
+            text: "Loading...",
+            align: 'center',
+            verticalAlign: 'middle',
+            offsetX: 0,
+            offsetY: 0,
+            style: {
+                color: '#6b7280',
+                fontSize: '14px',
+            }
+        },
         legend: {
             show: false,
         },
