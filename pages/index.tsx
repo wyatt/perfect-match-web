@@ -42,7 +42,7 @@ const Home: NextPage = (props: any) => {
                 </div>
             </div>
 
-            <section className="bg-white flex flex-col pr-0 lg:pr-16 lg:flex-row">
+            <section className="bg-white flex flex-col pr-0 lg:pr-12 lg:flex-row">
                 <div className="pb-6 pt-8 sm:pt-20 lg:pt-56 lg:pb-36 lg:w-2/3">
                     <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[20%] mt-8 sm:mt-0 opacity-100">
                         <h1 className="text-3xl text-gray-600 font-extrabold sm:text-4xl lg:text-5xl">
