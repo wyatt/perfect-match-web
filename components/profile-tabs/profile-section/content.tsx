@@ -45,6 +45,10 @@ export const questions = {
                                     value: 'nonbinary',
                                     text: 'A non-binary individual',
                                 },
+                                {
+                                    value: 'other',
+                                    text: 'Other',
+                                },
                             ],
                         },
                         {
@@ -328,6 +332,7 @@ export const questions = {
                                 'China and Asia-Pacific Studies',
                                 'Civil Engineering',
                                 'Classics (Classics, Classical Civ., Greek, Latin)',
+                                'Cognitive Science',
                                 'College Scholar',
                                 'Communication',
                                 'Comparative Literature',
@@ -342,18 +347,21 @@ export const questions = {
                                 'Entomology',
                                 'Environment & Sustainability',
                                 'Environmental Engineering',
+                                'Fashion Design and Management',
                                 'Feminist, Gender & Sexuality Studies',
                                 'Fiber Science and Apparel Design',
                                 'Fine Arts',
                                 'Food Science',
                                 'French',
                                 'German Studies',
+                                'Global Development',
                                 'Global & Public Health Sciences',
                                 'Government',
+                                'Health Care Policy',
                                 'History',
                                 'History of Architecture (transfer students only)',
                                 'History of Art',
-                                'Hotel AdministrationSchool of Hotel Administration',
+                                'Hotel Administration',
                                 'Human Biology, Health and Society',
                                 'Human Development',
                                 'Independent Major—Arts and Sciences',
@@ -364,6 +372,7 @@ export const questions = {
                                 'Interdisciplinary Studies',
                                 'International Agriculture and Rural Development',
                                 'Italian',
+                                'Jewish Studies',
                                 'Landscape Architecture',
                                 'Linguistics',
                                 'Materials Science and Engineering',
@@ -386,6 +395,7 @@ export const questions = {
                                 'Statistical Science',
                                 'Urban and Regional Studies',
                                 'Viticulture and Enology',
+                                'Undecided',
                             ],
                         },
                         {
@@ -397,10 +407,6 @@ export const questions = {
                                 {
                                     value: 'plantomeet',
                                     text: 'I plan to meet my matches',
-                                },
-                                {
-                                    value: 'willsee',
-                                    text: 'I will potentially meet with my matches',
                                 },
                                 {
                                     value: 'meetfriends',
@@ -430,6 +436,10 @@ export const questions = {
                                 {
                                     value: 'platonic',
                                     text: 'Platonic',
+                                },
+                                {
+                                    value: 'notsure',
+                                    text: 'Not sure yet',
                                 },
                             ],
                         },
@@ -465,7 +475,6 @@ export const questions = {
                                     validators: [
                                         {
                                             requiredErrorText: 'You Age must be between 17 and 110',
-
                                             type: 'numeric',
                                             text: '',
                                             minValue: 17,
@@ -530,16 +539,61 @@ export const questions = {
                             hasNone: true,
                         },
                         {
-                            type: 'text',
+                            type: 'multipletext',
                             name: 'describeYourself',
-                            title: '<> Choose the best three words to describe your personality. (e.g. funny, smart, charming)',
-                            isRequired: true,
+                            title: 'Choose the best three words to describe your personality.',
+                            items: [
+                                {
+                                    name: 'describe1',
+                                    title: 'First Word',
+                                    inputType: 'text',
+                                    isRequired: true,
+                                },
+                                {
+                                    name: 'describe2',
+                                    title: 'Second Word',
+                                    inputType: 'text',
+                                    isRequired: true,
+                                },
+                                {
+                                    name: 'describe3',
+                                    title: 'Third Word',
+                                    inputType: 'text',
+                                    isRequired: true,
+                                },
+                            ],
                         },
-
+                        {
+                            type: 'multipletext',
+                            name: 'describePartner',
+                            title: 'Choose the best three words to describe the personality of your ideal partner.',
+                            items: [
+                                {
+                                    name: 'describe1',
+                                    title: 'First Word',
+                                    inputType: 'text',
+                                    isRequired: true,
+                                },
+                                {
+                                    name: 'describe2',
+                                    title: 'Second Word',
+                                    inputType: 'text',
+                                    isRequired: true,
+                                },
+                                {
+                                    name: 'describe3',
+                                    title: 'Third Word',
+                                    inputType: 'text',
+                                    isRequired: true,
+                                },
+                            ],
+                        },
                         {
                             type: 'comment',
                             name: 'bio',
-                            title: '<> Bio! What should your match know about you?  Please answer one or more of the prompts below. Your bio can be as short as a sentence encouraging matches to reach out to you or as long as a few paragraphs. We will share it with your matches to help start the conversation! Need some ideas?: a. How would your ideal wingperson describe you? b. What would you like your match to know about you? c. Any bio of your choice!',
+                            title: '<> Bio! What should your match know about you?  Please answer one or more of the prompts below. Your bio can be as short as a sentence encouraging matches to reach out to you or as long as a few paragraphs. We will share it with your matches to help start the conversation! Need some ideas:',
+                            description:
+                                'a. How would your ideal wingperson describe you?<br> b. What would you like your match to know about you? <br>c. Any bio of your choice!',
                             isRequired: true,
                         },
                     ],

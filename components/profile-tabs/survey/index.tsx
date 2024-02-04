@@ -10,6 +10,10 @@ const SurveyComponent = (props: any) => {
     survey.sendResultOnPageNext = true;
     const storageName = 'SurveyNextjs';
 
+    survey.onTextMarkdown.add(function (survey: any, options: any) {
+        options.html = options.text;
+    });
+
     function saveSurveyData(survey: any) {
         let data = survey.data;
         data.pageNo = survey.currentPageNo;

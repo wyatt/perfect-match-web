@@ -27,10 +27,8 @@ const Home: NextPage = (props: any) => {
             </Head>
             <Header />
 
-
-
             <Countdown />
-            <section className='bg-rose-100'>
+            <section className="bg-rose-100">
                 <div className="mx-[10%] lg:mx-[15%]">
                     <ol className="hidden sm:block sm:border-xl-0 sm:border-t-2 border-rose-300 sm:flex sm:gap-6">
                         <li>
@@ -41,8 +39,7 @@ const Home: NextPage = (props: any) => {
                             <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
                                 <h4 className="text-gray-700 font-semibold text-lg mb-1.5">PM24 is Launched!</h4>
                                 <p className="text-gray-500 mb-3">
-                                    Start filling out your profile and the survey! For
-                                    updates on PM24, follow us on{' '}
+                                    Start filling out your profile and the survey! For updates on PM24, follow us on{' '}
                                     <a
                                         className="underline"
                                         href="https://www.instagram.com/cornellperfectmatch/"
@@ -75,8 +72,8 @@ const Home: NextPage = (props: any) => {
                             <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
                                 <h4 className="text-gray-700 font-semibold text-lg mb-1.5">Matches Out!</h4>
                                 <p className="text-gray-500 mb-3">
-                                    An email will be sent to you when your perfect matches are out. Go ahead and
-                                    shoot your shot!{' '}
+                                    An email will be sent to you when your perfect matches are out. Go ahead and shoot
+                                    your shot!{' '}
                                 </p>
                             </div>
                         </li>
@@ -86,17 +83,13 @@ const Home: NextPage = (props: any) => {
                                 <p className="text-rose-400 text-l my-2 font-bold">Feb. 14th</p>
                             </div>
                             <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                <h4 className="text-gray-700 font-semibold text-lg mb-1.5">
-                                    Valentine&apos;s Day
-                                </h4>
+                                <h4 className="text-gray-700 font-semibold text-lg mb-1.5">Valentine&apos;s Day</h4>
                                 <p className="text-gray-500 mb-3">
                                     It&apos;s that time of the year! Grab some food with your perfect matches!
                                 </p>
                             </div>
                         </li>
                     </ol>
-
-
 
                     {/* <ol className="border-l-2 border-rose-300 sm:hidden">
                             <li>
@@ -171,8 +164,7 @@ const Home: NextPage = (props: any) => {
                         <div className="mt-0.5 ml-4 mb-6">
                             <h4 className="text-gray-700 font-semibold text-lg mb-1.5">PM24 is Launched!</h4>
                             <p className="text-gray-500 mb-3">
-                                Start filling out your profile and the survey! For
-                                updates on PM24, follow us on{' '}
+                                Start filling out your profile and the survey! For updates on PM24, follow us on{' '}
                                 <a
                                     className="underline"
                                     href="https://www.instagram.com/cornellperfectmatch/"
@@ -205,8 +197,8 @@ const Home: NextPage = (props: any) => {
                         <div className="mt-0.5 ml-4 pb-5">
                             <h4 className="text-gray-700 font-semibold text-lg mb-1.5">Matches Out!</h4>
                             <p className="text-gray-500 mb-3">
-                                An email will be sent to you when your perfect matches are out. Go ahead and
-                                shoot your shot!
+                                An email will be sent to you when your perfect matches are out. Go ahead and shoot your
+                                shot!
                             </p>
                         </div>
                     </li>
@@ -229,12 +221,10 @@ const Home: NextPage = (props: any) => {
 
             <section className="bg-rose-100">
                 <div className="pt-4 pb-12 flex flex-col items-center justify-center text-gray-600 mx-[3%] sm:mx-[10%] lg:mx-[15%]">
-                    <h2 className="text-xl font-extrabold md:text-3xl mb-4">
-                        But before this...❗
-                    </h2>
+                    <h2 className="text-xl font-extrabold md:text-3xl mb-4">But before this...❗</h2>
                     <p className="sm:text-lg sm:mx-[7%] lg:mx-[10%] text-center">
-                        ❗Make sure you have filled out the feedback survey for PM23 and checked out the new
-                        statistics &#40;see below&#41;❗
+                        ❗Make sure you have filled out the feedback survey for PM23 and checked out the new statistics
+                        &#40;see below&#41;❗
                     </p>
                 </div>
             </section>
@@ -304,7 +294,7 @@ const Home: NextPage = (props: any) => {
                 </div>
             </section>
             <Footer />
-        </div >
+        </div>
     );
 };
 

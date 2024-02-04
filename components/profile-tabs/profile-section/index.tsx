@@ -7,6 +7,9 @@ const SurveyComponent = (props: any) => {
     Survey.StylesManager.applyTheme('modern');
     const survey = new Survey.Model(questions);
 
+    survey.onTextMarkdown.add(function (survey: any, options: any) {
+        options.html = options.text;
+    });
     survey.sendResultOnPageNext = true;
     const storageName = 'ProfileNextjs';
 

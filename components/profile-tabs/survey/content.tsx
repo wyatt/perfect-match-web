@@ -54,6 +54,10 @@ export const questions = {
                                     name: 'phone',
                                     title: 'Phone number',
                                 },
+                                {
+                                    name: 'other',
+                                    title: 'Other',
+                                },
                             ],
                             colCount: 1,
                         },
@@ -70,7 +74,7 @@ export const questions = {
                 {
                     type: 'radiogroup',
                     name: 'faction',
-                    title: 'What’s the least traumatizing Cornell faction your prospective match could belong to?',
+                    title: 'What’s the most traumatizing Cornell faction your prospective match could belong to?',
                     isRequired: true,
                     choices: [
                         {
@@ -79,7 +83,7 @@ export const questions = {
                         },
                         {
                             value: 'dyson',
-                            text: 'Stress-free Dyson pupil, but claims to have a “genuine interest” in Discounted Cash Flow model.',
+                            text: 'Stress-free Dyson pupil, but claims to have a “genuine interest” in Discounted Cash Flow models.',
                         },
                         {
                             value: 'med',
@@ -175,20 +179,6 @@ export const questions = {
                     ],
                 },
                 {
-                    name: 'hookupsong',
-                    isRequired: true,
-
-                    type: 'text',
-                    title: 'The First Song of My Hook-Up Playlist Is…',
-                },
-                {
-                    name: 'slopeDay',
-                    isRequired: true,
-
-                    type: 'text',
-                    title: 'Which artist should come for Slope Day 2023?',
-                },
-                {
                     type: 'radiogroup',
                     name: 'study',
                     title: 'Late night study sesh on campus. Where?',
@@ -217,22 +207,6 @@ export const questions = {
                         {
                             value: 'room',
                             text: 'My Cozy Room',
-                        },
-                    ],
-                },
-                {
-                    type: 'radiogroup',
-                    name: 'workTo',
-                    title: 'Which do you agree with?',
-                    isRequired: true,
-                    choices: [
-                        {
-                            value: 'work',
-                            text: 'Work to live',
-                        },
-                        {
-                            value: 'live',
-                            text: 'Live to work',
                         },
                     ],
                 },
@@ -347,15 +321,22 @@ export const questions = {
                         },
                     ],
                 },
+                {
+                    name: 'hookupsong',
+                    isRequired: true,
+
+                    type: 'text',
+                    title: 'The First Song of My Hook-Up Playlist Is…',
+                },
             ],
         },
         {
-            name: 'Tendencies',
+            name: 'Relationship Tendencies',
             elements: [
                 {
                     type: 'radiogroup',
                     name: 'tv',
-                    title: 'Which of these recent shows have you/will you binge watch with your match?',
+                    title: 'Which of these recent shows will you binge-watch with your match?',
                     isRequired: true,
                     choices: [
                         {
@@ -371,24 +352,27 @@ export const questions = {
                             text: 'Ted Lasso',
                         },
                         {
-                            value: 'euphoria',
-                            text: 'Euphoria',
+                            value: 'succession',
+                            text: 'Succession',
                         },
                         {
-                            value: 'emily',
-                            text: 'Emily in Paris',
+                            value: 'percy',
+                            text: 'Percy Jackson',
                         },
                         {
-                            value: 'stranger',
-                            text: 'Stranger Things',
+                            value: 'lastofus',
+                            text: 'Last Of Us',
                         },
                         {
-                            value: 'other',
-                            text: 'Other',
+                            value: 'singles',
+                            text: 'Singles Inferno',
+                        },
+                        {
+                            value: 'boys',
+                            text: 'The Boys',
                         },
                     ],
                 },
-
                 {
                     type: 'radiogroup',
                     name: 'date',
@@ -400,12 +384,8 @@ export const questions = {
                             text: 'Coffee on campus',
                         },
                         {
-                            value: 'starbucks',
-                            text: 'Starbucks',
-                        },
-                        {
-                            value: 'ctb',
-                            text: 'CTB',
+                            value: 'cinema',
+                            text: 'Cornell Cinema',
                         },
                         {
                             value: 'commons',
@@ -416,16 +396,152 @@ export const questions = {
                             text: 'Dining hall',
                         },
                         {
-                            value: 'fratparty',
-                            text: 'Meet up at a frat annex',
-                        },
-                        {
-                            value: 'bubbletea',
-                            text: 'Bubble tea',
+                            value: 'fishbowl',
+                            text: 'Pushing fishbowl',
                         },
                     ],
                 },
-
+                {
+                    type: 'radiogroup',
+                    name: 'whopays',
+                    title: 'Would you prefer that your match ___ on the first date',
+                    isRequired: true,
+                    choices: [
+                        {
+                            value: 'pays',
+                            text: 'Pays',
+                        },
+                        {
+                            value: 'splits',
+                            text: 'Splits',
+                        },
+                        {
+                            value: 'youpay',
+                            text: 'Let`s you pay',
+                        },
+                        {
+                            value: 'doesntmatter',
+                            text: "It doesn't matter",
+                        },
+                    ],
+                },
+                {
+                    type: 'radiogroup',
+                    name: 'ick',
+                    title: 'What’s your biggest ick in a relationship?',
+                    isRequired: true,
+                    choices: [
+                        {
+                            value: 'westchester',
+                            text: 'From Westchester',
+                        },
+                        {
+                            value: 'astrology',
+                            text: 'Believes in astrology',
+                        },
+                        {
+                            value: 'beerpongball',
+                            text: 'Chasing a beer pong ball',
+                        },
+                        {
+                            value: 'footballteam',
+                            text: 'Referring to their football team as ‘we’',
+                        },
+                        {
+                            value: 'gymrat',
+                            text: 'Gym rat',
+                        },
+                    ],
+                },
+                {
+                    type: 'radiogroup',
+                    name: 'greenflag',
+                    title: 'What’s your biggest green flag in a relationship?',
+                    isRequired: true,
+                    choices: [
+                        {
+                            value: 'gcaldate',
+                            text: 'Send you a GCal invite for the date',
+                        },
+                        {
+                            value: 'petlike',
+                            text: 'Your pet likes them',
+                        },
+                        {
+                            value: 'screentime',
+                            text: 'Low screen time',
+                        },
+                        {
+                            value: 'smellsgood',
+                            text: 'Smells Good',
+                        },
+                        {
+                            value: 'gymrat',
+                            text: 'Gym Rat',
+                        },
+                    ],
+                },
+                {
+                    type: 'checkbox',
+                    name: 'lovelanguage',
+                    title: 'What`s your love language? (Check all that apply)',
+                    isRequired: true,
+                    choices: [
+                        {
+                            value: 'acts',
+                            text: 'Acts of service',
+                        },
+                        {
+                            value: 'quality',
+                            text: 'Quality time',
+                        },
+                        {
+                            value: 'gifts',
+                            text: 'Receiving gifts',
+                        },
+                        {
+                            value: 'touch',
+                            text: 'Physical touch',
+                        },
+                        {
+                            value: 'words',
+                            text: 'Words of affirmation',
+                        },
+                        {
+                            value: 'unsure',
+                            text: 'Not sure',
+                        },
+                    ],
+                },
+                {
+                    type: 'radiogroup',
+                    name: 'quality',
+                    title: 'What quality do you value most?',
+                    isRequired: true,
+                    choices: [
+                        {
+                            value: 'reliability',
+                            text: 'Reliability',
+                        },
+                        {
+                            value: 'humor',
+                            text: 'Humor',
+                        },
+                        {
+                            value: 'thoughtfulness',
+                            text: 'Thoughtfulness',
+                        },
+                        {
+                            value: 'independence',
+                            text: 'Independence',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            name: 'General Tendencies',
+            elements: [
                 {
                     type: 'dropdown',
                     name: 'sleeptime',
@@ -452,63 +568,6 @@ export const questions = {
                         '1pm',
                         '2pm',
                         '3pm',
-                    ],
-                },
-
-                {
-                    type: 'radiogroup',
-                    name: 'plans',
-                    title: 'Your plans get messed up for the day. You would...?',
-                    isRequired: true,
-                    choices: [
-                        {
-                            value: 'shift',
-                            text: 'Shift your day’s schedule',
-                        },
-                        {
-                            value: 'flow',
-                            text: 'Go with the flow',
-                        },
-                        {
-                            value: 'cancel',
-                            text: 'Cancel all your plans',
-                        },
-                        {
-                            value: 'new',
-                            text: 'Contact someone to make entirely new plans',
-                        },
-                    ],
-                },
-                {
-                    type: 'radiogroup',
-                    name: 'meal',
-                    title: 'Who would you most want to have a meal with?',
-                    isRequired: true,
-                    choices: [
-                        {
-                            value: 'political',
-                            text: 'Your favorite political leader',
-                        },
-                        {
-                            value: 'artist',
-                            text: 'Your favorite artist/musician',
-                        },
-                        {
-                            value: 'athlete',
-                            text: 'Your favorite athlete',
-                        },
-                        {
-                            value: 'scientist',
-                            text: 'Your favorite scientist',
-                        },
-                        {
-                            value: 'entrepreneur',
-                            text: 'Your favorite entrepreneur',
-                        },
-                        {
-                            value: 'actor',
-                            text: 'Your favorite actor/actress',
-                        },
                     ],
                 },
                 {
@@ -559,64 +618,27 @@ export const questions = {
                         },
                     ],
                 },
-
                 {
                     type: 'radiogroup',
-                    name: 'startover',
-                    title: 'If you could start college all over again, would you?',
+                    name: 'plans',
+                    title: 'Your plans get messed up for the day. You would...?',
                     isRequired: true,
                     choices: [
                         {
-                            value: 'yes',
-                            text: 'Yes',
+                            value: 'shift',
+                            text: 'Shift your day’s schedule',
                         },
                         {
-                            value: 'no',
-                            text: 'No',
-                        },
-                    ],
-                },
-                {
-                    type: 'radiogroup',
-                    name: 'timeormoney',
-                    title: 'Would you rather...?',
-                    isRequired: true,
-                    choices: [
-                        {
-                            value: 'time',
-                            text: 'Have more time',
+                            value: 'flow',
+                            text: 'Go with the flow',
                         },
                         {
-                            value: 'money',
-                            text: 'Have more money',
+                            value: 'cancel',
+                            text: 'Cancel all your plans',
                         },
                         {
-                            value: 'influence',
-                            text: 'Have more influence',
-                        },
-                    ],
-                },
-                {
-                    type: 'radiogroup',
-                    name: 'quality',
-                    title: 'What quality do you value most?',
-                    isRequired: true,
-                    choices: [
-                        {
-                            value: 'reliability',
-                            text: 'Reliability',
-                        },
-                        {
-                            value: 'humor',
-                            text: 'Humor',
-                        },
-                        {
-                            value: 'thoughtfulness',
-                            text: 'Thoughtfulness',
-                        },
-                        {
-                            value: 'independence',
-                            text: 'Independence',
+                            value: 'new',
+                            text: 'Contact someone to make entirely new plans',
                         },
                     ],
                 },
@@ -668,10 +690,6 @@ export const questions = {
                     hasNone: true,
                     choices: [
                         {
-                            value: 'skilled',
-                            text: 'I am skilled at handling social situations',
-                        },
-                        {
                             value: 'party',
                             text: 'I like parties',
                         },
@@ -686,10 +704,6 @@ export const questions = {
                         {
                             value: 'popular',
                             text: 'I consider myself to be popular',
-                        },
-                        {
-                            value: 'energetic',
-                            text: 'I am energetic ',
                         },
                     ],
                 },
@@ -729,13 +743,6 @@ export const questions = {
                 {
                     type: 'rating',
                     name: 'p5',
-                    title: 'I find it easy to talk about emotions.',
-                    isRequired: true,
-                    rateValues: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
-                },
-                {
-                    type: 'rating',
-                    name: 'p6',
                     title: 'I tend to put myself first and others second.',
                     isRequired: true,
                     rateValues: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
@@ -743,73 +750,43 @@ export const questions = {
 
                 {
                     type: 'rating',
-                    name: 'p8',
+                    name: 'p6',
                     title: 'I see myself as more of a compromiser than a fighter.',
                     isRequired: true,
                     rateValues: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
                 },
-
                 {
                     type: 'rating',
-                    name: 'p10',
-                    title: 'Winning an argument matters more to me than making sure no one is upset.',
-                    isRequired: true,
-                    rateValues: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
-                },
-                {
-                    type: 'rating',
-                    name: 'p11',
+                    name: 'p7',
                     title: 'I like it when people always say what’s on their mind.',
                     isRequired: true,
                     rateValues: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
                 },
-
                 {
                     type: 'rating',
-                    name: 'p13',
-                    title: 'I have the ability to change my mood quickly.',
-                    isRequired: true,
-                    rateValues: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
-                },
-                {
-                    type: 'rating',
-                    name: 'p14',
+                    name: 'p8',
                     title: "I'd take a challenging (but interesting) class over an easy (but boring) class.",
                     isRequired: true,
                     rateValues: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
                 },
                 {
                     type: 'rating',
-                    name: 'p15',
+                    name: 'p9',
                     title: 'When a friend is sad, I am more likely to offer solutions to the problem rather than emotional support.',
                     isRequired: true,
                     rateValues: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
                 },
                 {
                     type: 'rating',
-                    name: 'p16',
+                    name: 'p10',
                     title: 'When I have a personal problem, I try to solve it on my own rather than talk to others.',
                     isRequired: true,
                     rateValues: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
                 },
                 {
                     type: 'rating',
-                    name: 'p17',
-                    title: 'I enjoy debating with other people.',
-                    isRequired: true,
-                    rateValues: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
-                },
-                {
-                    type: 'rating',
-                    name: 'p18',
+                    name: 'p11',
                     title: 'I spend time exploring unrealistic but intriguing ideas.',
-                    isRequired: true,
-                    rateValues: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
-                },
-                {
-                    type: 'rating',
-                    name: 'p19',
-                    title: 'Personal style is important to me.',
                     isRequired: true,
                     rateValues: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
                 },
@@ -972,32 +949,32 @@ export const questions = {
                         },
                     ],
                 },
-                {
-                    type: 'checkbox',
-                    name: 'apps',
-                    title: 'What dating apps do you use',
-                    hasNone: true,
+                // {
+                //     type: 'checkbox',
+                //     name: 'apps',
+                //     title: 'What dating apps do you use',
+                //     hasNone: true,
 
-                    isRequired: true,
-                    choices: [
-                        {
-                            value: 'tinder',
-                            text: 'Tinder',
-                        },
-                        {
-                            value: 'bumble',
-                            text: 'Bumble',
-                        },
-                        {
-                            value: 'grindr',
-                            text: 'Grindr',
-                        },
-                        {
-                            value: 'hinge',
-                            text: 'Hinge',
-                        },
-                    ],
-                },
+                //     isRequired: true,
+                //     choices: [
+                //         {
+                //             value: 'tinder',
+                //             text: 'Tinder',
+                //         },
+                //         {
+                //             value: 'bumble',
+                //             text: 'Bumble',
+                //         },
+                //         {
+                //             value: 'grindr',
+                //             text: 'Grindr',
+                //         },
+                //         {
+                //             value: 'hinge',
+                //             text: 'Hinge',
+                //         },
+                //     ],
+                // },
                 {
                     type: 'rating',
                     name: 'politics',
