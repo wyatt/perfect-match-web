@@ -43,7 +43,7 @@ const Home: NextPage = (props: any) => {
             </div>
 
             <section className="bg-white flex flex-col pr-0 lg:pr-12 lg:flex-row">
-                <div className="pb-6 pt-8 sm:pt-20 lg:pt-56 lg:pb-36 lg:w-2/3">
+                <div className="pb-6 pt-8 sm:pt-20 lg:pt-56 lg:pb-36 lg:w-3/5">
                     <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[20%] mt-8 sm:mt-0 opacity-100">
                         <h1 className="text-3xl text-gray-600 font-extrabold sm:text-4xl lg:text-5xl">
                             Let us find your
@@ -79,7 +79,7 @@ const Home: NextPage = (props: any) => {
                         </div>
                     </div>
                 </div>
-                <Image priority={true} src={word} alt="Loading..." className="lg:w-1/3"></Image>
+                <Image priority={true} src={word} alt="Loading..." className="lg:w-2/5"></Image>
             </section>
 
 
