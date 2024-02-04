@@ -6,52 +6,52 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), {
     ssr: false,
 });
 
-const DescribeSelf = () => {
-    const { data: describeselfCount, error, isLoading } = useSWR(`${analysisURL}/describeself`, fetcher);
+const DescribePartnerLive = () => {
+    const { data: describepartnerCount, error, isLoading } = useSWR(`${analysisURL}/describepartner`, fetcher);
     if (isLoading || error) return null;
 
     const series = [
         {
             data: [
                 {
-                    x: Object.keys(describeselfCount)[0],
-                    y: Object.values(describeselfCount)[0]
+                    x: Object.keys(describepartnerCount)[0],
+                    y: Object.values(describepartnerCount)[0]
                 },
                 {
-                    x: Object.keys(describeselfCount)[1],
-                    y: Object.values(describeselfCount)[1]
+                    x: Object.keys(describepartnerCount)[1],
+                    y: Object.values(describepartnerCount)[1]
                 },
                 {
-                    x: Object.keys(describeselfCount)[2],
-                    y: Object.values(describeselfCount)[2]
+                    x: Object.keys(describepartnerCount)[2],
+                    y: Object.values(describepartnerCount)[2]
                 },
                 {
-                    x: Object.keys(describeselfCount)[3],
-                    y: Object.values(describeselfCount)[3]
+                    x: Object.keys(describepartnerCount)[3],
+                    y: Object.values(describepartnerCount)[3]
                 },
                 {
-                    x: Object.keys(describeselfCount)[4],
-                    y: Object.values(describeselfCount)[4]
+                    x: Object.keys(describepartnerCount)[4],
+                    y: Object.values(describepartnerCount)[4]
                 },
                 {
-                    x: Object.keys(describeselfCount)[5],
-                    y: Object.values(describeselfCount)[5]
+                    x: Object.keys(describepartnerCount)[5],
+                    y: Object.values(describepartnerCount)[5]
                 },
                 {
-                    x: Object.keys(describeselfCount)[6],
-                    y: Object.values(describeselfCount)[6]
+                    x: Object.keys(describepartnerCount)[6],
+                    y: Object.values(describepartnerCount)[6]
                 },
                 {
-                    x: Object.keys(describeselfCount)[7],
-                    y: Object.values(describeselfCount)[7]
+                    x: Object.keys(describepartnerCount)[7],
+                    y: Object.values(describepartnerCount)[7]
                 },
                 {
-                    x: Object.keys(describeselfCount)[8],
-                    y: Object.values(describeselfCount)[8]
+                    x: Object.keys(describepartnerCount)[8],
+                    y: Object.values(describepartnerCount)[8]
                 },
                 {
-                    x: Object.keys(describeselfCount)[9],
-                    y: Object.values(describeselfCount)[9]
+                    x: Object.keys(describepartnerCount)[9],
+                    y: Object.values(describepartnerCount)[9]
                 }
             ],
         },
@@ -88,19 +88,16 @@ const DescribeSelf = () => {
             },
         },
         colors: [
-            '#fb7185',
-            '#ff8b98',
-            '#ff9fa8',
-            '#ffafb6',
-            '#ffbdc2',
-            '#ffc8cc',
-            '#ffd1d4',
-            '#ffd9db',
-            '#ffe0e2',
-            '#ffe8e9',
-            '#fff0f0',
-            '#fff7f8',
-            '#ffffff'
+            '#f59f0a',
+            '#f9a833',
+            '#fdb24d',
+            '#ffbb64',
+            '#ffc47b',
+            '#ffce91',
+            '#ffd8a6',
+            '#ffe1bc',
+            '#ffebd2',
+            '#fff5e9'
         ],
         plotOptions: {
             treemap: {
@@ -113,4 +110,4 @@ const DescribeSelf = () => {
     return <ReactApexChart type="treemap" series={series} options={options as ApexCharts.ApexOptions} />;
 };
 
-export default DescribeSelf;
+export default DescribePartnerLive;

@@ -1,5 +1,3 @@
-import useSWR from 'swr';
-import { fetcher, analysisURL } from '@/utils/fetch';
 import dynamic from 'next/dynamic';
 
 const ReactApexChart = dynamic(() => import('react-apexcharts'), {
@@ -7,13 +5,10 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), {
 });
 
 const Year = () => {
-    const { data: yearsCount, error, isLoading } = useSWR(`${analysisURL}/years`, fetcher);
-    if (isLoading || error) return null;
-
     const series = [
         {
             name: 'Percent in total',
-            data: Object.values(yearsCount || {}),
+            data: [954, 1095, 835, 803, 117, 61, 40, 6]
         },
     ];
     const options = {
@@ -49,7 +44,7 @@ const Year = () => {
             },
         },
         xaxis: {
-            categories: Object.keys(yearsCount || {}),
+            categories: ["Freshman", "Sophomore", "Junior", "Senior", "Masters", "PhD", "Alumni", "Faculty"],
             position: 'bottom',
             axisBorder: {
                 show: false,
@@ -77,7 +72,7 @@ const Year = () => {
             labels: {
                 show: false,
                 formatter: function (val: any) {
-                    var percent = (val / 3677) * 100;
+                    var percent = (val / 3911) * 100;
                     return percent.toFixed(1) + '%';
                 },
             },
