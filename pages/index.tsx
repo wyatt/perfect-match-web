@@ -11,14 +11,11 @@ import styles from '@/styles/Home.module.css';
 import Link from 'next/link';
 import Script from 'next/script';
 import Image from 'next/image';
-import BestAlternative from '@/components/analytics/apex-charts/bestAlternative';
-import demo from 'public/feedback-demo.gif';
-import Countdown from '@/components/countdown';
 import word from 'public/wordcloud-hq.gif';
 
 
 const Home: NextPage = (props: any) => {
-    const { data: currentCount, error } = useSWR('/api/count', fetcher, {
+    const { data: currentCount, error } = useSWR("/api/count", fetcher, {
         refreshInterval: 60000,
     });
     return (
@@ -30,154 +27,61 @@ const Home: NextPage = (props: any) => {
             </Head>
             <Header />
 
-            <section className="bg-white flex">
-                <div className="pb-6 pt-56 sm:pt-64 lg:pt-64 lg:pb-36 w-3/5">
-                    <div className="max-w-xl text-center sm:text-left sm:ml-[15%] mt-8 sm:mt-0 opacity-100">
-                        <h1 className="text-2xl sm:text-3xl font-extrabold text-rose-400 lg:text-5xl opacity-100">
-                            title
-                        </h1>
-                        <p className="mt-4 mx-[10%] sm:mx-0 max-w-lg sm:text-lg text-gray-500 sm:leading-relaxed">
-                            sign in
-                        </p>
+            <div className="bg-pink-100">
+                <div className="py-2 px-3 sm:py-4 flex">
+                    <div className="flex flex-wrap items-center sm:mx-auto">
+                        <div>
+                            <p className="ml-2 font-lg text-gray-500 sm:text-xl pb-1">
+                                <strong>❗PM24 Special❗</strong>
+                                Curious about what others choose?
+                                Unlock <strong className="text-rose-400">Live Statistics Dashboard</strong> tomorrow!
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <Image priority={true} src={word} alt="Loading..." className="w-2/5"></Image>
+            </div>
+
+            <section className="bg-white flex flex-col pr-0 lg:pr-16 lg:flex-row">
+                <div className="pb-6 pt-8 sm:pt-20 lg:pt-56 lg:pb-36 lg:w-2/3">
+                    <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[20%] mt-8 sm:mt-0 opacity-100">
+                        <h1 className="text-3xl text-gray-600 font-extrabold sm:text-4xl lg:text-5xl">
+                            Let us find your
+                            <strong className="mt-1 lg:mt-2 lg:mt-3 block font-extrabold text-rose-400">
+                                Perfect Match💘!
+                            </strong>
+                        </h1>
+                        <p className="text-lg mx-2 mt-6 lg:max-w-lg sm:mx-auto lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
+                            Last year, we had over 3,900 participants. Sign in with your
+                            Cornell email and fill out the survey <strong>by noon, 13 Feb.
+                            </strong>, and get your Matches the same evening. Share the
+                            link with your friends, and help spread some joy in 2024!
+                            For updates, follow us on{' '}
+                            <a
+                                className="underline"
+                                href="https://www.instagram.com/cornellperfectmatch/"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                IG
+                            </a>.
+
+                        </p>
+                        {!error && currentCount && (
+                            <p className="text-lg mt-4 mx-2 lg:max-w-lg sm:mx-auto lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
+                                Join over <strong className="text-xl text-rose-400 font-extrabold lg:text-2xl">{currentCount}</strong> Cornellians getting matched this year!
+                            </p>
+                        )}
+                        <div className="flex lg:contents">
+                            <div className="mt-8 flex flex-wrap gap-4 text-center mx-auto">
+                                <GoogleAuth login={!props.user} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <Image priority={true} src={word} alt="Loading..." className="lg:w-1/3"></Image>
             </section>
 
             <LiveDashboard />
-
-
-            <section className='bg-pink-100 pt-12'>
-                <div className="mx-[10%] lg:mx-[15%]">
-                    <ol className="hidden sm:block sm:border-xl-0 sm:border-t-2 border-rose-300 sm:flex sm:gap-6">
-                        <li>
-                            <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
-                                <div className="sm:-mt-5 text-3xl -ml-1">💓</div>
-                                <p className="text-rose-400 text-l my-2 font-bold">Feb. 5th, Monday, @ 5 PM</p>
-                            </div>
-                            <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                <h4 className="text-gray-700 font-semibold text-lg mb-1.5">PM24 is Launched!</h4>
-                                <p className="text-gray-500 mb-3">
-                                    Start filling out your profile and the survey! For
-                                    updates on PM24, follow us on{' '}
-                                    <a
-                                        className="underline"
-                                        href="https://www.instagram.com/cornellperfectmatch/"
-                                        target="_blank"
-                                        rel="noreferrer"
-                                    >
-                                        IG
-                                    </a>
-                                    .
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
-                                <div className="sm:-mt-5 text-3xl">💘</div>
-                                <p className="text-rose-400 text-l my-2 font-bold">Feb. 13th, @ Noon</p>
-                            </div>
-                            <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                <h4 className="text-gray-700 font-semibold text-lg mb-1.5"> PM24 Closes!</h4>
-                                <p className="text-gray-500 mb-3">
-                                    Hurry up! Cupid is flying away! Make sure to submit your response on time.
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
-                                <div className="sm:-mt-5 text-3xl">💞</div>
-                                <p className="text-rose-400 my-2 font-bold"> Feb. 13th, @ Night</p>
-                            </div>
-                            <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                <h4 className="text-gray-700 font-semibold text-lg mb-1.5">Matches Out!</h4>
-                                <p className="text-gray-500 mb-3">
-                                    An email will be sent to you when your perfect matches are out. Go ahead and
-                                    shoot your shot!{' '}
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
-                                <div className="sm:-mt-5 text-3xl">❤️‍🔥</div>
-                                <p className="text-rose-400 text-l my-2 font-bold">Feb. 14th</p>
-                            </div>
-                            <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                <h4 className="text-gray-700 font-semibold text-lg mb-1.5">
-                                    Valentine&apos;s Day
-                                </h4>
-                                <p className="text-gray-500 mb-3">
-                                    It&apos;s that time of the year! Grab some food with your perfect matches!
-                                </p>
-                            </div>
-                        </li>
-                    </ol>
-
-                </div>
-                <ol className="border-l-2 border-rose-300 sm:hidden ml-6">
-                    <li>
-                        <div className="flex flex-start items-center pt-3">
-                            <div className="-ml-3 mr-3 text-2xl">💓</div>
-                            <p className="text-rose-400 text-l font-bold">Feb. 5th, Monday, @ 5 PM</p>
-                        </div>
-                        <div className="mt-0.5 ml-4 mb-6">
-                            <h4 className="text-gray-700 font-semibold text-lg mb-1.5">PM24 is Launched!</h4>
-                            <p className="text-gray-500 mb-3">
-                                Start filling out your profile and the survey! For
-                                updates on PM24, follow us on{' '}
-                                <a
-                                    className="underline"
-                                    href="https://www.instagram.com/cornellperfectmatch/"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                >
-                                    IG
-                                </a>
-                                .
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="flex flex-start items-center pt-2">
-                            <div className="-ml-3 mr-3 text-2xl">💘</div>
-                            <p className="text-rose-400 text-l font-bold">Feb. 13th, @ Noon</p>
-                        </div>
-                        <div className="mt-0.5 ml-4 mb-6">
-                            <h4 className="text-gray-700 font-semibold text-lg mb-1.5">PM24 Closes!</h4>
-                            <p className="text-gray-500 mb-3">
-                                Hurry up! Cupid is flying away! Make sure to submit your response on time.
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="flex flex-start items-center pt-2">
-                            <div className="-ml-3 mr-3 text-2xl">💞</div>
-                            <p className="text-rose-400 font-bold">Feb. 13th, @ Night</p>
-                        </div>
-                        <div className="mt-0.5 ml-4 pb-5">
-                            <h4 className="text-gray-700 font-semibold text-lg mb-1.5">Matches Out!</h4>
-                            <p className="text-gray-500 mb-3">
-                                An email will be sent to you when your perfect matches are out. Go ahead and
-                                shoot your shot!
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="flex flex-start items-center pt-2">
-                            <div className="-ml-3 mr-3 text-2xl">❤️‍🔥</div>
-                            <p className="text-rose-400 font-bold">Feb. 14th</p>
-                        </div>
-                        <div className="mt-0.5 ml-4 pb-5">
-                            <h4 className="text-gray-700 font-semibold text-lg mb-1.5">
-                                It&apos;s Valentine&apos;s Day!
-                            </h4>
-                            <p className="text-gray-500 mb-3">
-                                It&apos;s that time of the year! Grab some food with your perfect matches!
-                            </p>
-                        </div>
-                    </li>
-                </ol>
-            </section>
 
             <Footer />
         </div >
