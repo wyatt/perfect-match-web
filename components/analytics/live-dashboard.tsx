@@ -43,7 +43,7 @@ function LiveDashboard() {
                     </div>
                     <div className="mb-2 sm:mb-0 sm:w-3/5 sm:shadow-lg shadow-md pr-2 bg-white">
                         <h3 className="text-gray-500 md:text-lg lg:text-xl font-semibold mt-4 sm:mt-6 -mb-2 pl-4 sm:pr-2">
-                            What&#39;s Your Biggest Ick in a Romantic Interest?
+                            What&#39;s Your Biggest Ick in a Relationship?
                         </h3>
                         <IckLive />
                     </div>
