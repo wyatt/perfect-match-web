@@ -16,7 +16,7 @@ function LiveDashboard() {
             <h1 className="text-rose-400 font-bold text-xl sm:text-3xl mt-10 mb-4 sm:my-6 text-center">❗PM2024 Special❗ Live Dashboard</h1>
             <p className="text-gray-500 sm:text-lg text-center lg:mx-[20%] sm:mb-10 mb-6 md:mx-[15%] mx-[1%]">
                 Curious about what others choose? Here are the live statistics from the responses
-                received so far, <strong>refreshed very 30 minutes</strong>! But remember, don't follow the crowd.
+                received so far, <strong>refreshed very 30 minutes</strong>! But remember, don&#39;t follow the crowd.
                 Your matches will value your creativity.
             </p>
             <div className="shadow-2xl">
