@@ -34,7 +34,8 @@ const Home: NextPage = (props: any) => {
                             <p className="ml-2 font-lg text-gray-500 sm:text-xl pb-1">
                                 <strong>❗PM24 Special❗</strong>
                                 Curious about what others choose? Unlock{' '}
-                                <strong className="text-rose-400">Live Statistics Dashboard</strong> tomorrow!
+                                <strong className="text-rose-400">Live Statistics Dashboard</strong>{' '}
+                                on 6 Feb. @4PM!
                             </p>
                         </div>
                     </div>
