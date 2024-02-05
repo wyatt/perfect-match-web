@@ -12,22 +12,22 @@ import LoveLanguageLive from './live-charts/loveLanguageLive';
 
 function LiveDashboard() {
     return (
-        <div className="bg-pink-100 p-1 sm:p-6 lg:py-12">
+        <div className="bg-pink-100 p-1 sm:p-8 lg:py-16">
             <h1 className="text-rose-400 font-bold text-xl sm:text-3xl mt-10 mb-4 sm:my-6 text-center">❗PM2024 Special❗ Live Dashboard</h1>
             <p className="text-gray-500 sm:text-lg text-center lg:mx-[20%] sm:mb-10 mb-6 md:mx-[15%] mx-[1%]">
                 Curious about what others choose? Here are the live statistics from the responses
-                received so far, <strong>refreshed very 30 minutes</strong>! But remember, don&#39;t follow the crowd.
-                Your matches will value your creativity.
+                received so far. <strong>Refresh your screen</strong> to see new responses coming
+                in! But remember, don&#39;t follow the crowd. Your matches will value your creativity.
             </p>
             <div className="shadow-2xl">
                 <div className="flex p-3 gap-4 flex-col sm:flex-row">
-                    <div className="mb-2 sm:mb-0 sm:w-1/2 sm:shadow-lg shadow-md pl-3 bg-white">
+                    <div className="mb-2 sm:mb-0 sm:w-1/2 sm:shadow-lg shadow-md pl-3 pr-2 bg-white">
                         <h3 className="text-gray-500 md:text-lg lg:text-xl font-semibold mt-4 -mb-2 sm:pr-2">
                             Top 10 Adjectives to Describe Oneself
                         </h3>
                         <DescribeSelfLive />
                     </div>
-                    <div className="mb-2 sm:mb-0 sm:w-1/2 sm:shadow-lg shadow-md pl-3 bg-white">
+                    <div className="mb-2 sm:mb-0 sm:w-1/2 sm:shadow-lg shadow-md pl-3 pr-2 bg-white">
                         <h3 className="text-gray-500 md:text-lg lg:text-xl font-semibold mt-4 -mb-2 sm:pr-2">
                             Top 10 Adjectives to Describe One&#39;s Ideal Partner
                         </h3>
