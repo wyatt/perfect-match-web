@@ -454,11 +454,9 @@ export const questions = {
                                     title: 'Youngest',
                                     inputType: 'number',
                                     isRequired: true,
-
                                     validators: [
                                         {
                                             requiredErrorText: 'You Age must be between 17 and 110',
-
                                             type: 'numeric',
                                             text: '',
                                             minValue: 17,
@@ -533,7 +531,7 @@ export const questions = {
                                 },
                                 {
                                     value: 'research',
-                                    text: 'Research assistant'
+                                    text: 'Research assistant',
                                 },
                                 {
                                     value: 'ta',

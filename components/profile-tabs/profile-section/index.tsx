@@ -19,17 +19,22 @@ const SurveyComponent = (props: any) => {
         window.localStorage.setItem(storageName, JSON.stringify(data));
     }
 
-    survey.onPartialSend.add(function (survey: any) {
-        saveSurveyData(survey);
-    });
+    survey.onPartialSend.add(saveSurveyData);
+    survey.onValueChanged.add(saveSurveyData);
+    survey.onCurrentPageChanged.add(saveSurveyData);
 
     const prevData = JSON.stringify(props.profile);
 
-    if (prevData) {
+    if (props.profile.complete) {
         let data = JSON.parse(prevData);
         survey.data = data;
         if (data.pageNo) {
             survey.currentPageNo = data.pageNo;
+        }
+    } else {
+        let data = window.localStorage.getItem(storageName);
+        if (data) {
+            survey.data = JSON.parse(data);
         }
     }
     var defaultThemeColors = Survey.StylesManager.ThemeColors['default'];

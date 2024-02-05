@@ -20,22 +20,27 @@ const SurveyComponent = (props: any) => {
         window.localStorage.setItem(storageName, JSON.stringify(data));
     }
 
-    survey.onPartialSend.add(function (survey: any) {
-        saveSurveyData(survey);
-    });
+    survey.onPartialSend.add(saveSurveyData);
+    survey.onValueChanged.add(saveSurveyData);
+    survey.onCurrentPageChanged.add(saveSurveyData);
 
     const prevData = JSON.stringify(props.survey);
 
-    if (prevData) {
+    if (props.survey?.complete) {
         let data = JSON.parse(prevData);
         survey.data = data;
         if (data.pageNo) {
             survey.currentPageNo = data.pageNo;
         }
+    } else {
+        let data = window.localStorage.getItem(storageName);
+        if (data) {
+            survey.data = JSON.parse(data);
+        }
     }
 
     survey.onComplete.add(async function (survey: any, options: any) {
-        saveSurveyData(survey);
+        window.localStorage.removeItem(storageName);
         await fetch('/api/survey', {
             method: 'POST',
             body: JSON.stringify({ ...survey.data, ...{ complete: true } }),

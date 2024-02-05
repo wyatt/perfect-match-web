@@ -798,16 +798,16 @@ export const questions = {
                     choices: [
                         {
                             value: 'simlar',
-                            text: 'More different to me in personality.',
+                            text: 'More different to me in personality',
                         },
                         {
                             value: 'different',
-                            text: 'More similar to me in personality.',
+                            text: 'More similar to me in personality',
                         },
                         {
                             value: 'either',
-                            text: 'Either.'
-                        }
+                            text: 'Either',
+                        },
                     ],
                 },
                 {
