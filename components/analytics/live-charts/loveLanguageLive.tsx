@@ -50,7 +50,7 @@ const LoveLanguageLive = () => {
                 return [name, parseInt(val).toFixed(1) + '%'];
             },
             style: {
-                fontSize: '14px',
+                fontSize: '15px',
             },
         },
         legend: {
@@ -63,6 +63,16 @@ const LoveLanguageLive = () => {
                     dataLabels: {
                         style: {
                             fontSize: '12px',
+                        },
+                    },
+                },
+            },
+            {
+                breakpoint: 1200,
+                options: {
+                    dataLabels: {
+                        style: {
+                            fontSize: '14px',
                         },
                     },
                 },
