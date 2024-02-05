@@ -83,7 +83,6 @@ const Home: NextPage = (props: any) => {
                 </div>
                 <Image priority={true} src={word} alt="Loading..." className="lg:w-2/5"></Image>
             </section>
-
             <Footer />
         </div>
     );
