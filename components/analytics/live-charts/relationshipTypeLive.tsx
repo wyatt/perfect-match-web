@@ -50,8 +50,7 @@ const RelationshipTypeLive = () => {
                 return [name, parseInt(val).toFixed(1) + '%'];
             },
             style: {
-                fontSize: '15px',
-                fontWeight: 'bold',
+                fontSize: '14px',
             },
         },
         legend: {

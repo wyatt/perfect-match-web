@@ -8,10 +8,10 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), {
 });
 
 const LoveLanguageLive = () => {
-    const { data: typeCount, error, isLoading } = useSWR(`${analysisURL}/lovelanguage`, fetcher);
-    if (isLoading || error) return null;
+    //const { data: typeCount, error, isLoading } = useSWR(`${analysisURL}/lovelanguage`, fetcher);
+    //if (isLoading || error) return null;
 
-    const series = Object.values(typeCount || {});
+    const series = [12, 10, 8, 6, 4, 2]; //Object.values(typeCount || {});
     const options = {
         chart: {
             toolbar: {
@@ -32,7 +32,7 @@ const LoveLanguageLive = () => {
                 },
             },
         },
-        labels: Object.keys(typeCount || {}),
+        labels: ["Acts of service", "Quality time", "Receiving gifts", "Physical touch", "Words of affirmation", "Not sure"],//Object.keys(typeCount || {}),
         colors: ['#fda4af', '#86efac', '#fde047', '#7dd3fc', '#fdba74', '#c4b5fd', '#f0abfc'],
         plotOptions: {
             pie: {
@@ -50,8 +50,7 @@ const LoveLanguageLive = () => {
                 return [name, parseInt(val).toFixed(1) + '%'];
             },
             style: {
-                fontSize: '15px',
-                fontWeight: 'bold',
+                fontSize: '14px',
             },
         },
         legend: {
@@ -71,7 +70,7 @@ const LoveLanguageLive = () => {
         ],
     };
 
-    return <ReactApexChart type="donut" series={series as ApexAxisChartSeries} options={options as unknown as ApexCharts.ApexOptions} />;
+    return <ReactApexChart type="donut" series={series} options={options as unknown as ApexCharts.ApexOptions} />;
 };
 
 export default LoveLanguageLive;

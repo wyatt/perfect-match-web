@@ -20,7 +20,6 @@ const IckLive = () => {
     const options = {
         chart: {
             type: 'pie',
-            height: 380,
             toolbar: {
                 show: false,
                 tools: {
@@ -91,7 +90,7 @@ const IckLive = () => {
                 xaxis: {
                     labels: {
                         style: {
-                            fontSize: '11px'
+                            fontSize: '12px'
                         }
                     }
                 },
