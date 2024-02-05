@@ -529,7 +529,11 @@ export const questions = {
                                 },
                                 {
                                     value: 'ra',
-                                    text: 'RA (Resident advisor)',
+                                    text: 'Resident advisor',
+                                },
+                                {
+                                    value: 'research',
+                                    text: 'Research assistant'
                                 },
                                 {
                                     value: 'ta',
@@ -541,7 +545,7 @@ export const questions = {
                         {
                             type: 'multipletext',
                             name: 'describeYourself',
-                            title: 'Choose the best three words to describe your personality.',
+                            title: 'Choose the best three adjectives to describe your personality.',
                             items: [
                                 {
                                     name: 'describe1',
@@ -566,7 +570,7 @@ export const questions = {
                         {
                             type: 'multipletext',
                             name: 'describePartner',
-                            title: 'Choose the best three words to describe the personality of your ideal partner.',
+                            title: 'Choose the best three adjectives to describe the personality of your ideal partner.',
                             items: [
                                 {
                                     name: 'describe1',

@@ -105,7 +105,7 @@ export const questions = {
                 {
                     type: 'radiogroup',
                     name: 'clothDate',
-                    title: 'Worst Thing Your Match Could Wear on a Date',
+                    title: 'Worst thing your match could wear on a date:',
                     isRequired: true,
                     choices: [
                         {
@@ -138,11 +138,11 @@ export const questions = {
                         },
                         {
                             value: 'gothics',
-                            text: 'Live in the Gothics',
+                            text: 'Lives in the Gothics',
                         },
                         {
                             value: 'basement',
-                            text: 'Enjoy studying in the Olin Basement',
+                            text: 'Enjoys studying in the Olin Basement',
                         },
                         {
                             value: 'oken',
@@ -150,7 +150,7 @@ export const questions = {
                         },
                         {
                             value: 'hinge',
-                            text: 'Matched with your roommate on Hinge',
+                            text: 'Got matched with your roommate on Hinge',
                         },
                     ],
                 },
@@ -417,7 +417,7 @@ export const questions = {
                         },
                         {
                             value: 'youpay',
-                            text: 'Let`s you pay',
+                            text: 'Lets you pay',
                         },
                         {
                             value: 'doesntmatter',
@@ -482,9 +482,9 @@ export const questions = {
                     ],
                 },
                 {
-                    type: 'checkbox',
+                    type: 'radiogroup',
                     name: 'lovelanguage',
-                    title: 'What`s your love language? (Check all that apply)',
+                    title: 'What`s your most important love language?',
                     isRequired: true,
                     choices: [
                         {
@@ -804,6 +804,10 @@ export const questions = {
                             value: 'different',
                             text: 'More similar to me in personality.',
                         },
+                        {
+                            value: 'either',
+                            text: 'Either.'
+                        }
                     ],
                 },
                 {
