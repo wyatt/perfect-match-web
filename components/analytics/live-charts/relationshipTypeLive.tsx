@@ -58,7 +58,7 @@ const RelationshipTypeLive = () => {
         },
         responsive: [
             {
-                breakpoint: 640,
+                breakpoint: 780,
                 options: {
                     dataLabels: {
                         style: {

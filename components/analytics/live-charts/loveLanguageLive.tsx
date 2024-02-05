@@ -58,7 +58,7 @@ const LoveLanguageLive = () => {
         },
         responsive: [
             {
-                breakpoint: 640,
+                breakpoint: 780,
                 options: {
                     dataLabels: {
                         style: {
