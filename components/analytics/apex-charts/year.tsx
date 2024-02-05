@@ -72,7 +72,7 @@ const Year = () => {
             labels: {
                 show: false,
                 formatter: function (val: any) {
-                    var percent = (val / 3677) * 100;
+                    var percent = (val / 3911) * 100;
                     return percent.toFixed(1) + '%';
                 },
             },

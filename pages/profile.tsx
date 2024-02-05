@@ -14,23 +14,36 @@ const Profile: NextPage = (props: any) => {
     const refresh = () => mutate();
     if (!data) return <Spinner />;
     return (
-        <div className="bg-white">
+        <div>
             <Head>
                 <title>Profile</title>
             </Head>
             <Header />
-            <CountDown />
+            <div>
+                <section className="bg-white ">
+                    <div className="px-4 items-center sm:pt-16 sm:pb-10 py-10 sm:px-14 mx-auto max-w-screen-xl lg:grid lg:grid-cols-1">
+                        <h1 className="text-2xl font-bold sm:text-3xl font-extrabold text-rose-400">
+                            Welcome Back, {data.profile.firstName}!
+                        </h1>
+                        <p className="mt-1 text-xl  font-bold text-gray-500">Let&apos;s get matching!</p>
+                    </div>
+                </section>
+            </div>
+            <div>
+                {' '}
+                <section className="bg-white ">
+                    <div className="gap-10 pb-5 sm:px-14 items-center mx-auto max-w-screen-xl  ">
+                        <div className="bg-white rounded-lg h-auto">
+                            <ProfileTabs user={data} refresh={refresh} />
+                        </div>
+                    </div>
+                </section>
+            </div>
             <Footer />
         </div>
     );
 };
 
-/**
- * Declaring the server-side props makes the page server-side rendered.
- * If the user is not logged in, redirect to the login page. Otherwise, return the user's session.
- * @param context The request context that contains the request object.
- * @returns The user's session if they are logged in, otherwise redirect to the login page.
- */
 export async function getServerSideProps(context: any) {
     const session = await getSession(context);
     if (!session)
@@ -39,7 +52,9 @@ export async function getServerSideProps(context: any) {
             props: {},
         };
     return {
-        props: { user: session.user },
+        props: {
+            user: session.user,
+        },
     };
 }
 

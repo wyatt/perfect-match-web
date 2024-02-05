@@ -10,31 +10,37 @@ export interface ISurvey extends Document {
         snapchat: string;
         linkedin: string;
         phone: string;
+        other: string;
     };
     faction: string;
     libraryRanking: number;
     clothDate: string;
     alternative: string;
     task: string;
-    hookupsong: string;
-    hookupsongartist: string;
-    slopeDay: string;
     study: string;
-    workTo: string;
     interests: string[];
     music: string[];
+    hookupsong: string;
     tv: string;
     date: string;
+    whopays: string;
+    ick: string;
+    greenflag: string;
+    lovelanguage: string[];
+    quality: string;
     sleeptime: string;
     waketime: string;
-    plans: string;
-    meal: string;
     perfectDay: string;
-    startover: string;
-    timeormoney: string;
-    quality: string;
+    plans: string;
     humor: string[];
     sociability: string[];
+    // not using the below for Year 2024--->
+    meal: string;
+    startover: string;
+    timeormoney: string;
+    slopeDay: string;
+    workTo: string;
+    // <---not using the above for Year 2024
     p1: string;
     p2: string;
     p3: string;
@@ -46,6 +52,7 @@ export interface ISurvey extends Document {
     p9: string;
     p10: string;
     p11: string;
+    // not using the below for Year 2024--->
     p12: string;
     p13: string;
     p14: string;
@@ -54,6 +61,7 @@ export interface ISurvey extends Document {
     p17: string;
     p18: string;
     p19: string;
+    // <---not using the above for Year 2024
     generalPersonality: string;
     introvert: number;
     introvert_same: string;
@@ -63,7 +71,9 @@ export interface ISurvey extends Document {
     longestrelationship: number;
     ricePurity: string;
     pairedwith: string;
+    // not using the below for Year 2024--->
     apps: string[];
+    // <---not using the above for Year 2024
     politics: number;
     politically_active: number;
     habits: {
@@ -91,31 +101,37 @@ export const surveySchema: Schema = new Schema<ISurvey>(
             snapchat: { type: String },
             linkedin: { type: String },
             phone: { type: String },
+            other: { type: String },
         },
         faction: { type: String, enum: survey.faction },
         libraryRanking: { type: Number, min: 1, max: 10 },
         clothDate: { type: String, enum: survey.clothDate },
         alternative: { type: String, enum: survey.alternative },
         task: { type: String, enum: survey.task },
-        hookupsong: { type: String },
-        hookupsongartist: { type: String },
-        slopeDay: { type: String },
         study: { type: String, enum: survey.study },
-        workTo: { type: String, enum: survey.workto },
         interests: [{ type: String, enum: survey.interests }],
         music: [{ type: String, enum: survey.music }],
+        hookupsong: { type: String },
         tv: { type: String, enum: survey.tv },
         date: { type: String, enum: survey.date },
+        whopays: { type: String, enum: survey.whopays },
+        ick: { type: String, enum: survey.ick },
+        greenflag: { type: String, enum: survey.greenflag },
+        lovelanguage: [{ type: String, enum: survey.lovelanguage }],
+        quality: { type: String, enum: survey.quality },
         sleeptime: { type: String, enum: survey.sleeptime },
         waketime: { type: String, enum: survey.waketime },
-        plans: { type: String, enum: survey.plans },
-        meal: { type: String, enum: survey.meal },
         perfectDay: { type: String, enum: survey.perfectDay },
-        startover: { type: String, enum: ['yes', 'no'] },
-        timeormoney: { type: String, enum: survey.timeormoney },
-        quality: { type: String, enum: survey.quality },
+        plans: { type: String, enum: survey.plans },
         humor: [{ type: String, enum: survey.humor }],
         sociability: [{ type: String, enum: survey.sociability }],
+        // not using the below for Year 2024--->
+        meal: { type: String, enum: survey.meal },
+        slopeDay: { type: String },
+        workTo: { type: String, enum: survey.workto },
+        startover: { type: String, enum: ['yes', 'no'] },
+        timeormoney: { type: String, enum: survey.timeormoney },
+        // <---not using the above for Year 2024
         p1: { type: String, enum: survey.range },
         p2: { type: String, enum: survey.range },
         p3: { type: String, enum: survey.range },
@@ -127,6 +143,7 @@ export const surveySchema: Schema = new Schema<ISurvey>(
         p9: { type: String, enum: survey.range },
         p10: { type: String, enum: survey.range },
         p11: { type: String, enum: survey.range },
+        // not using the below for Year 2024--->
         p12: { type: String, enum: survey.range },
         p13: { type: String, enum: survey.range },
         p14: { type: String, enum: survey.range },
@@ -135,6 +152,7 @@ export const surveySchema: Schema = new Schema<ISurvey>(
         p17: { type: String, enum: survey.range },
         p18: { type: String, enum: survey.range },
         p19: { type: String, enum: survey.range },
+        // <---not using the above for Year 2024
         generalPersonality: { type: String, enum: ['similar', 'different'] },
         introvert: { type: Number, min: 1, max: 10 },
         introvert_same: { type: String, enum: survey.panel },
@@ -144,7 +162,9 @@ export const surveySchema: Schema = new Schema<ISurvey>(
         longestrelationship: { type: Number, min: 0, max: 144 },
         ricePurity: { type: String, enum: survey.ricePurity },
         pairedwith: { type: String, enum: ['similar', 'different', 'either'] },
+        // not using the below for Year 2024--->
         apps: [{ type: String, enum: survey.apps }],
+        // <---not using the above for Year 2024
         politics: { type: Number, min: 1, max: 10 },
         politically_active: { type: Number, min: 1, max: 5 },
         habits: {

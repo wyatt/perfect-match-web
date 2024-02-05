@@ -23,7 +23,7 @@ function Footer() {
                     <p>
                         ©
                         <a href="/" target="_blank" rel="noreferrer" className="hover:underline">
-                            Perfect Match 2023.
+                            Perfect Match 2024.
                         </a>
                         &nbsp;All Rights Reserved.
                     </p>

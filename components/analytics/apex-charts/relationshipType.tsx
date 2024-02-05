@@ -17,7 +17,7 @@ const RelationshipType = () => {
             width: '100%',
             type: 'donut',
         },
-        labels: ['Romantic', 'Causal', 'Platonic'],
+        labels: ['Romantic', 'Casual', 'Platonic'],
         colors: ['#fda4af', '#86efac', '#fde047'],
         plotOptions: {
             pie: {

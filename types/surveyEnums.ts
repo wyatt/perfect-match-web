@@ -26,9 +26,17 @@ export const interests = [
 
 export const music = ['pop', 'rock', 'indie', 'rap', 'jazz', 'blues', 'r&b', 'none'];
 
-export const tv = ['white', 'bear', 'ted', 'euphoria', 'emily', 'stranger', 'none'];
+export const tv = ['white', 'bear', 'ted', 'succession', 'percy', 'lastofus', 'singles', 'boys', 'none'];
 
-export const date = ['coffee', 'starbucks', 'ctb', 'commons', 'dininghall', 'fratparty', 'bubbletea', 'none'];
+export const date = ['coffee', 'cinema', 'commons', 'dininghall', 'fishbowl', 'none'];
+
+export const whopays = ['pays', 'splits', 'youpay', 'doesntmatter'];
+
+export const ick = ['westchester', 'astrology', 'beerpongball', 'footballteam', 'gymrat']
+
+export const greenflag = ['gcaldate', 'petlike', 'screentime', 'smellsgood', 'gymrat']
+
+export const lovelanguage = ['acts', 'quality', 'gifts', 'touch', 'words', 'unsure']
 
 export const sleeptime = [
     '7pm',
