@@ -8,7 +8,7 @@ const Year = () => {
     const series = [
         {
             name: 'Percent in total',
-            data: [954, 1095, 835, 803, 117, 61, 40, 6],
+            data: [954, 1095, 835, 803, 117, 61, 40, 6]
         },
     ];
     const options = {
@@ -44,7 +44,7 @@ const Year = () => {
             },
         },
         xaxis: {
-            categories: ['Freshman', 'Sophomore', 'Junior', 'Senior', 'Masters', 'PhD', 'Alumni', 'Faculty'],
+            categories: ["Freshman", "Sophomore", "Junior", "Senior", "Masters", "PhD", "Alumni", "Faculty"],
             position: 'bottom',
             axisBorder: {
                 show: false,
@@ -80,28 +80,32 @@ const Year = () => {
         legend: {
             show: false,
         },
-        responsive: [{
-            breakpoint: 640,
-            options: {
-                xaxis: {
-                    labels: {
-                        rotate: -90,
-                        style: {
-                            fontSize: '11px'
-                        }
-                    }
-                },
-                dataLabels: {
-                    style: {
-                        fontSize: '11px',
+        responsive: [
+            {
+                breakpoint: 640,
+                options: {
+                    xaxis: {
+                        labels: {
+                            rotate: -90,
+                            style: {
+                                fontSize: '11px',
+                            },
+                        },
                     },
-                    offsetY: -16
-                }
+                    dataLabels: {
+                        style: {
+                            fontSize: '11px',
+                        },
+                        offsetY: -16,
+                    },
+                },
             },
-        }]
+        ],
     };
 
-    return <ReactApexChart type="bar" series={series} options={options as ApexCharts.ApexOptions} />;
+    return (
+        <ReactApexChart type="bar" series={series as ApexAxisChartSeries} options={options as ApexCharts.ApexOptions} />
+    );
 };
 
 export default Year;

@@ -52,8 +52,8 @@ function CountDown() {
                     </div>
                     <p className="text-gray-600 sm:text-lg pt-6 flex sm:mx-[7%] lg:mx-[10%]">
                         This year, we are back with our revamped matching algorithm, powered by machine learning and
-                        fueled by your feedback on PM23 🚀. And we also add a live dashboard 📊 and a chat
-                        feature 💬 to the launch. Stay tuned! 💑🤖
+                        fueled by your feedback on PM23 🚀. And we add a live statistics dashboard 📊 to the launch.
+                        Stay tuned! 💑🤖
                     </p>
                 </div>
             </div>

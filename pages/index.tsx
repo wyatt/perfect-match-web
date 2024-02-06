@@ -28,14 +28,18 @@ const Home: NextPage = (props: any) => {
             </Head>
             <Header />
             <div className="bg-pink-100">
-                <div className="py-2 px-3 sm:py-4 flex">
+                <div className="py-2 px-3 sm:py-3 flex">
                     <div className="flex flex-wrap items-center sm:mx-auto">
                         <div>
                             <p className="ml-2 font-lg text-gray-500 sm:text-xl pb-1">
                                 <strong>❗PM24 Special❗</strong>
-                                Curious about what others choose? Unlock{' '}
-                                <strong className="text-rose-400">Live Statistics Dashboard</strong>{' '}
-                                on 6 Feb. @4PM!
+                                Curious about what others choose? Check out{' '}
+                                <Link href="/dashboard">
+                                    <strong className="text-rose-400 underline hover:text-rose-500 hover:cursor-pointer">
+                                        Live Statistics Dashboard
+                                    </strong>
+                                </Link>
+                                !
                             </p>
                         </div>
                     </div>

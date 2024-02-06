@@ -7,6 +7,7 @@ import { NextPage } from 'next';
 import { getSession } from 'next-auth/react';
 import { fetcher } from '@/utils/fetch';
 import useSWR from 'swr';
+import CountDown from '@/components/countdown';
 
 const Profile: NextPage = (props: any) => {
     const { data, error, mutate } = useSWR('/api/profile', fetcher);
