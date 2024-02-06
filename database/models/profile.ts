@@ -21,7 +21,8 @@ export interface IProfile extends Document {
         oldest: number;
     };
     activities: string[];
-    describeYourself?: string;
+    describeYourself?: { describe1: string; describe2: string; describe3: string; }
+    describePartner?: { describe1: string; describe2: string; describe3: string; }
     bio?: string;
 }
 
@@ -46,7 +47,16 @@ export const profileSchema: Schema = new Schema<IProfile>(
             oldest: { type: Number, min: 17, max: 40 },
         },
         activities: [{ type: String, enum: profile.activities }],
-        describeYourself: { type: String },
+        describeYourself: {
+            describe1: { type: String },
+            describe2: { type: String },
+            describe3: { type: String },
+        },
+        describePartner: {
+            describe1: { type: String },
+            describe2: { type: String },
+            describe3: { type: String },
+        },
         bio: { type: String },
     },
     { _id: false },

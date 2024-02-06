@@ -8,7 +8,9 @@ export const admins = new Set([
     'njv27@cornell.edu',
     'dc863@cornell.edu',
     'vg245@cornell.edu',
-    'vm344@cornell.edu'
+    'vm344@cornell.edu',
+    'sls537@cornell.edu',
+    'kh635@cornell.edu'
 ]);
 
 export const isAdmin = (email: string) => admins.has(email);

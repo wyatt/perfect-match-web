@@ -6,8 +6,8 @@ Perfect Match is a matchmaking survey that pairs Cornell students with their "Pe
 learning algorithm. The survey was first ideated in February 2019 and has grown in popularity, with over 4,200
 participants in the previous iteration.
 
-This repository contains the code for the 2023 iteration of Perfect Match, built using Next.js and pnpm. We invite you
-to take the survey and share the link with your friends to help spread some joy in 2023.
+This repository contains the code for the Perfect Match Website, built using Next.js and pnpm. We invite you to take the
+survey and share the link with your friends to help spread some joy in 2023.
 
 ## Getting Started
 

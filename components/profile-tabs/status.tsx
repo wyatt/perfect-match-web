@@ -14,12 +14,12 @@ const Status: any = (props: any) => {
                         <h2 className="pt-12 pb-6 w-full sm:py-4 mr-8 text-3xl text-gray-500 font-extrabold leading-9 md:w-1/3">
                             Status
                         </h2>
-                        <p className={props?.optIn ? 'mb-8 font-bold text-green-500' : 'mb-8 font-bold text-red-400'}>
+                        <p className={props?.optIn ? 'mb-4 font-bold text-green-500' : 'mb-4 font-bold text-red-400'}>
                             {props?.optIn ? 'You have opted In!' : 'We are still waiting for you to opt In.'}
                         </p>
                         <p
                             className={
-                                props?.surveyComplete ? 'mb-8 font-bold text-green-500' : 'mb-8 font-bold text-red-400'
+                                props?.surveyComplete ? 'mb-4 font-bold text-green-500' : 'mb-4 font-bold text-red-400'
                             }
                         >
                             {props?.surveyComplete
@@ -28,7 +28,7 @@ const Status: any = (props: any) => {
                         </p>
                         <p
                             className={
-                                props?.profileComplete ? 'mb-8 font-bold text-green-500' : 'mb-8 font-bold text-red-400'
+                                props?.profileComplete ? 'mb-4 font-bold text-green-500' : 'mb-4 font-bold text-red-400'
                             }
                         >
                             {props?.profileComplete
@@ -39,20 +39,20 @@ const Status: any = (props: any) => {
                             {props?.surveyComplete &&
                                 props?.profileComplete &&
                                 props?.optIn &&
-                                'You have completed all the steps! Matchmaking will begin soon.'}
+                                'You have completed all the steps! Matchmaking will begin soon🎉🥳!'}
                         </p>
                         <dt className="mb-4">
-                            <h3 className="text-xl font-semibold">Tasks</h3>
+                            <h3 className="text-xl font-semibold">❗Tasks❗</h3>
                         </dt>
-                        <dd className="mb-8">
+                        <ol className="mb-8 list-decimal list-inside">
                             Please complete all required steps to be included to this year&apos;s matching.
-                            <li>Opt In to indicate you are interested in participating. </li>
+                            <li>&#91;Required&#93;<strong> Opt In</strong> &#40;right below&#41; to indicate you are interested in participating.</li>
                             <li>
-                                Complete the survey so our algorithm can make more sound decisions. It will take about
-                                15 minutes.
+                                &#91;Required&#93; Complete your <strong>profile</strong> to tell us and your matches about you.
                             </li>
-                            <li>Input some crushes/forbidden matches if you&apos;d like.</li>
-                        </dd>
+                            <li>&#91;Required&#93; Complete the <strong>survey</strong>.  It will take 10~15 minutes.</li>
+                            <li>&#91;Optional&#93; Input your crushes/forbidden matches if you&apos;d like.</li>
+                        </ol>
                         <dt className="mb-4">
                             <h3 className="text-xl font-semibold">Opt-Out</h3>
                         </dt>
@@ -60,16 +60,15 @@ const Status: any = (props: any) => {
                             <section id="opt" className={props.optIn ? 'text-green-500' : 'text-red-400'}>
                                 <p>
                                     {props.optIn
-                                        ? 'You are currently opted-in to our 2023 matching process.'
-                                        : 'You are currently opted-out to our 2023 matching process.'}
+                                        ? 'You are currently opted-in to our 2024 matching process.'
+                                        : 'You are currently opted-out to our 2024 matching process.'}
                                 </p>
                             </section>
 
                             <button
                                 onClick={handleClick}
-                                className={`mt-2 bg-transparent hover:bg-rose-500 font-semibold hover:text-white py-1 px-2 border hover:border-transparent rounded ${
-                                    props.optIn ? 'border-rose-500 text-rose-700' : 'border-green-500 text-green-700'
-                                }`}
+                                className={`mt-2 bg-transparent hover:bg-rose-500 font-semibold hover:text-white py-1 px-2 border hover:border-transparent rounded ${props.optIn ? 'border-rose-500 text-rose-700' : 'border-green-500 text-green-700'
+                                    }`}
                             >
                                 {props.optIn ? 'Opt-Out' : 'Opt-In'}
                             </button>

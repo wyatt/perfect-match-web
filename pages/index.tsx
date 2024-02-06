@@ -15,7 +15,6 @@ import demo from 'public/feedback-demo.gif';
 import Countdown from '@/components/countdown';
 import word from 'public/wordcloud-hq.gif';
 
-
 const Home: NextPage = (props: any) => {
     const { data: currentCount, error } = useSWR('/api/count', fetcher, {
         refreshInterval: 60000,
@@ -36,8 +35,11 @@ const Home: NextPage = (props: any) => {
                                 <strong>❗PM24 Special❗</strong>
                                 Curious about what others choose? Check out{' '}
                                 <Link href="/dashboard">
-                                    <strong className="text-rose-400 underline hover:text-rose-500 hover:cursor-pointer">Live Statistics Dashboard</strong>
-                                </Link>!
+                                    <strong className="text-rose-400 underline hover:text-rose-500 hover:cursor-pointer">
+                                        Live Statistics Dashboard
+                                    </strong>
+                                </Link>
+                                !
                             </p>
                         </div>
                     </div>
@@ -87,7 +89,7 @@ const Home: NextPage = (props: any) => {
             </section>
 
             <Footer />
-        </div >
+        </div>
     );
 };
 
