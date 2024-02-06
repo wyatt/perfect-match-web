@@ -54,7 +54,7 @@ const LoveLanguageLive = () => {
         dataLabels: {
             formatter(val: string, opts: any) {
                 const name = opts.w.globals.labels[opts.seriesIndex];
-                return [name, parseInt(val).toFixed(1) + '%'];
+                return [name, val + "%"]
             },
             style: {
                 fontSize: '15px',
