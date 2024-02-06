@@ -44,13 +44,6 @@ const LoveLanguageLive = () => {
                 },
             },
         },
-        tooltip: {
-            y: {
-                formatter(val: string) {
-                    return val + "%"
-                }
-            }
-        },
         dataLabels: {
             formatter(val: string, opts: any) {
                 const name = opts.w.globals.labels[opts.seriesIndex];
