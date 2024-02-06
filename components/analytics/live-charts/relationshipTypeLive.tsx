@@ -47,7 +47,7 @@ const RelationshipTypeLive = () => {
         dataLabels: {
             formatter(val: string, opts: any) {
                 const name = opts.w.globals.labels[opts.seriesIndex];
-                return [name, parseInt(val).toFixed(1) + '%'];
+                return [name, parseInt(val) + '%'];
             },
             style: {
                 fontSize: '16px',
