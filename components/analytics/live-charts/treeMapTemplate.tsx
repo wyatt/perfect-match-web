@@ -101,14 +101,14 @@ const TreeMap = () => {
             '#ffe8e9',
             '#fff0f0',
             '#fff7f8',
-            '#ffffff',
+            '#ffffff'
         ],
         plotOptions: {
             treemap: {
                 distributed: true,
                 enableShades: false,
             },
-        },
+        }
     };
 
     return <ReactApexChart type="treemap" series={series} options={options as ApexCharts.ApexOptions} />;

@@ -15,7 +15,7 @@ const BestAlternativeLive = () => {
         {
             name: '',
             data: Object.values(alternativeCount || {}),
-        },
+        }
     ];
     const options = {
         chart: {
@@ -34,8 +34,8 @@ const BestAlternativeLive = () => {
                 horizontal: true,
                 distributed: true,
                 dataLabels: {
-                    position: 'bottom',
-                },
+                    position: 'bottom'
+                }
             },
         },
         dataLabels: {
@@ -75,14 +75,12 @@ const BestAlternativeLive = () => {
             labels: {
                 style: {
                     colors: '#6b7280',
-
-                    fontSize: '14px',
+                    fontSize: '14px'
                 },
             },
         },
         yaxis: {
             labels: {
-
                 show: false,
             },
         },

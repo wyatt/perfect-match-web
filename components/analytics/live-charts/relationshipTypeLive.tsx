@@ -87,6 +87,7 @@ const RelationshipTypeLive = () => {
             options={options as unknown as ApexCharts.ApexOptions}
         />
     );
+
 };
 
 export default RelationshipTypeLive;

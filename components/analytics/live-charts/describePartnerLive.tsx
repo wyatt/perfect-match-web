@@ -15,7 +15,6 @@ const DescribePartnerLive = () => {
             data: [
                 {
                     x: Object.keys(describepartnerCount)[0],
-
                     y: Object.values(describepartnerCount)[0],
                 },
                 {

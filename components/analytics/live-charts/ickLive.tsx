@@ -57,7 +57,6 @@ const IckLive = () => {
         tooltip: {
             enabled: true,
             theme: 'dark',
-
             y: {
                 formatter: function (value: any, opts: any) {
                     const sum = opts.series[0].reduce((a: any, b: any) => a + b, 0);
@@ -81,7 +80,6 @@ const IckLive = () => {
         },
         yaxis: {
             labels: {
-
                 show: false,
             },
         },
