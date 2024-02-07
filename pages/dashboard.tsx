@@ -20,11 +20,9 @@ const Dashboard: NextPage = (props: any) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
-
             <LiveDashboard />
-
             <Footer />
-        </div >
+        </div>
     );
 };
 
