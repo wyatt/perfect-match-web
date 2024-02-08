@@ -123,7 +123,7 @@ const AgePrefMale = () => {
                         '% of men aged ' +
                         ageParticipant +
                         ' would date someone aged ' +
-                        (dataPointIndex + 17) +
+                        (dataPointIndex + 18) +
                         '.</div>'
                     );
                 },
