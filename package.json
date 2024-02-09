@@ -19,7 +19,6 @@
         "@openapitools/openapi-generator-cli": "^2.7.0",
         "@types/nodemailer": "^6.4.7",
         "@vercel/analytics": "^0.1.8",
-        "@vercel/speed-insights": "^1.0.9",
         "apexcharts": "^3.37.0",
         "aws-sdk": "^2.1338.0",
         "bluebird": "^3.7.2",
