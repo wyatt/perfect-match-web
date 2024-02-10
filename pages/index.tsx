@@ -33,6 +33,25 @@ const Home: NextPage = (props: any) => {
                         <div>
                             <p className="ml-2 font-lg text-gray-500 sm:text-xl pb-1">
                                 <strong>❗PM24 Special❗</strong>
+                                Let us help you {' '}
+                                <Link href="/profile">
+                                    <strong className="text-rose-400 underline hover:text-rose-500 hover:cursor-pointer">
+                                        Nudge Your Crush
+                                    </strong>
+                                </Link>
+                                {' '} with an anonymous hint 💌!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/*
+            <div className="bg-pink-100">
+                <div className="py-2 px-3 sm:py-3 flex">
+                    <div className="flex flex-wrap items-center sm:mx-auto">
+                        <div>
+                            <p className="ml-2 font-lg text-gray-500 sm:text-xl pb-1">
+                                <strong>❗PM24 Special❗</strong>
                                 Curious about what others choose? Check out{' '}
                                 <Link href="/dashboard">
                                     <strong className="text-rose-400 underline hover:text-rose-500 hover:cursor-pointer">
@@ -45,6 +64,7 @@ const Home: NextPage = (props: any) => {
                     </div>
                 </div>
             </div>
+            */}
 
             <section className="bg-white flex flex-col pr-0 lg:pr-12 lg:flex-row">
                 <div className="pb-6 pt-8 sm:pt-20 lg:pt-56 lg:pb-36 lg:w-3/5">

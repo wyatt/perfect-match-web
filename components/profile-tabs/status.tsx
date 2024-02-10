@@ -57,7 +57,7 @@ const Status: any = (props: any) => {
                             <li>
                                 &#91;Required&#93; Complete the <strong>survey</strong>. It will take 10~15 minutes.
                             </li>
-                            <li>&#91;Optional&#93; Input your crushes/forbidden matches if you&apos;d like.</li>
+                            <li>&#91;Optional&#93; Input your crushes/forbidden matches if you&apos;d like. <strong className="text-rose-400">❗PM2024 Special: Nudge your crush with an anonymous email!❗</strong></li>
                         </ol>
                         <dt className="mb-4">
                             <h3 className="text-xl font-semibold">Opt-Out</h3>
@@ -73,9 +73,8 @@ const Status: any = (props: any) => {
 
                             <button
                                 onClick={handleClick}
-                                className={`mt-2 bg-transparent hover:bg-rose-500 font-semibold hover:text-white py-1 px-2 border hover:border-transparent rounded ${
-                                    props.optIn ? 'border-rose-500 text-rose-700' : 'border-green-500 text-green-700'
-                                }`}
+                                className={`mt-2 bg-transparent hover:bg-rose-500 font-semibold hover:text-white py-1 px-2 border hover:border-transparent rounded ${props.optIn ? 'border-rose-500 text-rose-700' : 'border-green-500 text-green-700'
+                                    }`}
                             >
                                 {props.optIn ? 'Opt-Out' : 'Opt-In'}
                             </button>
