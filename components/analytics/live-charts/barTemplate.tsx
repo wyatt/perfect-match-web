@@ -9,7 +9,7 @@ const Bar = () => {
         {
             name: '',
             data: [2319, 867, 539, 186],
-        }
+        },
     ];
     const options = {
         chart: {
@@ -37,12 +37,12 @@ const Bar = () => {
             textAnchor: 'start',
             style: {
                 fontSize: '15px',
-                colors: ['#6b7280']
+                colors: ['#6b7280'],
             },
             formatter: function (val: any, opt: any) {
-                return opt.w.globals.labels[opt.dataPointIndex]
+                return opt.w.globals.labels[opt.dataPointIndex];
             },
-            offsetX: 0
+            offsetX: 0,
         },
         stroke: {
             show: true,

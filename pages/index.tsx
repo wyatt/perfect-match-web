@@ -33,13 +33,13 @@ const Home: NextPage = (props: any) => {
                         <div>
                             <p className="ml-2 font-lg text-gray-500 sm:text-xl pb-1">
                                 <strong>❗PM24 Special❗</strong>
-                                Let us help you {' '}
-                                <Link href="/profile">
+                                Let us help you{' '}
+                                <Link href="/profile#crushes">
                                     <strong className="text-rose-400 underline hover:text-rose-500 hover:cursor-pointer">
                                         Nudge Your Crush
                                     </strong>
-                                </Link>
-                                {' '} with an anonymous hint 💌!
+                                </Link>{' '}
+                                with an anonymous hint 💌!
                             </p>
                         </div>
                     </div>
