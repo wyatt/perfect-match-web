@@ -197,7 +197,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                     <p className="mb-3 sm:mb-3 text-gray-500">
                         <button
                             onClick={() => window.open(matchData.survey.hookupsongURL.url, '_blank')}
-                            className="font-bold ml-2"
+                            className="font-bold"
                         >
                             <Iframe
                                 url={spotifyURL}
@@ -209,7 +209,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                     borderRadius: '13px',
                                     backgroundColor: 'rgba(0, 0, 0, 0.1)',
                                     margin: '7px 0px',
-                                    width: '400px',
+                                    width: '320px',
                                 }}
                             ></Iframe>
                         </button>
@@ -224,15 +224,14 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     return (
         <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex">
             <div
-                className={`items-center rounded-lg shadow-xl sm:flex sm:mx-[10%] lg:mx-[20%] ${mutualCrushGlowClass}`}
-                style={{ padding: '1rem', margin: '0 auto', maxWidth: '80%' }}
+                className={`items-center rounded-lg shadow-xl mx-[2%] sm:flex sm:w-2/3 sm:mx-auto lg:w-1/2 ${mutualCrushGlowClass}`}
             >
                 <div className="flex sm:contents">
-                    <div className="text-8xl mt-4 sm:mt-0 sm:text-9xl mx-auto sm:ml-12 sm:mr-0">{matchEmoji}</div>
+                    <div className="text-8xl mt-4 sm:mt-0 sm:text-9xl mx-auto sm:ml-8 sm:mr-0">{matchEmoji}</div>
                 </div>
-                <div className="p-3 pt-1 sm:pl-10 sm:pr-16 sm:py-5">
+                <div className="p-3 pt-1 sm:pl-6 sm:pr-10 sm:py-5 lg:pl-10">
                     {mutualCrush && (
-                        <div className="p-3 mb-4 rounded-lg bg-pink-100 border border-pink-200 text-pink-700">
+                        <div className="p-3 mb-4 rounded-lg bg-pink-100 border border-pink-200 text-pink-500">
                             <p>
                                 There was no need for us to execute the algorithm, as your compatibility was
                                 unmistakable - indeed, a mutual crush. Now, what comes next is not for us to dictate -
@@ -299,7 +298,9 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                             Other: <span className="font-bold">{contact.other}</span>
                         </p>
                     )}
+                    <div className="w-1/2">
                     {renderSongSection()}
+                    </div>
                     {/* <MatchFeedback matchID={matchID} matchFeedback={matchFeedback} refresh={refresh} /> */}
                 </div>
             </div>

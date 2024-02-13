@@ -55,10 +55,10 @@ const Home: NextPage = (props: any) => {
                                 Curious about what others choose? Check out{' '}
                                 <Link href="/dashboard">
                                     <strong className="text-rose-400 underline hover:text-rose-500 hover:cursor-pointer">
-                                        the survey results now
+                                        the survey results
                                     </strong>
-                                </Link>
-                                !🤔✨
+                                </Link>{' '}
+                                now !🤔✨
                             </p>
                         </div>
                     </div>
