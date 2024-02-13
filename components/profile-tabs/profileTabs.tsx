@@ -86,9 +86,7 @@ const DraggableList: React.FC<DraggableListProps> = ({ initialItems, onRankChang
     );
 };
 
-function ProfileTabs(props: any) {
-    const router = useRouter();
-    const user = props.user;
+function GeneralFeedback(props: any) {
     const [loading, setLoading] = useState(false);
 
     const [feedback, setFeedback] = useState<ISurveyFeedback>({
@@ -103,15 +101,6 @@ function ProfileTabs(props: any) {
         opportunities: props.user?.feedback?.opportunities || false,
         bad: props.user?.feedback?.bad || false,
     });
-
-    const section = router.asPath.split('#')[1];
-    const tabIndex: Record<string, number> = {
-        status: 0,
-        profile: 1,
-        survey: 2,
-        crushes: 3,
-        matchReviews: 4,
-    };
 
     const handleFeedbackSubmit = async () => {
         try {
@@ -138,164 +127,189 @@ function ProfileTabs(props: any) {
     };
 
     return (
-        <div className="w-full items-center">
-            {/* General Feedback Section */}
-            <div className="my-14 mx-[2%] sm:mx-[15%] lg:mx-[22%] text-sm sm:text-base">
-                <details className="text-gray-500 border rounded-lg">
-                    <summary className="text-lg cursor-pointer my-4 text-center text-rose-400 font-extrabold sm:text-xl">
-                        General Feedback (Click to expand)📝
-                    </summary>
-                    {/* Feedback content */}
-                    <div className="pt-4 pb-6 sm:px-6 px-3">
-                        {/* Category Ranking */}
-                        <p className="mb-4">
-                            1. Rank the following categories by importance in matching (topmost is most important)
-                        </p>
-                        <DraggableList initialItems={feedback.categoryRanking} onRankChange={handleRankChange} />
+        <div className="my-14 mx-[2%] sm:mx-[15%] lg:mx-[22%] text-sm sm:text-base">
+            <details className="text-gray-500 border rounded-lg">
+                <summary className="text-lg cursor-pointer my-4 text-center text-rose-400 font-extrabold sm:text-xl">
+                    General Feedback (Click to expand)📝
+                </summary>
+                {/* Feedback content */}
+                <div className="pt-4 pb-6 sm:px-6 px-3">
+                    {/* Category Ranking */}
+                    <p className="mb-4">
+                        1. Rank the following categories by importance in matching (topmost is most important)
+                    </p>
+                    <DraggableList initialItems={feedback.categoryRanking} onRankChange={handleRankChange} />
 
-                        {/* Survey Feedback */}
-                        <div className="my-14">
-                            <label htmlFor="surveyFeedback">
-                                2. Provide any feedback on the 2023 Perfect Match survey questions:
-                            </label>
-                            <textarea
-                                id="surveyFeedback"
-                                rows={4}
-                                value={feedback.surveyFeedback}
-                                onChange={(e) => setFeedback({ ...feedback, surveyFeedback: e.target.value })}
-                                className="w-full bg-white p-2 mt-4 border rounded-md"
-                                placeholder="Remove certain questions, add new questions..."
-                            ></textarea>
-                        </div>
+                    {/* Survey Feedback */}
+                    <div className="my-14">
+                        <label htmlFor="surveyFeedback">
+                            2. Provide any feedback on the 2023 Perfect Match survey questions:
+                        </label>
+                        <textarea
+                            id="surveyFeedback"
+                            rows={4}
+                            value={feedback.surveyFeedback}
+                            onChange={(e) => setFeedback({ ...feedback, surveyFeedback: e.target.value })}
+                            className="w-full bg-white p-2 mt-4 border rounded-md"
+                            placeholder="Remove certain questions, add new questions..."
+                        ></textarea>
+                    </div>
 
-                        {/* Valentine's Day Impact */}
-                        <fieldset>
-                            <legend className="mb-4">
-                                3. What did Perfect Match add to your last Valentine&#39;s Day💖? Choose one or more.
-                            </legend>
+                    {/* Valentine's Day Impact */}
+                    <fieldset>
+                        <legend className="mb-4">
+                            3. What did Perfect Match add to your last Valentine&#39;s Day💖? Choose one or more.
+                        </legend>
 
-                            <div className="relative flex mb-3">
-                                <label htmlFor="anticipation" className="absolute left-9">
-                                    A sense of anticipation and excitement.
-                                </label>
-                                <input
-                                    type="checkbox"
-                                    id="anticipation"
-                                    checked={feedback.anticipation}
-                                    onChange={(e) => setFeedback({ ...feedback, anticipation: e.target.checked })}
-                                    className="ml-1 w-5 h-5 sm:mt-0.5 cursor-pointer"
-                                />
-                            </div>
-
-                            <div className="relative flex mb-3">
-                                <label htmlFor="memories" className="absolute left-9">
-                                    Memorable and personalized experiences.
-                                </label>
-                                <input
-                                    type="checkbox"
-                                    id="memories"
-                                    checked={feedback.memories}
-                                    onChange={(e) => setFeedback({ ...feedback, memories: e.target.checked })}
-                                    className="ml-1 w-5 h-5 sm:mt-0.5 cursor-pointer"
-                                />
-                            </div>
-
-                            <div className="relative flex sm:mb-3 mb-7">
-                                <label htmlFor="joy" className="absolute left-9">
-                                    The joy of meeting like-minded people on campus.
-                                </label>
-                                <input
-                                    type="checkbox"
-                                    id="joy"
-                                    checked={feedback.joy}
-                                    onChange={(e) => setFeedback({ ...feedback, joy: e.target.checked })}
-                                    className="ml-1 w-5 h-5 sm:mt-0.5 cursor-pointer"
-                                />
-                            </div>
-
-                            <div className="relative flex mb-3">
-                                <label htmlFor="fun" className="absolute left-9">
-                                    Fun and surprises.
-                                </label>
-                                <input
-                                    type="checkbox"
-                                    id="fun"
-                                    checked={feedback.fun}
-                                    onChange={(e) => setFeedback({ ...feedback, fun: e.target.checked })}
-                                    className="ml-1 w-5 h-5 sm:mt-0.5 cursor-pointer"
-                                />
-                            </div>
-
-                            <div className="relative flex sm:mb-3 mb-7">
-                                <label htmlFor="opportunities" className="absolute left-9">
-                                    The opportunity to explore new activities and interests.
-                                </label>
-                                <input
-                                    type="checkbox"
-                                    id="opportunities"
-                                    checked={feedback.opportunities}
-                                    onChange={(e) => setFeedback({ ...feedback, opportunities: e.target.checked })}
-                                    className="ml-1 w-5 h-5 sm:mt-0.5 cursor-pointer"
-                                />
-                            </div>
-
-                            <div className="relative flex mb-3">
-                                <label htmlFor="bad" className="absolute left-9">
-                                    Something bad, unfortunately.
-                                </label>
-                                <input
-                                    type="checkbox"
-                                    id="bad"
-                                    checked={feedback.bad}
-                                    onChange={(e) => setFeedback({ ...feedback, bad: e.target.checked })}
-                                    className="ml-1 w-5 h-5 sm:mt-0.5 cursor-pointer"
-                                />
-                            </div>
-                        </fieldset>
-
-                        {/* Other Valentine's Day Impact */}
-                        <div>
-                            <label htmlFor="otherValentinesDayImpact" className="ml-9">
-                                Other:
+                        <div className="relative flex mb-3">
+                            <label htmlFor="anticipation" className="absolute left-9">
+                                A sense of anticipation and excitement.
                             </label>
                             <input
-                                type="text"
-                                id="otherValentinesDayImpact"
-                                value={feedback.otherValentinesDayImpact}
-                                onChange={(e) => setFeedback({ ...feedback, otherValentinesDayImpact: e.target.value })}
-                                className="sm:w-96 bg-white w-80 p-2 border rounded-md h-6 sm:ml-2 sm:mt-0 mt-2 ml-9"
-                            ></input>
+                                type="checkbox"
+                                id="anticipation"
+                                checked={feedback.anticipation}
+                                onChange={(e) => setFeedback({ ...feedback, anticipation: e.target.checked })}
+                                className="ml-1 w-5 h-5 sm:mt-0.5 cursor-pointer"
+                            />
                         </div>
 
-                        <div className="mt-14">
-                            <label htmlFor="comments">4. Leave comments about any aspects of Perfect Match:</label>
-                            <textarea
-                                id="comments"
-                                rows={4}
-                                value={feedback.comments}
-                                onChange={(e) => setFeedback({ ...feedback, comments: e.target.value })}
-                                className="w-full p-2 mt-2 border rounded-md bg-white"
-                                placeholder="Matching algorithms, new features, survey result visualizations..."
-                            ></textarea>
+                        <div className="relative flex mb-3">
+                            <label htmlFor="memories" className="absolute left-9">
+                                Memorable and personalized experiences.
+                            </label>
+                            <input
+                                type="checkbox"
+                                id="memories"
+                                checked={feedback.memories}
+                                onChange={(e) => setFeedback({ ...feedback, memories: e.target.checked })}
+                                className="ml-1 w-5 h-5 sm:mt-0.5 cursor-pointer"
+                            />
                         </div>
-                        <div className="mb-16 mt-4">
-                            {loading ? (
-                                <button className="float-right px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-                                    Submitting...
-                                </button>
-                            ) : (
-                                <button
-                                    className="float-right px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                                    onClick={handleFeedbackSubmit}
-                                >
-                                    Submit
-                                </button>
-                            )}
+
+                        <div className="relative flex sm:mb-3 mb-7">
+                            <label htmlFor="joy" className="absolute left-9">
+                                The joy of meeting like-minded people on campus.
+                            </label>
+                            <input
+                                type="checkbox"
+                                id="joy"
+                                checked={feedback.joy}
+                                onChange={(e) => setFeedback({ ...feedback, joy: e.target.checked })}
+                                className="ml-1 w-5 h-5 sm:mt-0.5 cursor-pointer"
+                            />
                         </div>
+
+                        <div className="relative flex mb-3">
+                            <label htmlFor="fun" className="absolute left-9">
+                                Fun and surprises.
+                            </label>
+                            <input
+                                type="checkbox"
+                                id="fun"
+                                checked={feedback.fun}
+                                onChange={(e) => setFeedback({ ...feedback, fun: e.target.checked })}
+                                className="ml-1 w-5 h-5 sm:mt-0.5 cursor-pointer"
+                            />
+                        </div>
+
+                        <div className="relative flex sm:mb-3 mb-7">
+                            <label htmlFor="opportunities" className="absolute left-9">
+                                The opportunity to explore new activities and interests.
+                            </label>
+                            <input
+                                type="checkbox"
+                                id="opportunities"
+                                checked={feedback.opportunities}
+                                onChange={(e) => setFeedback({ ...feedback, opportunities: e.target.checked })}
+                                className="ml-1 w-5 h-5 sm:mt-0.5 cursor-pointer"
+                            />
+                        </div>
+
+                        <div className="relative flex mb-3">
+                            <label htmlFor="bad" className="absolute left-9">
+                                Something bad, unfortunately.
+                            </label>
+                            <input
+                                type="checkbox"
+                                id="bad"
+                                checked={feedback.bad}
+                                onChange={(e) => setFeedback({ ...feedback, bad: e.target.checked })}
+                                className="ml-1 w-5 h-5 sm:mt-0.5 cursor-pointer"
+                            />
+                        </div>
+                    </fieldset>
+
+                    {/* Other Valentine's Day Impact */}
+                    <div>
+                        <label htmlFor="otherValentinesDayImpact" className="ml-9">
+                            Other:
+                        </label>
+                        <input
+                            type="text"
+                            id="otherValentinesDayImpact"
+                            value={feedback.otherValentinesDayImpact}
+                            onChange={(e) => setFeedback({ ...feedback, otherValentinesDayImpact: e.target.value })}
+                            className="sm:w-96 bg-white w-80 p-2 border rounded-md h-6 sm:ml-2 sm:mt-0 mt-2 ml-9"
+                        ></input>
                     </div>
-                </details>
-            </div>
-            <Matches matches={user.matchReviews} userId={user._id} refresh={props.refresh} />
+
+                    <div className="mt-14">
+                        <label htmlFor="comments">4. Leave comments about any aspects of Perfect Match:</label>
+                        <textarea
+                            id="comments"
+                            rows={4}
+                            value={feedback.comments}
+                            onChange={(e) => setFeedback({ ...feedback, comments: e.target.value })}
+                            className="w-full p-2 mt-2 border rounded-md bg-white"
+                            placeholder="Matching algorithms, new features, survey result visualizations..."
+                        ></textarea>
+                    </div>
+                    <div className="mb-16 mt-4">
+                        {loading ? (
+                            <button className="float-right px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                Submitting...
+                            </button>
+                        ) : (
+                            <button
+                                className="float-right px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                                onClick={handleFeedbackSubmit}
+                            >
+                                Submit
+                            </button>
+                        )}
+                    </div>
+                </div>
+            </details>
+        </div>
+    );
+}
+
+function ProfileTabs(props: any) {
+    const router = useRouter();
+    const user = props.user;
+    const section = router.asPath.split('#')[1];
+    const tabIndex: Record<string, number> = {
+        status: 0,
+        profile: 1,
+        survey: 2,
+        crushes: 3,
+        matchReviews: 4,
+    };
+
+    return (
+        <div className="w-full items-center">
+            {/* <GeneralFeedback user={user} refresh={props.refresh} /> */}
+            <Matches
+                matches={user.matchReviews}
+                height="500px"
+                width="30%"
+                margin="0 auto"
+                offset={2}
+                showArrows={false}
+                userId={user._id}
+                refresh={props.refresh}
+            />
         </div>
     );
 }

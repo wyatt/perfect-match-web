@@ -41,7 +41,7 @@ const ratingOptions = [
     'A+ profile – love the academic flair and personal touch',
 ];
 
-function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any) {
+function MatchFeedback({ matchID, matchFeedback, refresh }: any) {
     const [review, setReview] = useState<Review>({
         overallRating: matchFeedback?.overallRating || '',
         topReasonForRating: matchFeedback?.topReasonForRating || '',
@@ -52,10 +52,6 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any)
     });
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const matchEmoji = useMemo(() => {
-        return emoji[Math.floor(Math.random() * emoji.length)];
-    }, []);
-
     const submitFeedback = async () => {
         await fetch(`/api/review/${matchID}`, {
             method: 'POST',
@@ -64,6 +60,131 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any)
         refresh();
         setIsModalOpen(false);
     };
+    return (
+        <div>
+            <button
+                onClick={() => setIsModalOpen(true)}
+                className="mt-1 mb-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+                Leave Feedback
+            </button>
+            ;
+            {isModalOpen && (
+                <div className="fixed top-0 left-0 w-full h-full bg-gray-500 bg-opacity-50 flex items-center justify-center">
+                    <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+                        <h2 className="text-2xl mb-4 mt-2 font-extrabold text-rose-400">Match Feedback</h2>
+
+                        {/* Feedback form */}
+                        <div className="space-y-4 text-gray-500">
+                            {/* Overall Rating */}
+                            <div>
+                                <label>
+                                    On a scale of 1-10, is this match a Perfect Match? &#40;1-terrible match; 10-Perfect
+                                    Match!&#41;
+                                </label>
+                                <input
+                                    type="number"
+                                    min="1"
+                                    max="10"
+                                    value={review.overallRating}
+                                    onChange={(e) => setReview({ ...review, overallRating: Number(e.target.value) })}
+                                    className="w-full bg-white p-2 mt-1 border rounded-md text-base leading-light focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                                />
+                            </div>
+
+                            {/* Top Reason for Rating */}
+                            <div>
+                                <label>Top Reason for Rating:</label>
+                                <select
+                                    autoFocus
+                                    className="w-full bg-white border rounded-md overflow-hidden"
+                                    value={review.topReasonForRating}
+                                    onChange={(e) => setReview({ ...review, topReasonForRating: e.target.value })}
+                                >
+                                    {ratingOptions.map((option: string) => (
+                                        <option key={option} value={option} className="bg-white">
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            {/* Met Match */}
+                            <div>
+                                <label className="text-gray-600">Have you met this match?</label>
+                                <input
+                                    className="ml-1 cursor-pointer"
+                                    type="checkbox"
+                                    checked={review.metMatch}
+                                    onChange={(e) => setReview({ ...review, metMatch: e.target.checked })}
+                                />
+                            </div>
+
+                            {/* Number of Dates */}
+                            <div>
+                                <label className="text-gray-600">Number of Dates:</label>
+                                <input
+                                    className="bg-white ml-1 pl-1"
+                                    type="number"
+                                    value={review.numberOfDates}
+                                    onChange={(e) => setReview({ ...review, numberOfDates: Number(e.target.value) })}
+                                />
+                            </div>
+
+                            {/* In Relationship with Match */}
+                            <div>
+                                <label className="text-gray-600">In Relationship with Match:</label>
+                                <input
+                                    className="ml-1 cursor-pointer"
+                                    type="checkbox"
+                                    checked={review.inRelationshipWithMatch}
+                                    onChange={(e) =>
+                                        setReview({
+                                            ...review,
+                                            inRelationshipWithMatch: e.target.checked,
+                                        })
+                                    }
+                                />
+                            </div>
+
+                            {/* Additional Comments */}
+                            <div>
+                                <label className="text-gray-600">Additional Comments:</label>
+                                <textarea
+                                    value={review.additionalComments}
+                                    onChange={(e) => setReview({ ...review, additionalComments: e.target.value })}
+                                    className="w-full p-2 mt-1 border rounded-md bg-white"
+                                    rows={4}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Buttons */}
+                        <div className="mt-2 mb-2 flex justify-end space-x-4">
+                            <button
+                                onClick={() => setIsModalOpen(false)}
+                                className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition"
+                            >
+                                Close
+                            </button>
+                            <button
+                                onClick={submitFeedback}
+                                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+                            >
+                                Submit Feedback
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+}
+
+function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any) {
+    const matchEmoji = useMemo(() => {
+        return emoji[Math.floor(Math.random() * emoji.length)];
+    }, []);
 
     return (
         <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex">
@@ -124,125 +245,12 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any)
                             Snapchat: <span className="font-bold">{contact.snap}</span>
                         </p>
                     )}
-                    <button
-                        onClick={() => setIsModalOpen(true)}
-                        className="mt-1 mb-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                    >
-                        Leave Feedback
-                    </button>
-                    {isModalOpen && (
-                        <div className="fixed top-0 left-0 w-full h-full bg-gray-500 bg-opacity-50 flex items-center justify-center">
-                            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-                                <h2 className="text-2xl mb-4 mt-2 font-extrabold text-rose-400">Match Feedback</h2>
-
-                                {/* Feedback form */}
-                                <div className="space-y-4 text-gray-500">
-                                    {/* Overall Rating */}
-                                    <div>
-                                        <label>
-                                            On a scale of 1-10, is this match a Perfect Match? &#40;1-terrible match;
-                                            10-Perfect Match!&#41;
-                                        </label>
-                                        <input
-                                            type="number"
-                                            min="1"
-                                            max="10"
-                                            value={review.overallRating}
-                                            onChange={(e) =>
-                                                setReview({ ...review, overallRating: Number(e.target.value) })
-                                            }
-                                            className="w-full bg-white p-2 mt-1 border rounded-md text-base leading-light focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                                        />
-                                    </div>
-
-                                    {/* Top Reason for Rating */}
-                                    <div>
-                                        <label>Top Reason for Rating:</label>
-                                        <select
-                                            autoFocus
-                                            className="w-full bg-white border rounded-md overflow-hidden"
-                                            value={review.topReasonForRating}
-                                            onChange={(e) =>
-                                                setReview({ ...review, topReasonForRating: e.target.value })
-                                            }
-                                        >
-                                            {ratingOptions.map((option: string) => (
-                                                <option key={option} value={option} className="bg-white">
-                                                    {option}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </div>
-
-                                    {/* Met Match */}
-                                    <div>
-                                        <label className="text-gray-600">Have you met this match?</label>
-                                        <input
-                                            className="ml-1 cursor-pointer"
-                                            type="checkbox"
-                                            checked={review.metMatch}
-                                            onChange={(e) => setReview({ ...review, metMatch: e.target.checked })}
-                                        />
-                                    </div>
-
-                                    {/* Number of Dates */}
-                                    <div>
-                                        <label className="text-gray-600">Number of Dates:</label>
-                                        <input
-                                            className="bg-white ml-1 pl-1"
-                                            type="number"
-                                            value={review.numberOfDates}
-                                            onChange={(e) =>
-                                                setReview({ ...review, numberOfDates: Number(e.target.value) })
-                                            }
-                                        />
-                                    </div>
-
-                                    {/* In Relationship with Match */}
-                                    <div>
-                                        <label className="text-gray-600">In Relationship with Match:</label>
-                                        <input
-                                            className="ml-1 cursor-pointer"
-                                            type="checkbox"
-                                            checked={review.inRelationshipWithMatch}
-                                            onChange={(e) =>
-                                                setReview({ ...review, inRelationshipWithMatch: e.target.checked })
-                                            }
-                                        />
-                                    </div>
-
-                                    {/* Additional Comments */}
-                                    <div>
-                                        <label className="text-gray-600">Additional Comments:</label>
-                                        <textarea
-                                            value={review.additionalComments}
-                                            onChange={(e) =>
-                                                setReview({ ...review, additionalComments: e.target.value })
-                                            }
-                                            className="w-full p-2 mt-1 border rounded-md bg-white"
-                                            rows={4}
-                                        />
-                                    </div>
-                                </div>
-
-                                {/* Buttons */}
-                                <div className="mt-2 mb-2 flex justify-end space-x-4">
-                                    <button
-                                        onClick={() => setIsModalOpen(false)}
-                                        className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition"
-                                    >
-                                        Close
-                                    </button>
-                                    <button
-                                        onClick={submitFeedback}
-                                        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-                                    >
-                                        Submit Feedback
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                    {contact.other && (
+                        <p className="mb-4 sm:mb-3 text-gray-500">
+                            Other: <span className="font-bold">{contact.other}</span>
+                        </p>
                     )}
+                    {/* <MatchFeedback matchID={matchID} matchFeedback={matchFeedback} refresh={refresh} /> */}
                 </div>
             </div>
         </div>
