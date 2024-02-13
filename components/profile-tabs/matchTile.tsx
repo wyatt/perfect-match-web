@@ -224,7 +224,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     return (
         <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex">
             <div
-                className={`items-center rounded-lg shadow-xl mx-[2%] sm:flex sm:w-2/3 sm:mx-auto lg:w-1/2 ${mutualCrushGlowClass}`}
+                className={`items-center rounded-lg shadow-xl mx-[2%] sm:flex sm:w-3/4 lg:2/3 lg:max-w-3xl sm:mx-auto ${mutualCrushGlowClass}`}
             >
                 <div className="flex sm:contents">
                     <div className="text-8xl mt-4 sm:mt-0 sm:text-9xl mx-auto sm:ml-8 sm:mr-0">{matchEmoji}</div>
@@ -256,11 +256,11 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                         <span className="font-bold">{matchData.profile.describeYourself.describe2}</span>,{' '}
                         <span className="font-bold">{matchData.profile.describeYourself.describe3}</span>
                     </p>
-                    <p className="mt-3 sm:mt-2 mb-2 text-gray-500">
+                    <p className="mt-2 sm:mt-2 mb-2 text-gray-500">
                         First song on my hookup playlist:
                         <span className="font-bold"> {matchData.survey.hookupsong}</span>
                     </p>
-                    <p className="mb-4 sm:mb-2 text-gray-500">
+                    <p className="mb-2 sm:mb-2 text-gray-500">
                         Bio: <span className="font-bold">{matchData.profile.bio}</span>
                     </p>
                     {contact.insta && (

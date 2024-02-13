@@ -34,12 +34,9 @@ function Header(props: any) {
                             </li>
                             <li className="hover:text-rose-400">
                                 <Link href="/dashboard">Live Dashboard</Link>
-                                <span className="inline-flex items-center justify-center px-2 py-1 ml-1 text-sm font-bold leading-none text-white bg-rose-500 rounded-full">
-                                    99+
-                                </span>
                             </li>
-                            <li className="hover:text-rose-400">
-                                <Link href="/profile">Profile</Link>
+                            <li className="hover:text-rose-400 animate-bounce">
+                                <Link href="/profile">Matches💘</Link>
                             </li>
                             <li className="hover:text-rose-400">
                                 <Link href="/statistics"> Statistics</Link>
