@@ -26,7 +26,7 @@ const Profile: NextPage = (props: any) => {
                         <p className="text-lg text-center mt-8 mb-12">
                             Guess what? Our cupid algorithm has been hard at work, 
                             meticulously analyzing data and crunching numbers to bring 
-                            you the perfect matches for this Valentine's Day! We&#39;ve 
+                            you the perfect matches for this Valentine&#39;s Day! We&#39;ve 
                             done the heavy lifting, and now it&#39;s time for you to 
                             seize the moment and make this Valentine&#39;s Day truly special 💖✨.
                             Good luck!
