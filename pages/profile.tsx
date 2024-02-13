@@ -32,17 +32,7 @@ const Profile: NextPage = (props: any) => {
                             Good luck!
                         </p>
                     </div>
-                    <div className="flex"> 
-                    <div className="animate-bounce h-2/3">
-                        ❤️‍🔥
-                        </div>
-                    </div>
                 </section>
-                <div style={styles} className="main">
-                        ❤️‍🔥
-                    </div>
-            </div>
-            <div>
                 <section>
                     <div>
                         <div className="bg-white rounded-lg h-auto">
