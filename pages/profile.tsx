@@ -7,6 +7,8 @@ import { NextPage } from 'next';
 import { getSession } from 'next-auth/react';
 import { fetcher } from '../utils/fetch';
 import useSWR from 'swr';
+import styles from '/styles/Matches.module.css';
+import React, { useState } from 'react';
 
 const Profile: NextPage = (props: any) => {
     const { data, error, mutate } = useSWR('/api/profile', fetcher);
@@ -14,15 +16,12 @@ const Profile: NextPage = (props: any) => {
     if (!data) return <Spinner />;
     return (
         <div className="bg-white">
-            <Head>
-                <title>Profile</title>
-            </Head>
             <Header />
             <div>
-                <section className="text-gray-500">
+                <section className="text-gray-500 flex flex-col">
                     <div className="pt-12 sm:pt-20 mx-[2%] sm:mx-[15%] lg:mx-[22%] mx-auto">
                         <h1 className="text-2xl sm:text-3xl font-extrabold text-rose-400 text-center mb-10">
-                            Happy Valentine's Day, {data.profile.firstName} 💝!
+                            Happy Valentine&#39;s Day, {data.profile.firstName} 💝!
                         </h1>
                         <p className="text-lg text-center mt-8 mb-12">
                             Guess what? Our cupid algorithm has been hard at work, 
@@ -33,7 +32,15 @@ const Profile: NextPage = (props: any) => {
                             Good luck!
                         </p>
                     </div>
+                    <div className="flex"> 
+                    <div className="animate-bounce h-2/3">
+                        ❤️‍🔥
+                        </div>
+                    </div>
                 </section>
+                <div style={styles} className="main">
+                        ❤️‍🔥
+                    </div>
             </div>
             <div>
                 <section>

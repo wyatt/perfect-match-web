@@ -69,7 +69,7 @@ const Home: NextPage = (props: any) => {
                 <div className="pb-6 pt-8 sm:pt-20 lg:pt-48 lg:pb-36 lg:w-3/5">
                     <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
                         <h1 className="text-3xl text-gray-600 font-extrabold sm:text-3xl lg:text-4xl">
-                            Happy Valentine's Day
+                            Happy Valentine&#39;s Day
                             <strong className="mt-1 lg:mt-2 lg:mt-3 block font-extrabold text-rose-400">
                             With your Perfect Match💓!
                             </strong>

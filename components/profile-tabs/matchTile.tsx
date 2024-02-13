@@ -233,9 +233,9 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                     {mutualCrush && (
                         <div className="p-3 mb-4 rounded-lg bg-pink-100 border border-pink-200 text-pink-500">
                             <p>
-                                There was no need for us to execute the algorithm, as your compatibility was
+                            💌 There was no need for us to execute the algorithm, as your compatibility was
                                 unmistakable - indeed, a mutual crush. Now, what comes next is not for us to dictate -
-                                take the next step and go on a date!
+                                take the next step and go on a date ❤️‍🔥!
                             </p>
                         </div>
                     )}
