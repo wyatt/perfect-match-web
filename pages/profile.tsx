@@ -33,6 +33,7 @@ const Profile: NextPage = (props: any) => {
                         </p>
                     </div>
                 </section>
+                <p className="text-4xl sm:text-7xl lg:text-8xl mb-12 sm:mb-20 lg:mb-24 sm:mt-6 text-center animate-bounce">❤️🧡💛💚💌💙💜🤍🖤</p>
                 <section>
                     <div>
                         <div className="bg-white rounded-lg h-auto">
