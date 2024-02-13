@@ -6,9 +6,10 @@ function Matches({ matches, userId, refresh }: any) {
     const [visible, setVisible] = React.useState(false);
     return (
         <div>
-            {matches.map((match: any) => {
+            {matches.map((match: any, index: number) => {
                 const matchData = match.partnerAId._id === userId ? match.partnerBId : match.partnerAId;
                 const matchFeedback = match.partnerAId._id === userId ? match.partnerAFeedback : match.partnerBFeedback;
+                const mutualCrush = match?.mutual || false;
                 return (
                     <MatchTile
                         key={match._id}
@@ -17,6 +18,7 @@ function Matches({ matches, userId, refresh }: any) {
                         contact={matchData.survey.contact}
                         matchFeedback={matchFeedback}
                         refresh={refresh}
+                        mutualCrush={mutualCrush}
                     />
                 );
             })}

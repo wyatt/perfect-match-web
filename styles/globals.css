@@ -48,3 +48,16 @@ a {
         background: whitesmoke;
     }
 }
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 0 0px rgba(250, 67, 95, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 0 60px rgba(0, 0, 0, 0);
+    }
+}
+
+.mutual-crush-glow {
+    animation: pulse-glow 1s infinite alternate;
+}

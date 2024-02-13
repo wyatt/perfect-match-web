@@ -21,7 +21,7 @@ const Profile: NextPage = (props: any) => {
             <div>
                 <section className="text-gray-500">
                     <div className="pt-12 sm:pt-28 mx-[2%] sm:mx-[15%] lg:mx-[22%] mx-auto">
-                        <h1 className="text-2xl sm:text-3xl font-extrabold text-rose-400 text-center">
+                        <h1 className="text-2xl sm:text-3xl font-extrabold text-rose-400 text-center mb-10">
                             Welcome Back, {data.profile.firstName}!
                         </h1>
                     </div>

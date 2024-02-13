@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Review } from '../../types/users';
+import Iframe from 'react-iframe';
 
 const emoji = ['😃', '😆', '😄', '😆', '😊', '😎', '😳'];
 const color = [
@@ -181,18 +182,64 @@ function MatchFeedback({ matchID, matchFeedback, refresh }: any) {
     );
 }
 
-function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any) {
+function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutualCrush }: any) {
     const matchEmoji = useMemo(() => {
         return emoji[Math.floor(Math.random() * emoji.length)];
     }, []);
 
+    // Function to render the play button or emoji for the hookupsong
+    const renderSongSection = () => {
+        if (matchData.survey.hookupsongURL) {
+            const spotifyID = matchData.survey.hookupsongURL.url.split('/')[4];
+            const spotifyURL = `https://open.spotify.com/embed/track/${spotifyID}?utm_source=generator&theme=0`;
+            return (
+                <div>
+                    <p className="mb-3 sm:mb-3 text-gray-500">
+                        <button
+                            onClick={() => window.open(matchData.survey.hookupsongURL.url, '_blank')}
+                            className="font-bold ml-2"
+                        >
+                            <Iframe
+                                url={spotifyURL}
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                loading="lazy"
+                                styles={{
+                                    border: 'none',
+                                    maxHeight: '80px',
+                                    borderRadius: '13px',
+                                    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                                    margin: '7px 0px',
+                                    width: '400px',
+                                }}
+                            ></Iframe>
+                        </button>
+                    </p>
+                </div>
+            );
+        }
+    };
+
+    const mutualCrushGlowClass = mutualCrush ? 'mutual-crush-glow' : '';
+
     return (
         <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex">
-            <div className="items-center rounded-lg shadow-xl sm:flex sm:mx-[10%] lg:mx-[20%]">
+            <div
+                className={`items-center rounded-lg shadow-xl sm:flex sm:mx-[10%] lg:mx-[20%] ${mutualCrushGlowClass}`}
+                style={{ padding: '1rem', margin: '0 auto', maxWidth: '80%' }}
+            >
                 <div className="flex sm:contents">
                     <div className="text-8xl mt-4 sm:mt-0 sm:text-9xl mx-auto sm:ml-12 sm:mr-0">{matchEmoji}</div>
                 </div>
                 <div className="p-3 pt-1 sm:pl-10 sm:pr-16 sm:py-5">
+                    {mutualCrush && (
+                        <div className="p-3 mb-4 rounded-lg bg-pink-100 border border-pink-200 text-pink-700">
+                            <p>
+                                There was no need for us to execute the algorithm, as your compatibility was
+                                unmistakable - indeed, a mutual crush. Now, what comes next is not for us to dictate -
+                                take the next step and go on a date!
+                            </p>
+                        </div>
+                    )}
                     <h3 className="text-3xl font-bold font-botracking-tight text-gray-500">
                         <span className={color[Math.floor(Math.random() * (6 - 0 + 1) + 0)]}>
                             {matchData.profile.firstName}
@@ -210,8 +257,8 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any)
                         <span className="font-bold">{matchData.profile.describeYourself.describe2}</span>,{' '}
                         <span className="font-bold">{matchData.profile.describeYourself.describe3}</span>
                     </p>
-                    <p className="mb-3 sm:mb-3 text-gray-500">
-                        First song on my hookup playlist: 🎶
+                    <p className="mt-3 sm:mt-4 mb-2 text-gray-500">
+                        First song on my hookup playlist:
                         <span className="font-bold"> {matchData.survey.hookupsong}</span>
                     </p>
                     <p className="mb-4 sm:mb-3 text-gray-500">
@@ -252,6 +299,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any)
                             Other: <span className="font-bold">{contact.other}</span>
                         </p>
                     )}
+                    {renderSongSection()}
                     {/* <MatchFeedback matchID={matchID} matchFeedback={matchFeedback} refresh={refresh} /> */}
                 </div>
             </div>
