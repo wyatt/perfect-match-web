@@ -1,11 +1,17 @@
+import useSWR from 'swr';
+import { fetcher, analysisURL } from '@/utils/fetch';
 import dynamic from 'next/dynamic';
+import { SurveyModel } from 'survey-react';
 
 const ReactApexChart = dynamic(() => import('react-apexcharts'), {
     ssr: false,
 });
 
-const BestAlternative = () => {
-    const series = [1360, 884, 781, 565, 321];
+const RelationshipTypeLive = () => {
+    const { data: typeCount, error, isLoading } = useSWR(`${analysisURL}/relationshiptype`, fetcher);
+    if (isLoading || error) return null;
+
+    const series = Object.values(typeCount || {});
     const options = {
         chart: {
             toolbar: {
@@ -26,14 +32,8 @@ const BestAlternative = () => {
                 },
             },
         },
-        labels: [
-            'Enjoy studying in the Olin Basement',
-            'Live in the Gothics',
-            'Eat at Okenshields everyday',
-            'Drunk texted their ex last night',
-            'Matched with your roommate on Hinge',
-        ],
-        colors: ['#fda4af', '#fdba74', '#fde047', '#86efac', '#7dd3fc'],
+        labels: Object.keys(typeCount || {}),
+        colors: ['#fda4af', '#fde047', '#86efac', '#7dd3fc'],
         plotOptions: {
             pie: {
                 dataLabels: {
@@ -47,24 +47,18 @@ const BestAlternative = () => {
         dataLabels: {
             formatter(val: string, opts: any) {
                 const name = opts.w.globals.labels[opts.seriesIndex];
-                return [name, parseInt(val).toFixed(1) + '%'];
+                return [name, parseInt(val) + '%'];
             },
             style: {
-                fontSize: '15px',
-                fontWeight: 'bold',
+                fontSize: '16px',
             },
         },
         legend: {
             show: false,
         },
-        tooltip: {
-            theme: 'dark',
-
-            enabled: false,
-        },
         responsive: [
             {
-                breakpoint: 640,
+                breakpoint: 780,
                 options: {
                     dataLabels: {
                         style: {
@@ -73,10 +67,26 @@ const BestAlternative = () => {
                     },
                 },
             },
+            {
+                breakpoint: 1200,
+                options: {
+                    dataLabels: {
+                        style: {
+                            fontSize: '14px',
+                        },
+                    },
+                },
+            },
         ],
     };
 
-    return <ReactApexChart type="donut" series={series} options={options as unknown as ApexCharts.ApexOptions} />;
+    return (
+        <ReactApexChart
+            type="donut"
+            series={series as ApexAxisChartSeries}
+            options={options as unknown as ApexCharts.ApexOptions}
+        />
+    );
 };
 
-export default BestAlternative;
+export default RelationshipTypeLive;

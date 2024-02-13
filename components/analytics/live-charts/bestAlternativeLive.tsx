@@ -1,19 +1,25 @@
+import useSWR from 'swr';
+import { fetcher, analysisURL } from '@/utils/fetch';
 import dynamic from 'next/dynamic';
+import { SurveyModel } from 'survey-react';
 
 const ReactApexChart = dynamic(() => import('react-apexcharts'), {
     ssr: false,
 });
 
-const completeTask = () => {
+const BestAlternativeLive = () => {
+    const { data: alternativeCount, error, isLoading } = useSWR(`${analysisURL}/alternative`, fetcher);
+    if (isLoading || error) return null;
+
     const series = [
         {
             name: '',
-            data: [1221, 1095, 1042, 553],
+            data: Object.values(alternativeCount || {}),
         },
     ];
     const options = {
         chart: {
-            type: 'bar',
+            type: 'pie',
             height: 380,
             toolbar: {
                 show: false,
@@ -51,10 +57,11 @@ const completeTask = () => {
         },
         tooltip: {
             theme: 'dark',
-
+            enabled: true,
             y: {
-                formatter: function (value: any) {
-                    const percent = (parseInt(value) / 3911) * 100;
+                formatter: function (value: any, opts: any) {
+                    const sum = opts.series[0].reduce((a: any, b: any) => a + b, 0);
+                    const percent = (value / sum) * 100;
                     return percent.toFixed(0) + '%';
                 },
             },
@@ -62,14 +69,9 @@ const completeTask = () => {
                 show: false,
             },
         },
-        colors: ['#c4b5fd', '#ddd6fe', '#ede9fe', '#f5f3ff'],
+        colors: ['#fda4af', '#86efac', '#fde047', '#7dd3fc', '#fdba74'],
         xaxis: {
-            categories: [
-                'A. Stress-free Dyson pupil, but claims to have a "genuine interest" in Discounted Cash Flow model.',
-                'B. Philosophy major that can’t pay the bills but declares their love to you in a timeless sonnet.',
-                'C. Pre-med who spends all their time complaining about CHEM 2070 on Sidechat.',
-                'D. Near the top of the class for engineering talent, near the bottom for shower frequency.',
-            ],
+            categories: Object.keys(alternativeCount || {}),
             labels: {
                 style: {
                     colors: '#6b7280',
@@ -98,17 +100,6 @@ const completeTask = () => {
                     },
                     dataLabels: {
                         style: {
-                            fontSize: '7px',
-                            fontWeight: 600,
-                        },
-                    },
-                },
-            },
-            {
-                breakpoint: 1024,
-                options: {
-                    dataLabels: {
-                        style: {
                             fontSize: '12px',
                             fontWeight: 600,
                         },
@@ -118,7 +109,9 @@ const completeTask = () => {
         ],
     };
 
-    return <ReactApexChart type="bar" series={series} options={options as ApexCharts.ApexOptions} />;
+    return (
+        <ReactApexChart type="bar" series={series as ApexAxisChartSeries} options={options as ApexCharts.ApexOptions} />
+    );
 };
 
-export default completeTask;
+export default BestAlternativeLive;

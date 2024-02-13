@@ -1,20 +1,25 @@
+import useSWR from 'swr';
+import { fetcher, analysisURL } from '@/utils/fetch';
 import dynamic from 'next/dynamic';
 
 const ReactApexChart = dynamic(() => import('react-apexcharts'), {
     ssr: false,
 });
 
-const DescribeYouFemale = () => {
+const TreeMap = () => {
+    const { data: describeselfCount, error, isLoading } = useSWR(`${analysisURL}/describeself`, fetcher);
+    if (isLoading || error) return null;
+
     const series = [
         {
             data: [
                 {
-                    x: 'Funny',
-                    y: 26.8,
+                    x: Object.keys(describeselfCount)[0],
+                    y: Object.values(describeselfCount)[0],
                 },
                 {
-                    x: 'Caring',
-                    y: 11.5,
+                    x: Object.keys(describeselfCount)[1],
+                    y: Object.values(describeselfCount)[1],
                 },
                 {
                     x: 'Kind',
@@ -104,18 +109,9 @@ const DescribeYouFemale = () => {
                 enableShades: false,
             },
         },
-        tooltip: {
-            theme: 'dark',
-
-            y: {
-                formatter: function (value: any) {
-                    return value + '%';
-                },
-            },
-        },
     };
 
     return <ReactApexChart type="treemap" series={series} options={options as ApexCharts.ApexOptions} />;
 };
 
-export default DescribeYouFemale;
+export default TreeMap;

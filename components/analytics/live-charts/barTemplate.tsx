@@ -4,11 +4,11 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), {
     ssr: false,
 });
 
-const completeTask = () => {
+const Bar = () => {
     const series = [
         {
             name: '',
-            data: [1221, 1095, 1042, 553],
+            data: [2319, 867, 539, 186],
         },
     ];
     const options = {
@@ -62,13 +62,13 @@ const completeTask = () => {
                 show: false,
             },
         },
-        colors: ['#c4b5fd', '#ddd6fe', '#ede9fe', '#f5f3ff'],
+        colors: ['#f9a8d4', '#fbcfe8', '#fce7f3', '#fdf2f8'],
         xaxis: {
             categories: [
-                'A. Stress-free Dyson pupil, but claims to have a "genuine interest" in Discounted Cash Flow model.',
-                'B. Philosophy major that can’t pay the bills but declares their love to you in a timeless sonnet.',
-                'C. Pre-med who spends all their time complaining about CHEM 2070 on Sidechat.',
-                'D. Near the top of the class for engineering talent, near the bottom for shower frequency.',
+                'A. Kiss on the suspension bridge at midnight.',
+                'B. Make the library into your bedroom and have sex in the stacks.',
+                'C. Hook up with your T.A.',
+                'D. Flirt with your professor.',
             ],
             labels: {
                 style: {
@@ -98,18 +98,7 @@ const completeTask = () => {
                     },
                     dataLabels: {
                         style: {
-                            fontSize: '7px',
-                            fontWeight: 600,
-                        },
-                    },
-                },
-            },
-            {
-                breakpoint: 1024,
-                options: {
-                    dataLabels: {
-                        style: {
-                            fontSize: '12px',
+                            fontSize: '11px',
                             fontWeight: 600,
                         },
                     },
@@ -121,4 +110,4 @@ const completeTask = () => {
     return <ReactApexChart type="bar" series={series} options={options as ApexCharts.ApexOptions} />;
 };
 
-export default completeTask;
+export default Bar;

@@ -4,7 +4,7 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), {
     ssr: false,
 });
 
-const BestAlternative = () => {
+const Pie = () => {
     const series = [1360, 884, 781, 565, 321];
     const options = {
         chart: {
@@ -79,4 +79,4 @@ const BestAlternative = () => {
     return <ReactApexChart type="donut" series={series} options={options as unknown as ApexCharts.ApexOptions} />;
 };
 
-export default BestAlternative;
+export default Pie;

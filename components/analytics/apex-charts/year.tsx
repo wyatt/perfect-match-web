@@ -12,6 +12,10 @@ const Year = () => {
         },
     ];
     const options = {
+        tooltip: {
+            enabled: true,
+            theme: 'dark',
+        },
         colors: ['#fda4af', '#fdba74', '#fde047', '#86efac', '#7dd3fc', '#c4b5fd'],
         chart: {
             height: 350,
@@ -53,6 +57,8 @@ const Year = () => {
                 show: false,
             },
             tooltip: {
+                theme: 'dark',
+
                 enabled: true,
             },
             labels: {
@@ -80,28 +86,32 @@ const Year = () => {
         legend: {
             show: false,
         },
-        responsive: [{
-            breakpoint: 640,
-            options: {
-                xaxis: {
-                    labels: {
-                        rotate: -90,
-                        style: {
-                            fontSize: '11px'
-                        }
-                    }
-                },
-                dataLabels: {
-                    style: {
-                        fontSize: '11px',
+        responsive: [
+            {
+                breakpoint: 640,
+                options: {
+                    xaxis: {
+                        labels: {
+                            rotate: -90,
+                            style: {
+                                fontSize: '11px',
+                            },
+                        },
                     },
-                    offsetY: -16
-                }
+                    dataLabels: {
+                        style: {
+                            fontSize: '11px',
+                        },
+                        offsetY: -16,
+                    },
+                },
             },
-        }]
+        ],
     };
 
-    return <ReactApexChart type="bar" series={series} options={options as ApexCharts.ApexOptions} />;
+    return (
+        <ReactApexChart type="bar" series={series as ApexAxisChartSeries} options={options as ApexCharts.ApexOptions} />
+    );
 };
 
 export default Year;
