@@ -4,7 +4,7 @@ export const questions = {
         {
             type: 'html',
             name: 'disregard2',
-            html: "Have a crush on campus? Let us be your Cupid! Our unique Crush Match feature uses an algorithm that's all about making sparks fly. Just enter your Crush's NetID, and if they feel the same way (put you as their crush), voila! – it's a <b>Perfect Match</b>! And if not, don't worry - no one will ever know your secret. <br><br> But what if your crush hasn't filled out the survey? Fear not! We've got a new secret weapon this year.<br><br><b>Do You Want to Nudge Your Crush?</b><br><br>We get it – sometimes crushes need a little push. If you're not sure your crush will participate, we can send them a sweet anonymous nudge. It's a simple, \"Hey, someone's thinking of you!\" – a prompt to fill out the survey and find out who their secret admirer is. Romance could be just a survey away!",
+            html: "Have a crush on campus? Let us be your Cupid! Our unique Crush Match feature uses an algorithm that's all about making sparks fly. Just enter your Crush's NetID, and if they feel the same way (put you as their crush), voila! – it's a <b>Perfect Match</b>! And if not, don't worry - <b>no one will ever know your secret</b>. <br><br> But what if your crush hasn't filled out the survey? Fear not! We've got a new secret weapon this year.<br><br><b>💌 Do You Want to Nudge Your Crush?</b><br><br>We get it – sometimes crushes need a little push. </b><br><br>If you're not sure your crush will participate, we can send them a sweet anonymous nudge. It's a simple email, \"Hey, someone's thinking of you!\" - a prompt to fill out the survey and find out who their secret admirer is. </b><br><br>Don't hesitate! Romance could be just a survey away! <br><br><b>P.S.</b> This is all in good fun, and you're in control. Your secret will always be safe with us!",
         },
         {
             type: 'matrixdynamic',
@@ -25,7 +25,7 @@ export const questions = {
                 {
                     cellType: 'radiogroup',
                     name: 'reachout',
-                    title: '💌 Should we send your crush an anonymous hint?',
+                    title: '💌 Should we send your crush an anonymous hint (see descriptions above)?',
                     isRequired: true,
                     choices: [
                         {
