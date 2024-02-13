@@ -206,7 +206,9 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any)
                     <p className="text-gray-500 ">📍 {matchData.profile.city}</p>
                     <p className="mt-3 sm:mt-4 mb-2 text-gray-500">
                         Three words to describe me:{' '}
-                        <span className="font-bold">{matchData.profile.describeYourself}</span>!
+                        <span className="font-bold">{matchData.profile.describeYourself.describe1}</span>,{' '}
+                        <span className="font-bold">{matchData.profile.describeYourself.describe2}</span>,{' '}
+                        <span className="font-bold">{matchData.profile.describeYourself.describe3}</span>
                     </p>
                     <p className="mb-3 sm:mb-3 text-gray-500">
                         First song on my hookup playlist: 🎶
