@@ -20,10 +20,18 @@ const Profile: NextPage = (props: any) => {
             <Header />
             <div>
                 <section className="text-gray-500">
-                    <div className="pt-12 sm:pt-28 mx-[2%] sm:mx-[15%] lg:mx-[22%] mx-auto">
+                    <div className="pt-12 sm:pt-20 mx-[2%] sm:mx-[15%] lg:mx-[22%] mx-auto">
                         <h1 className="text-2xl sm:text-3xl font-extrabold text-rose-400 text-center mb-10">
-                            Welcome Back, {data.profile.firstName}!
+                            Happy Valentine's Day, {data.profile.firstName} 💝!
                         </h1>
+                        <p className="text-lg text-center mt-8 mb-12">
+                            Guess what? Our cupid algorithm has been hard at work, 
+                            meticulously analyzing data and crunching numbers to bring 
+                            you the perfect matches for this Valentine's Day! We&#39;ve 
+                            done the heavy lifting, and now it&#39;s time for you to 
+                            seize the moment and make this Valentine&#39;s Day truly special 💖✨.
+                            Good luck!
+                        </p>
                     </div>
                 </section>
             </div>

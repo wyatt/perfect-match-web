@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Review } from '../../types/users';
 import Iframe from 'react-iframe';
 
-const emoji = ['😃', '😆', '😄', '😆', '😊', '😎', '😳'];
+const emoji = ['😃', '😆', '😄', '😆', '😊', '😎', '😳', '🤗'];
 const color = [
     'text-rose-400',
     'text-orange-400',
@@ -257,11 +257,11 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                         <span className="font-bold">{matchData.profile.describeYourself.describe2}</span>,{' '}
                         <span className="font-bold">{matchData.profile.describeYourself.describe3}</span>
                     </p>
-                    <p className="mt-3 sm:mt-4 mb-2 text-gray-500">
+                    <p className="mt-3 sm:mt-2 mb-2 text-gray-500">
                         First song on my hookup playlist:
                         <span className="font-bold"> {matchData.survey.hookupsong}</span>
                     </p>
-                    <p className="mb-4 sm:mb-3 text-gray-500">
+                    <p className="mb-4 sm:mb-2 text-gray-500">
                         Bio: <span className="font-bold">{matchData.profile.bio}</span>
                     </p>
                     {contact.insta && (

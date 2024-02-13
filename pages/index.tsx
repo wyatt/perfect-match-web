@@ -27,6 +27,7 @@ const Home: NextPage = (props: any) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
+            {/*
             <div className="bg-pink-100">
                 <div className="py-2 px-3 sm:py-3 flex">
                     <div className="flex flex-wrap items-center sm:mx-auto">
@@ -45,53 +46,44 @@ const Home: NextPage = (props: any) => {
                     </div>
                 </div>
             </div>
-            {/*
+            */}
             <div className="bg-pink-100">
                 <div className="py-2 px-3 sm:py-3 flex">
                     <div className="flex flex-wrap items-center sm:mx-auto">
                         <div>
                             <p className="ml-2 font-lg text-gray-500 sm:text-xl pb-1">
-                                <strong>❗PM24 Special❗</strong>
                                 Curious about what others choose? Check out{' '}
                                 <Link href="/dashboard">
                                     <strong className="text-rose-400 underline hover:text-rose-500 hover:cursor-pointer">
-                                        Live Statistics Dashboard
+                                        the survey results now
                                     </strong>
                                 </Link>
-                                !
+                                !🤔✨
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            */}
 
             <section className="bg-white flex flex-col pr-0 lg:pr-12 lg:flex-row">
-                <div className="pb-6 pt-8 sm:pt-20 lg:pt-56 lg:pb-36 lg:w-3/5">
-                    <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[20%] mt-8 sm:mt-0 opacity-100">
-                        <h1 className="text-3xl text-gray-600 font-extrabold sm:text-4xl lg:text-5xl">
-                            Let us find your
+                <div className="pb-6 pt-8 sm:pt-20 lg:pt-48 lg:pb-36 lg:w-3/5">
+                    <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
+                        <h1 className="text-3xl text-gray-600 font-extrabold sm:text-3xl lg:text-4xl">
+                            Happy Valentine's Day
                             <strong className="mt-1 lg:mt-2 lg:mt-3 block font-extrabold text-rose-400">
-                                Perfect Match💘!
+                            With your Perfect Match💓!
                             </strong>
                         </h1>
                         <p className="text-lg mx-2 mt-6 lg:max-w-lg sm:mx-auto lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
-                            Last year, we had over 4,200 participants. Sign in with your Cornell email and fill out the
-                            survey <strong>by noon, 13 Feb.</strong>, and get your Matches the same evening. Share the
-                            link with your friends, and help spread some joy in 2024! For updates, follow us on{' '}
-                            <a
-                                className="underline"
-                                href="https://www.instagram.com/cornellperfectmatch/"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                IG
-                            </a>
-                            .
+                        <strong className="text-bold">Matches for PM2024 have been released! </strong>{' '}
+                        It&#39;s time to log in and discover who are waiting for you. 
+                        Don&#39;t miss this opportunity to shoot 
+                        your shot and make this Valentine&#39;s Day truly unforgettable. 
+                        Who knows, this could be the start of something beautiful 💐!
                         </p>
                         {!error && currentCount && (
                             <p className="text-lg mt-4 mx-2 lg:max-w-lg sm:mx-auto lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
-                                Join over{' '}
+                                Over{' '}
                                 <strong className="text-xl text-rose-400 font-extrabold lg:text-2xl">
                                     {currentCount}
                                 </strong>{' '}
