@@ -32,13 +32,9 @@ const Profile: NextPage = (props: any) => {
                             seize the moment and make this Valentine&#39;s Day truly special 💖.
                             Good luck!
                         </p>
-                        <p className="text-lg text-center mt-4 mb-12 font-bold">
-                        ❗❗ You were a popular choice according to the algorithm - 
-                            keep your eye out for some surprise matches reaching out 🤩❗❗
-                        </p>
                     </div>
                 </section>
-                <p className="text-4xl sm:text-7xl lg:text-8xl mb-12 sm:mb-20 lg:mb-24 sm:mt-6 text-center animate-bounce">❤️🧡💛💚💌💙💜🤍🖤</p>
+                <p className="text-4xl sm:text-7xl lg:text-8xl mb-10 sm:mb-12 lg:mb-16 sm:mt-6 text-center animate-bounce">❤️🧡💛💚💌💙💜🤍🖤</p>
                 <section>
                     <div>
                         <div className="bg-white rounded-lg h-auto">
