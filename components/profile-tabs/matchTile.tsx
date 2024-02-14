@@ -186,7 +186,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     const matchEmoji = useMemo(() => {
         return emoji[Math.floor(Math.random() * emoji.length)];
     }, []);
-
+    console.log(matchData);
     // Function to render the play button or emoji for the hookupsong
     const renderSongSection = () => {
         if (matchData.survey.hookupsongURL) {
@@ -252,13 +252,13 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                     <p className="text-gray-500 ">📍 {matchData.profile.city}</p>
                     <p className="mt-3 sm:mt-4 mb-2 text-gray-500">
                         Three words to describe me:{' '}
-                        <span className="font-bold">{matchData.profile.describeYourself.describe1}</span>,{' '}
-                        <span className="font-bold">{matchData.profile.describeYourself.describe2}</span>,{' '}
-                        <span className="font-bold">{matchData.profile.describeYourself.describe3}</span>
+                        <span className="font-bold">{matchData.profile?.describeYourself?.describe1}</span>,{' '}
+                        <span className="font-bold">{matchData.profile?.describeYourself?.describe2}</span>,{' '}
+                        <span className="font-bold">{matchData.profile?.describeYourself?.describe3}</span>
                     </p>
                     <p className="mt-2 sm:mt-2 mb-2 text-gray-500">
                         First song on my hookup playlist:
-                        <span className="font-bold"> {matchData.survey.hookupsong}</span>
+                        <span className="font-bold"> {matchData.survey?.hookupsong}</span>
                     </p>
                     <p className="mb-2 sm:mb-2 text-gray-500">
                         Bio: <span className="font-bold">{matchData.profile.bio}</span>
@@ -295,7 +295,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                     )}
                     {contact.other && (
                         <p className="mb-4 sm:mb-3 text-gray-500">
-                            Other: <span className="font-bold">{contact.other}</span>
+                            Other: <span className="font-bold">{contact?.other}</span>
                         </p>
                     )}
                     <div className="w-1/2">{renderSongSection()}</div>
