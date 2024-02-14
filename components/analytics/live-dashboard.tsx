@@ -15,9 +15,13 @@ function LiveDashboard() {
             <h1 className="text-rose-400 font-bold text-xl sm:text-3xl mt-10 mb-4 sm:my-6 text-center">
                 PM2024 Quick Results
             </h1>
+            <p className="text-gray-500 sm:text-lg text-center lg:mx-[20%] sm:mb-8 mb-6 md:mx-[15%] mx-[1%]">
+            This year, many of you asked us to help you Nudge Your Crush. Guess what? It
+            worked! <strong className="text-rose-400">There are 72 pairs of crush matches in total, 
+            with 16 of them being mutual crushes 💞. </strong> Let the love story begin with Perfect Match!
+            </p>
             <p className="text-gray-500 sm:text-lg text-center lg:mx-[20%] sm:mb-10 mb-6 md:mx-[15%] mx-[1%]">
-                Interested in the choices of others? Check out statistics from the PM2024 responses. 
-                Before reaching out to your perfect matches, be sure to explore this data! 
+                And... Before reaching out to your perfect matches, be sure to explore these statistics from the PM2024 responses! 
                 Try hovering or clicking on the charts to see the data. 
                 Stay tuned for additional updates...
             </p>

@@ -54,10 +54,10 @@ const Home: NextPage = (props: any) => {
                     <div className="flex flex-wrap items-center sm:mx-auto">
                         <div>
                             <p className="ml-2 font-lg text-gray-500 sm:text-xl pb-1">
-                                Curious about what others choose? Check out{' '}
+                                Did &#34;Nudge Your Crush&#34; work? Check out{' '}
                                 <Link href="/dashboard">
                                     <strong className="text-rose-400 underline hover:text-rose-500 hover:cursor-pointer">
-                                        the survey results
+                                        PM2024 quick results
                                     </strong>
                                 </Link>{' '}
                                 now !🤔✨
