@@ -230,10 +230,6 @@ const About: any = (props: any) => {
                     </ol>
                 </section>
 
-                <section className="bg-white">
-                    <Members />
-                </section>
-
                 <section className="text-gray-500 bg-pink-100">
                     <div className="container px-5 sm:px-0 py-16 sm:py-24 mx-auto">
                         <div className="text-center mb-15">
