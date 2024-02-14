@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { Review } from '../../types/users';
+import Iframe from 'react-iframe';
 
-const emoji = ['😃', '😆', '😄', '😆', '😊', '😎', '😳'];
+const emoji = ['😃', '😆', '😄', '😆', '😊', '😎', '😳', '🤗'];
 const color = [
     'text-rose-400',
     'text-orange-400',
@@ -41,7 +42,7 @@ const ratingOptions = [
     'A+ profile – love the academic flair and personal touch',
 ];
 
-function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any) {
+function MatchFeedback({ matchID, matchFeedback, refresh }: any) {
     const [review, setReview] = useState<Review>({
         overallRating: matchFeedback?.overallRating || '',
         topReasonForRating: matchFeedback?.topReasonForRating || '',
@@ -52,10 +53,6 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any)
     });
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const matchEmoji = useMemo(() => {
-        return emoji[Math.floor(Math.random() * emoji.length)];
-    }, []);
-
     const submitFeedback = async () => {
         await fetch(`/api/review/${matchID}`, {
             method: 'POST',
@@ -64,14 +61,184 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any)
         refresh();
         setIsModalOpen(false);
     };
+    return (
+        <div>
+            <button
+                onClick={() => setIsModalOpen(true)}
+                className="mt-1 mb-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+                Leave Feedback
+            </button>
+            ;
+            {isModalOpen && (
+                <div className="fixed top-0 left-0 w-full h-full bg-gray-500 bg-opacity-50 flex items-center justify-center">
+                    <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+                        <h2 className="text-2xl mb-4 mt-2 font-extrabold text-rose-400">Match Feedback</h2>
+
+                        {/* Feedback form */}
+                        <div className="space-y-4 text-gray-500">
+                            {/* Overall Rating */}
+                            <div>
+                                <label>
+                                    On a scale of 1-10, is this match a Perfect Match? &#40;1-terrible match; 10-Perfect
+                                    Match!&#41;
+                                </label>
+                                <input
+                                    type="number"
+                                    min="1"
+                                    max="10"
+                                    value={review.overallRating}
+                                    onChange={(e) => setReview({ ...review, overallRating: Number(e.target.value) })}
+                                    className="w-full bg-white p-2 mt-1 border rounded-md text-base leading-light focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                                />
+                            </div>
+
+                            {/* Top Reason for Rating */}
+                            <div>
+                                <label>Top Reason for Rating:</label>
+                                <select
+                                    autoFocus
+                                    className="w-full bg-white border rounded-md overflow-hidden"
+                                    value={review.topReasonForRating}
+                                    onChange={(e) => setReview({ ...review, topReasonForRating: e.target.value })}
+                                >
+                                    {ratingOptions.map((option: string) => (
+                                        <option key={option} value={option} className="bg-white">
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            {/* Met Match */}
+                            <div>
+                                <label className="text-gray-600">Have you met this match?</label>
+                                <input
+                                    className="ml-1 cursor-pointer"
+                                    type="checkbox"
+                                    checked={review.metMatch}
+                                    onChange={(e) => setReview({ ...review, metMatch: e.target.checked })}
+                                />
+                            </div>
+
+                            {/* Number of Dates */}
+                            <div>
+                                <label className="text-gray-600">Number of Dates:</label>
+                                <input
+                                    className="bg-white ml-1 pl-1"
+                                    type="number"
+                                    value={review.numberOfDates}
+                                    onChange={(e) => setReview({ ...review, numberOfDates: Number(e.target.value) })}
+                                />
+                            </div>
+
+                            {/* In Relationship with Match */}
+                            <div>
+                                <label className="text-gray-600">In Relationship with Match:</label>
+                                <input
+                                    className="ml-1 cursor-pointer"
+                                    type="checkbox"
+                                    checked={review.inRelationshipWithMatch}
+                                    onChange={(e) =>
+                                        setReview({
+                                            ...review,
+                                            inRelationshipWithMatch: e.target.checked,
+                                        })
+                                    }
+                                />
+                            </div>
+
+                            {/* Additional Comments */}
+                            <div>
+                                <label className="text-gray-600">Additional Comments:</label>
+                                <textarea
+                                    value={review.additionalComments}
+                                    onChange={(e) => setReview({ ...review, additionalComments: e.target.value })}
+                                    className="w-full p-2 mt-1 border rounded-md bg-white"
+                                    rows={4}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Buttons */}
+                        <div className="mt-2 mb-2 flex justify-end space-x-4">
+                            <button
+                                onClick={() => setIsModalOpen(false)}
+                                className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition"
+                            >
+                                Close
+                            </button>
+                            <button
+                                onClick={submitFeedback}
+                                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+                            >
+                                Submit Feedback
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+}
+
+function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutualCrush }: any) {
+    const matchEmoji = useMemo(() => {
+        return emoji[Math.floor(Math.random() * emoji.length)];
+    }, []);
+    console.log(matchData);
+    // Function to render the play button or emoji for the hookupsong
+    const renderSongSection = () => {
+        if (matchData.survey.hookupsongURL) {
+            const spotifyID = matchData.survey.hookupsongURL.url.split('/')[4];
+            const spotifyURL = `https://open.spotify.com/embed/track/${spotifyID}?utm_source=generator&theme=0`;
+            return (
+                <div>
+                    <p className="mb-3 sm:mb-3 text-gray-500">
+                        <button
+                            onClick={() => window.open(matchData.survey.hookupsongURL.url, '_blank')}
+                            className="font-bold"
+                        >
+                            <Iframe
+                                url={spotifyURL}
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                loading="lazy"
+                                styles={{
+                                    border: 'none',
+                                    maxHeight: '80px',
+                                    borderRadius: '13px',
+                                    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                                    margin: '7px 0px',
+                                    width: '320px',
+                                }}
+                            ></Iframe>
+                        </button>
+                    </p>
+                </div>
+            );
+        }
+    };
+
+    const mutualCrushGlowClass = mutualCrush ? 'mutual-crush-glow' : '';
 
     return (
         <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex">
-            <div className="items-center rounded-lg shadow-xl sm:flex sm:mx-[10%] lg:mx-[20%]">
+            <div
+                className={`items-center rounded-lg shadow-xl mx-[2%] sm:flex sm:w-3/4 lg:2/3 lg:max-w-3xl sm:mx-auto ${mutualCrushGlowClass}`}
+            >
                 <div className="flex sm:contents">
-                    <div className="text-8xl mt-4 sm:mt-0 sm:text-9xl mx-auto sm:ml-12 sm:mr-0">{matchEmoji}</div>
+                    <div className="text-8xl mt-4 sm:mt-0 sm:text-9xl mx-auto sm:ml-8 sm:mr-0">{matchEmoji}</div>
                 </div>
-                <div className="p-3 pt-1 sm:pl-10 sm:pr-16 sm:py-5">
+                <div className="p-3 pt-1 sm:pl-6 sm:pr-10 sm:py-5 lg:pl-10">
+                    {mutualCrush && (
+                        <div className="p-3 mb-4 rounded-lg bg-pink-100 border border-pink-200 text-pink-500">
+                            <p>
+                                💌 There was no need for us to execute the algorithm, as your compatibility was
+                                unmistakable - indeed, a mutual crush. Now, what comes next is not for us to dictate -
+                                take the next step and go on a date ❤️‍🔥!
+                            </p>
+                        </div>
+                    )}
                     <h3 className="text-3xl font-bold font-botracking-tight text-gray-500">
                         <span className={color[Math.floor(Math.random() * (6 - 0 + 1) + 0)]}>
                             {matchData.profile.firstName}
@@ -85,13 +252,15 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any)
                     <p className="text-gray-500 ">📍 {matchData.profile.city}</p>
                     <p className="mt-3 sm:mt-4 mb-2 text-gray-500">
                         Three words to describe me:{' '}
-                        <span className="font-bold">{matchData.profile.describeYourself}</span>!
+                        <span className="font-bold">{matchData.profile?.describeYourself?.describe1}</span>,{' '}
+                        <span className="font-bold">{matchData.profile?.describeYourself?.describe2}</span>,{' '}
+                        <span className="font-bold">{matchData.profile?.describeYourself?.describe3}</span>
                     </p>
-                    <p className="mb-3 sm:mb-3 text-gray-500">
-                        First song on my hookup playlist: 🎶
-                        <span className="font-bold"> {matchData.survey.hookupsong}</span>
+                    <p className="mt-2 sm:mt-2 mb-2 text-gray-500">
+                        First song on my hookup playlist:
+                        <span className="font-bold"> {matchData.survey?.hookupsong}</span>
                     </p>
-                    <p className="mb-4 sm:mb-3 text-gray-500">
+                    <p className="mb-2 sm:mb-2 text-gray-500">
                         Bio: <span className="font-bold">{matchData.profile.bio}</span>
                     </p>
                     {contact.insta && (
@@ -124,125 +293,13 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh }: any)
                             Snapchat: <span className="font-bold">{contact.snap}</span>
                         </p>
                     )}
-                    <button
-                        onClick={() => setIsModalOpen(true)}
-                        className="mt-1 mb-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                    >
-                        Leave Feedback
-                    </button>
-                    {isModalOpen && (
-                        <div className="fixed top-0 left-0 w-full h-full bg-gray-500 bg-opacity-50 flex items-center justify-center">
-                            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-                                <h2 className="text-2xl mb-4 mt-2 font-extrabold text-rose-400">Match Feedback</h2>
-
-                                {/* Feedback form */}
-                                <div className="space-y-4 text-gray-500">
-                                    {/* Overall Rating */}
-                                    <div>
-                                        <label>
-                                            On a scale of 1-10, is this match a Perfect Match? &#40;1-terrible match;
-                                            10-Perfect Match!&#41;
-                                        </label>
-                                        <input
-                                            type="number"
-                                            min="1"
-                                            max="10"
-                                            value={review.overallRating}
-                                            onChange={(e) =>
-                                                setReview({ ...review, overallRating: Number(e.target.value) })
-                                            }
-                                            className="w-full bg-white p-2 mt-1 border rounded-md text-base leading-light focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                                        />
-                                    </div>
-
-                                    {/* Top Reason for Rating */}
-                                    <div>
-                                        <label>Top Reason for Rating:</label>
-                                        <select
-                                            autoFocus
-                                            className="w-full bg-white border rounded-md overflow-hidden"
-                                            value={review.topReasonForRating}
-                                            onChange={(e) =>
-                                                setReview({ ...review, topReasonForRating: e.target.value })
-                                            }
-                                        >
-                                            {ratingOptions.map((option: string) => (
-                                                <option key={option} value={option} className="bg-white">
-                                                    {option}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </div>
-
-                                    {/* Met Match */}
-                                    <div>
-                                        <label className="text-gray-600">Have you met this match?</label>
-                                        <input
-                                            className="ml-1 cursor-pointer"
-                                            type="checkbox"
-                                            checked={review.metMatch}
-                                            onChange={(e) => setReview({ ...review, metMatch: e.target.checked })}
-                                        />
-                                    </div>
-
-                                    {/* Number of Dates */}
-                                    <div>
-                                        <label className="text-gray-600">Number of Dates:</label>
-                                        <input
-                                            className="bg-white ml-1 pl-1"
-                                            type="number"
-                                            value={review.numberOfDates}
-                                            onChange={(e) =>
-                                                setReview({ ...review, numberOfDates: Number(e.target.value) })
-                                            }
-                                        />
-                                    </div>
-
-                                    {/* In Relationship with Match */}
-                                    <div>
-                                        <label className="text-gray-600">In Relationship with Match:</label>
-                                        <input
-                                            className="ml-1 cursor-pointer"
-                                            type="checkbox"
-                                            checked={review.inRelationshipWithMatch}
-                                            onChange={(e) =>
-                                                setReview({ ...review, inRelationshipWithMatch: e.target.checked })
-                                            }
-                                        />
-                                    </div>
-
-                                    {/* Additional Comments */}
-                                    <div>
-                                        <label className="text-gray-600">Additional Comments:</label>
-                                        <textarea
-                                            value={review.additionalComments}
-                                            onChange={(e) =>
-                                                setReview({ ...review, additionalComments: e.target.value })
-                                            }
-                                            className="w-full p-2 mt-1 border rounded-md bg-white"
-                                            rows={4}
-                                        />
-                                    </div>
-                                </div>
-
-                                {/* Buttons */}
-                                <div className="mt-2 mb-2 flex justify-end space-x-4">
-                                    <button
-                                        onClick={() => setIsModalOpen(false)}
-                                        className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition"
-                                    >
-                                        Close
-                                    </button>
-                                    <button
-                                        onClick={submitFeedback}
-                                        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-                                    >
-                                        Submit Feedback
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                    {contact.other && (
+                        <p className="mb-4 sm:mb-3 text-gray-500">
+                            Other: <span className="font-bold">{contact?.other}</span>
+                        </p>
                     )}
+                    <div className="w-1/2">{renderSongSection()}</div>
+                    {/* <MatchFeedback matchID={matchID} matchFeedback={matchFeedback} refresh={refresh} /> */}
                 </div>
             </div>
         </div>

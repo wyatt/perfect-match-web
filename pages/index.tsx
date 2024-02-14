@@ -12,10 +12,10 @@ import Script from 'next/script';
 import Image from 'next/image';
 import BestAlternative from '@/components/analytics/apex-charts/bestAlternative';
 import demo from 'public/feedback-demo.gif';
-import CountDownSurvey from '@/components/countdownSurvey'
+import Countdown from '@/components/countdown';
 import word from 'public/wordcloud-hq.gif';
-import React from 'react';
-import Countdown, { CountdownRenderProps } from 'react-countdown';
+import SpotifyPlaylist from '@/components/playlist'
+import SpotifyPlaylistNarrow from '@/components/playlist-narrow';
 
 const Home: NextPage = (props: any) => {
     const { data: currentCount, error } = useSWR('/api/count', fetcher, {
@@ -29,62 +29,61 @@ const Home: NextPage = (props: any) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
-            {/*<div className="bg-pink-100">
-                <div className="py-2 px-3 sm:py-3 flex">
-                    <div className="flex flex-wrap items-center sm:mx-auto">
-                        <div>
-                            <p className="ml-2 font-lg text-gray-500 sm:text-xl pb-1">
-                                <strong>❗PM24 Special❗</strong>
-                                Let us help you {' '}
-                                <Link href="/profile">
-                                    <strong className="text-rose-400 underline hover:text-rose-500 hover:cursor-pointer">
-                                        Nudge Your Crush
-                                    </strong>
-                                </Link>
-                                {' '} with an anonymous hint 💌!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             */}
+            {/*
             <div className="bg-pink-100">
                 <div className="py-2 px-3 sm:py-3 flex">
                     <div className="flex flex-wrap items-center sm:mx-auto">
                         <div>
                             <p className="ml-2 font-lg text-gray-500 sm:text-xl pb-1">
                                 <strong>❗PM24 Special❗</strong>
-                                Curious about what others choose? Check out{' '}
+                                Let us help you{' '}
+                                <Link href="/profile#crushes">
+                                    <strong className="text-rose-400 underline hover:text-rose-500 hover:cursor-pointer">
+                                        Nudge Your Crush
+                                    </strong>
+                                </Link>{' '}
+                                with an anonymous hint 💌!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            */}
+            <div className="bg-pink-100">
+                <div className="py-2 px-3 sm:py-3 flex">
+                    <div className="flex flex-wrap items-center sm:mx-auto">
+                        <div>
+                            <p className="ml-2 font-lg text-gray-500 sm:text-xl pb-1">
+                                Did &#34;Nudge Your Crush&#34; work? Check out{' '}
                                 <Link href="/dashboard">
                                     <strong className="text-rose-400 underline hover:text-rose-500 hover:cursor-pointer">
-                                        Live Statistics Dashboard
+                                        PM2024 quick results
                                     </strong>
-                                </Link>
-                                !
+                                </Link>{' '}
+                                now !🤔✨
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <section className="bg-white flex flex-col pr-0 lg:pr-12 lg:flex-row">
-                <div className="pb-6 pt-6 sm:pt-20 lg:pt-44 lg:pb-36 lg:w-3/5">
+            <section className="bg-white flex flex-col pr-0 lg:pr-32 xl:pr-40 xl:pl-8 lg:flex-row">
+                <div className="pb-6 pt-8 sm:pt-20 lg:pt-44 lg:pb-36 lg:w-2/3 lg:pr-3">
                     <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
-                        <h1 className="text-3xl text-gray-600 font-extrabold sm:text-4xl lg:text-5xl">
-                            Let us find your
+                        <h1 className="text-3xl text-gray-600 font-extrabold sm:text-3xl lg:text-4xl">
+                            Happy Valentine&#39;s Day
                             <strong className="mt-1 lg:mt-2 lg:mt-3 block font-extrabold text-rose-400">
-                                Perfect Match💘!
+                            With your Perfect Match💓!
                             </strong>
                         </h1>
-                        <div>
-                            <CountDownSurvey />
-                        </div>
-                        <p className="text-lg mx-2 mt-6 lg:max-w-lg sm:mx-auto lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
-                            Matches are released sometime tonight, with a reminder 
-                            email sent to you. Get excited❤️‍🔥!
+                        <p className="text-lg mt-6 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
+                        <strong className="text-bold">Matches for PM2024 have been released! </strong>{' '}
+                        Thanks for waiting. It&#39;s time to log in and discover who are waiting 
+                        for you. Don&#39;t miss this opportunity to shoot your shot. Who knows, 
+                        this could be the start of something beautiful 💐!
                         </p>
                         {!error && currentCount && (
-                            <p className="text-lg mt-4 mx-2 lg:max-w-lg sm:mx-auto lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
+                            <p className="text-lg mt-4 mx-2 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
                                 Over{' '}
                                 <strong className="text-xl text-rose-400 font-extrabold lg:text-2xl">
                                     {currentCount}
@@ -92,11 +91,20 @@ const Home: NextPage = (props: any) => {
                                 Cornellians getting matched this year!
                             </p>
                         )}
+                        <div className="flex lg:contents">
+                            <div className="mt-8 flex flex-wrap gap-4 text-center mx-auto">
+                                <GoogleAuth login={!props.user} />
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <Image priority={true} src={word} alt="Loading..." className="lg:w-2/5"></Image>
+                <div className="lg:mt-16 mt-0 mb-8 mx-auto hidden sm:block">
+                    <SpotifyPlaylist />
+                </div>
+                <div className="mt-0 mb-8 mx-auto sm:hidden">
+                    <SpotifyPlaylistNarrow />
+                </div>
             </section>
-
             <Footer />
         </div>
     );

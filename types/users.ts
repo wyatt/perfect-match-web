@@ -1,5 +1,6 @@
 export type User = {
     _id: string;
+    matchCount?: number;
     optIn: boolean;
     email: string;
     profile: Profile;

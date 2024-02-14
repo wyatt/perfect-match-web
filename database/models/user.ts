@@ -12,6 +12,7 @@ type Crush = {
 export interface IUser extends Document {
     email: string;
     optIn: boolean;
+    matchCount?: number;
     profile: IProfile;
     survey: ISurvey;
     crushes: Crush[] | string[];
@@ -26,6 +27,7 @@ export interface IUser extends Document {
 const userSchema: Schema = new Schema<IUser>({
     email: { type: String, required: true, unique: true, index: true },
     optIn: { type: Boolean, required: true },
+    matchCount: { type: Number, required: false },
     profile: profileSchema,
     survey: surveySchema,
     crushes: [{ type: Object }],

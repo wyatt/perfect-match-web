@@ -1,54 +1,54 @@
 import Head from 'next/head';
-import { Footer } from '@/components/footer';
-import { Header } from '@/components/header';
-import { ProfileTabs } from '@/components/profile-tabs';
-import { Spinner } from '@/components/general';
+import { Footer } from '../components/footer';
+import { Header } from '../components/header';
+import { ProfileTabs } from '../components/profile-tabs';
+import { Spinner } from '../components/general';
 import { NextPage } from 'next';
 import { getSession } from 'next-auth/react';
-import { fetcher } from '@/utils/fetch';
+import { fetcher } from '../utils/fetch';
 import useSWR from 'swr';
-import CountDownSurvey from '@/components/countdownSurvey'
-import word from 'public/wordcloud-hq.gif';
-import CountDown from '@/components/countdown';
-import Image from 'next/image';
+import styles from '/styles/Matches.module.css';
+import React, { useState } from 'react';
 
-const Profile: any = (props: any) => {
+const Profile: NextPage = (props: any) => {
     const { data, error, mutate } = useSWR('/api/profile', fetcher);
     const refresh = () => mutate();
     if (!data) return <Spinner />;
     return (
-        <div>
-            <Head>
-                <title>Profile</title>
-            </Head>
+        <div className="bg-white">
             <Header />
-            <section className="bg-white flex flex-col pr-0 lg:pr-12 lg:flex-row">
-                <div className="pb-6 pt-6 sm:pt-20 lg:pt-44 lg:pb-36 lg:w-3/5">
-                    <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
-                        <h1 className="text-3xl text-gray-600 font-extrabold sm:text-4xl lg:text-5xl">
-                            Let the magic
-                            <strong className="mt-1 lg:mt-2 lg:mt-3 block font-extrabold text-rose-400">
-                                Magic Begin🔮!
-                            </strong>
+            <div>
+                <section className="text-gray-500 flex flex-col">
+                    <div className="pt-12 sm:pt-20 mx-[2%] sm:mx-[15%] lg:mx-[22%] mx-auto">
+                        <h1 className="text-2xl sm:text-3xl font-extrabold text-rose-400 text-center mb-10">
+                            Happy Valentine&#39;s Day, {data.profile.firstName} 💝!
                         </h1>
-                        <div>
-                            <CountDownSurvey />
-                        </div>
-                        <p className="text-lg mx-2 mt-6 lg:max-w-lg sm:mx-auto lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
-                            Thanks for filling out PM2024!
-                            Matches are released sometime tonight, with a reminder 
-                            email sent to you. Get excited❤️‍🔥!
+                        <p className="text-lg text-center mt-8 mb-8">
+                            Thanks for waiting!
+                            Our cupid algorithm has been hard at work, 
+                            meticulously analyzing data and crunching numbers to bring 
+                            you the perfect matches for this Valentine&#39;s Day! We&#39;ve 
+                            done the heavy lifting, and now it&#39;s time for you to 
+                            seize the moment and make this Valentine&#39;s Day truly special 💖.
+                            Good luck!
                         </p>
                     </div>
-                </div>
-                <Image priority={true} src={word} alt="Loading..." className="lg:w-2/5"></Image>
-            </section>
+                </section>
+                <p className="text-4xl sm:text-7xl lg:text-8xl mb-10 sm:mb-12 lg:mb-16 sm:mt-6 text-center animate-bounce">❤️🧡💛💚💌💙💜🤍🖤</p>
+                <section>
+                    <div>
+                        <div className="bg-white rounded-lg h-auto">
+                            <ProfileTabs user={data} refresh={refresh} />
+                        </div>
+                    </div>
+                </section>
+            </div>
             <Footer />
         </div>
     );
 };
 
-{/*export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: any) {
     const session = await getSession(context);
     if (!session)
         return {
@@ -60,6 +60,6 @@ const Profile: any = (props: any) => {
             user: session.user,
         },
     };
-}*/}
+}
 
 export default Profile;
