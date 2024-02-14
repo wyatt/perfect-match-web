@@ -75,7 +75,8 @@ function Matches({ matches, userId, refresh, matchCount }: any) {
                         Bio: <span className="font-bold">Hey, hope this doesn&#39;t disappoint you when you see me, your cupid,
                         as your last match. I want to genuinely apologize for the delay in the release of matches. {" "}
                         <strong className="text-rose-400">So many thanks for your patience and support.</strong> I am not always perfect, but I am always here 
-                        for you every February if you need me. Wish you a meaningful Valentine&#39;s Day 🫶 ! -- Your Cupid</span>
+                        for you every February if you need me. And I will be ever-improving, I promise.
+                        Lastly, wish you a meaningful Valentine&#39;s Day 🫶 ! -- Your Cupid</span>
                     </p>
                     <p className="mb-4 sm:mb-3 text-gray-500">
                         Instagram: <span className="font-bold underline"><a href="https://www.instagram.com/cornellperfectmatch">cornellperfectmatch</a></span>
