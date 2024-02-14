@@ -12,11 +12,10 @@ import Script from 'next/script';
 import Image from 'next/image';
 import BestAlternative from '@/components/analytics/apex-charts/bestAlternative';
 import demo from 'public/feedback-demo.gif';
-import CountDownSurvey from '@/components/countdownSurvey'
+import Countdown from '@/components/countdown';
 import word from 'public/wordcloud-hq.gif';
 import SpotifyPlaylist from '@/components/playlist'
 import SpotifyPlaylistNarrow from '@/components/playlist-narrow';
-
 
 const Home: NextPage = (props: any) => {
     const { data: currentCount, error } = useSWR('/api/count', fetcher, {
@@ -37,13 +36,13 @@ const Home: NextPage = (props: any) => {
                         <div>
                             <p className="ml-2 font-lg text-gray-500 sm:text-xl pb-1">
                                 <strong>❗PM24 Special❗</strong>
-                                Let us help you {' '}
-                                <Link href="/profile">
+                                Let us help you{' '}
+                                <Link href="/profile#crushes">
                                     <strong className="text-rose-400 underline hover:text-rose-500 hover:cursor-pointer">
                                         Nudge Your Crush
                                     </strong>
-                                </Link>
-                                {' '} with an anonymous hint 💌!
+                                </Link>{' '}
+                                with an anonymous hint 💌!
                             </p>
                         </div>
                     </div>
@@ -92,6 +91,11 @@ const Home: NextPage = (props: any) => {
                                 Cornellians getting matched this year!
                             </p>
                         )}
+                        <div className="flex lg:contents">
+                            <div className="mt-8 flex flex-wrap gap-4 text-center mx-auto">
+                                <GoogleAuth login={!props.user} />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="lg:mt-16 mt-0 mb-8 mx-auto hidden sm:block">
