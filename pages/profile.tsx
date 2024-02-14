@@ -10,7 +10,7 @@ import useSWR from 'swr';
 import styles from '/styles/Matches.module.css';
 import React, { useState } from 'react';
 
-const Profile: NextPage = (props: any) => {
+const Profile: any = (props: any) => {
     const { data, error, mutate } = useSWR('/api/profile', fetcher);
     const refresh = () => mutate();
     if (!data) return <Spinner />;
@@ -40,15 +40,21 @@ const Profile: NextPage = (props: any) => {
                         <div className="bg-white rounded-lg h-auto">
                             <ProfileTabs user={data} refresh={refresh} />
                         </div>
+                        <p className="text-lg mx-2 mt-6 lg:max-w-lg sm:mx-auto lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
+                            Thanks for filling out PM2024!
+                            Matches are released sometime tonight, with a reminder 
+                            email sent to you. Get excited❤️‍🔥!
+                        </p>
                     </div>
-                </section>
-            </div>
+                </div>
+                <Image priority={true} src={word} alt="Loading..." className="lg:w-2/5"></Image>
+            </section>
             <Footer />
         </div>
     );
 };
 
-export async function getServerSideProps(context: any) {
+{/*export async function getServerSideProps(context: any) {
     const session = await getSession(context);
     if (!session)
         return {
@@ -60,6 +66,6 @@ export async function getServerSideProps(context: any) {
             user: session.user,
         },
     };
-}
+}*/}
 
 export default Profile;
