@@ -23,13 +23,18 @@ const Profile: NextPage = (props: any) => {
                         <h1 className="text-2xl sm:text-3xl font-extrabold text-rose-400 text-center mb-10">
                             Happy Valentine&#39;s Day, {data.profile.firstName} 💝!
                         </h1>
-                        <p className="text-lg text-center mt-8 mb-12">
-                            Guess what? Our cupid algorithm has been hard at work, 
+                        <p className="text-lg text-center mt-8 mb-8">
+                            Thanks for waiting!
+                            Our cupid algorithm has been hard at work, 
                             meticulously analyzing data and crunching numbers to bring 
                             you the perfect matches for this Valentine&#39;s Day! We&#39;ve 
                             done the heavy lifting, and now it&#39;s time for you to 
-                            seize the moment and make this Valentine&#39;s Day truly special 💖✨.
+                            seize the moment and make this Valentine&#39;s Day truly special 💖.
                             Good luck!
+                        </p>
+                        <p className="text-lg text-center mt-4 mb-12 font-bold">
+                        ❗❗ You were a popular choice according to the algorithm - 
+                            keep your eye out for some surprise matches reaching out 🤩❗❗
                         </p>
                     </div>
                 </section>

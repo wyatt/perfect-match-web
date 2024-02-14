@@ -76,10 +76,9 @@ const Home: NextPage = (props: any) => {
                         </h1>
                         <p className="text-lg mx-2 mt-6 lg:max-w-lg sm:mx-auto lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
                         <strong className="text-bold">Matches for PM2024 have been released! </strong>{' '}
-                        It&#39;s time to log in and discover who are waiting for you. 
-                        Don&#39;t miss this opportunity to shoot 
-                        your shot and make this Valentine&#39;s Day truly unforgettable. 
-                        Who knows, this could be the start of something beautiful 💐!
+                        Thanks for waiting. It&#39;s time to log in and discover who are waiting 
+                        for you. Don&#39;t miss this opportunity to shoot your shot. Who knows, 
+                        this could be the start of something beautiful 💐!
                         </p>
                         {!error && currentCount && (
                             <p className="text-lg mt-4 mx-2 lg:max-w-lg sm:mx-auto lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
