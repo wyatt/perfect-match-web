@@ -50,11 +50,12 @@ export const getUser = async (user: any): Promise<UserType> => {
     const doc = await User.findOne({ email: user.email }).populate({
         path: 'matchReviews',
         model: 'Match',
+        options: { sort: { 'score': -1 } },
         populate: [populateMatch('A'), populateMatch('B')],
     });
     // remove the match's feedback from the user for security reasons
     if (doc) {
-        doc.matchReviews = doc.matchReviews.map((match: any) => {
+        doc.matchReviews = doc.matchReviews.slice(0, 8).map((match: any) => {
             if (match.partnerAId.email === user.email) match.partnerBFeedback = null;
             else match.partnerAFeedback = null;
             return match;
