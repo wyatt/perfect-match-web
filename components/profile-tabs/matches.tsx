@@ -2,8 +2,9 @@ import MatchTile from './matchTile';
 import styles from '/styles/Matches.module.css';
 import React from 'react';
 
-function Matches({ matches, userId, refresh }: any) {
+function Matches({ matches, userId, refresh, matchCount }: any) {
     const [visible, setVisible] = React.useState(false);
+    console.log('matches', matchCount);
     return (
         <div>
             {matches.map((match: any, index: number) => {

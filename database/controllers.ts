@@ -55,11 +55,13 @@ export const getUser = async (user: any): Promise<UserType> => {
     });
     // remove the match's feedback from the user for security reasons
     if (doc) {
+        const matchCount = doc?.matchReviews.length || 0;
         doc.matchReviews = doc.matchReviews.slice(0, 8).map((match: any) => {
             if (match.partnerAId.email === user.email) match.partnerBFeedback = null;
             else match.partnerAFeedback = null;
             return match;
         });
+        doc.matchCount = matchCount;
     }
     return doc;
 };

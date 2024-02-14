@@ -305,6 +305,7 @@ function ProfileTabs(props: any) {
                 height="500px"
                 width="30%"
                 margin="0 auto"
+                matchCount={user?.matchCount}
                 offset={2}
                 showArrows={false}
                 userId={user._id}
