@@ -32,14 +32,6 @@ export const team = [
                 Title2: 'Web Dev Member',
             },
             {
-                Name: 'Taerim Eom',
-                ClassYear: 2024,
-                Major: 'CS',
-                Img: '/members/taerim.jpg',
-                Linkedin: 'https://www.linkedin.com/in/taerim-eom-301a41197',
-                Title1: 'Algorithms Subteam Head',
-            },
-            {
                 Name: 'Vipin Gunda',
                 ClassYear: 2025,
                 Major: 'CS & Math',
@@ -72,22 +64,6 @@ export const team = [
             'The Business team is responsible for marketing Perfect Match and reaching out to potential sponsors.',
         Members: [
             {
-                Name: 'Grace Wilkey',
-                ClassYear: 2024,
-                Major: 'Hospitality Administration',
-                Img: '/members/grace.jpg',
-                Linkedin: 'https://www.linkedin.com/in/grace-wilkey-201a30147',
-                Title1: 'Business Team Lead',
-            },
-            {
-                Name: 'Varshini Madhavan',
-                ClassYear: 2025,
-                Major: 'Industrial and Labor Relations',
-                Img: '/members/varshini.jpg',
-                Linkedin: 'https://www.linkedin.com/in/varshinimadhavan',
-                Title1: 'Business Team Member',
-            },
-            {
                 Name: 'Kelly Hong',
                 ClassYear: 2027,
                 Major: 'Fine Arts',
@@ -95,6 +71,15 @@ export const team = [
                 Linkedin: 'https://www.linkedin.com/in/kelly-hong-64666b294/ ',
                 Title1: 'Designer',
             },
+            {
+                Name: 'Samantha Smith',
+                ClassYear: 2026,
+                Major: 'Information Science',
+                Img: '/members/sam.jpeg',
+                Linkedin:
+                    'https://www.linkedin.com/in/samantha-smith-057302251/?profileId=ACoAAD4owcMBUJd9F2pVXmgf5ClwGk_KIu2gmrM/',
+                Title1: 'Web Dev Subteam Member & Designer',
+            }
         ],
     },
 ];
