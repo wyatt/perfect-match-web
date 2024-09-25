@@ -10,7 +10,7 @@ export const team = [
                 Major: 'CS & Government',
                 Img: '/members/nick.jpg',
                 Linkedin: 'https://www.linkedin.com/in/nicholas-varela',
-                Title1: 'Engineering Team Co-Lead',
+                Title1: 'Engineering Team Lead',
                 Title2: 'Web Dev Subteam Head',
             },
             {
@@ -20,7 +20,7 @@ export const team = [
                 Img: '/members/pratyush.jpg',
                 Team: 'Engineering',
                 Linkedin: 'https://www.linkedin.com/in/pratyushsudhakar',
-                Title1: 'Engineering Team Co-Lead',
+                Title1: 'Engineering Team Lead',
                 Title2: 'Web Dev Member',
             },
             {
@@ -28,7 +28,6 @@ export const team = [
                 ClassYear: 2025,
                 Major: 'Info Sci & Stats',
                 Img: '/members/flavia.jpg',
-                Title1: 'Data Analysis Subteam Head',
                 Title2: 'Web Dev Member',
             },
             {
@@ -45,7 +44,7 @@ export const team = [
                 Major: 'CS & Math & Government',
                 Img: '/members/daniel.png',
                 Linkedin: 'https://www.linkedin.com/in/daniel-chuang-7a1bb920b/',
-                Title1: 'Data Analysis Subteam Member',
+                Title1: 'Data Analysis Subteam Head',
             },
             {
                 Name: 'Samantha Smith',
@@ -63,7 +62,7 @@ export const team = [
                 Img: '/members/cindy.jpg',
                 Linkedin:
                     ' https://www.linkedin.com/in/cindy-li-569a30187/',
-                Title1: 'Analytics & Web Developer Team Member',
+                Title1: 'Algorithms & Web Developer Team Member',
             }
         ],
     },
@@ -78,7 +77,8 @@ export const team = [
                 Major: 'Fine Arts',
                 Img: '/members/kelly.png',
                 Linkedin: 'https://www.linkedin.com/in/kelly-hong-64666b294/ ',
-                Title1: 'Designer',
+                Title1: 'Business Team Lead',
+                Title2: 'Designer',
             },
             {
                 Name: 'Samantha Smith',
@@ -87,7 +87,8 @@ export const team = [
                 Img: '/members/sam.jpeg',
                 Linkedin:
                     'https://www.linkedin.com/in/samantha-smith-057302251/?profileId=ACoAAD4owcMBUJd9F2pVXmgf5ClwGk_KIu2gmrM/',
-                Title1: 'Web Dev Subteam Member & Designer',
+                Title1: 'Business Team Lead',
+                Title2: 'Designer',
             },
             {
                 Name: 'Elif Yilmaz',
@@ -97,16 +98,16 @@ export const team = [
                 Linkedin:
                     ' https://www.linkedin.com/in/elif-naz-yilmaz/',
                 Title1: 'Business Team Member',
-            },
-            {
-                Name: 'Lucy Yang',
-                ClassYear: 2026,
-                Major: 'Psychology and Information Science',
-                Img: '/members/lucy.jpeg',
-                Linkedin:
-                    'https://www.linkedin.com/in/lucy-yang-ma21/',
-                Title1: 'Designer',
             }
+            // {
+            //     Name: 'Lucy Yang',
+            //     ClassYear: 2026,
+            //     Major: 'Psychology and Information Science',
+            //     Img: '/members/lucy.jpeg',
+            //     Linkedin:
+            //         'https://www.linkedin.com/in/lucy-yang-ma21/',
+            //     Title1: 'Designer',
+            // }
         ],
     },
 ];
