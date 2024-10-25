@@ -50,7 +50,7 @@ function Header(props: any) {
             </nav>
             <div className="bg-rose-400">
                 <div className="py-2 px-3 sm:px-0 sm:py-3 md:pt-1 md:pb-0 flex">
-                    {/* <div className="flex flex-wrap items-center sm:mx-auto">
+                    <div className="flex flex-wrap items-center sm:mx-auto">
                         <div>
                             <p className="ml-2 font-small text-white sm:text-lg md:text-base pb-1">
                                 Interested in joining the Perfect Match Team?
@@ -66,7 +66,7 @@ function Header(props: any) {
                                 Apply Here!
                             </a>
                         </div>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </header>
