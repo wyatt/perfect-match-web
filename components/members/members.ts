@@ -71,7 +71,7 @@ export const team = [
                 Img: '/members/joyce.png',
                 Linkedin:
                     'https://www.linkedin.com/in/jshen127/',
-                Title1: 'Algogirthms Subteam Member',
+                Title1: 'Algorithms Subteam Member',
             },
             {
                 Name: 'Huajie Zhong',
@@ -132,7 +132,7 @@ export const team = [
                 Major: 'Information Science',
                 Img: '/members/connie.png',
                 Linkedin:
-                    'www.linkedin.com/in/connie-zhang-profile',
+                    'https://www.linkedin.com/in/connie-zhang-profile',
                 Title1: 'Designer',
             },
             {
@@ -141,12 +141,12 @@ export const team = [
                 Major: 'CS + Cognitive Science',
                 Img: '/members/carl.png',
                 Linkedin:
-                    'www.linkedin.com/in/carl-hu/',
+                    'https://www.linkedin.com/in/carl-hu/',
                 Title1: 'Business Team Member',
             },
             {
                 Name: 'Lydia Lin',
-                classYear: 2025,
+                ClassYear: 2025,
                 Major: 'MPS Information Science',
                 Img: '/members/lydia.png',
                 Linkedin:
