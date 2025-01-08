@@ -47,15 +47,15 @@ export default function AdminPanel() {
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
                 <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
                     <div className="sticky top-0 bg-white border-b border-gray-200 p-4 flex justify-between items-center">
-                        <h2 className="text-xl font-semibold">User Profile</h2>
+                        <h2 className="text-xl text-black font-semibold">User Profile</h2>
                         <button
                             onClick={onClose}
-                            className="p-2 hover:bg-gray-100 rounded-full"
+                            className="p-2  text-black hover:bg-gray-100 rounded-full"
                         >
                             ✕
                         </button>
                     </div>
-                    <div className="p-6 space-y-6">
+                    <div className="p-6 space-y-6 text-black">
                         {/* Basic Info */}
                         <div>
                             <h3 className="text-lg font-medium mb-4">Basic Information</h3>
@@ -88,6 +88,10 @@ export default function AdminPanel() {
                                         <div>
                                             <p className="text-black-500">Gender</p>
                                             <p>{user.profile.gender}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-black-500">Gender Preference</p>
+                                            <p>{user.profile.genderPref}</p>
                                         </div>
                                         <div>
                                             <p className="text-black-500">Age</p>
