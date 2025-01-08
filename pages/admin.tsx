@@ -30,7 +30,10 @@ export default function AdminPanel() {
         }
     };
 
-    const filteredUsers = users.filter(user =>
+
+    const usersForSearch = users;
+
+    const filteredUsers = (usersForSearch as any[]).filter(user =>
         user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
         (user.profile?.firstName || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
         (user.profile?.lastName || '').toLowerCase().includes(searchTerm.toLowerCase())

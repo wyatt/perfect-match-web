@@ -11,8 +11,8 @@ export interface IMatch extends Document {
 }
 
 const matchSchema: Schema = new Schema<IMatch>({
-    partnerAId: { type: ObjectId, required: true, ref: 'User' },
-    partnerBId: { type: ObjectId, required: true, ref: 'User' },
+    partnerAId: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
+    partnerBId: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
     partnerAFeedback: matchFeedbackSchema,
     partnerBFeedback: matchFeedbackSchema,
     overallStatus: { type: String, required: true },
