@@ -92,7 +92,7 @@ export default function AdminPanel() {
                                         </div>
                                         <div>
                                             <p className="text-black-500">Height</p>
-                                            <p>{Math.floor(user.profile.height / 12)}'{user.profile.height % 12}"</p>
+                                            <p>{Math.floor(user.profile.height / 12)} {user.profile.height % 12} </p>
                                         </div>
                                         <div>
                                             <p className="text-black-500">Location</p>
