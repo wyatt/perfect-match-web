@@ -17,6 +17,9 @@ dependencies:
   '@types/nodemailer':
     specifier: ^6.4.17
     version: 6.4.17
+  '@types/ramda':
+    specifier: ^0.30.2
+    version: 0.30.2
   '@vercel/analytics':
     specifier: ^0.1.11
     version: 0.1.11(react@18.3.1)
@@ -2792,7 +2795,6 @@ packages:
     resolution: {integrity: sha512-PyzHvjCalm2BRYjAU6nIB3TprYwMNOUY/7P/N8bSzp9W/yM2YrtGtAnnVtaCNSeOZ8DzKyFDvaqQs7LnWwwmBA==}
     dependencies:
       types-ramda: 0.30.1
-    dev: true
 
   /@types/react-dom@18.0.7:
     resolution: {integrity: sha512-HaXc+BbqAZE1RdsK3tC8SbkFy6UL2xF76lT9rQs5JkPrJg3rWA3Ou/Lhw3YJQzEDkBpmJ79nBsfnd05WrBd2QQ==}
@@ -7215,7 +7217,6 @@ packages:
 
   /ts-toolbelt@9.6.0:
     resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==}
-    dev: true
 
   /tsconfig-paths@3.15.0:
     resolution: {integrity: sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg==}
@@ -7316,7 +7317,6 @@ packages:
     resolution: {integrity: sha512-1HTsf5/QVRmLzcGfldPFvkVsAdi1db1BBKzi7iW3KBUlOICg/nKnFS+jGqDJS3YD8VsWbAh7JiHeBvbsw8RPxA==}
     dependencies:
       ts-toolbelt: 9.6.0
-    dev: true
 
   /typescript@4.8.4:
     resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}

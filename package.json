@@ -18,6 +18,7 @@
         "@headlessui/react": "^1.7.19",
         "@openapitools/openapi-generator-cli": "^2.15.3",
         "@types/nodemailer": "^6.4.17",
+        "@types/ramda": "^0.30.2",
         "@vercel/analytics": "^0.1.11",
         "apexcharts": "^3.54.1",
         "aws-sdk": "^2.1692.0",

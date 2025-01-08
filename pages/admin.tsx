@@ -40,7 +40,7 @@ export default function AdminPanel() {
     );
 
     // Profile Modal Component
-    const ProfileModal = ({ user, onClose }) => {
+    const ProfileModal = ({ user, onClose }: { user: any; onClose: () => void }) => {
         if (!user) return null;
 
         return (
