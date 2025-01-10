@@ -4,7 +4,9 @@ import { useSession } from 'next-auth/react';
 export default function AdminPanel() {
     const { data: session, status } = useSession();
     const [users, setUsers] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [count, setCount] = useState(0);
+    const [usersloading, setUsersLoading] = useState(true);
+    const [countloading, setCountLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedUser, setSelectedUser] = useState(null);
@@ -12,6 +14,7 @@ export default function AdminPanel() {
     useEffect(() => {
         if (status === 'authenticated') {
             fetchUsers();
+            fetchCount();
         }
     }, [status]);
 
@@ -26,9 +29,26 @@ export default function AdminPanel() {
         } catch (err: any) {
             setError(err.message);
         } finally {
-            setLoading(false);
+            setUsersLoading(false);
         }
     };
+
+    const fetchCount = async () => {
+        try {
+            const response = await fetch('/api/count');
+            if (!response.ok) {
+                throw new Error(response.status === 401 ? 'Unauthorized' : 'Failed to fetch count');
+            }
+            const data = await response.json();
+            setCount(data);
+        }
+        catch (err: any) {
+            setError(err.message);
+        }
+        finally {
+            setCountLoading(false);
+        }
+    }
 
 
     const usersForSearch = users;
@@ -205,7 +225,7 @@ export default function AdminPanel() {
         );
     }
 
-    if (loading) {
+    if (usersloading || countloading) {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
@@ -228,7 +248,7 @@ export default function AdminPanel() {
             <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm">
                 <div className="border-b border-gray-200 px-6 py-4">
                     <h1 className="text-xl font-medium text-gray-900">
-                        Users ({users.length})
+                        Users ({count})
                     </h1>
                 </div>
 

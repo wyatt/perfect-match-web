@@ -17,6 +17,7 @@ export const admins = new Set([
     'az468@cornell.edu',
     'cz467@cornell.edu',
     'cjh353@cornell.edu',
+    'hz642@cornell.edu',
 
 ]);
 
