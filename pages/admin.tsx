@@ -1,28 +1,52 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
+import { Header } from '@/components/header';
+import DataCard from '@/components/admin/dataCard';
+import Link from 'next/link';
+
+type DisplayData = [string, number, [string, string]];
 
 export default function AdminPanel() {
     const { data: session, status } = useSession();
     const [users, setUsers] = useState([]);
+    const [userCount, setUserCount] = useState(0);
+    const [optInCount, setOptInCount] = useState(0);
+    const [profiledCount, setProfiledCount] = useState(0);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedUser, setSelectedUser] = useState(null);
 
+    const displayDatas: DisplayData[] = [
+        ["Users", userCount, ["#f3d1c1", "#f094ab"]],
+        ["Opted-In", optInCount, ["#99c6f5", "#5397e0"]],
+        ["Completed Profiles", profiledCount, ["#96d7d1", "#71d5c1"]]];
+
+    const navItems = [["Dashboard", "/admin"], ["API-Docs", "/api-docs"]];
+
     useEffect(() => {
         if (status === 'authenticated') {
-            fetchUsers();
+            fetchDashboardData();
         }
     }, [status]);
 
-    const fetchUsers = async () => {
+    const fetchDashboardData = async () => {
         try {
-            const response = await fetch('/api/users');
-            if (!response.ok) {
-                throw new Error(response.status === 401 ? 'Unauthorized' : 'Failed to fetch users');
+            const responses = await Promise.all([
+                fetch('api/users'),
+                fetch('api/users/count'),
+                fetch('api/users/count?status=opted_in'),
+                fetch('api/users/count?status=profiled'),
+            ]);
+            if (!responses.every(res => res.ok)) {
+                const failedResponse = responses.find(res => !res.ok);
+                throw new Error(failedResponse?.status === 401 ? 'Unauthorized' : 'Failed to fetch users');
             }
-            const data = await response.json();
-            setUsers(data);
+            const [usersResponse, countResponse, optInResponse, profiledResponse] = await Promise.all(responses.map(res => res.json()));
+            setUsers(usersResponse);
+            setUserCount(countResponse);
+            setOptInCount(optInResponse);
+            setProfiledCount(profiledResponse);
         } catch (err: any) {
             setError(err.message);
         } finally {
@@ -224,15 +248,39 @@ export default function AdminPanel() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 p-4">
-            <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm">
-                <div className="border-b border-gray-200 px-6 py-4">
-                    <h1 className="text-xl font-medium text-gray-900">
-                        Users ({users.length})
-                    </h1>
+        <div className='bg-gray-50'>
+            <Header />
+            <nav className="bg-rose-50 shadow-sm">
+                <ul className='flex gap-8 py-4 px-4 md:px-8 lg:px-12 text-gray-700'>
+                    {navItems.map(([name, path], index) => (
+                        <li key={index}>
+                            <Link href={path}>
+                                <a className='hover:text-rose-400 transition-all duration-300 ease-in-out 
+                                relative hover:after:w-full after:content-[""] after:bg-text-rose-400 after:absolute after:bottom-0 after:left-0 
+                                after:h-[2px] after:w-0 after:transition-all after:duration-300'>{name}</a>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+            <div className='mx-auto px-4 md:px-8 lg:px-12 py-4'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                    {/* <DataCard gradientColors={["#f3d1c1", "#f094ab"]} >
+                        <div className='px-5 py-8'>
+                            <div className="text-1xl md:text-3xl font-normal">Users</div>
+                            <div className="text-4xl md:text-6xl font-semibold">{userCount}</div>
+                        </div>
+                    </DataCard> */}
+                    {displayDatas.map((data, index) => (
+                        <DataCard key={index} gradientColors={data[2]}>
+                            <div className='px-5 py-8'>
+                                <div className="text-1xl md:text-2xl font-normal">{data[0]}</div>
+                                <div className="text-4xl md:text-5xl font-semibold">{data[1]}</div>
+                            </div>
+                        </DataCard>
+                    ))}
                 </div>
-
-                <div className="p-6">
+                <div className="pt-6">
                     <div className="mb-4">
                         <input
                             type="text"
@@ -269,14 +317,14 @@ export default function AdminPanel() {
                         )}
                     </div>
                 </div>
-            </div>
 
-            {selectedUser && (
-                <ProfileModal
-                    user={selectedUser}
-                    onClose={() => setSelectedUser(null)}
-                />
-            )}
+                {selectedUser && (
+                    <ProfileModal
+                        user={selectedUser}
+                        onClose={() => setSelectedUser(null)}
+                    />
+                )}
+            </div>
         </div>
     );
 }
