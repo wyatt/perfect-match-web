@@ -1,8 +1,30 @@
 import Link from 'next/link';
 import Toggle from './burgerMenu';
 import Script from 'next/script';
+import { useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 function Header(props: any) {
+    const { data: sessions, status } = useSession();
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(() => {
+        if (status === 'authenticated') {
+            checkAdmin();
+        }
+    }, [status]);
+
+    const checkAdmin = async () => {
+        try {
+            const response = await fetch('/api/admin');
+            const data = await response.json();
+            if (data) {
+                setIsAdmin(true);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
     return (
         <header>
             <Script src="https://www.googletagmanager.com/gtag/js?id=G-4RWCJT2EZV" strategy="afterInteractive" />
@@ -44,6 +66,11 @@ function Header(props: any) {
                             <li className="hover:text-rose-400">
                                 <Link href="/about"> About & Contact</Link>
                             </li>
+                            {isAdmin && (
+                                <li className="hover:text-rose-400">
+                                    <Link href="/admin"> Admin</Link>
+                                </li>
+                            )}
                         </ul>
                     </div>
                 </div>
