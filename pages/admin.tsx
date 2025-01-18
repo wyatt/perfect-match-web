@@ -54,7 +54,6 @@ export default function AdminPanel() {
         }
     };
 
-
     const usersForSearch = users;
 
     const filteredUsers = (usersForSearch as any[]).filter(user =>
