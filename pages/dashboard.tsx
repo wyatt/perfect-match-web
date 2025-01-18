@@ -8,7 +8,7 @@ import { fetcher } from '@/utils/fetch';
 import useSWR from 'swr';
 
 const Dashboard: NextPage = (props: any) => {
-    const { data: currentCount, error } = useSWR('/api/count', fetcher, {
+    const { data: currentCount, error } = useSWR('/api/users/count', fetcher, {
         refreshInterval: 60000,
     });
     return (
