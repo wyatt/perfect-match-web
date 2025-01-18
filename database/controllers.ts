@@ -76,6 +76,24 @@ export const getUsersCount = async (): Promise<number> => {
 };
 
 /**
+ * Counts the number of User documents in the database who have opted in.
+ * @returns A Promise that resolves to the number of users who have opted in.
+ */
+export const getOptInUsersCount = async (): Promise<number> => {
+    const resp = await User.countDocuments({ optIn: true });
+    return resp;
+}
+
+/**
+ * Counts the number of User documents in the database who have completed the profile.
+ * @returns A Promise that resolves to the number of users who have completed the profile.
+ */
+export const getProfiledUsersCount = async (): Promise<number> => {
+    const resp = await User.countDocuments({ "profile.complete": true });
+    return resp;
+}
+
+/**
  * Retrieves all users from the database.
  * @returns A Promise that resolves to an array of UserType.
  */
