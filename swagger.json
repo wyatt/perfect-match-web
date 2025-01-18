@@ -461,7 +461,7 @@
                 }
             }
         },
-        "/api/count": {
+        "/api/users/count": {
             "get": {
                 "summary": "Retrieve total user count",
                 "description": "Fetches the total count of registered users.",
