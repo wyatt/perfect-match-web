@@ -3,19 +3,26 @@ import { useSession } from 'next-auth/react';
 import { Header } from '@/components/header';
 import DataCard from '@/components/admin/dataCard';
 import Link from 'next/link';
+import { User } from '@/types/users';
+import { set } from 'mongoose';
 
 type DisplayData = [string, number, [string, string]];
 
 export default function AdminPanel() {
     const { data: session, status } = useSession();
-    const [users, setUsers] = useState([]);
+    const [displayUsers, setDisplayUsers] = useState<User[]>([]);
     const [userCount, setUserCount] = useState(0);
     const [optInCount, setOptInCount] = useState(0);
     const [profiledCount, setProfiledCount] = useState(0);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
-    const [selectedUser, setSelectedUser] = useState(null);
+    const [selectedUser, setSelectedUser] = useState<User | null>(null);
+    const [page, setPage] = useState(1);
+    const [pageInput, setPageInput] = useState('');
+    const [cachedResults, setCachedResults] = useState<{ [key: string]: User[] }>({});
+
+    const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
 
     const displayDatas: DisplayData[] = [
         ["Users", userCount, ["#f3d1c1", "#f094ab"]],
@@ -33,7 +40,6 @@ export default function AdminPanel() {
     const fetchDashboardData = async () => {
         try {
             const responses = await Promise.all([
-                fetch('api/users'),
                 fetch('api/users/count'),
                 fetch('api/users/count?status=opted_in'),
                 fetch('api/users/count?status=profiled'),
@@ -42,8 +48,7 @@ export default function AdminPanel() {
                 const failedResponse = responses.find(res => !res.ok);
                 throw new Error(failedResponse?.status === 401 ? 'Unauthorized' : 'Failed to fetch users');
             }
-            const [usersResponse, countResponse, optInResponse, profiledResponse] = await Promise.all(responses.map(res => res.json()));
-            setUsers(usersResponse);
+            const [countResponse, optInResponse, profiledResponse] = await Promise.all(responses.map(res => res.json()));
             setUserCount(countResponse);
             setOptInCount(optInResponse);
             setProfiledCount(profiledResponse);
@@ -54,13 +59,44 @@ export default function AdminPanel() {
         }
     };
 
-    const usersForSearch = users;
+    useEffect(() => {
+        const fetchUsers = async () => {
+            if (cachedResults[debouncedSearchTerm + "||" + page]) {
+                setDisplayUsers(cachedResults[debouncedSearchTerm + "||" + page]);
+                return;
+            }
 
-    const filteredUsers = (usersForSearch as any[]).filter(user =>
-        user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (user.profile?.firstName || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (user.profile?.lastName || '').toLowerCase().includes(searchTerm.toLowerCase())
-    );
+            try {
+                const response = await fetch(`/api/users?page=${page}&limit=10&searchTerm=${debouncedSearchTerm}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch users');
+                }
+                const data = await response.json();
+                setDisplayUsers(data);
+                setCachedResults({ ...cachedResults, [debouncedSearchTerm]: data });
+            } catch (err: any) {
+                setError(err.message);
+            }
+        };
+
+        fetchUsers();
+    }, [debouncedSearchTerm, page]);
+
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            setPage(1);
+            setDebouncedSearchTerm(searchTerm);
+        }, 300);
+
+        return () => clearTimeout(handler);
+    }, [searchTerm]);
+
+    const jumpToPage = () => {
+        const pageNumber = parseInt(pageInput, 10);
+        if (!isNaN(pageNumber) && pageNumber > 0) {
+            setPage(pageNumber);
+        }
+    };
 
     // Profile Modal Component
     const ProfileModal = ({ user, onClose }: { user: any; onClose: () => void }) => {
@@ -286,17 +322,17 @@ export default function AdminPanel() {
                             placeholder="Search users..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+                            className="w-full px-4 py-2 rounded-lg border bg-rose-200 placeholder-rose-800 border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
                         />
                     </div>
 
                     <div className="space-y-2">
-                        {filteredUsers.length === 0 ? (
+                        {displayUsers.length === 0 ? (
                             <div className="text-center py-4 text-black">
                                 No users found
                             </div>
                         ) : (
-                            filteredUsers.map((user, index) => (
+                            displayUsers.map((user, index) => (
                                 <div
                                     key={index}
                                     className="px-4 py-3 text-black rounded-lg border border-black hover:bg-gray-50 transition-colors cursor-pointer"
@@ -314,6 +350,40 @@ export default function AdminPanel() {
                                 </div>
                             ))
                         )}
+                    </div>
+                    <div className="flex justify-between items-center mt-4">
+                        <button
+                            onClick={() => setPage(page - 1)}
+                            disabled={page === 1}
+                            className="px-4 py-2 bg-rose-400 text-white rounded-lg disabled:opacity-50"
+                        >
+                            Previous
+                        </button>
+                        <div className="text-black">
+                            Page {page}
+                        </div>
+                        <button
+                            onClick={() => setPage(page + 1)}
+                            disabled={displayUsers.length < 10}
+                            className="px-4 py-2 bg-rose-400 text-white rounded-lg disabled:opacity-50"
+                        >
+                            Next
+                        </button>
+                    </div>
+                    <div className="flex justify-center items-center mt-4 gap-1">
+                        <input
+                            type="number"
+                            value={pageInput}
+                            onChange={(e) => setPageInput(e.target.value)}
+                            onKeyDown={(e) => e.key === 'Enter' && jumpToPage()}
+                            className="px-1 py-2 border rounded-lg w-12 text-center bg-rose-200 text-rose-800 "
+                        />
+                        <button
+                            onClick={jumpToPage}
+                            className="px-4 py-2 bg-rose-400 text-white rounded-lg"
+                        >
+                            Go
+                        </button>
                     </div>
                 </div>
 
