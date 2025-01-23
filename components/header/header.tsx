@@ -37,7 +37,7 @@ function Header(props: any) {
                     gtag('config', 'G-4RWCJT2EZV');
                 `}
             </Script>
-            <nav className="bg-white border-gray-200 pr-4 lg:px-6 py-2.5 light:bg-gray-800 main-nav">
+            <nav className="bg-pmpink-500  pr-4 lg:px-6 py-2.5 light:bg-gray-800 main-nav">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link href="/" className="flex items-center">
                         <img
@@ -51,23 +51,23 @@ function Header(props: any) {
                     </div>
                     <div className="hidden justify-between items-center w-full sm:block sm:w-auto sm:order-1">
                         <ul className="flex flex-col mt-4 text-gray-500 font-medium sm:flex-row sm:space-x-6 sm:mt-0 md:space-x-9 text-lg">
-                            <li className="hover:text-rose-400">
+                            <li className="text-pmred-500">
                                 <Link href="/">Home</Link>
                             </li>
-                            <li className="hover:text-rose-400">
+                            {/* <li className="text-pmred-500">
                                 <Link href="/dashboard">Live Dashboard</Link>
+                            </li> */}
+                            {/* <li className="text-pmred-500">
+                                <Link href="/profile">Matches</Link>
+                            </li> */}
+                            <li className="text-pmred-500">
+                                <Link href="/statistics"> Stats</Link>
                             </li>
-                            <li className="hover:text-rose-400 animate-bounce">
-                                <Link href="/profile">Matches💘</Link>
-                            </li>
-                            <li className="hover:text-rose-400">
-                                <Link href="/statistics"> Statistics</Link>
-                            </li>
-                            <li className="hover:text-rose-400">
-                                <Link href="/about"> About & Contact</Link>
+                            <li className="text-pmred-500">
+                                <Link href="/about"> About</Link>
                             </li>
                             {isAdmin && (
-                                <li className="hover:text-rose-400">
+                                <li className="text-pmred-500">
                                     <Link href="/admin"> Admin</Link>
                                 </li>
                             )}
@@ -75,9 +75,9 @@ function Header(props: any) {
                     </div>
                 </div>
             </nav>
-            <div className="bg-rose-400">
+            {/* <div className="bg-rose-400">
                 <div className="py-2 px-3 sm:px-0 sm:py-3 md:pt-1 md:pb-0 flex">
-                    {/* <div className="flex flex-wrap items-center sm:mx-auto">
+                    <div className="flex flex-wrap items-center sm:mx-auto">
                         <div>
                             <p className="ml-2 font-small text-white sm:text-lg md:text-base pb-1">
                                 Interested in joining the Perfect Match Team?
@@ -93,9 +93,9 @@ function Header(props: any) {
                                 Apply Here!
                             </a>
                         </div>
-                    </div> */}
+                    </div>
                 </div>
-            </div>
+            </div> */}
         </header>
     );
 }

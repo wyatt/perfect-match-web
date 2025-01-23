@@ -2,7 +2,32 @@
 module.exports = {
     content: ['./app/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     theme: {
-        extend: {},
-    },
-    plugins: [],
+        extend: {
+            //custom colors
+            colors: {
+                'pmpink': {
+
+                    500: '#fce5f3'
+
+                },
+                'pmpink2': {
+
+                    500: '#f7a4af'
+
+                },
+                'pmred': {
+
+                    500: '#f30020'
+
+
+                },
+                'pmblue': {
+                    500: '#24438d'
+
+                },
+
+            },
+        },
+        plugins: [],
+    }
 };
