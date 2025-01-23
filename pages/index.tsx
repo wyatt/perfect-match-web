@@ -87,7 +87,7 @@ const Home: NextPage = (props: any) => {
                             Perfect Match opens <strong> February 3rd</strong>
                         </p>
                         <p className="text-lg mt-1 text-pmblue-500 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
-                            We'll see you back then ;&#41; </p>
+                            We&#39;ll see you back then ;&#41; </p>
 
 
                     </div>
@@ -125,9 +125,10 @@ const Home: NextPage = (props: any) => {
                             Perfect Match is Cornell&#39;s very own <strong>match making survey</strong> that pairs students with potential partners with our comprehensive algorithm.
                         </p>
                         <p className="text-lg mt-6 text-pmred-500 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
-                            Last year we matched over <strong>5,000 students!</strong> Don't believe us? Check out our statistics. </p>
-                        <a href="/statistics"> <button
-                            className="
+                            Last year we matched over <strong>5,000 students!</strong> Don&#39;t believe us? Check out our statistics. </p>
+                        <Link href="/statistics">
+                            <button
+                                className="
                                     px-6 
                                     py-2 
                                     mt-6
@@ -146,10 +147,10 @@ const Home: NextPage = (props: any) => {
                                     active:translate-y-[4px]
                                     active:shadow-none
                                 "
-                        >
-                            last years stats
-                        </button>
-                        </a>
+                            >
+                                last years stats
+                            </button>
+                        </Link>
 
                     </div>
                 </div>
