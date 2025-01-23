@@ -122,7 +122,7 @@ const Home: NextPage = (props: any) => {
 
                         </h1>
                         <p className="text-lg text-pmred-500 mt-6 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
-                            Perfect Match is Cornell's very own <strong>match making survey</strong> that pairs students with potential partners with our comprehensive algorithm.
+                            Perfect Match is Cornell&#39;s very own <strong>match making survey</strong> that pairs students with potential partners with our comprehensive algorithm.
                         </p>
                         <p className="text-lg mt-6 text-pmred-500 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
                             Last year we matched over <strong>5,000 students!</strong> Don't believe us? Check out our statistics. </p>
