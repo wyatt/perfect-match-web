@@ -12,6 +12,9 @@ export type User = {
 };
 export type Profile = {
     _id: string;
+    firstName: string;
+    lastName: string;
+    complete: boolean;
 };
 export type Survey = {
     _id: string;
