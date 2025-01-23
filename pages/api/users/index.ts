@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { unstable_getServerSession } from 'next-auth/next';
 import authOptions from '../auth/[...nextauth]';
-import { getUsers } from '@/controllers';
+import { getUsers, getUsersByPage } from '@/controllers';
 import { Session } from 'next-auth';
 import { connect } from '@/database';
 import { isAdmin } from '@/utils/admins';
@@ -26,6 +26,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
     await connect();
 
-    const users = await getUsers();
+    const { page = '1', limit = '0', searchTerm = '' } = req.query;
+
+    const users = await getUsersByPage(Number(page), Number(limit), searchTerm as string);
     return res.status(200).json(users);
 }
