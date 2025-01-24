@@ -49,29 +49,31 @@ function Header(props: any) {
                     <div className="sm:hidden">
                         <Toggle />
                     </div>
-                    <div className="hidden justify-between items-center w-full sm:block sm:w-auto sm:order-1">
-                        <ul className="flex flex-col mt-4 text-gray-500 font-medium sm:flex-row sm:space-x-6 sm:mt-0 md:space-x-9 text-lg">
-                            <li className="text-pmred-500">
-                                <Link href="/">Home</Link>
-                            </li>
-                            {/* <li className="text-pmred-500">
+                    <div className='work-sans'>
+                        <div className="hidden justify-between items-center w-full sm:block sm:w-auto sm:order-1">
+                            <ul className="flex flex-col mt-4 text-gray-500 font-medium sm:flex-row sm:space-x-6 sm:mt-0 md:space-x-9 text-lg">
+                                <li className="text-pmred-500">
+                                    <Link href="/">Home</Link>
+                                </li>
+                                {/* <li className="text-pmred-500">
                                 <Link href="/dashboard">Live Dashboard</Link>
                             </li> */}
-                            {/* <li className="text-pmred-500">
+                                {/* <li className="text-pmred-500">
                                 <Link href="/profile">Matches</Link>
                             </li> */}
-                            <li className="text-pmred-500">
-                                <Link href="/statistics"> Stats</Link>
-                            </li>
-                            <li className="text-pmred-500">
-                                <Link href="/about"> About</Link>
-                            </li>
-                            {isAdmin && (
                                 <li className="text-pmred-500">
-                                    <Link href="/admin"> Admin</Link>
+                                    <Link href="/statistics"> Stats</Link>
                                 </li>
-                            )}
-                        </ul>
+                                <li className="text-pmred-500">
+                                    <Link href="/about"> About</Link>
+                                </li>
+                                {isAdmin && (
+                                    <li className="text-pmred-500">
+                                        <Link href="/admin"> Admin</Link>
+                                    </li>
+                                )}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </nav>

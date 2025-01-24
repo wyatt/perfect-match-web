@@ -17,6 +17,7 @@ import word from 'public/wordcloud-hq.gif';
 import SpotifyPlaylist from '@/components/playlist'
 import SpotifyPlaylistNarrow from '@/components/playlist-narrow';
 
+
 const Home: NextPage = (props: any) => {
     const { data: currentCount, error } = useSWR('/api/users/count', fetcher, {
         refreshInterval: 60000,
@@ -73,23 +74,27 @@ const Home: NextPage = (props: any) => {
                 </div>
                 <div className="pb-6 pt-8 sm:pt-20 lg:pt-44 lg:pb-36 lg:w-2/3 lg:pr-3">
                     <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
-                        <h1 className="text-4xl text-pmblue-500 font-extrabold sm:text-3xl lg:text-4xl">
-                            <strong>
-                                We know you&#39;ve</strong>
-                        </h1>
+                        <div className="dela-gothic-one">
+                            <h1 className="text-4xl text-pmblue-500 font-extrabold font-family-dela sm:text-3xl lg:text-4xl">
+                                <strong>
+                                    We know you&#39;ve</strong>
+                            </h1>
 
-                        <h1 className="text-3xl text-pmblue-500 font-extrabold sm:text-3xl lg:text-4xl">
+                            <h1 className="text-3xl text-pmblue-500 font-extrabold sm:text-3xl lg:text-4xl">
 
-                            <strong>been waiting</strong>
+                                <strong>been waiting</strong>
 
-                        </h1>
-                        <p className="text-lg text-pmblue-500 mt-4 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
-                            Perfect Match opens <strong> February 3rd</strong>
-                        </p>
-                        <p className="text-lg mt-1 text-pmblue-500 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
-                            We&#39;ll see you back then ;&#41; </p>
+                            </h1>
+                        </div>
+                        <div className='work-sans'>
+                            <p className="text-lg text-pmblue-500 mt-4 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
+                                Perfect Match opens <strong> February 3rd</strong>
+                            </p>
+                            <p className="text-lg mt-1 text-pmblue-500 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
+                                We&#39;ll see you back then ;&#41; </p>
 
 
+                        </div>
                     </div>
 
                 </div>
@@ -117,18 +122,22 @@ const Home: NextPage = (props: any) => {
 
                 <div className="pb-6 pt-8 sm:pt-20 lg:pt-44 lg:pb-36 lg:w-2/3 lg:pr-3">
                     <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
-                        <h1 className="text-3xl text-pmred-500 font-extrabold sm:text-3xl lg:text-4xl">
-                            Captivating heats since 2020
+                        <div className="dela-gothic-one">
+                            <h1 className="text-3xl text-pmred-500 font-extrabold sm:text-3xl lg:text-4xl">
+                                Captivating heats since 2020
 
-                        </h1>
-                        <p className="text-lg text-pmred-500 mt-6 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
-                            Perfect Match is Cornell&#39;s very own <strong>match making survey</strong> that pairs students with potential partners with our comprehensive algorithm.
-                        </p>
-                        <p className="text-lg mt-6 text-pmred-500 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
-                            Last year we matched over <strong>5,000 students!</strong> Don&#39;t believe us? Check out our statistics. </p>
-                        <Link href="/statistics">
-                            <button
-                                className="
+                            </h1>
+                        </div>
+                        <div className='work-sans'>
+                            <p className="text-lg text-pmred-500 mt-6 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
+                                Perfect Match is Cornell&#39;s very own <strong>match making survey</strong> that pairs students with potential partners with our comprehensive algorithm.
+                            </p>
+                            <p className="text-lg mt-6 text-pmred-500 lg:max-w-lg lg:text-left text-center lg:text-xl text-gray-500 sm:leading-relaxed">
+                                Last year we matched over <strong>5,000 students!</strong> Don&#39;t believe us? Check out our statistics. </p>
+
+                            <Link href="/statistics">
+                                <button
+                                    className="
                                     px-6 
                                     py-2 
                                     mt-6
@@ -147,10 +156,11 @@ const Home: NextPage = (props: any) => {
                                     active:translate-y-[4px]
                                     active:shadow-none
                                 "
-                            >
-                                last years stats
-                            </button>
-                        </Link>
+                                >
+                                    last years stats
+                                </button>
+                            </Link>
+                        </div>
 
                     </div>
                 </div>

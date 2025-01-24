@@ -16,6 +16,7 @@
     "dependencies": {
         "@aws-sdk/client-ses": "^3.723.0",
         "@headlessui/react": "^1.7.19",
+        "@next/font": "^14.2.15",
         "@openapitools/openapi-generator-cli": "^2.15.3",
         "@types/nodemailer": "^6.4.17",
         "@types/ramda": "^0.30.2",
@@ -29,7 +30,7 @@
         "ioredis": "^5.4.2",
         "mongodb": "^4.17.2",
         "mongoose": "^6.13.5",
-        "next": "^12.3.4",
+        "next": "^15.1.6",
         "next-auth": "^4.24.11",
         "nodemailer": "^6.9.16",
         "prettier": "^3.4.2",

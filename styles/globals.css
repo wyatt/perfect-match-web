@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+.dela-gothic-one {
+    font-family: 'Dela Gothic One', sans-serif;
+}
+
+.work-sans {
+    font-family: 'Work Sans', sans-serif;
+}
+
 html,
 body {
     font-family:
@@ -14,6 +24,7 @@ body {
         sans-serif;
     background-color: whitesmoke;
 }
+
 
 a {
     color: inherit;
@@ -53,6 +64,7 @@ a {
     0% {
         box-shadow: 0 0 0 0px rgba(250, 67, 95, 0.7);
     }
+
     100% {
         box-shadow: 0 0 0 60px rgba(0, 0, 0, 0);
     }
