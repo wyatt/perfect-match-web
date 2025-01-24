@@ -69,7 +69,6 @@ const Home: NextPage = (props: any) => {
             <section className="bg-pmpink2-500 flex flex-col pr-0 lg:pr-32 xl:pr-40 xl:pl-8 lg:flex-row">
 
                 <div className="lg:mt-16 mt-0 mb-8 mx-auto hidden sm:block">
-                    <Image src="/examplecountdown.png" width={500} height={500} ></Image>
 
                 </div>
                 <div className="pb-6 pt-8 sm:pt-20 lg:pt-44 lg:pb-36 lg:w-2/3 lg:pr-3">
