@@ -45,7 +45,7 @@ const About: any = (props: any) => {
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="sm:-mt-5 text-3xl -ml-1">💓</div>
-                                    <p className="text-rose-400 text-l my-2 font-bold">Feb. 5th, Monday, @ 5 PM</p>
+                                    <p className="text-rose-400 text-l my-2 font-bold">Feb. 3rd, Monday, @ 5 PM</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
                                     <h4 className="text-gray-700 font-semibold text-lg mb-1.5">PM24 is Launched!</h4>
@@ -66,7 +66,7 @@ const About: any = (props: any) => {
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="sm:-mt-5 text-3xl">💘</div>
-                                    <p className="text-rose-400 text-l my-2 font-bold">Feb. 13th, @ Noon</p>
+                                    <p className="text-rose-400 text-l my-2 font-bold">Feb. 13th, @ 12 PM</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
                                     <h4 className="text-gray-700 font-semibold text-lg mb-1.5"> PM24 Closes!</h4>
