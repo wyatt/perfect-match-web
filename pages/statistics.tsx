@@ -3,20 +3,18 @@ import Head from 'next/head';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import Link from 'next/link';
-import Script from 'next/script';
-import Image from 'next/image';
 import Stats2023 from '@/components/analytics/2023Analytics';
 import Stats2022 from '@/components/analytics/2022Analytics';
-import { Stats } from 'fs';
+import Stats2024 from '@/components/analytics/2024Analytics';
 import { useState } from 'react';
 
-const Statistics: any = (props: any) => {
-    const [year, setYear] = useState(2023);
+const Statistics = (props: { title: string }) => {
+    const [year, setYear] = useState(2024); // Default year
 
     return (
         <div>
             <Head>
-                <title>Statistics</title>
+                <title>{props.title}</title>
             </Head>
             <Header />
             <div className="bg-white sm:py-14 lg:py-10 sm:pr-4 pt-6">
@@ -29,7 +27,7 @@ const Statistics: any = (props: any) => {
                         backgroundSize: 'contain',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'right top',
-                        backgroundImage: 'url("valentine.png")',
+                        backgroundImage: 'url("/valentine.png")', // Ensure correct asset path
                     }}
                 >
                     <div className="pb-6 pt-56 sm:pt-64 lg:pt-64 lg:pb-36">
@@ -55,22 +53,29 @@ const Statistics: any = (props: any) => {
                         See this year&apos;s statistics or travel back in time to explore statistics from past years!
                     </p>
                     <div className="flex sm:mt-4 mt-2 gap-4">
-                        <button
-                            className="text-lg bg-rose-400 hover:bg-rose-300 text-white font-bold py-2 px-8 rounded-full m-2"
-                            onClick={() => setYear(2022)}
-                        >
-                            2022
-                        </button>
-                        <button
-                            className="text-lg bg-rose-400 hover:bg-rose-300 text-white font-bold py-2 px-8 rounded-full m-2"
-                            onClick={() => setYear(2023)}
-                        >
-                            2023
-                        </button>
+                        {[2022, 2023, 2024].map((y) => (
+                            <button
+                                key={y}
+                                className={`text-lg ${year === y
+                                    ? 'bg-rose-700' // Active button color
+                                    : 'bg-rose-400 hover:bg-rose-300'
+                                    } text-white font-bold py-2 px-8 rounded-full m-2`}
+                                onClick={() => setYear(y)}
+                            >
+                                {y}
+                            </button>
+                        ))}
                     </div>
                 </div>
 
-                {year === 2022 ? <Stats2022 /> : <Stats2023 />}
+                {/* Render the statistics for the selected year */}
+                {year === 2022 ? (
+                    <Stats2022 />
+                ) : year === 2023 ? (
+                    <Stats2023 />
+                ) : (
+                    <Stats2024 />
+                )}
             </div>
 
             <Footer />
