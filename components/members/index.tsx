@@ -7,22 +7,22 @@ const Members: React.FC = () => {
         <div className="pt-16 pb-10 sm:py-6 mx-[5%] sm:mx-[10%] lg:mx-[15%]">
             <div className="container px-5 sm:px-0 py-2 sm:py-20 mx-auto sm:mx-0">
                 <div className="text-center mb-0">
-                    <h2 className="mb-6 text-3xl tracking-tight font-extrabold text-rose-400 sm:text-5xl sm:mb-8">
+                    <h2 className="dela-gothic-one mb-6 text-3xl tracking-tight font-extrabold text-pmred-500 sm:text-5xl sm:mb-8">
                         Meet the Cupids
                     </h2>
 
-                    <p className="text-gray-500 italic text-base sm:text-xl mb-10">
+                    <p className="work-sans text-pmred-500 italic text-base sm:text-xl mb-10">
                         We currently have ten members, divided into two teams – Engineering and Business.
                     </p>
-                    <hr className="border-1 border-rose-300 w-[100%]" />
+                    <hr className="border-1 border-pmred-500 w-[100%]" />
                 </div>
 
                 {team.map((division, idx) => (
                     <div key={idx}>
-                        <h3 className="mb-6 text-xl sm:text-3xl text-center font-bold text-gray-700 sm:mt-16 mt-10">
+                        <h3 className="dela-gothic-one mb-6 text-xl sm:text-3xl text-center font-bold text-pmred-500 sm:mt-16 mt-10">
                             {division.Name}
                         </h3>
-                        <p className="mb-12 italic text-center text-gray-500 text-sm sm:text-base">
+                        <p className="work-sans mb-12 italic text-center text-pmred-500 text-sm sm:text-base">
                             {division.Description}
                         </p>
 
