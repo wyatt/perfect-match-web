@@ -461,18 +461,43 @@
                 }
             }
         },
-        "/api/count": {
+        "/api/users/count": {
             "get": {
                 "summary": "Retrieve total user count",
-                "description": "Fetches the total count of registered users.",
+                "description": "Returns the total number of users or filters based on the `status` query parameter.",
                 "operationId": "getUserCount",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "status",
+                        "schema": {
+                            "type": "string",
+                            "enum": ["opted_in", "profiled"],
+                            "example": "opted_in"
+                        },
+                        "required": false,
+                        "description": "Filter users by status:\n  - `opted_in`: Count of users who have opted in.\n  - `profiled`: Count of users who have completed their profile.\n  - Undefined: Total count of all users."
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Total user count",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "integer"
+                                    "type": "integer",
+                                    "example": 1234
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Method not allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": 0
                                 }
                             }
                         }
