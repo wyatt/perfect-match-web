@@ -1,13 +1,13 @@
 import React from 'react';
-import Bar from './live-charts/barTemplate';
-import Pie from './live-charts/pieTemplate';
-import TreeMap from './live-charts/treeMapTemplate';
-import DescribeSelfLive from './live-charts/describeSelfLive';
-import BestAlternativeLive from './live-charts/bestAlternativeLive';
-import DescribePartnerLive from './live-charts/describePartnerLive';
-import IckLive from './live-charts/ickLive';
-import RelationshipTypeLive from './live-charts/relationshipTypeLive';
-import LoveLanguageLive from './live-charts/loveLanguageLive';
+import Bar from './live-charts-2024/barTemplate';
+import Pie from './live-charts-2024/pieTemplate';
+import TreeMap from './live-charts-2024/treeMapTemplate';
+import DescribeSelfLive from './live-charts-2024/describeSelfLive';
+import BestAlternativeLive from './live-charts-2024/bestAlternativeLive';
+import DescribePartnerLive from './live-charts-2024/describePartnerLive';
+import IckLive from './live-charts-2024/ickLive';
+import RelationshipTypeLive from './live-charts-2024/relationshipTypeLive';
+import LoveLanguageLive from './live-charts-2024/loveLanguageLive';
 
 function LiveDashboard() {
     return (
@@ -16,13 +16,13 @@ function LiveDashboard() {
                 PM2024 Quick Results
             </h1>
             <p className="text-gray-500 sm:text-lg text-center lg:mx-[20%] sm:mb-8 mb-6 md:mx-[15%] mx-[1%]">
-            This year, many of you asked us to help you Nudge Your Crush. Guess what? It
-            worked! <strong className="text-rose-400">There are 72 pairs of crush matches in total, 
-            with 16 of them being mutual crushes 💞. </strong> Let the love story begin with Perfect Match!
+                This year, many of you asked us to help you Nudge Your Crush. Guess what? It
+                worked! <strong className="text-rose-400">There are 72 pairs of crush matches in total,
+                    with 16 of them being mutual crushes 💞. </strong> Let the love story begin with Perfect Match!
             </p>
             <p className="text-gray-500 sm:text-lg text-center lg:mx-[20%] sm:mb-10 mb-6 md:mx-[15%] mx-[1%]">
-                And... Before reaching out to your perfect matches, be sure to explore these statistics from the PM2024 responses! 
-                Try hovering or clicking on the charts to see the data. 
+                And... Before reaching out to your perfect matches, be sure to explore these statistics from the PM2024 responses!
+                Try hovering or clicking on the charts to see the data.
                 Stay tuned for additional updates...
             </p>
             <div className="shadow-2xl">
