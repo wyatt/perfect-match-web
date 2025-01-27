@@ -43,12 +43,15 @@ const About: any = (props: any) => {
                     </section>
                 </div>
 
+
                 <section className="bg-pmpink2-500">
+
+
                     <div className="mx-[10%] lg:mx-[15%]">
                         <ol className="hidden sm:block sm:border-xl-0 sm:border-t-2 border-pmpink2-500 sm:flex sm:gap-6">
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
-                                    <div className="sm:-mt-5 text-3xl -ml-1">💓</div>
+                                    <div className="relative z-10 sm:-mt-5 text-3xl -ml-1">💓</div>
                                     <p className="work-sans text-pmblue-500 text-l my-2 font-bold">Feb. 3rd @ 5 PM</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
@@ -69,7 +72,7 @@ const About: any = (props: any) => {
                             </li>
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
-                                    <div className="sm:-mt-5 text-3xl">💘</div>
+                                    <div className="relative z-10 sm:-mt-5 text-3xl">💘</div>
                                     <p className="work-sans text-pmblue-500 text-l my-2 font-bold">Feb. 13th @ 12 PM</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
@@ -81,7 +84,7 @@ const About: any = (props: any) => {
                             </li>
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
-                                    <div className="sm:-mt-5 text-3xl">💞</div>
+                                    <div className="relative z-10 sm:-mt-5 text-3xl">💞</div>
                                     <p className="work-sans text-pmblue-500 my-2 font-bold"> Feb. 13th @ Night</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
@@ -94,7 +97,7 @@ const About: any = (props: any) => {
                             </li>
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
-                                    <div className="sm:-mt-5 text-3xl">❤️‍🔥</div>
+                                    <div className="relative z-10 sm:-mt-5 text-3xl">❤️‍🔥</div>
                                     <p className="work-sans text-pmblue-500 text-l my-2 font-bold">Feb. 14th</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
@@ -105,6 +108,7 @@ const About: any = (props: any) => {
                                 </div>
                             </li>
                         </ol>
+
 
                         {/* <ol className="border-l-2 border-rose-300 sm:hidden">
                             <li>
@@ -232,21 +236,55 @@ const About: any = (props: any) => {
                             </div>
                         </li>
                     </ol> */}
+
+
                 </section>
+                <div className="bg-pmpink2-500">
+                    <div className="w-full bg-pmpink-500"></div>
+                    <div className="left-0 w-full overflow-hidden">
+                        <svg className="relative block w-full h-[60px]" // Adjust height as needed
+                            viewBox="0 0 1200 120"
+                            preserveAspectRatio="none">
+                            <path
+                                d="M0,60 C16.67,40 33.33,40 50,60 C66.67,80 83.33,80 100,60 C116.67,40 133.33,40 150,60 C166.67,80 183.33,80 200,60 C216.67,40 233.33,40 250,60 C266.67,80 283.33,80 300,60 C316.67,40 333.33,40 350,60 C366.67,80 383.33,80 400,60 C416.67,40 433.33,40 450,60 C466.67,80 483.33,80 500,60 C516.67,40 533.33,40 550,60 C566.67,80 583.33,80 600,60 C616.67,40 633.33,40 650,60 C666.67,80 683.33,80 700,60 C716.67,40 733.33,40 750,60 C766.67,80 783.33,80 800,60 C816.67,40 833.33,40 850,60 C866.67,80 883.33,80 900,60 C916.67,40 933.33,40 950,60 C966.67,80 983.33,80 1000,60 C1016.67,40 1033.33,40 1050,60 C1066.67,80 1083.33,80 1100,60 C1116.67,40 1133.33,40 1150,60 C1166.67,80 1183.33,80 1200,60 V120 H0 Z"
+                                fill="#fce5f3"
+                            ></path>
+                        </svg>
+                    </div>
+                </div>
                 <section className="bg-pmpink-500">
                     <Members />
                 </section>
-                <section className="text-gray-500 bg-pink-100">
+
+
+
+
+                <div className="bg-pmpink-500">
+                    <div className="w-full bg-pmpink-500"></div>
+                    <div className="left-0 w-full overflow-hidden">
+                        <svg className="relative block w-full h-[60px]" // Adjust height as needed
+                            viewBox="0 0 1200 120"
+                            preserveAspectRatio="none">
+                            <path
+                                d="M0,60 C16.67,40 33.33,40 50,60 C66.67,80 83.33,80 100,60 C116.67,40 133.33,40 150,60 C166.67,80 183.33,80 200,60 C216.67,40 233.33,40 250,60 C266.67,80 283.33,80 300,60 C316.67,40 333.33,40 350,60 C366.67,80 383.33,80 400,60 C416.67,40 433.33,40 450,60 C466.67,80 483.33,80 500,60 C516.67,40 533.33,40 550,60 C566.67,80 583.33,80 600,60 C616.67,40 633.33,40 650,60 C666.67,80 683.33,80 700,60 C716.67,40 733.33,40 750,60 C766.67,80 783.33,80 800,60 C816.67,40 833.33,40 850,60 C866.67,80 883.33,80 900,60 C916.67,40 933.33,40 950,60 C966.67,80 983.33,80 1000,60 C1016.67,40 1033.33,40 1050,60 C1066.67,80 1083.33,80 1100,60 C1116.67,40 1133.33,40 1150,60 C1166.67,80 1183.33,80 1200,60 V120 H0 Z"
+                                fill="#f7a4af"
+                            ></path>
+                        </svg>
+                    </div>
+                </div>
+
+
+                <section className="text-gray-500 bg-pmpink2-500">
                     <div className="container px-5 sm:px-0 py-16 sm:py-24 mx-auto">
                         <div className="text-center mb-15">
-                            <h2 className="mb-12 text-2xl tracking-tight font-extrabold text-rose-400 sm:text-4xl">
+                            <h2 className="dela-gothic-one mb-12 text-2xl tracking-tight font-extrabold text-pmblue-500 sm:text-4xl">
                                 Frequently Asked Questions
                             </h2>
                         </div>
-                        <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+                        <div className="work-sans text-pmblue-500 flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
                             <div className="w-full lg:w-1/2 px-4">
-                                <details className="mb-5">
-                                    <summary className="sm:font-semibold font-medium bg-white rounded-md py-2 px-4 cursor-pointer">
+                                <details className="work-sans text-pmblue-500 mb-5">
+                                    <summary className=" sm:font-semibold font-medium bg-white rounded-md py-2 px-4 cursor-pointer">
                                         What is Perfect Match?
                                     </summary>
 
@@ -331,7 +369,7 @@ const About: any = (props: any) => {
                                         Our contact information is right below. Feel free to follow us on{' '}
                                         <a
                                             className="underline"
-                                            href="https://www.instagram.com/cornellperfectmatch/"
+                                            href="https://www.instagram.com/perfectmatch.at.cornell/"
                                             target="_blank"
                                             rel="noreferrer"
                                         >
@@ -373,11 +411,24 @@ const About: any = (props: any) => {
                     </div>
                 </section>
             </div>
+            <div className="bg-pmpink2-500">
+                <div className="w-full bg-pmpink-500"></div>
+                <div className="left-0 w-full overflow-hidden">
+                    <svg className="relative block w-full h-[60px]" // Adjust height as needed
+                        viewBox="0 0 1200 120"
+                        preserveAspectRatio="none">
+                        <path
+                            d="M0,60 C16.67,40 33.33,40 50,60 C66.67,80 83.33,80 100,60 C116.67,40 133.33,40 150,60 C166.67,80 183.33,80 200,60 C216.67,40 233.33,40 250,60 C266.67,80 283.33,80 300,60 C316.67,40 333.33,40 350,60 C366.67,80 383.33,80 400,60 C416.67,40 433.33,40 450,60 C466.67,80 483.33,80 500,60 C516.67,40 533.33,40 550,60 C566.67,80 583.33,80 600,60 C616.67,40 633.33,40 650,60 C666.67,80 683.33,80 700,60 C716.67,40 733.33,40 750,60 C766.67,80 783.33,80 800,60 C816.67,40 833.33,40 850,60 C866.67,80 883.33,80 900,60 C916.67,40 933.33,40 950,60 C966.67,80 983.33,80 1000,60 C1016.67,40 1033.33,40 1050,60 C1066.67,80 1083.33,80 1100,60 C1116.67,40 1133.33,40 1150,60 C1166.67,80 1183.33,80 1200,60 V120 H0 Z"
+                            fill="#fce5f3"
+                        ></path>
+                    </svg>
+                </div>
+            </div>
             <div>
-                <section className="bg-white ">
+                <section className="bg-pmpink-500 ">
                     <div className="py-8 mx-auto max-w-screen-xl lg:py-16 mx-[5%] sm:mx-[10%] lg:mx-[15%]">
-                        <div className="max-w-screen-lg text-gray-500 sm:text-lg ">
-                            <h2 className="mb-4 text-2xl sm:text-4xl tracking-tight font-extrabold text-rose-400 ">
+                        <div className="work-sans max-w-screen-lg text-pmred-500 sm:text-lg ">
+                            <h2 className="dela-gothic-one mb-4 text-2xl sm:text-4xl tracking-tight font-extrabold ">
                                 Contact Us!
                             </h2>
                             <p className="mb-4 sm:font-medium">
@@ -386,7 +437,7 @@ const About: any = (props: any) => {
                             <p className="mb-4 sm:font-medium">
                                 {' '}
                                 Email:{' '}
-                                <a target="_blank" rel="noreferrer" href="mailto:perfectmatch@cornell.edu">
+                                <a className="underline" target="_blank" rel="noreferrer" href="mailto:perfectmatch@cornell.edu">
                                     perfectmatch@cornell.edu
                                 </a>
                             </p>
@@ -394,6 +445,23 @@ const About: any = (props: any) => {
                     </div>
                 </section>
             </div>
+
+
+
+            <div className="bg-pmpink-500">
+                <div className="w-full bg-pmpink-500"></div>
+                <div className="left-0 w-full overflow-hidden">
+                    <svg className="relative block w-full h-[60px]" // Adjust height as needed
+                        viewBox="0 0 1200 120"
+                        preserveAspectRatio="none">
+                        <path
+                            d="M0,60 C16.67,40 33.33,40 50,60 C66.67,80 83.33,80 100,60 C116.67,40 133.33,40 150,60 C166.67,80 183.33,80 200,60 C216.67,40 233.33,40 250,60 C266.67,80 283.33,80 300,60 C316.67,40 333.33,40 350,60 C366.67,80 383.33,80 400,60 C416.67,40 433.33,40 450,60 C466.67,80 483.33,80 500,60 C516.67,40 533.33,40 550,60 C566.67,80 583.33,80 600,60 C616.67,40 633.33,40 650,60 C666.67,80 683.33,80 700,60 C716.67,40 733.33,40 750,60 C766.67,80 783.33,80 800,60 C816.67,40 833.33,40 850,60 C866.67,80 883.33,80 900,60 C916.67,40 933.33,40 950,60 C966.67,80 983.33,80 1000,60 C1016.67,40 1033.33,40 1050,60 C1066.67,80 1083.33,80 1100,60 C1116.67,40 1133.33,40 1150,60 C1166.67,80 1183.33,80 1200,60 V120 H0 Z"
+                            fill="#f7a4af"
+                        ></path>
+                    </svg>
+                </div>
+            </div>
+
             <Footer />
         </div>
     );

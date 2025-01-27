@@ -4,7 +4,6 @@ function Footer() {
     return (
 
         <div className="bg-pmpink2-500">
-            <hr className="" />
             <footer>
                 <div className="flex justify-between items-center mb-5">
                     {/* Left Side: Social Links */}

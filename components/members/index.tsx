@@ -12,7 +12,7 @@ const Members: React.FC = () => {
                     </h2>
 
                     <p className="work-sans text-pmred-500 italic text-base sm:text-xl mb-10">
-                        We currently have ten members, divided into two teams – Engineering and Business.
+                        We currently have fifteen members, divided into two teams – Engineering and Business.
                     </p>
                     <hr className="border-1 border-pmred-500 w-[100%]" />
                 </div>
@@ -45,19 +45,19 @@ const Members: React.FC = () => {
                                                 className="rounded-full object-cover"
                                                 loading="eager"
                                             />
-                                            <p className="font-semibold sm:text-lg text-gray-700 text-center sm:mt-4 mt-3">
+                                            <p className="text-pmred-500 dela-gothic-one font-semibold sm:text-lg text-center sm:mt-4 mt-3">
                                                 {member.Name}
                                             </p>
-                                            <p className="text-gray-700 text-sm text-center">
+                                            <p className="work-sans text-pmred-500 text-sm text-center">
                                                 {member.Major}, {member.ClassYear}
                                             </p>
-                                            <p className="text-rose-500 text-sm text-center">{member.Title1}</p>
-                                            <p className="text-rose-500 text-sm text-center">{member.Title2}</p>
+                                            <p className="work-sans text-pmred-500 text-sm text-center">{member.Title1}</p>
+                                            <p className="work-sans text-pmred-500 text-sm text-center">{member.Title2}</p>
                                         </div>
                                     </a>
                                 ))}
                         </div>
-                        <hr className="border-1 border-rose-300 sm:mt-16 mt-12 w-[100%]" />
+                        <hr className="border-1 border-pmred-500 sm:mt-16 mt-12 w-[100%]" />
                     </div>
                 ))}
             </div>
