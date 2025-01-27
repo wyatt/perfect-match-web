@@ -120,7 +120,7 @@ export const team = [
             {
                 Name: 'Elif Yilmaz',
                 ClassYear: 2027,
-                Major: 'Economics and Government',
+                Major: 'Economics & Government',
                 Img: '/members/elif.png',
                 Linkedin:
                     ' https://www.linkedin.com/in/elif-naz-yilmaz/',
@@ -138,7 +138,7 @@ export const team = [
             {
                 Name: 'Carl Hu',
                 ClassYear: 2028,
-                Major: 'CS + Cognitive Science',
+                Major: 'CS & Cognitive Science',
                 Img: '/members/carl.png',
                 Linkedin:
                     'https://www.linkedin.com/in/carl-hu/',

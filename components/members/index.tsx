@@ -42,7 +42,7 @@ const Members: React.FC = () => {
                                                 alt={member.Name}
                                                 width={208}
                                                 height={208}
-                                                className="rounded-full object-cover"
+                                                className="object-cover aspect-square rounded-full object-center"
                                                 loading="eager"
                                             />
                                             <p className="text-pmred-500 dela-gothic-one font-semibold sm:text-lg text-center sm:mt-4 mt-3">
