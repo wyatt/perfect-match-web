@@ -17,7 +17,7 @@ export const admins = new Set([
     'az468@cornell.edu',
     'cz467@cornell.edu',
     'cjh353@cornell.edu',
-
+    'cl2674@cornell.edu'
 ]);
 
 export const isAdmin = (email: string) => admins.has(email);
