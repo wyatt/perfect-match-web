@@ -6,7 +6,7 @@ function Footer() {
         <div className="bg-pmpink2-500">
             <hr className="" />
             <footer>
-                <div className="flex justify-between items-center mb-5">
+                <div className="flex justify-between items-center mb-5 lg:px-6 mx-auto max-w-screen-xl">
                     {/* Left Side: Social Links */}
                     <div className="flex justify-left items-center">
                         <a href="https://www.reddit.com/user/PerfectMatch2020/" target="_blank" rel="noreferrer">

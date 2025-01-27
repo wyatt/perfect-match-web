@@ -37,7 +37,7 @@ function Header(props: any) {
                     gtag('config', 'G-4RWCJT2EZV');
                 `}
             </Script>
-            <nav className="bg-pmpink-500  pr-4 lg:px-6 py-2.5 light:bg-gray-800 main-nav">
+            <nav className="bg-pmpink-500 pr-4 lg:px-6 py-2.5 light:bg-gray-800 main-nav">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link href="/" className="flex items-center">
                         <img
