@@ -26,7 +26,7 @@ const Members: React.FC = () => {
                             {division.Description}
                         </p>
 
-                        <div className="flex flex-wrap justify-center gap-10">
+                        <div className="flex font-work-sans flex-wrap justify-center gap-10">
                             {division.Members &&
                                 division.Members.map((member) => (
 
@@ -47,10 +47,10 @@ const Members: React.FC = () => {
                                                 className="object-cover aspect-square rounded-full object-center"
                                                 loading="eager"
                                             />
-                                            <p className="text-pmred-500 font-dela-gothic font-semibold sm:text-lg text-center sm:mt-4 mt-3">
+                                            <p className="text-black font-work-sans font-semibold sm:text-lg text-center sm:mt-4 mt-3">
                                                 {member.Name}
                                             </p>
-                                            <p className="font-work-sans text-pmred-500 text-sm text-center">
+                                            <p className="font-work-sans text-black text-sm text-center">
                                                 {member.Major}, {member.ClassYear}
                                             </p>
                                             <p className="font-work-sans text-pmred-500 text-sm text-center">{member.Title1}</p>
