@@ -25,13 +25,9 @@ const About: any = (props: any) => {
 
                                 <div className='font-work-sans'>
                                     <p className="sm:mb-4 mb-0 text-pmred-500">
-                                        Perfect Match is a matchmaking survey ideated in February 2019. Our machine learning
-                                        algorithm uses your survey to pair you with other Cornell students — your Perfect
-                                        Matches!</p>
+                                        Perfect Match is a matchmaking survey ideated in February 2019. Our machine learning algorithm uses your survey to pair you with other Cornell students — your Perfect Matches!</p>
 
-                                    <p className="sm:mb-4 mb-0 text-pmred-500">  This year, we are back with <strong> fun survey questions, improved matching
-                                        algorithm, and better privacy protection measures!</strong> Don&apos;t hesitate to get in for
-                                        a Valentine&apos;s Day you won&apos;t forget!
+                                    <p className="sm:mb-4 mb-0 text-pmred-500">  This year, we are back with <strong> fun survey questions, whole new branding, special “nudge your crush” feature</strong>, and more surprises to discover! Don't hesitate to get in for a Valentine's Day you won't forget! Happy matching, xoxo the cupids
                                     </p>
                                     {/* <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p> */}
                                 </div>
