@@ -9,10 +9,10 @@ function Footer() {
                     {/* Left Side: Social Links */}
                     <div className="flex justify-left items-center">
                         <a href="https://www.reddit.com/user/PerfectMatch2020/" target="_blank" rel="noreferrer">
-                            <img src="\reddit.svg" alt="Reddit Logo" className="w-7 sm:w-9 mr-4" />
+                            <img src="\reddit.png" alt="Reddit Logo" className="w-7 sm:w-9 mr-4" />
                         </a>
                         <a href="https://www.instagram.com/perfectmatch.at.cornell/?hl=en" target="_blank" rel="noreferrer">
-                            <img src="\ins.svg" alt="Instagram Logo" className="w-7 sm:w-9 mr-3" />
+                            <img src="\instagram.png" alt="Instagram Logo" className="w-7 sm:w-9 mr-3" />
                         </a>
                     </div>
 
@@ -28,7 +28,7 @@ function Footer() {
                                 </div>
                             </div>
                         </div>
-                        <img src="\logo.png" alt="Logo" className="w-10 sm:w-12 mr-3 ml-3" />
+                        <img src="\logo-pmblue.png" alt="Logo" className="w-10 sm:w-12 mr-3 ml-3" />
 
                     </div>
                 </div>
