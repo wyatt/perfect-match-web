@@ -51,10 +51,10 @@ const Home: NextPage = (props: any) => {
             </div>
             */}
 
-            <div className="absolute left-0 top-0 h-screen w-[18vw] hidden lg:block z-20">
+            <div className="absolute left-0 top-0 h-screen w-[18vw] hidden lg:block z-20 pointer-events-none">
                 <Image src="/left_hearts.svg" alt="left hearts" layout='fill' priority={true} draggable='false' />
             </div>
-            <div className="absolute right-0 -top-0 h-screen w-[18vw] hidden lg:block z-20">
+            <div className="absolute right-0 top-0 h-screen w-[18vw] hidden lg:block z-20 pointer-events-none">
                 <Image src="/right_hearts.svg" alt="right hearts" layout='fill' priority={true} draggable='false' />
             </div>
 
