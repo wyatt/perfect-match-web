@@ -111,7 +111,7 @@ const CountDown: React.FC = () => {
                 </div>
             </div>
             <div className='bg-pmred-500 w-full h-full -z-20 absolute top-[6%] left-[4%] rounded-lg' />
-            <div className='absolute -top-[60%] w-full h-[85%] flex justify-end'><Image src='/scream_bubble.svg' alt='scream bubble' height={200} width={300} priority={true} /></div>
+            <div className='absolute -top-[60%] w-full h-[85%] flex justify-end'><Image src='/scream_bubble.svg' alt='scream bubble' height={200} width={300} priority={true} draggable='false' /></div>
         </div>
     );
 }
