@@ -19,25 +19,25 @@ const About: any = (props: any) => {
                             style={{ display: 'flex', paddingLeft: '0px' }}
                         >
                             <div className="font sm:text-lg lg:w-7/12">
-                                <div className='dela-gothic-one'>
-                                    <h2 className="mb-6 text-2xl sm:text-4xl tracking-tight font-extrabold text-pmred-500">
-                                        Cupid just got smarter 🦾💗!
-                                    </h2>
-                                </div>
+                                <h2 className="font-dela-gothic mb-6 text-2xl sm:text-4xl tracking-tigh text-pmred-500">
+                                    Cupid just got smarter 🦾💗!
+                                </h2>
 
-                                <div className='work-sans'>
+                                <div className='font-work-sans'>
                                     <p className="sm:mb-4 mb-0 text-pmred-500">
                                         Perfect Match is a matchmaking survey ideated in February 2019. Our machine learning
                                         algorithm uses your survey to pair you with other Cornell students — your Perfect
-                                        Matches! This year, we are back with fun survey questions, improved matching
-                                        algorithm, and better privacy protection measures! Don&apos;t hesitate to get in for
+                                        Matches!</p>
+
+                                    <p className="sm:mb-4 mb-0 text-pmred-500">  This year, we are back with <strong> fun survey questions, improved matching
+                                        algorithm, and better privacy protection measures!</strong> Don&apos;t hesitate to get in for
                                         a Valentine&apos;s Day you won&apos;t forget!
                                     </p>
                                     {/* <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p> */}
                                 </div>
                             </div>
                             <div className="lg:w-5/12">
-                                <img className="rounded-lg" src="\new_cupid.png" />
+                                {/* <img className="rounded-lg" src="\logo2.png" /> */}
                             </div>
                         </div>
                     </section>
@@ -52,11 +52,11 @@ const About: any = (props: any) => {
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="relative z-10 sm:-mt-5 text-3xl -ml-1">💓</div>
-                                    <p className="work-sans text-pmblue-500 text-l my-2 font-bold">Feb. 3rd @ 5 PM</p>
+                                    <p className="work-sans text-white text-l my-2 font-bold">Feb. 3rd @ 5 PM</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                    <h4 className="dela-gothic-one text-pmblue-500 font-semibold text-lg mb-1.5">PM25 is Launched!</h4>
-                                    <p className="work-sans text-pmblue-500 mb-3">
+                                    <h4 className="font-dela-gothic-one text-pmblue-500 font-bold text-lg mb-1.5">PM25 is Launched!</h4>
+                                    <p className="font-work-sans text-pmblue-500 mb-3">
                                         Start filling out your profile and the survey! For updates on PM25, follow us on{' '}
                                         <a
                                             className="underline"
@@ -73,11 +73,11 @@ const About: any = (props: any) => {
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="relative z-10 sm:-mt-5 text-3xl">💘</div>
-                                    <p className="work-sans text-pmblue-500 text-l my-2 font-bold">Feb. 13th @ 12 PM</p>
+                                    <p className="work-sans text-white text-l my-2 font-bold">Feb. 13th @ 12 PM</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                    <h4 className="dela-gothic-one text-pmblue-500 font-semibold text-lg mb-1.5"> PM25 Closes!</h4>
-                                    <p className="work-sans text-pmblue-500 mb-3">
+                                    <h4 className="font-dela-gothic-one text-pmblue-500 font-bold text-lg mb-1.5"> PM25 Closes!</h4>
+                                    <p className="font-work-sans text-pmblue-500 mb-3">
                                         Hurry up! Cupid is flying away! Make sure to submit your response on time.
                                     </p>
                                 </div>
@@ -85,11 +85,11 @@ const About: any = (props: any) => {
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="relative z-10 sm:-mt-5 text-3xl">💞</div>
-                                    <p className="work-sans text-pmblue-500 my-2 font-bold"> Feb. 13th @ Night</p>
+                                    <p className="work-sans text-white my-2 font-bold"> Feb. 13th @ Night</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                    <h4 className="dela-gothic-one text-pmblue-500 font-semibold text-lg mb-1.5">Matches Out!</h4>
-                                    <p className="work-sans text-pmblue-500 mb-3">
+                                    <h4 className="font-dela-gothic-one text-pmblue-500 font-bold text-lg mb-1.5">Matches Out!</h4>
+                                    <p className="font-work-sans text-pmblue-500 mb-3">
                                         An email will be sent to you when your perfect matches are out. Go ahead and
                                         shoot your shot!{' '}
                                     </p>
@@ -98,11 +98,11 @@ const About: any = (props: any) => {
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="relative z-10 sm:-mt-5 text-3xl">❤️‍🔥</div>
-                                    <p className="work-sans text-pmblue-500 text-l my-2 font-bold">Feb. 14th</p>
+                                    <p className="work-sans text-white text-l my-2 font-bold">Feb. 14th</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                    <h4 className="dela-gothic-one text-pmblue-500 font-semibold text-lg mb-1.5">Valentine&apos;s Day!</h4>
-                                    <p className="work-sans text-pmblue-500 mb-3">
+                                    <h4 className="font-dela-gothic-one text-pmblue-500 font-bold text-lg mb-1.5">Valentine&apos;s Day!</h4>
+                                    <p className="font-work-sans text-pmblue-500 mb-3">
                                         It&apos;s that time of the year! Grab some food with your perfect matches!
                                     </p>
                                 </div>
@@ -259,20 +259,6 @@ const About: any = (props: any) => {
 
 
 
-                <div className="bg-pmpink-500">
-                    <div className="w-full bg-pmpink-500"></div>
-                    <div className="left-0 w-full overflow-hidden">
-                        <svg className="relative block w-full h-[60px]" // Adjust height as needed
-                            viewBox="0 0 1200 120"
-                            preserveAspectRatio="none">
-                            <path
-                                d="M0,60 C16.67,40 33.33,40 50,60 C66.67,80 83.33,80 100,60 C116.67,40 133.33,40 150,60 C166.67,80 183.33,80 200,60 C216.67,40 233.33,40 250,60 C266.67,80 283.33,80 300,60 C316.67,40 333.33,40 350,60 C366.67,80 383.33,80 400,60 C416.67,40 433.33,40 450,60 C466.67,80 483.33,80 500,60 C516.67,40 533.33,40 550,60 C566.67,80 583.33,80 600,60 C616.67,40 633.33,40 650,60 C666.67,80 683.33,80 700,60 C716.67,40 733.33,40 750,60 C766.67,80 783.33,80 800,60 C816.67,40 833.33,40 850,60 C866.67,80 883.33,80 900,60 C916.67,40 933.33,40 950,60 C966.67,80 983.33,80 1000,60 C1016.67,40 1033.33,40 1050,60 C1066.67,80 1083.33,80 1100,60 C1116.67,40 1133.33,40 1150,60 C1166.67,80 1183.33,80 1200,60 V120 H0 Z"
-                                fill="#f7a4af"
-                            ></path>
-                        </svg>
-                    </div>
-                </div>
-
 
                 <section className="text-gray-500 bg-pmpink2-500">
                     <div className="container px-5 sm:px-0 py-16 sm:py-24 mx-auto">
@@ -410,41 +396,21 @@ const About: any = (props: any) => {
                         </div>
                     </div>
                 </section>
-            </div>
-            <div className="bg-pmpink2-500">
-                <div className="w-full bg-pmpink-500"></div>
-                <div className="left-0 w-full overflow-hidden">
-                    <svg className="relative block w-full h-[60px]" // Adjust height as needed
-                        viewBox="0 0 1200 120"
-                        preserveAspectRatio="none">
-                        <path
-                            d="M0,60 C16.67,40 33.33,40 50,60 C66.67,80 83.33,80 100,60 C116.67,40 133.33,40 150,60 C166.67,80 183.33,80 200,60 C216.67,40 233.33,40 250,60 C266.67,80 283.33,80 300,60 C316.67,40 333.33,40 350,60 C366.67,80 383.33,80 400,60 C416.67,40 433.33,40 450,60 C466.67,80 483.33,80 500,60 C516.67,40 533.33,40 550,60 C566.67,80 583.33,80 600,60 C616.67,40 633.33,40 650,60 C666.67,80 683.33,80 700,60 C716.67,40 733.33,40 750,60 C766.67,80 783.33,80 800,60 C816.67,40 833.33,40 850,60 C866.67,80 883.33,80 900,60 C916.67,40 933.33,40 950,60 C966.67,80 983.33,80 1000,60 C1016.67,40 1033.33,40 1050,60 C1066.67,80 1083.33,80 1100,60 C1116.67,40 1133.33,40 1150,60 C1166.67,80 1183.33,80 1200,60 V120 H0 Z"
-                            fill="#fce5f3"
-                        ></path>
-                    </svg>
-                </div>
-            </div>
+            </div >
+
             <div>
-                <section className="bg-pmpink-500 ">
+                <section className="bg-pmpink-500">
                     <div className="py-8 mx-auto max-w-screen-xl lg:py-16 mx-[5%] sm:mx-[10%] lg:mx-[15%]">
-                        <div className="work-sans max-w-screen-lg text-pmred-500 sm:text-lg ">
-                            <h2 className="dela-gothic-one mb-4 text-2xl sm:text-4xl tracking-tight font-extrabold ">
-                                Contact Us!
-                            </h2>
-                            <p className="mb-4 sm:font-medium">
-                                Feel free to reach out with questions, suggestions, or comments.{' '}
-                            </p>
-                            <p className="mb-4 sm:font-medium">
-                                {' '}
-                                Email:{' '}
-                                <a className="underline" target="_blank" rel="noreferrer" href="mailto:perfectmatch@cornell.edu">
-                                    perfectmatch@cornell.edu
-                                </a>
-                            </p>
+                        <div className="flex justify-center items-center gap-4">
+                            <img src="star1.png" alt="Star1" />
+                            <img src="star2.png" alt="Star2" />
+                            <img src="star1.png" alt="Star1" />
+
                         </div>
                     </div>
                 </section>
-            </div>
+
+            </div >
 
 
 
@@ -463,7 +429,7 @@ const About: any = (props: any) => {
             </div>
 
             <Footer />
-        </div>
+        </div >
     );
 };
 

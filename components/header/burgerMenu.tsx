@@ -13,7 +13,7 @@ const Toggle = () => {
                 <div className="flex">
                     <div className="dela-gothic-one">
 
-                        <nav className="mt-3.5 z-10 absolute text-center mx-auto bg-white w-full right-0">
+                        <nav className="mt-3.5 z-10 absolute text-center mx-auto bg-pmpink-500 w-full right-0">
                             <ul>
                                 <li className="text-gray-500 text-xl font-medium mt-4">
                                     <Link href="/">Home</Link>
