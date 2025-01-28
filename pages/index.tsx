@@ -75,76 +75,7 @@ const Home: NextPage = (props: any) => {
 
                 <section className="bg-pmpink2-500">
                     <div className='flex flex-col justify-center align-middle items-center h-[70vh] lg:flex-row lg:px-[12vw] z-20'>
-                        <div className='mx-auto z-10 w-1/2 h-[40%] relative min-w-fit'>
-                            <div className="w-full relative h-2 -z-10">
-                                {/* Alarm Top buttons */}
-                                <div className='absolute mx-[5%] my-[0.2%] bg-red-600 w-[10%] h-3 border-2 border-blue-900 rounded-xl' />
-                                <div className='absolute mx-[18%] my-[0.2%] bg-red-600 w-[10%] h-3 border-2 border-blue-900 rounded-xl' />
-                                <div className='absolute mx-[31%] my-[0.2%] bg-red-600 w-[20%] h-3 border-2 border-blue-900 rounded-xl' />
-                            </div>
-                            <div className="bg-[#FBE7F3] h-full rounded-lg min-w-fit p-5 border-blue-900 border-4 z-10">
-                                <div className="flex flex-grid w-full h-full">
-                                    <div className="flex items-center justify-center h-full w-[90%] bg-[#00162F] text-white text-3xl rounded-lg  p-2">
-                                        <div className="flex items-center text-5xl space-x-2 p-3 font-press-start lg:text-6xl w-full justify-center">
-                                            <div className="flex flex-col items-center">
-                                                <span >7</span>
-                                                <span className="text-sm lg:text-base tracking-wider">days</span>
-                                            </div>
-                                            <div className="flex flex-col items-center text-center w-fit">
-                                                <span className='text-lg'>:</span>
-                                            </div>
-                                            <div className="flex flex-col items-center">
-                                                <span>12</span>
-                                                <span className="text-sm lg:text-base tracking-wider">hours</span>
-                                            </div>
-                                            <div className="flex flex-col items-center text-center w-fit ">
-                                                <span className='text-lg'>:</span>
-                                            </div>
-                                            <div className="flex flex-col items-center">
-                                                <span>30</span>
-                                                <span className="text-sm lg:text-base tracking-wider">minutes</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='w-[10%] relative flex-row'>
-                                        <div className='h-1/2'>
-                                            <div className='absolute top-0 -right-[5%]'>
-                                                <div className='grid grid-cols-2 gap-2'>
-                                                    {Array(6).fill(0).map((_, i) => (
-                                                        <div key={i} className='w-2 h-2 rounded-full bg-pmblue-500' />
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="my-2 flex flex-col space-y-2 justify-center items-center">
-                                            <button
-                                                className="
-                                                    w-6 h-6 rounded-full bg-red-500 border-2 border-blue-600 font-semibold
-                                                    shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all
-                                                    hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)]
-                                                    active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
-                                            ></button>
-                                            <button
-                                                className="
-                                                    w-6 h-6 rounded-full bg-blue-500 border-2 border-blue-600 font-semibold
-                                                    shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all
-                                                    hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)]
-                                                    active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
-                                            ></button>
-                                            <button
-                                                className="
-                                                    w-6 h-6 rounded-full bg-red-500 border-2 border-blue-600 font-semibold
-                                                    shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all
-                                                    hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)]
-                                                    active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
-                                            ></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='bg-pmred-500 w-full h-full -z-20 absolute top-[6%] left-[4%] rounded-lg' />
-                            <div className='absolute -top-[60%] w-full h-[85%] flex justify-end'><Image src='/scream_bubble.svg' alt='scream bubble' height={200} width={300} priority={true} /></div>
-                        </div>
+                        <div className='h-[40%] w-full lg:w-1/2 lg:mr-16 xl:mr-0 items-center justify-center flex'><Countdown /></div>
                         <div className="lg:w-1/2">
                             <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
                                 <div className="">

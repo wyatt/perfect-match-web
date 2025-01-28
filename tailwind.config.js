@@ -28,6 +28,15 @@ module.exports = {
                 'work-sans': ['Work Sans', 'sans-serif'],
                 'press-start': ['"Press Start 2P"', 'sans-serif'],
             },
+            keyframes: {
+                flash : {
+                    '0%, 100%': { opacity: 1 },
+                    '50%': { opacity: 0 },
+                },
+            },
+            animation: {
+                flash: 'flash 1s steps(1, end) infinite',
+            }
         },
     },
     plugins: [],
