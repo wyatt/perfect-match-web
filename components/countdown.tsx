@@ -43,7 +43,7 @@ const CountDown: React.FC = () => {
     }, []);
 
     return (
-        <div className='z-10 max-w-[90vw] w-full min-w-fit h-full min-h-fit relative'>
+        <div className='z-10 max-w-[85vw] w-full min-w-fit h-full min-h-fit relative'>
             <div className="w-full relative h-2 -z-10">
                 {/* Alarm Top buttons */}
                 <div className='absolute mx-[5%] my-[0.2%] bg-red-600 w-[10%] h-3 border-2 border-blue-900 rounded-xl' />
