@@ -19,7 +19,7 @@ const About: any = (props: any) => {
                             style={{ display: 'flex', paddingLeft: '0px' }}
                         >
                             <div className="font sm:text-lg lg:w-7/12">
-                                <h2 className="font-dela-gothic mb-6 text-2xl sm:text-4xl tracking-tigh text-pmred-500">
+                                <h2 className="font-dela-gothic mb-6 text-2xl sm:text-3xl tracking-tigh text-pmred-500">
                                     Cupid just got smarter 🦾💗!
                                 </h2>
 
@@ -51,7 +51,7 @@ const About: any = (props: any) => {
                                     <p className="work-sans text-white text-l my-2 font-bold">Feb. 3rd @ 5 PM</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                    <h4 className="font-dela-gothic-one text-pmblue-500 font-bold text-lg mb-1.5">PM25 is Launched!</h4>
+                                    <h4 className="font-dela-gothic text-pmblue-500 font-bold text-large mb-1.5">PM25 is Launched!</h4>
                                     <p className="font-work-sans text-pmblue-500 mb-3">
                                         Start filling out your profile and the survey! For updates on PM25, follow us on{' '}
                                         <a
@@ -72,7 +72,7 @@ const About: any = (props: any) => {
                                     <p className="work-sans text-white text-l my-2 font-bold">Feb. 13th @ 12 PM</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                    <h4 className="font-dela-gothic-one text-pmblue-500 font-bold text-lg mb-1.5"> PM25 Closes!</h4>
+                                    <h4 className="font-dela-gothic text-pmblue-500 font-bold text-lg mb-1.5"> PM25 Closes!</h4>
                                     <p className="font-work-sans text-pmblue-500 mb-3">
                                         Hurry up! Cupid is flying away! Make sure to submit your response on time.
                                     </p>
@@ -84,7 +84,7 @@ const About: any = (props: any) => {
                                     <p className="work-sans text-white my-2 font-bold"> Feb. 13th @ Night</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                    <h4 className="font-dela-gothic-one text-pmblue-500 font-bold text-lg mb-1.5">Matches Out!</h4>
+                                    <h4 className="font-dela-gothic text-pmblue-500 font-bold text-lg mb-1.5">Matches Out!</h4>
                                     <p className="font-work-sans text-pmblue-500 mb-3">
                                         An email will be sent to you when your perfect matches are out. Go ahead and
                                         shoot your shot!{' '}
@@ -97,7 +97,7 @@ const About: any = (props: any) => {
                                     <p className="work-sans text-white text-l my-2 font-bold">Feb. 14th</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                    <h4 className="font-dela-gothic-one text-pmblue-500 font-bold text-lg mb-1.5">Valentine&apos;s Day!</h4>
+                                    <h4 className="font-dela-gothic text-pmblue-500 font-bold text-lg mb-1.5">Valentine&apos;s Day!</h4>
                                     <p className="font-work-sans text-pmblue-500 mb-3">
                                         It&apos;s that time of the year! Grab some food with your perfect matches!
                                     </p>
@@ -235,19 +235,7 @@ const About: any = (props: any) => {
 
 
                 </section>
-                <div className="bg-pmpink2-500">
-                    <div className="w-full bg-pmpink-500"></div>
-                    <div className="left-0 w-full overflow-hidden">
-                        <svg className="relative block w-full h-[60px]" // Adjust height as needed
-                            viewBox="0 0 1200 120"
-                            preserveAspectRatio="none">
-                            <path
-                                d="M0,60 C16.67,40 33.33,40 50,60 C66.67,80 83.33,80 100,60 C116.67,40 133.33,40 150,60 C166.67,80 183.33,80 200,60 C216.67,40 233.33,40 250,60 C266.67,80 283.33,80 300,60 C316.67,40 333.33,40 350,60 C366.67,80 383.33,80 400,60 C416.67,40 433.33,40 450,60 C466.67,80 483.33,80 500,60 C516.67,40 533.33,40 550,60 C566.67,80 583.33,80 600,60 C616.67,40 633.33,40 650,60 C666.67,80 683.33,80 700,60 C716.67,40 733.33,40 750,60 C766.67,80 783.33,80 800,60 C816.67,40 833.33,40 850,60 C866.67,80 883.33,80 900,60 C916.67,40 933.33,40 950,60 C966.67,80 983.33,80 1000,60 C1016.67,40 1033.33,40 1050,60 C1066.67,80 1083.33,80 1100,60 C1116.67,40 1133.33,40 1150,60 C1166.67,80 1183.33,80 1200,60 V120 H0 Z"
-                                fill="#fce5f3"
-                            ></path>
-                        </svg>
-                    </div>
-                </div>
+
                 <section className="bg-pmpink-500">
                     <Members />
                 </section>
