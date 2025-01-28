@@ -30,6 +30,14 @@ const CountDown: React.FC = () => {
     const [timeRemaining, setTimeRemaining] = useState<RemainingTime>(calculateTimeRemaining(countdownDate));
     const [completed, setCompleted] = useState(false);
     const { days, hours, minutes, seconds } = timeRemaining;
+    const [easterEggTextDisplay, setEasterEggTextDisplay] = useState(false);
+
+    function easterEggTextChange() {
+        setEasterEggTextDisplay(true);
+        setTimeout(() => {
+            setEasterEggTextDisplay(false);
+        }, 3000);
+    }
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -53,24 +61,24 @@ const CountDown: React.FC = () => {
             <div className="bg-[#FBE7F3] h-full rounded-lg p-5 border-blue-900 border-4 z-10 min-h-fit">
                 <div className="flex flex-grid w-full h-full">
                     <div className="flex items-center justify-center h-full w-[90%] bg-[#00162F] text-white text-3xl rounded-lg lg:p-2">
-                        <div className="flex items-center text-3xl sm:text-4xl space-x-2 p-3 font-press-start lg:text-6xl w-full justify-center">
+                        <div className="flex items-center text-3xl sm:text-4xl space-x-2 px-4 md:px-2 font-press-start lg:text-6xl w-full justify-center">
                             <div className="flex flex-col items-center">
-                                <span className={completed ? 'animate-flash' : ''}>{days > 0 ? days : hours}</span>
-                                <span className="text-xs sm:text-sm lg:text-base tracking-wider">{days > 0 ? 'days' : 'hours'}</span>
+                                <span className={completed ? 'animate-flash' : ''}>{easterEggTextDisplay ? '0' : (days > 0 ? days : hours)}</span>
+                                <span className="text-xs sm:text-sm lg:text-base tracking-wider">{easterEggTextDisplay ? 'I' : (days > 0 ? 'days' : 'hours')}</span>
                             </div>
                             <div className="flex flex-col items-center text-center w-fit">
                                 <span className='text-lg lg:text-3xl'>:</span>
                             </div>
                             <div className="flex flex-col items-center">
-                                <span className={completed ? 'animate-flash' : ''}>{days > 0 ? hours : minutes}</span>
-                                <span className="text-xs sm:text-sm lg:text-base tracking-wider">{days > 0 ? 'hours' : 'minutes'}</span>
+                                <span className={completed ? 'animate-flash' : ''}>{easterEggTextDisplay ? '-' : (days > 0 ? hours : minutes)}</span>
+                                <span className="text-xs sm:text-sm lg:text-base tracking-wider">{easterEggTextDisplay ? "Can't" : (days > 0 ? 'hours' : 'minutes')}</span>
                             </div>
                             <div className="flex flex-col items-center text-center w-fit">
                                 <span className='text-lg lg:text-3xl'>:</span>
                             </div>
                             <div className="flex flex-col items-center">
-                                <span className={completed ? 'animate-flash' : ''}>{days > 0 ? minutes : seconds}</span>
-                                <span className="text-xs sm:text-sm lg:text-base tracking-wider">{days > 0 ? 'minutes' : 'seconds'}</span>
+                                <span className={completed ? 'animate-flash' : ''}>{easterEggTextDisplay ? '0' : (days > 0 ? minutes : seconds)}</span>
+                                <span className="text-xs sm:text-sm lg:text-base tracking-wider">{easterEggTextDisplay ? "Wait" : (days > 0 ? 'minutes' : 'seconds')}</span>
                             </div>
                         </div>
                     </div>
@@ -84,13 +92,14 @@ const CountDown: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="my-2 flex flex-col space-y-2 justify-center items-center">
+                        <div className="my-1 flex flex-col space-y-2 justify-center items-center">
                             <button
                                 className="
                                 w-6 h-6 rounded-full bg-red-500 border-2 border-blue-600 font-semibold
                                 shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all
                                 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)]
                                 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+                                onClick={easterEggTextChange}
                             ></button>
                             <button
                                 className="
