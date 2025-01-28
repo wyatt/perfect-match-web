@@ -75,7 +75,7 @@ const Home: NextPage = (props: any) => {
 
                 <section className="bg-pmpink2-500">
                     <div className='flex flex-col justify-center align-middle items-center h-[70vh] lg:flex-row lg:px-[12vw] z-20'>
-                        <div className='h-[40%] w-full lg:w-1/2 lg:mr-16 xl:mr-0 items-center justify-center flex'><Countdown /></div>
+                        <div className='h-[50%] w-full lg:w-1/2 lg:mr-16 xl:mr-0 items-center justify-center flex'><Countdown /></div>
                         <div className="lg:w-1/2">
                             <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
                                 <div className="">

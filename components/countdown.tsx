@@ -51,14 +51,14 @@ const CountDown: React.FC = () => {
     }, []);
 
     return (
-        <div className='z-10 max-w-[85vw] w-full min-w-fit h-full min-h-fit relative'>
+        <div className='z-10 max-w-[85vw] w-full min-w-fit h-full relative'>
             <div className="w-full relative h-2 -z-10">
                 {/* Alarm Top buttons */}
                 <div className='absolute mx-[5%] my-[0.2%] bg-red-600 w-[10%] h-3 border-2 border-blue-900 rounded-xl' />
                 <div className='absolute mx-[18%] my-[0.2%] bg-red-600 w-[10%] h-3 border-2 border-blue-900 rounded-xl' />
                 <div className='absolute mx-[31%] my-[0.2%] bg-red-600 w-[20%] h-3 border-2 border-blue-900 rounded-xl' />
             </div>
-            <div className="bg-[#FBE7F3] h-full rounded-lg p-5 border-blue-900 border-4 z-10 min-h-fit">
+            <div className="bg-[#FBE7F3] min-h-fit h-full rounded-lg p-5 border-blue-900 border-4 z-10 ">
                 <div className="flex flex-grid w-full h-full">
                     <div className="flex items-center justify-center h-full w-[90%] bg-[#00162F] text-white text-3xl rounded-lg lg:p-2">
                         <div className="flex items-center text-3xl sm:text-4xl space-x-2 px-4 md:px-2 font-press-start lg:text-6xl w-full justify-center">
@@ -95,7 +95,7 @@ const CountDown: React.FC = () => {
                         <div className="my-1 flex flex-col space-y-2 justify-center items-center">
                             <button
                                 className="
-                                w-6 h-6 rounded-full bg-red-500 border-2 border-blue-600 font-semibold
+                                w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-red-500 border-2 border-blue-600 font-semibold
                                 shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all
                                 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)]
                                 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
@@ -103,14 +103,14 @@ const CountDown: React.FC = () => {
                             ></button>
                             <button
                                 className="
-                                w-6 h-6 rounded-full bg-blue-500 border-2 border-blue-600 font-semibold
+                                w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-blue-500 border-2 border-blue-600 font-semibold
                                 shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all
                                 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)]
                                 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
                             ></button>
                             <button
                                 className="
-                                w-6 h-6 rounded-full bg-red-500 border-2 border-blue-600 font-semibold
+                                w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-red-500 border-2 border-blue-600 font-semibold
                                 shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all
                                 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)]
                                 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
