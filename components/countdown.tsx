@@ -53,7 +53,7 @@ const CountDown: React.FC = () => {
             <div className="bg-[#FBE7F3] h-full rounded-lg p-5 border-blue-900 border-4 z-10 min-h-fit">
                 <div className="flex flex-grid w-full h-full">
                     <div className="flex items-center justify-center h-full w-[90%] bg-[#00162F] text-white text-3xl rounded-lg lg:p-2">
-                        <div className="flex items-center text-3xl sm:text-4xl space-x-2 lg:p-3 font-press-start lg:text-6xl w-full justify-center">
+                        <div className="flex items-center text-3xl sm:text-4xl space-x-2 p-3 font-press-start lg:text-6xl w-full justify-center">
                             <div className="flex flex-col items-center">
                                 <span className={completed ? 'animate-flash' : ''}>{days > 0 ? days : hours}</span>
                                 <span className="text-xs sm:text-sm lg:text-base tracking-wider">{days > 0 ? 'days' : 'hours'}</span>
