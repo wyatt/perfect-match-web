@@ -51,6 +51,13 @@ const Home: NextPage = (props: any) => {
             </div>
             */}
 
+            <div className="absolute left-0 top-0 h-screen w-[18vw] hidden lg:block z-20">
+                <Image src="/left_hearts.svg" alt="left hearts" layout='fill' priority={true} draggable='false' />
+            </div>
+            <div className="absolute right-0 -top-0 h-screen w-[18vw] hidden lg:block z-20">
+                <Image src="/right_hearts.svg" alt="right hearts" layout='fill' priority={true} draggable='false' />
+            </div>
+
             <div className="relative z-0 overflow-hidden">
                 <div className="bg-pmpink-500">
                     <div className="w-full bg-pmpink-500"></div>
@@ -64,13 +71,6 @@ const Home: NextPage = (props: any) => {
                             ></path>
                         </svg>
                     </div>
-                </div>
-
-                <div className="absolute left-0 top-0 h-screen w-[18vw] hidden lg:block z-10">
-                    <Image src="/left_hearts.svg" alt="left hearts" layout='fill' priority={true} draggable='false' />
-                </div>
-                <div className="absolute right-0 -top-[10vh] h-screen w-[18vw] hidden lg:block z-10">
-                    <Image src="/right_hearts.svg" alt="right hearts" layout='fill' priority={true} draggable='false' />
                 </div>
 
                 <section className="bg-pmpink2-500">
