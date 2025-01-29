@@ -11,15 +11,12 @@ import Link from 'next/link';
 import Script from 'next/script';
 import Image from 'next/image';
 import BestAlternative from '@/components/analytics/apex-charts/bestAlternative';
-import demo from 'public/feedback-demo.gif';
 import Countdown from '@/components/countdown';
-import word from 'public/wordcloud-hq.gif';
 import SpotifyPlaylist from '@/components/playlist'
 import SpotifyPlaylistNarrow from '@/components/playlist-narrow';
 
 
 const Home: NextPage = (props: any) => {
-    const { data: currentCount, error } = useSWR('/api/users/count', fetcher, {
     const { data: currentCount, error } = useSWR('/api/users/count', fetcher, {
         refreshInterval: 60000,
     });
