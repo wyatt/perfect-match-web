@@ -20,6 +20,7 @@ import SpotifyPlaylistNarrow from '@/components/playlist-narrow';
 
 const Home: NextPage = (props: any) => {
     const { data: currentCount, error } = useSWR('/api/users/count', fetcher, {
+    const { data: currentCount, error } = useSWR('/api/users/count', fetcher, {
         refreshInterval: 60000,
     });
     return (

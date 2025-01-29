@@ -5,6 +5,8 @@ import DataCard from '@/components/admin/dataCard';
 import Link from 'next/link';
 import { User } from '@/types/users';
 import { set } from 'mongoose';
+import { isAdmin } from '@/utils/admins';
+import { useRouter } from 'next/router';
 
 type DisplayData = [string, number, [string, string]];
 
@@ -19,8 +21,9 @@ export default function AdminPanel() {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedUser, setSelectedUser] = useState<User | null>(null);
     const [page, setPage] = useState(1);
-    const [pageInput, setPageInput] = useState('');
+    const [pageInput, setPageInput] = useState('1');
     const [cachedResults, setCachedResults] = useState<{ [key: string]: User[] }>({});
+    const router = useRouter();
 
     const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
 
@@ -30,6 +33,14 @@ export default function AdminPanel() {
         ["Completed Profiles", profiledCount, ["#96d7d1", "#71d5c1"]]];
 
     const navItems = [["Dashboard", "/admin"], ["API-Docs", "/api-docs"]];
+
+    useEffect(() => {
+        if (session) {
+            if (!isAdmin(session.user?.email!)) {
+                router.push('/');
+            }
+        }
+    }, [session, router]);
 
     useEffect(() => {
         if (status === 'authenticated') {
@@ -109,7 +120,7 @@ export default function AdminPanel() {
                         <h2 className="text-xl text-black font-semibold">User Profile</h2>
                         <button
                             onClick={onClose}
-                            className="p-2  text-black hover:bg-gray-100 rounded-full"
+                            className="p-2 text-black hover:bg-gray-100 rounded-full"
                         >
                             ✕
                         </button>
@@ -117,22 +128,22 @@ export default function AdminPanel() {
                     <div className="p-6 space-y-6 text-black">
                         {/* Basic Info */}
                         <div>
-                            <h3 className="text-lg font-medium mb-4">Basic Information</h3>
+                            <h3 className="text-lg font-bold mb-4">Basic Information</h3>
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <p className="text-black-500">Name</p>
-                                    <p>{user.profile?.firstName} {user.profile?.lastName}</p>
+                                    <p className="text-black-500 font-semibold">Name</p>
+                                    <p>{user.profile?.firstName || "N/A"} {user.profile?.lastName || ""}</p>
                                 </div>
                                 <div>
-                                    <p className="text-black-500">Email</p>
-                                    <p>{user.email}</p>
+                                    <p className="text-black-500 font-semibold">Email</p>
+                                    <p>{user.email || "N/A"}</p>
                                 </div>
                                 <div>
-                                    <p className="text-black-500">Opt In Status</p>
+                                    <p className="text-black-500 font-semibold">Opt In Status</p>
                                     <p>{user.optIn ? "Opted In" : "Not Opted In"}</p>
                                 </div>
                                 <div>
-                                    <p className="text-black-500">Profile Status</p>
+                                    <p className="text-black-500 font-semibold">Profile Status</p>
                                     <p>{user.profile?.complete ? "Complete" : "Incomplete"}</p>
                                 </div>
                             </div>
@@ -142,104 +153,119 @@ export default function AdminPanel() {
                             <>
                                 {/* Profile Details */}
                                 <div>
-                                    <h3 className="text-lg font-medium mb-4">Profile Details</h3>
+                                    <h3 className="text-lg font-bold mb-4">Profile Details</h3>
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
-                                            <p className="text-black-500">Gender</p>
-                                            <p>{user.profile.gender}</p>
+                                            <p className="text-black-500 font-semibold">Gender</p>
+                                            <p>{user.profile?.gender || "N/A"}</p>
                                         </div>
                                         <div>
-                                            <p className="text-black-500">Gender Preference</p>
-                                            <p>{user.profile.genderPref}</p>
+                                            <p className="text-black-500 font-semibold">Gender Preference</p>
+                                            <p>{user.profile?.genderPref || "N/A"}</p>
                                         </div>
                                         <div>
-                                            <p className="text-black-500">Age</p>
-                                            <p>{user.profile.age}</p>
+                                            <p className="text-black-500 font-semibold">Age</p>
+                                            <p>{user.profile?.age || "N/A"}</p>
                                         </div>
                                         <div>
-                                            <p className="text-black-500">Height</p>
-                                            <p>{Math.floor(user.profile.height / 12)} {user.profile.height % 12} </p>
+                                            <p className="text-black-500 font-semibold">Height</p>
+                                            <p>
+                                                {user.profile?.height
+                                                    ? `${Math.floor(user.profile.height / 12)}' ${user.profile.height % 12
+                                                    }"`
+                                                    : "N/A"}
+                                            </p>
                                         </div>
                                         <div>
-                                            <p className="text-black-500">Location</p>
-                                            <p>{user.profile.city}</p>
+                                            <p className="text-black-500 font-semibold">Location</p>
+                                            <p>{user.profile?.city || "N/A"}</p>
                                         </div>
                                         <div>
-                                            <p className="text-black-500">Year</p>
-                                            <p>{user.profile.year}</p>
+                                            <p className="text-black-500 font-semibold">Year</p>
+                                            <p>{user.profile?.year || "N/A"}</p>
                                         </div>
                                         <div>
-                                            <p className="text-black-500">College</p>
-                                            <p>{user.profile.college}</p>
+                                            <p className="text-black-500 font-semibold">College</p>
+                                            <p>{user.profile?.college || "N/A"}</p>
                                         </div>
                                         <div>
-                                            <p className="text-black-500">Major</p>
-                                            <p>{user.profile.major}</p>
+                                            <p className="text-black-500 font-semibold">Major</p>
+                                            <p>{user.profile?.major || "N/A"}</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Preferences */}
                                 <div>
-                                    <h3 className="text-lg font-medium mb-4">Preferences</h3>
+                                    <h3 className="text-lg font-bold mb-4 ">Preferences</h3>
                                     <div className="grid grid-cols-2 gap-4">
-
                                         <div>
-                                            <p className="text-black-500">Age Preference</p>
-                                            <p>{user.profile.agePref.youngest} - {user.profile.agePref.oldest} years</p>
+                                            <p className="text-black-500 font-semibold">Age Preference</p>
+                                            <p>
+                                                {user.profile?.agePref?.youngest || "N/A"} -{" "}
+                                                {user.profile?.agePref?.oldest || "N/A"} years
+                                            </p>
                                         </div>
                                         <div>
-                                            <p className="text-black-500">Commitment Level</p>
-                                            <p>{user.profile.commitment}</p>
+                                            <p className="text-black-500 font-semibold">Commitment Level</p>
+                                            <p>{user.profile?.commitment || "N/A"}</p>
                                         </div>
                                         <div>
-                                            <p className="text-black-500">Relationship Type</p>
-                                            <p>{user.profile.relationshipType}</p>
+                                            <p className="text-black-500 font-semibold">Relationship Type</p>
+                                            <p>{user.profile?.relationshipType || "N/A"}</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Description */}
                                 <div>
-                                    <h3 className="text-lg font-medium mb-4">Personal Description</h3>
+                                    <h3 className="text-lg font-bold mb-4">Personal Description</h3>
                                     <div className="space-y-4">
                                         <div>
-                                            <p className="text-black-500">Self Description</p>
-                                            <p>{Object.values(user.profile.describeYourself).join(", ")}</p>
+                                            <p className="text-black-500 font-semibold">Self Description</p>
+                                            <p>
+                                                {user.profile?.describeYourself
+                                                    ? Object.values(user.profile.describeYourself).join(", ")
+                                                    : "N/A"}
+                                            </p>
                                         </div>
                                         <div>
-                                            <p className="text-black-500">Partner Description</p>
-                                            <p>{Object.values(user.profile.describePartner).join(", ")}</p>
+                                            <p className="text-black-500 font-semibold">Partner Description</p>
+                                            <p>
+                                                {user.profile?.describePartner
+                                                    ? Object.values(user.profile.describePartner).join(", ")
+                                                    : "N/A"}
+                                            </p>
                                         </div>
                                         <div>
-                                            <p className="text-black-500">Bio</p>
-                                            <p>{user.profile.bio}</p>
+                                            <p className="text-black-500 font-semibold">Bio</p>
+                                            <p>{user.profile?.bio || "N/A"}</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 {user.survey?.complete && (
                                     <div>
-                                        <h3 className="text-lg font-medium mb-4">Survey Information</h3>
+                                        <h3 className="text-lg font-bold mb-4">Survey Information</h3>
                                         <div className="grid grid-cols-2 gap-4">
                                             <div>
-                                                <p className="text-black-500">Interests</p>
-                                                <p>{user.survey.interests.join(", ")}</p>
+                                                <p className="text-black-500 font-semibold">Interests</p>
+                                                <p>{user.survey?.interests?.join(", ") || "N/A"}</p>
                                             </div>
                                             <div>
-                                                <p className="text-black-500">Music Preferences</p>
-                                                <p>{user.survey.music.join(", ")}</p>
+                                                <p className="text-black-500 font-semibold">Music Preferences</p>
+                                                <p>{user.survey?.music?.join(", ") || "N/A"}</p>
                                             </div>
                                             <div>
-                                                <p className="text-black-500">Love Languages</p>
-                                                <p>{user.survey.lovelanguage.join(", ")}</p>
+                                                <p className="text-black-500 font-semibold">Love Languages</p>
+                                                <p>{user.survey?.lovelanguage?.join(", ") || "N/A"}</p>
                                             </div>
                                             <div>
-                                                <p className="text-black-500">Habits</p>
+                                                <p className="text-black-500 font-semibold">Habits</p>
                                                 <div className="text-sm">
-                                                    <p>Drinking: {user.survey.habits.drinking}</p>
-                                                    <p>Smoking: {user.survey.habits.smoking}</p>
-                                                    <p>Weed: {user.survey.habits.weed}</p>
+                                                    <p>Drinking: {user.survey?.habits?.drinking || "N/A"}</p>
+                                                    <p>Smoking: {user.survey?.habits?.smoking || "N/A"}</p>
+                                                    <p>Weed: {user.survey?.habits?.weed || "N/A"}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -253,17 +279,8 @@ export default function AdminPanel() {
         );
     };
 
-    // Main component render
-    if (status === 'unauthenticated') {
-        return (
-            <div className="min-h-screen bg-gray-50 p-4">
-                <div className="bg-red-50 text-red-700 p-4 rounded-lg">
-                    Not authorized
-                </div>
-            </div>
-        );
-    }
 
+    // Main component render
     if (loading) {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -322,7 +339,7 @@ export default function AdminPanel() {
                             placeholder="Search users..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full px-4 py-2 rounded-lg border bg-rose-200 placeholder-rose-800 border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+                            className="w-full px-4 py-2 rounded-lg border text-rose-800 bg-rose-200 placeholder-rose-500 border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
                         />
                     </div>
 
@@ -380,7 +397,7 @@ export default function AdminPanel() {
                         />
                         <button
                             onClick={jumpToPage}
-                            className="px-4 py-2 bg-rose-400 text-white rounded-lg"
+                            className="px-4 py-2 bg-rose-400 text-white rounded-lg placeholder"
                         >
                             Go
                         </button>
