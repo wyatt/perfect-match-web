@@ -35,7 +35,7 @@ function Header(props: any) {
                             alt="Perfect Match"
                         />
                     </Link>
-                    <div className="sm:hidden">
+                    <div className="flex w-80 justify-end sm:hidden">
                         <Toggle />
                     </div>
                     <div className='work-sans'>
@@ -49,7 +49,10 @@ function Header(props: any) {
                             </li> */}
                                 {/* <li className="text-pmred-500">
                                 <Link href="/profile">Matches</Link>
-                            </li> */}
+                            </li> */}<div className="flex w-full justify-end sm:hidden">
+                                    <Toggle />
+                                </div>
+
                                 <li className="text-pmred-500">
                                     <Link href="/statistics"> Stats</Link>
                                 </li>
