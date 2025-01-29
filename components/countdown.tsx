@@ -3,6 +3,7 @@ import React from 'react';
 import Countdown, { CountdownRenderProps } from 'react-countdown';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { emojiBlast } from "emoji-blast";
 
 const CountDown: React.FC = () => {
     const countdownDate = new Date('Feb 3, 2025 17:00:00 EST');
@@ -37,6 +38,127 @@ const CountDown: React.FC = () => {
         setTimeout(() => {
             setEasterEggTextDisplay(false);
         }, 3000);
+    }
+
+    function easterEggFireHeart() {
+        const heartCoords = [
+            [500, 600],
+            // bottom point
+            [500, 410],
+            // center point
+            // left line (y = x + 100)
+            [350, 450],
+            [375, 475],
+            [400, 500],
+            [425, 525],
+            [450, 550],
+            [475, 575],
+            // right line (y = -x + 1100)
+            [650, 450],
+            [623, 477],
+            [600, 500],
+            [550, 550],
+            [574, 526],
+            [526, 574],
+            // left curve
+            [340, 410],
+            [340, 430],
+            [350, 385],
+            [370, 365],
+            [400, 350],
+            [430, 355],
+            [460, 370],
+            [480, 385],
+            // right curve
+            [520, 385],
+            [540, 370],
+            [570, 355],
+            [600, 350],
+            [630, 365],
+            [650, 385],
+            [660, 410],
+            [660, 430]
+        ];
+        const randXVelocity = Math.random() * 15 * (Math.round(Math.random()) ? 1 : -1);
+        const randYVelocity = Math.random() * -15 - 3;
+        const randStartXCoord = Math.random() * 350 * (Math.round(Math.random()) ? 1 : -1);
+        const randStartYCoord = Math.random() * 350 * (Math.round(Math.random()) ? 1 : -1);
+        for (const [xCoordinate, yCoordinate] of heartCoords) {
+            emojiBlast({
+                emojiCount: 1,
+                emojis: ["❤️‍🔥"],
+                physics: {
+                    fontSize: 35,
+                    gravity: 0.15,
+                    initialVelocities: {
+                        x: randXVelocity,
+                        y: randYVelocity
+                    },
+                    rotation: 0,
+                    rotationDeceleration: 0
+                },
+                position: {
+                    x: xCoordinate + randStartXCoord,
+                    y: yCoordinate + randStartYCoord
+                }
+            });
+        }
+    }
+
+    function easterEggShootingHeart() {
+        const star = (yPos: number): void => {
+            emojiBlast({
+                emojiCount: 1,
+                emojis: ["💖"],
+                physics: {
+                    fontSize: { max: 32, min: 20 },
+                    gravity: 0.05,
+                    initialVelocities: {
+                        x: 45,
+                        y: -10
+                    }
+                },
+                position: {
+                    x: 0,
+                    y: yPos
+                }
+            });
+        };
+        const sparkles = (yPos: number, size: number): void => {
+            emojiBlast({
+                emojiCount: 1,
+                emojis: ["✨"],
+                physics: {
+                    fontSize: size,
+                    gravity: 0.05,
+                    initialVelocities: {
+                        rotation: 0,
+                        x: 45,
+                        y: -10
+                    }
+                },
+                position: {
+                    x: 0,
+                    y: yPos
+                }
+            });
+        };
+        const shootingStar = () => {
+            const randYPos = Math.random() * innerHeight + 100;
+            let emojiSize = 18;
+            star(randYPos);
+            const intervalId2 = setInterval(() => {
+                sparkles(randYPos, emojiSize);
+                emojiSize -= 3;
+            }, 60);
+            setTimeout(() => {
+                clearInterval(intervalId2);
+            }, 400);
+        };
+        const intervalId = setInterval(shootingStar, 60);
+        setTimeout(() => {
+            clearInterval(intervalId);
+        }, 2e3);
     }
 
     useEffect(() => {
@@ -107,6 +229,7 @@ const CountDown: React.FC = () => {
                                 shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all
                                 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)]
                                 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+                                onClick={easterEggFireHeart}
                             ></button>
                             <button
                                 className="
@@ -114,6 +237,7 @@ const CountDown: React.FC = () => {
                                 shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all
                                 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)]
                                 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+                                onClick={easterEggShootingHeart}
                             ></button>
                         </div>
                     </div>
