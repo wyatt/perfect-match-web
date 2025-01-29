@@ -186,21 +186,21 @@ const CountDown: React.FC = () => {
                         <div className="flex items-center text-3xl sm:text-4xl space-x-2 px-4 md:px-2 font-press-start lg:text-6xl w-full justify-center">
                             <div className="flex flex-col items-center">
                                 <span className={completed ? 'animate-flash' : ''}>{easterEggTextDisplay ? '0' : (days > 0 ? days : hours)}</span>
-                                <span className="text-xs sm:text-sm lg:text-base tracking-wider">{easterEggTextDisplay ? 'I' : (days > 0 ? 'days' : 'hours')}</span>
+                                <span className="text-[10px] leading-5 sm:text-sm lg:text-base tracking-wider">{easterEggTextDisplay ? 'I' : (days > 0 ? 'days' : 'hours')}</span>
                             </div>
                             <div className="flex flex-col items-center text-center w-fit">
-                                <span className='text-lg lg:text-3xl'>:</span>
+                                <span className='text-lg lg:text-3xl -mx-3'>:</span>
                             </div>
                             <div className="flex flex-col items-center">
                                 <span className={completed ? 'animate-flash' : ''}>{easterEggTextDisplay ? '-' : (days > 0 ? hours : minutes)}</span>
-                                <span className="text-xs sm:text-sm lg:text-base tracking-wider">{easterEggTextDisplay ? "Can't" : (days > 0 ? 'hours' : 'minutes')}</span>
+                                <span className="text-[10px] leading-5 sm:text-sm lg:text-base tracking-wider">{easterEggTextDisplay ? "Can't" : (days > 0 ? 'hours' : 'minutes')}</span>
                             </div>
                             <div className="flex flex-col items-center text-center w-fit">
-                                <span className='text-lg lg:text-3xl'>:</span>
+                                <span className='text-lg lg:text-3xl -mx-3'>:</span>
                             </div>
                             <div className="flex flex-col items-center">
                                 <span className={completed ? 'animate-flash' : ''}>{easterEggTextDisplay ? '0' : (days > 0 ? minutes : seconds)}</span>
-                                <span className="text-xs sm:text-sm lg:text-base tracking-wider">{easterEggTextDisplay ? "Wait" : (days > 0 ? 'minutes' : 'seconds')}</span>
+                                <span className="text-[10px] leading-5 sm:text-sm lg:text-base tracking-wider">{easterEggTextDisplay ? "Wait" : (days > 0 ? 'minutes' : 'seconds')}</span>
                             </div>
                         </div>
                     </div>
