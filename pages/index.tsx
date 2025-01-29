@@ -129,7 +129,7 @@ const Home: NextPage = (props: any) => {
                     <div className="pb-6 pt-8 sm:pt-20 lg:pt-44 lg:pb-36 lg:w-1/2 lg:pr-3 lg:left-0">
                         <div className="text-center lg:text-left sm:mx-auto mt-8 sm:mt-0 opacity-100 space-y-6">
                             <h1 className="text-3xl text-pmred-500 font-extrabold sm:text-3xl font-dela-gothic">
-                                Captivating heats since 2019
+                                Captivating hearts since 2019
 
                             </h1>
                             <div className=''>
