@@ -24,7 +24,7 @@ const Stats2022 = () => {
         <div>
             <div>
                 <div> </div>
-                <section className="bg-white pt-12 sm:pt-16 lg:pt-20 sm:pb-5 pb-1">
+                <section className="bg-pmpink-500 pt-12 sm:pt-16 lg:pt-20 sm:pb-5 pb-1">
                     <h2 className="mb-6 text-2xl sm:text-4xl tracking-tight font-extrabold text-rose-400 mx-[5%] sm:mx-[10%] lg:mx-[20%]">
                         About Participants of PM22
                     </h2>

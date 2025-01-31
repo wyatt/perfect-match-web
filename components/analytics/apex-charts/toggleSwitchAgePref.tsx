@@ -9,7 +9,7 @@ const AgePrefToggle = () => {
     return (
         <div>
             <button
-                className="text-base sm:text-lg text-gray-500 border border-solid border-gray-500 hover:bg-gray-100 rounded p-3 mx-[3%] sm:mx-0"
+                className="text-bold sm:text-lg text-pmpink2-500 border border-solid border-pmblue-500 hover:bg-pmpink-500 rounded-xl py-1 mt-2 p-3 mx-[3%] sm:mx-0"
                 onClick={() => toggleShow(!female)}
             >
                 {female ? 'Switch to the Chart for Men' : 'Switch to the Chart for Women'}
