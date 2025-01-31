@@ -245,6 +245,43 @@ const D3Plot: React.FC = () => {
             };
 
             drawPies(defaultStates);
+
+            // legend
+            const legendWidth = 1000;
+            const legendHeight = 80;
+
+            const legendSvg = d3.select<SVGSVGElement, unknown>("#legendsvg")
+                .append("svg")
+                .attr("id", "legend")
+                .attr("width", legendWidth)
+                .attr("height", legendHeight);
+
+            const legendScale = d3.scaleBand<string>()
+                .domain(categories)
+                .range([0, legendWidth])
+                .padding(0.15);
+
+            legendSvg.selectAll<SVGRectElement, string>("rect")
+                .data(categories)
+                .enter()
+                .append("rect")
+                .attr("x", (d) => legendScale(d) || 0)
+                .attr("y", 10)
+                .attr("width", legendScale.bandwidth())
+                .attr("height", 25)
+                .attr("stroke", "grey")
+                .attr("fill", (d, i) => colors[i]);
+
+            legendSvg.selectAll<SVGTextElement, string>("text")
+                .data(categories)
+                .enter()
+                .append("text")
+                .attr("x", (d) => (legendScale(d) || 0) + legendScale.bandwidth() / 2)
+                .attr("y", 55)
+                .attr("text-anchor", "middle")
+                .style("font-size", "16px")
+                .attr("class", "main")
+                .text((d) => d);
         };
 
         requestData();
@@ -269,7 +306,7 @@ const D3Plot: React.FC = () => {
                             <h4>Most Chosen Option by State</h4>
                             <p>Hover over a state to explore its distribution!</p>
                         </div>
-                        <svg id="choropleth" height="700" width="1050" style={{ margin: "-10px -10px -30px 0" }}></svg>
+                        <svg id="choropleth" height="700" width="1050" style={{ margin: "-10px -10px -30px 0", border: "none", outline: "none", boxShadow: "none" }}></svg>
                     </div>
 
                     {/* Pie Chart */}
