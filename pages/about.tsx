@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import Members from '@/components/members';
+import Image from 'next/image';
 
 const About: any = (props: any) => {
     return (
@@ -384,12 +385,8 @@ const About: any = (props: any) => {
 
             <div>
                 <section className="bg-pmpink-500">
-                    <div className="py-8 mx-auto max-w-screen-xl lg:py-16 sm:mx-[10%] lg:mx-[15%]">
-                        <div className="flex justify-center items-center gap-4">
-                            <img src="star1.png" alt="Star1" />
-                            <img src="star2.png" alt="Star2" />
-                            <img src="star1.png" alt="Star1" />
-                        </div>
+                    <div className="py-8 px-8 mx-auto max-w-screen-xl lg:py-16 sm:mx-[10%] lg:mx-[15%] flex justify-center items-center">
+                        <Image src='/stars.svg' alt='stars' height={198} width={396} loading='lazy' draggable='false' />
                     </div>
                 </section>
 
