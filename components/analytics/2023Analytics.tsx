@@ -86,7 +86,7 @@ const Stats2023 = () => {
                         <div className="sm:mx-[10%] lg:mx-[20%] -mb-4 sm:my-4 flex sm:flex-row flex-col gap-x-4 bg-white rounded-lg px-3">
                             <div className="sm:w-1/2 w-full sm:mx-0">
                                 <h3 className="text-pmblue-500 mx-[3%] text-base sm:mx-0 font-bold mt-6 -mb-4 sm:text-lg sm:mt-8 sm:mb-0">
-                                    Cornellian's Sleep Schedules
+                                    Cornellian&#39;s Sleep Schedules
                                 </h3>
                                 <WakeTime />
                             </div>
@@ -174,7 +174,7 @@ const Stats2023 = () => {
                     <hr className="border-1 border-solid border-rose-300 mx-[3%] sm:mx-[10%] lg:mx-[20%]" />
                     <div className="my-8 sm:my-12">
                         <h2 className="mb-6 text-2xl sm:text-4xl tracking-tight font-extrabold text-red-500 mx-[3%] sm:mx-[10%] lg:mx-[20%]">
-                            I Would Say I'm...
+                            I Would Say I&#39;m...
                         </h2>
 
                         <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg text-black mx-[3%] sm:mx-[10%] lg:mx-[20%]">
@@ -278,7 +278,7 @@ const Stats2023 = () => {
                     <hr className="border-1 border-solid border-rose-300 mx-[3%] sm:mx-[10%] lg:mx-[20%]" />
                     <div className="my-8 sm:my-12">
                         <h2 className="mb-6 text-2xl sm:text-4xl tracking-tight font-extrabold text-red-500 mx-[3%] sm:mx-[10%] lg:mx-[20%]">
-                            We're All Cornellians
+                            We&#39;re All Cornellians
                         </h2>
                         <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg text-black mx-[3%] sm:mx-[10%] lg:mx-[20%]">
                             This year, we added some{' '}
