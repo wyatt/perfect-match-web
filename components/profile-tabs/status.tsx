@@ -60,7 +60,7 @@ const Status: any = (props: any) => {
                             <li>
                                 &#91;Optional&#93; Input your crushes/forbidden matches if you&apos;d like.{' '}
                                 <strong className="text-rose-400">
-                                    ❗PM2024 Special: Nudge your crush with an anonymous email!❗
+                                    ❗Nudge your crush with an anonymous email!❗
                                 </strong>
                             </li>
                         </ol>
@@ -71,16 +71,15 @@ const Status: any = (props: any) => {
                             <section id="opt" className={props.optIn ? 'text-green-500' : 'text-red-400'}>
                                 <p>
                                     {props.optIn
-                                        ? 'You are currently opted-in to our 2024 matching process.'
-                                        : 'You are currently opted-out to our 2024 matching process.'}
+                                        ? 'You are currently opted-in to our 2025 matching process.'
+                                        : 'You are currently opted-out to our 2025 matching process.'}
                                 </p>
                             </section>
 
                             <button
                                 onClick={handleClick}
-                                className={`mt-2 bg-transparent hover:bg-rose-500 font-semibold hover:text-white py-1 px-2 border hover:border-transparent rounded ${
-                                    props.optIn ? 'border-rose-500 text-rose-700' : 'border-green-500 text-green-700'
-                                }`}
+                                className={`mt-2 bg-transparent hover:bg-pmred-500 font-semibold hover:text-white py-1 px-2 border hover:border-transparent rounded ${props.optIn ? 'border-rose-500 text-rose-700' : 'border-green-500 text-green-700'
+                                    }`}
                             >
                                 {props.optIn ? 'Opt-Out' : 'Opt-In'}
                             </button>
