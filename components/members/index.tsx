@@ -22,9 +22,8 @@ const Members: React.FC = () => {
                         <h3 className="font-dela-gothic mb-6 text-xl sm:text-3xl text-center font-bold text-pmblue-500 sm:mt-16 mt-10">
                             {division.Name}
                         </h3>
-                        <p className="font-work-sans mb-12 italic text-center text-black text-sm sm:text-base">
-                            {division.Description}
-                        </p>
+                        <p className="font-work-sans mb-12 italic text-center text-black text-sm sm:text-base"
+                            dangerouslySetInnerHTML={{ __html: division.Description }} />
 
                         <div className="flex font-work-sans flex-wrap justify-center gap-10">
                             {division.Members &&
