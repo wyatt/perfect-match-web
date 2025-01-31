@@ -15,26 +15,26 @@ const About: any = (props: any) => {
                 <div>
                     <section className="bg-pmpink-500">
                         <div
-                            className="gap-6 lg:gap-10 items-center px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:px-6 flex-col lg:flex-row mx-[5%] sm:mx-[10%] lg:mx-[15%] sm:py-16 lg:py-20 py-12"
-                            style={{ display: 'flex' }}
+                            className="flex gap-6 lg:gap-10 items-center px-4 max-w-screen-xl lg:grid lg:grid-cols-2 lg:px-6 flex-col lg:flex-row mx-[5%] sm:mx-[10%] lg:mx-[15%] sm:py-16 lg:py-20 py-12"
                         >
-                            <div className="font sm:text-lg lg:w-7/12">
-                                <h2 className="font-dela-gothic mb-6 text-2xl sm:text-3xl tracking-tigh text-pmred-500">
+                            <div className="font-dela-gothic sm:text-lg">
+                                <h2 className="mb-6 text-2xl sm:text-3xl tracking-tigh text-pmred-500">
                                     Cupid just got smarter 🦾💗!
                                 </h2>
 
-                                <div className='font-work-sans'>
-                                    <p className="sm:mb-4 mb-0 text-pmred-500">
+                                <div className='font-work-sans text-pmred-500 '>
+                                    <p className="sm:mb-4 mb-0 ">
                                         Perfect Match is a matchmaking survey ideated in February 2019. Our machine learning algorithm uses your survey to pair you with other Cornell students — your Perfect Matches!</p>
 
-                                    <p className="sm:mb-4 mb-0 text-pmred-500">  This year, we are back with <strong> fun survey questions, whole new branding, special “nudge your crush” feature</strong>, and more surprises to discover! Don&apos;t hesitate to get in for a Valentine&apos;s Day you won&apos;t forget! Happy matching, xoxo the cupids
+                                    <p className="sm:mb-4 mb-0">  This year, we are back with <strong> fun survey questions, whole new branding, special “nudge your crush” feature</strong>, and more surprises to discover! Don&apos;t hesitate to get in for a Valentine&apos;s Day you won&apos;t forget!
                                     </p>
+                                    <p className='text-right font-semibold mx-auto'>Happy matching, xoxo, <br /> The Cupids💝</p>
                                     {/* <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p> */}
                                 </div>
                             </div>
-                            <div className="lg:w-5/12">
-                                {/* <img className="rounded-lg" src="\logo2.png" /> */}
-                            </div>
+                            {/* <div className="lg:w-5/12">
+                                <img className="rounded-lg" src="\logo2.png" />
+                            </div> */}
                         </div>
                     </section>
                 </div>
@@ -44,7 +44,7 @@ const About: any = (props: any) => {
 
 
                     <div className="mx-[10%] lg:mx-[15%]">
-                        <ol className="hidden sm:block sm:border-xl-0 sm:border-t-2 border-pmpink2-500 sm:flex sm:gap-6">
+                        <ol className="hidden sm:border-xl-0 sm:border-t-2 border-pmpink2-500 sm:flex sm:gap-6">
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="relative z-10 sm:-mt-5 text-3xl -ml-1">💓</div>
@@ -87,7 +87,7 @@ const About: any = (props: any) => {
                                     <h4 className="font-dela-gothic text-pmblue-500 font-bold text-lg mb-1.5">Matches Out!</h4>
                                     <p className="font-work-sans text-pmblue-500 mb-3">
                                         An email will be sent to you when your perfect matches are out. Go ahead and
-                                        shoot your shot!{' '}
+                                        shoot your shot!
                                     </p>
                                 </div>
                             </li>
@@ -258,7 +258,7 @@ const About: any = (props: any) => {
                                         What is Perfect Match?
                                     </summary>
 
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
+                                    <p className='pt-3 pl-4'>
                                         Perfect Match is a matchmaking service for Cornell students and alumni. It uses
                                         machine learning algorithms to match participants based on their responses to
                                         the survey. Every year, the survey opens in early February and has thousands of
@@ -270,7 +270,7 @@ const About: any = (props: any) => {
                                         How many matches will I get?
                                     </summary>
 
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
+                                    <p className='pt-3 pl-4'>
                                         Most participants get between 4 and 7 matches.
                                     </p>
                                 </details>
@@ -279,7 +279,7 @@ const About: any = (props: any) => {
                                         What should I do when I receive my Matches?
                                     </summary>
 
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
+                                    <p className='pt-3 pl-4'>
                                         It&apos;s up to you! Contact your Matches in any way you&apos;d like. We will
                                         provide some suggestions for how to connect when matches are released.
                                     </p>
@@ -289,7 +289,7 @@ const About: any = (props: any) => {
                                         What is the Perfect Match team like?
                                     </summary>
 
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
+                                    <p className='pt-3 pl-4'>
                                         There are currently 10 members in the team. It is a small team; every member has
                                         their unique strengths and responsibilities. We typically meet every month to
                                         decide on tasks and assign them. However, every January is still a super busy
@@ -303,7 +303,7 @@ const About: any = (props: any) => {
                                         What algorithm does Perfect Match use?
                                     </summary>
 
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
+                                    <p className='pt-3 pl-4'>
                                         The Perfect Match algorithm can be broken into two parts: scoring and matching.
                                         First, we use our machine learning algorithm to score compatibility between you
                                         and all other participants who satisfy your main criteria, as determined by your
@@ -335,7 +335,7 @@ const About: any = (props: any) => {
                                         How can I contact the Perfect Match team?
                                     </summary>
 
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
+                                    <p className='pt-3 pl-4'>
                                         Our contact information is right below. Feel free to follow us on{' '}
                                         <a
                                             className="underline"
@@ -362,7 +362,7 @@ const About: any = (props: any) => {
                                         How to join the Perfect Match team?
                                     </summary>
 
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
+                                    <p className='pt-3 pl-4'>
                                         We welcome new members and new ideas! If you are interested in joining the team,
                                         please fill out this{' '}
                                         <a
@@ -384,12 +384,11 @@ const About: any = (props: any) => {
 
             <div>
                 <section className="bg-pmpink-500">
-                    <div className="py-8 mx-auto max-w-screen-xl lg:py-16 mx-[5%] sm:mx-[10%] lg:mx-[15%]">
+                    <div className="py-8 mx-auto max-w-screen-xl lg:py-16 sm:mx-[10%] lg:mx-[15%]">
                         <div className="flex justify-center items-center gap-4">
                             <img src="star1.png" alt="Star1" />
                             <img src="star2.png" alt="Star2" />
                             <img src="star1.png" alt="Star1" />
-
                         </div>
                     </div>
                 </section>
@@ -401,7 +400,7 @@ const About: any = (props: any) => {
             <div className="bg-pmpink-500">
                 <div className="w-full bg-pmpink-500"></div>
                 <div className="left-0 w-full overflow-hidden">
-                    <svg className="relative block w-full h-[60px] md:hidden" // Adjust height as needed
+                    <svg className="relative block w-full h-[60px] md:hidden"
                         viewBox="0 0 1200 120"
                         preserveAspectRatio="none">
                         <path
@@ -409,7 +408,7 @@ const About: any = (props: any) => {
                             fill="#f7a4af"
                         ></path>
                     </svg>
-                    <svg className="relative hidden w-full h-[60px] md:block" // Adjust height as needed
+                    <svg className="relative hidden w-full h-[60px] md:block"
                         viewBox="0 0 1200 120"
                         preserveAspectRatio="none">
                         <path
