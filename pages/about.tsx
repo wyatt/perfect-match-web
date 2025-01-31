@@ -15,8 +15,8 @@ const About: any = (props: any) => {
                 <div>
                     <section className="bg-pmpink-500">
                         <div
-                            className="gap-6 lg:gap-10 items-center px-0 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:px-6 flex-col lg:flex-row mx-[5%] sm:mx-[10%] lg:mx-[15%] sm:py-16 lg:py-20 py-12"
-                            style={{ display: 'flex', paddingLeft: '0px' }}
+                            className="gap-6 lg:gap-10 items-center px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:px-6 flex-col lg:flex-row mx-[5%] sm:mx-[10%] lg:mx-[15%] sm:py-16 lg:py-20 py-12"
+                            style={{ display: 'flex' }}
                         >
                             <div className="font sm:text-lg lg:w-7/12">
                                 <h2 className="font-dela-gothic mb-6 text-2xl sm:text-3xl tracking-tigh text-pmred-500">
