@@ -401,7 +401,15 @@ const About: any = (props: any) => {
             <div className="bg-pmpink-500">
                 <div className="w-full bg-pmpink-500"></div>
                 <div className="left-0 w-full overflow-hidden">
-                    <svg className="relative block w-full h-[60px]" // Adjust height as needed
+                    <svg className="relative block w-full h-[60px] md:hidden" // Adjust height as needed
+                        viewBox="0 0 1200 120"
+                        preserveAspectRatio="none">
+                        <path
+                            d="M0,60 C40,40 80,80 120,60 C160,40 200,80 240,60 C280,40 320,80 360,60 C400,40 440,80 480,60 C520,40 560,80 600,60 C640,40 680,80 720,60 C760,40 800,80 840,60 C880,40 920,80 960,60 C1000,40 1040,80 1080,60 C1120,40 1160,80 1200,60 V120 H0 Z"
+                            fill="#f7a4af"
+                        ></path>
+                    </svg>
+                    <svg className="relative hidden w-full h-[60px] md:block" // Adjust height as needed
                         viewBox="0 0 1200 120"
                         preserveAspectRatio="none">
                         <path

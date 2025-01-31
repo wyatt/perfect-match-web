@@ -96,7 +96,7 @@ export const team = [
     {
         Name: 'Business',
         Description:
-            'The Business team is responsible for marketing Perfect Match and reaching out to potential sponsors.',
+            'The Business team is responsible for marketing Perfect Match, coordinating events, designing branding, and new feature ideation.',
         Members: [
             {
                 Name: 'Kelly Hong',
