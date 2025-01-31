@@ -1,24 +1,26 @@
 import React from 'react';
 import Link from 'next/link';
-import DescribeYouFemale from '@/components/analytics/apex-charts-2023/describeYouFemale';
-import DescribeYouMale from '@/components/analytics/apex-charts-2023/describeYouMale';
-import Year from '@/components/analytics/apex-charts-2023/year';
-import Height2024 from '@/components/analytics/apex-charts-2024/height2024';
-import RicePurity2024 from '@/components/analytics/apex-charts-2024/ricePurity2024';
-import LongestRelationship from '@/components/analytics/apex-charts-2023/longestRelationship';
-import NumDatedGender2024 from '@/components/analytics/apex-charts-2024/numDated2024';
-import Political from '@/components/analytics/apex-charts-2023/political';
-import SimilarInterest from '@/components/analytics/apex-charts-2023/similarInterest';
-import FirstDate from '@/components/analytics/apex-charts-2023/firstDate';
-import Quality from '@/components/analytics/apex-charts-2023/quality';
-import WakeTime from '@/components/analytics/apex-charts-2023/wakeTime';
-import SleepDuration from '@/components/analytics/apex-charts-2023/sleepDuration';
-import AgePrefToggle from '@/components/analytics/apex-charts-2023/toggleSwitchAgePref';
-import Faction from '@/components/analytics/apex-charts-2023/faction';
-import CompleteTask from '@/components/analytics/apex-charts-2023/completeTask';
-import BestAlternativeBar from '@/components/analytics/apex-charts-2023/bestAlternativeBar';
-import DateWear from '@/components/analytics/apex-charts-2023/dateWear';
-import RelationshipType from '@/components/analytics/apex-charts-2023/relationshipType';
+import Script from 'next/script';
+import DescribeYouFemale from '@/components/analytics/charts-2023/describeYouFemale';
+import DescribeYouMale from '@/components/analytics/charts-2023/describeYouMale';
+import Year from '@/components/analytics/charts-2023/year';
+import Height2024 from '@/components/analytics/charts-2024/height2024';
+import RicePurity2024 from '@/components/analytics/charts-2024/ricePurity2024';
+import LongestRelationship from '@/components/analytics/charts-2023/longestRelationship';
+import NumDatedGender2024 from '@/components/analytics/charts-2024/numDated2024';
+import Political from '@/components/analytics/charts-2023/political';
+import SimilarInterest from '@/components/analytics/charts-2023/similarInterest';
+import FirstDate from '@/components/analytics/charts-2023/firstDate';
+import Quality from '@/components/analytics/charts-2023/quality';
+import WakeTime from '@/components/analytics/charts-2023/wakeTime';
+import SleepDuration from '@/components/analytics/charts-2023/sleepDuration';
+import AgePrefToggle from '@/components/analytics/charts-2023/toggleSwitchAgePref';
+import Faction from '@/components/analytics/charts-2023/faction';
+import CompleteTask from '@/components/analytics/charts-2023/completeTask';
+import BestAlternativeBar from '@/components/analytics/charts-2023/bestAlternativeBar';
+import DateWear from '@/components/analytics/charts-2023/dateWear';
+import RelationshipType from '@/components/analytics/charts-2023/relationshipType';
+import D3Plot from '@/components/analytics/D3Plot';
 
 const Stats2024 = () => {
     const [show, toggleShow] = React.useState(true);
@@ -26,6 +28,8 @@ const Stats2024 = () => {
     return (
         <div>
             {' '}
+            <Script src="https://d3js.org/d3.v7.min.js" />
+            <Script src="https://d3js.org/topojson.v3.min.js" />
             <div>
                 <section className="bg-white pt-12 sm:pt-16 lg:pt-20 sm:pb-5 pb-1">
                     <h2 className="mb-6 text-2xl sm:text-4xl tracking-tight font-extrabold text-rose-400 mx-[3%] sm:mx-[10%] lg:mx-[20%]">
@@ -38,6 +42,61 @@ const Stats2024 = () => {
                         <NumDatedGender2024 />
                         <RicePurity2024 />
                     </div>
+
+                    <D3Plot />
+
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            width: "calc(1050px + 300px)",
+                            margin: "10px auto",
+                            position: "relative",
+                        }}
+                    >
+                        {/* Legend SVG */}
+                        <svg
+                            id="legendsvg"
+                            width="1000"
+                            height="80"
+                            style={{ display: "block", margin: "0", marginTop: "10px" }}
+                        ></svg>
+
+                        {/* Container for Choropleth & Pie Chart */}
+                        <div
+                            style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                position: "relative",
+                            }}
+                        >
+                            {/* Choropleth Section */}
+                            <div style={{ textAlign: "center", marginRight: "50px" }}>
+                                <div>
+                                    <h4>Most Chosen Option by State</h4>
+                                    <p>Hover over a state to explore its distribution!</p>
+                                </div>
+                                <svg
+                                    id="choropleth"
+                                    height="700"
+                                    width="1050"
+                                    style={{ margin: "-10px -10px -30px 0" }}
+                                ></svg>
+                            </div>
+
+                            {/* Pie Chart Section */}
+                            <div style={{ textAlign: "center", marginLeft: "0px" }}>
+                                <h4 style={{ marginLeft: "-80px" }}>Distribution</h4>
+                                <svg id="pies" width="300" height="800"></svg>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <p style={{ marginTop: "-60px" }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
+
+
                 </section>
 
 

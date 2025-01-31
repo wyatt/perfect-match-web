@@ -22,6 +22,7 @@
         "apexcharts": "^3.37.0",
         "aws-sdk": "^2.1338.0",
         "bluebird": "^3.7.2",
+        "d3": "^7.9.0",
         "dotenv": "^16.0.3",
         "firebase": "^9.17.1",
         "headlessui": "^0.0.0",
@@ -45,14 +46,18 @@
         "redis": "^4.6.4",
         "styled-components": "^5.3.6",
         "survey-react": "^1.9.67",
-        "swr": "^2.0.0"
+        "swr": "^2.0.0",
+        "topojson-client": "^3.1.0"
     },
     "devDependencies": {
+        "@types/d3": "^7.4.3",
+        "@types/geojson": "^7946.0.16",
         "@types/node": "18.11.5",
         "@types/react": "18.0.22",
         "@types/react-dom": "18.0.7",
         "@types/styled-components-react-native": "^5.2.0",
         "@types/swagger-ui-react": "^4.18.3",
+        "@types/topojson-client": "^3.1.5",
         "autoprefixer": "^10.4.13",
         "eslint": "8.26.0",
         "eslint-config-next": "12.3.1",

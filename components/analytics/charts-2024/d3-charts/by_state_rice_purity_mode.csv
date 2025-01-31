@@ -1,0 +1,52 @@
+state_name,state_code,state_short,score_mode
+Alabama,1,AL,Suppressed
+Alaska,2,AK,Suppressed
+Arizona,4,AZ,61-80
+Arkansas,5,AR,Suppressed
+California,6,CA,81-100
+Colorado,8,CO,21-40
+Connecticut,9,CT,41-60
+Delaware,10,DE,Suppressed
+District of Columbia,11,DC,21-40
+Florida,12,FL,41-60
+Georgia,13,GA,61-80
+Hawaii,15,HI,61-80
+Idaho,16,ID,Suppressed
+Illinois,17,IL,81-100
+Indiana,18,IN,81-100
+Iowa,19,IA,Suppressed
+Kansas,20,KS,Suppressed
+Kentucky,21,KY,Suppressed
+Louisiana,22,LA,Suppressed
+Maine,23,ME,Suppressed
+Maryland,24,MD,81-100
+Massachusetts,25,MA,81-100
+Michigan,26,MI,61-80
+Minnesota,27,MN,21-40
+Mississippi,28,MS,Suppressed
+Missouri,29,MO,41-60
+Montana,30,MT,Suppressed
+Nebraska,31,NE,Suppressed
+Nevada,32,NV,81-100
+New Hampshire,33,NH,61-80
+New Jersey,34,NJ,81-100
+New Mexico,35,NM,Suppressed
+New York,36,NY,81-100
+North Carolina,37,NC,81-100
+North Dakota,38,ND,Suppressed
+Ohio,39,OH,81-100
+Oklahoma,40,OK,Suppressed
+Oregon,41,OR,81-100
+Pennsylvania,42,PA,81-100
+Rhode Island,44,RI,Suppressed
+South Carolina,45,SC,Suppressed
+South Dakota,46,SD,Suppressed
+Tennessee,47,TN,Suppressed
+Texas,48,TX,81-100
+Utah,49,UT,Suppressed
+Vermont,50,VT,41-60
+Virginia,51,VA,81-100
+Washington,53,WA,81-100
+West Virginia,54,WV,Suppressed
+Wisconsin,55,WI,21-40
+Wyoming,56,WY,Suppressed

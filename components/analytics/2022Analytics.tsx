@@ -2,20 +2,20 @@ import React from 'react';
 import Script from 'next/script';
 
 import Link from 'next/link';
-import DescribeYou from '@/components/analytics/apex-charts-2022/describeYou';
-import DescribePartner from '@/components/analytics/apex-charts-2022/describePartner';
-import Year from '@/components/analytics/apex-charts-2022/year';
-import Height from '@/components/analytics/apex-charts-2022/height';
-import LongestRelation from '@/components/analytics/apex-charts-2022/longestRelation';
-import NumDatedGender from '@/components/analytics/apex-charts-2022/numDated';
-import NumDatedCollege from '@/components/analytics/apex-charts-2022/numDatedCollege';
-import Extroverted from '@/components/analytics/apex-charts-2022/extroverted';
-import Easygoing from '@/components/analytics/apex-charts-2022/easygoing';
-import Political from '@/components/analytics/apex-charts-2022/political';
-import TimeOrMoney from '@/components/analytics/apex-charts-2022/timeOrMoney';
-import SimilarInterest from '@/components/analytics/apex-charts-2022/similarInterest';
-import FirstDate from '@/components/analytics/apex-charts-2022/firstDate';
-import FridayNight from '@/components/analytics/apex-charts-2022/fridayNight';
+import DescribeYou from '@/components/analytics/charts-2022/describeYou';
+import DescribePartner from '@/components/analytics/charts-2022/describePartner';
+import Year from '@/components/analytics/charts-2022/year';
+import Height from '@/components/analytics/charts-2022/height';
+import LongestRelation from '@/components/analytics/charts-2022/longestRelation';
+import NumDatedGender from '@/components/analytics/charts-2022/numDated';
+import NumDatedCollege from '@/components/analytics/charts-2022/numDatedCollege';
+import Extroverted from '@/components/analytics/charts-2022/extroverted';
+import Easygoing from '@/components/analytics/charts-2022/easygoing';
+import Political from '@/components/analytics/charts-2022/political';
+import TimeOrMoney from '@/components/analytics/charts-2022/timeOrMoney';
+import SimilarInterest from '@/components/analytics/charts-2022/similarInterest';
+import FirstDate from '@/components/analytics/charts-2022/firstDate';
+import FridayNight from '@/components/analytics/charts-2022/fridayNight';
 
 const Stats2022 = () => {
     const [show, toggleShow] = React.useState(true);
