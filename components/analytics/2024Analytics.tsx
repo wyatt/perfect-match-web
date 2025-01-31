@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
 import DescribeYouFemale from '@/components/analytics/charts-2023/describeYouFemale';
@@ -20,10 +20,17 @@ import CompleteTask from '@/components/analytics/charts-2023/completeTask';
 import BestAlternativeBar from '@/components/analytics/charts-2023/bestAlternativeBar';
 import DateWear from '@/components/analytics/charts-2023/dateWear';
 import RelationshipType from '@/components/analytics/charts-2023/relationshipType';
-import D3Plot from '@/components/analytics/D3Plot';
+import ByStateRicePurity2024 from '@/components/analytics/charts-2024/d3-charts/by_state_rice_purity_2024';
+import ByStateDrinkOften2024 from '@/components/analytics/charts-2024/d3-charts/by_state_drinking_2024';
 
 const Stats2024 = () => {
-    const [show, toggleShow] = React.useState(true);
+    const visualizations: Record<string, JSX.Element> = {
+        "What is your Rice Purity Score?": <ByStateRicePurity2024 />,
+        "How 'juice head' are you?": <ByStateDrinkOften2024 />
+    };
+
+    // State to track selected visualization
+    const [selectedViz, setSelectedViz] = useState(Object.keys(visualizations)[0]);
 
     return (
         <div>
@@ -43,60 +50,28 @@ const Stats2024 = () => {
                         <RicePurity2024 />
                     </div>
 
-                    <D3Plot />
-
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            width: "calc(1050px + 300px)",
-                            margin: "10px auto",
-                            position: "relative",
-                        }}
-                    >
-                        {/* Legend SVG */}
-                        <svg
-                            id="legendsvg"
-                            width="1000"
-                            height="80"
-                            style={{ display: "block", margin: "0", marginTop: "10px" }}
-                        ></svg>
-
-                        {/* Container for Choropleth & Pie Chart */}
-                        <div
-                            style={{
-                                display: "flex",
-                                alignItems: "flex-start",
-                                position: "relative",
-                            }}
+                    {/* Dropdown for Visualization Selection */}
+                    <div className="text-center mt-6">
+                        <label htmlFor="viz-select" className="text-lg font-semibold mr-4 font-dela-gothic" style={{ fontFamily: 'Dela Gothic One', fontSize: "28px" }}>
+                            Viz by State:
+                        </label>
+                        <select
+                            id="viz-select"
+                            value={selectedViz}
+                            onChange={(e) => setSelectedViz(e.target.value)}
+                            className="border rounded-lg px-4 py-2"
+                            style={{ fontFamily: 'Dela Gothic One', fontSize: "28px", borderColor: "darkgray", borderWidth: "2px" }}
                         >
-                            {/* Choropleth Section */}
-                            <div style={{ textAlign: "center", marginRight: "50px" }}>
-                                <div>
-                                    <h4>Most Chosen Option by State</h4>
-                                    <p>Hover over a state to explore its distribution!</p>
-                                </div>
-                                <svg
-                                    id="choropleth"
-                                    height="700"
-                                    width="1050"
-                                    style={{ margin: "-10px -10px -30px 0" }}
-                                ></svg>
-                            </div>
-
-                            {/* Pie Chart Section */}
-                            <div style={{ textAlign: "center", marginLeft: "0px" }}>
-                                <h4 style={{ marginLeft: "-80px" }}>Distribution</h4>
-                                <svg id="pies" width="300" height="800"></svg>
-                            </div>
-                        </div>
+                            {Object.keys(visualizations).map((key) => (
+                                <option key={key} value={key}>
+                                    {key}
+                                </option>
+                            ))}
+                        </select>
                     </div>
 
-
-                    <p style={{ marginTop: "-60px" }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
-
-
+                    {/* Render Selected Visualization */}
+                    <div className="mt-6">{visualizations[selectedViz]}</div>
                 </section>
 
 

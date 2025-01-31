@@ -23,28 +23,28 @@ interface PieData {
     value: number;
 }
 
-const D3Plot: React.FC = () => {
+const ByStateRicePurity2024: React.FC = () => {
     useEffect(() => {
-        const svg = d3.select<SVGSVGElement, unknown>("#choropleth");
-        const width = +svg.attr("width");
-        const height = +svg.attr("height");
+        const choropleth = d3.select<SVGSVGElement, unknown>("#choropleth");
+        const width = +choropleth.attr("width");
+        const height = +choropleth.attr("height");
         const margin = { top: 0, right: 20, bottom: 0, left: 0 };
         const mapWidth = width - margin.left - margin.right;
         const mapHeight = height - margin.top - margin.bottom;
 
-        const map = svg.append("g")
+        const map = choropleth.append("g")
             .attr("transform", `translate(${margin.left},${margin.top})`);
 
         const requestData = async () => {
             // Load TopoJSON and CSV data
-            const us: TopoJSON.Topology = await d3.json("/us-smaller.json") as TopoJSON.Topology;
-            const aggregateData: StateData[] = await d3.csv<StateData>("/by_state_rice_purity_mode.csv", (d) => ({
+            const us: TopoJSON.Topology = await d3.json("/data-for-viz-2024/us-smaller.json") as TopoJSON.Topology;
+            const aggregateData: StateData[] = await d3.csv<StateData>("/data-for-viz-2024/by_state_rice_purity_mode.csv", (d) => ({
                 state_code: d.state_code,
                 state_name: d.state_name,
                 score_mode: d.score_mode,
             }));
 
-            const distributionData: DistributionData[] = await d3.csv<DistributionData>("/by_state_rice_purity_distribution.csv", (d) => ({
+            const distributionData: DistributionData[] = await d3.csv<DistributionData>("/data-for-viz-2024/by_state_rice_purity_distribution.csv", (d) => ({
                 state_name: d.state_name,
                 score_range1: +d.score_range1, // Convert to number
                 score_range2: +d.score_range2, // Convert to number
@@ -65,7 +65,9 @@ const D3Plot: React.FC = () => {
                 .attr("class", "state")
                 .attr("fill", "lightgrey")
                 .attr("d", path)
-                .style("transition", "fill 0.5s ease-in-out");
+                .style("transition", "fill 1s ease-in-out")
+                .style("pointer-events", "visible")
+                .style("stroke", "none");
 
             map.append("path")
                 .datum(statesMesh)
@@ -73,7 +75,7 @@ const D3Plot: React.FC = () => {
                 .attr("d", path)
                 .style("fill", "none")
                 .style("stroke", "white")
-                .style("stroke-width", "1.5px");
+                .style("stroke-width", "1px");
 
             // Create a dictionary for state data
             const stateDict: { [key: string]: StateData } = {};
@@ -98,6 +100,7 @@ const D3Plot: React.FC = () => {
             // Tooltip setup
             const tooltip = map.append("g")
                 .attr("class", "tooltip")
+                .attr("pointer-events", "none")
                 .attr("visibility", "hidden");
 
             tooltip.append("rect")
@@ -118,20 +121,10 @@ const D3Plot: React.FC = () => {
                 .attr("text-anchor", "middle")
                 .style("font-size", "14px");
 
-            // Debounce function for tooltip
-            const debounce = (func: Function, delay: number) => {
-                let timeout: NodeJS.Timeout;
-                return (...args: any[]) => {
-                    clearTimeout(timeout);
-                    timeout = setTimeout(() => func.apply(null, args), delay);
-                };
-            };
-
             // Mouse hover events
-            const delayedMouseEnter = debounce((event: MouseEvent, d: GeoJSON.Feature) => {
+            statePaths.on("mouseenter", (event, d) => {
                 tooltip.style("visibility", "visible");
 
-                const state = d3.select<SVGPathElement, GeoJSON.Feature>(event.target as SVGPathElement);
                 const stateID = d.id as string;
                 const stateDat = stateDict[stateID];
 
@@ -168,15 +161,11 @@ const D3Plot: React.FC = () => {
                 } else {
                     drawPies(defaultStates);
                 }
-            }, 130);
-
-            const delayedMouseLeave = debounce(() => {
+            }).on("mouseleave", () => {
                 tooltip.style("visibility", "hidden");
                 pieSvg.selectAll("*").remove();
                 drawPies(defaultStates);
-            }, 130);
-
-            statePaths.on("mouseover", delayedMouseEnter).on("mouseout", delayedMouseLeave);
+            });
 
             // Pie chart setup
             const stateData2: { [key: string]: PieData[] } = {};
@@ -191,8 +180,8 @@ const D3Plot: React.FC = () => {
             });
 
             const defaultStates = ["New York", "Colorado", "Florida"];
-            const pieRadius = 100;
-            const pieHeight = 250;
+            const pieRadius = 85;
+            const pieHeight = 210;
             const pieSvg = d3.select<SVGSVGElement, unknown>("#pies");
 
             const pie = d3.pie<PieData>().value((d) => d.value).sort(null);
@@ -221,6 +210,7 @@ const D3Plot: React.FC = () => {
                         .enter()
                         .append("text")
                         .attr("class", "percentage")
+                        .attr("class", "main")
                         .attr("transform", (d) => {
                             const [x, y] = arc.centroid(d);
                             const offset = 1.3;
@@ -230,7 +220,7 @@ const D3Plot: React.FC = () => {
                         .style("font-size", "14px")
                         .style("fill", "white")
                         .text((d) => {
-                            const percentage = parseFloat(d.data.value.toFixed(1)); // Convert to number
+                            const percentage = parseFloat(d.data.value.toFixed(1));
                             return percentage > 15 ? `${percentage}%` : "";
                         });
 
@@ -239,15 +229,15 @@ const D3Plot: React.FC = () => {
                         .attr("text-anchor", "middle")
                         .attr("y", -pieRadius - 10)
                         .style("font-size", "18px")
-                        .style("font-weight", "bold")
+                        .attr("class", "main")
                         .text(stateName);
                 });
             };
 
             drawPies(defaultStates);
 
-            // legend
-            const legendWidth = 1000;
+            // Legend
+            const legendWidth = 900;
             const legendHeight = 80;
 
             const legendSvg = d3.select<SVGSVGElement, unknown>("#legendsvg")
@@ -270,6 +260,8 @@ const D3Plot: React.FC = () => {
                 .attr("width", legendScale.bandwidth())
                 .attr("height", 25)
                 .attr("stroke", "grey")
+                .attr("rx", 3)
+                .attr("ry", 3)
                 .attr("fill", (d, i) => colors[i]);
 
             legendSvg.selectAll<SVGTextElement, string>("text")
@@ -288,38 +280,39 @@ const D3Plot: React.FC = () => {
     }, []);
 
     return (
-        <div>
-            <h1 style={{ fontFamily: "'Dela Gothic One', sans-serif", fontSize: "40px", marginBottom: "10px" }}>
-                By state: What is your Rice Purity Score?
-            </h1>
-            <p style={{ fontSize: "18px", marginBottom: "0px" }}>
+        <div style={{ textAlign: "center" }}>
+            <p style={{ fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
                 The higher the number, the purer you are; the lower your score, the more 'corrupt' or rebellious you are.
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(1050px + 300px)", margin: "10px auto", position: "relative" }}>
-                <svg id="legendsvg" width="1000" height="80" style={{ display: "block", margin: "0", marginTop: "10px" }}></svg>
+                <svg id="legendsvg" width="900" height="80" style={{ display: "block", margin: "0", marginTop: "5px" }}></svg>
 
                 <div style={{ display: "flex", alignItems: "flex-start", position: "relative" }}>
                     {/* Choropleth */}
                     <div style={{ textAlign: "center", marginRight: "50px" }}>
                         <div>
-                            <h4>Most Chosen Option by State</h4>
-                            <p>Hover over a state to explore its distribution!</p>
+                            <h4 style={{ fontSize: "22px", marginTop: "0px", fontFamily: 'Dela Gothic One' }} >Most Chosen Option by State</h4>
+                            <p style={{ fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Hover over a state to explore its distribution!</p>
                         </div>
-                        <svg id="choropleth" height="700" width="1050" style={{ margin: "-10px -10px -30px 0", border: "none", outline: "none", boxShadow: "none" }}></svg>
+                        <svg id="choropleth" height="600" width="900" style={{
+                            margin: "-10px -10px -30px 0",
+                            outline: "none",
+                            border: "none"
+                        }}></svg>
                     </div>
 
                     {/* Pie Chart */}
                     <div style={{ textAlign: "center", marginLeft: "0px" }}>
-                        <h4 style={{ marginLeft: "-80px" }}>Distribution</h4>
-                        <svg id="pies" width="300" height="800"></svg>
+                        <h4 style={{ marginLeft: "-110px", fontSize: "22px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Distribution</h4>
+                        <svg id="pies" width="300" height="620"></svg>
                     </div>
                 </div>
             </div>
 
-            <p style={{ marginTop: "-60px" }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
+            <p style={{ marginTop: "0px", fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
         </div>
     );
 };
 
-export default D3Plot;
+export default ByStateRicePurity2024;
