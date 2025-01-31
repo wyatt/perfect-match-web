@@ -133,7 +133,7 @@ const Stats2023 = () => {
                         About Dating and More
                     </h2>
                     <div className="mx-[3%] sm:mx-[10%] lg:mx-[20%]">
-                        <h3 className="text-xl text-rose-300 font-bold sm:text-2xl lg:pt-4">Facts</h3>
+                        <h3 className="text-xl text-rose-500 font-bold sm:text-2xl lg:pt-4">Facts</h3>
                         <ul className="list-disc mb-8 sm:mb-12 ml-4">
                             <li className="my-3 lg:my-5 max-w-4xl sm:text-lg text-black">
                                 Don&apos;t sweat if you have never been in a relationship before.

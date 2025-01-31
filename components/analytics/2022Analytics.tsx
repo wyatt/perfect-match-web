@@ -28,19 +28,19 @@ const Stats2022 = () => {
                     <h2 className="mb-6 text-2xl sm:text-4xl tracking-tight font-extrabold text-red-500 mx-[5%] sm:mx-[10%] lg:mx-[20%]">
                         About Participants of PM22
                     </h2>
-                    <p className="my-8 sm:lg-8 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%]">
+                    <p className="my-8 sm:lg-8 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%] text-black">
                         In 2022, we received <strong className="text-rose-400"> 3,677 </strong>
                         valid responses. Here is a look at the results of the survey!
                     </p>
                     {/* <hr className="border-1 border-solid border-rose-300 mx-[5%] sm:mx-[10%] lg:mx-[20%]" /> */}
-                    <p className="my-8 sm:lg-8 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%]">
+                    <p className="my-8 sm:lg-8 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%] text-black">
                         <strong className="text-rose-400">CS</strong> students seem to really need our help; 519 of them
                         participated in PM22. The second place went to{' '}
                         <strong className="text-rose-400">Biological Science</strong> with 258 participants.
                     </p>
                     {/* <hr className="border-1 border-solid border-rose-300 mx-[5%] sm:mx-[10%] lg:mx-[20%]" /> */}
                     <div className="my-8">
-                        <p className="my-4 sm:lg-8 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%]">
+                        <p className="my-4 sm:lg-8 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%] text-black">
                             <strong className="text-rose-400">Juniors</strong> made up the highest proportion of the
                             PM22 client body. Also interesting to notice is that
                             <strong className="text-rose-400"> 5 faculty members </strong>filled out the survey!
@@ -54,7 +54,7 @@ const Stats2022 = () => {
                     </div>
                     {/* <hr className="border-1 border-solid border-rose-300 mx-[5%] sm:mx-[10%] lg:mx-[20%]" /> */}
                     <div className="my-8">
-                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%]">
+                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%] text-black">
                             For better or worse, <strong className="text-rose-400">height </strong>
                             is one of the first qualities that people evaluate when looking for a significant other. For
                             female participants, the median height is
@@ -78,33 +78,33 @@ const Stats2022 = () => {
                         About Dating and More
                     </h2>
                     <div className="mx-[5%] sm:mx-[10%] lg:mx-[20%]">
-                        <h3 className="text-xl text-rose-300 font-bold sm:text-2xl lg:pt-4">Key Takeaways</h3>
+                        <h3 className="text-xl text-rose-500 font-bold sm:text-2xl lg:pt-4">Key Takeaways</h3>
                         <ul className="list-disc mb-8 sm:mb-12">
-                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg black">
+                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg text-black">
                                 Don&apos;t sweat if you have never been in a relationship before.
                                 <strong className="text-rose-400"> 30%</strong> of participants said they had never been
                                 in a relationship.
                             </li>
-                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg black">
+                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg text-black">
                                 Only <strong className="text-rose-400">50%</strong> of CS students had their longest
                                 relationship &gt;= 3 months.
                             </li>
-                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg black">
+                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg text-black">
                                 <strong className="text-rose-400">AAP</strong> students tended to have the most
                                 long-lasting relationship. They also had dated the most people in the last five years.
                             </li>
-                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg black">
+                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg text-black">
                                 The median number of people that the participants had dated in the last five years was{' '}
                                 <strong className="text-rose-400">1</strong>.
                             </li>
-                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg black">
+                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg text-black">
                                 <strong className="text-rose-400">&quot;Funny&quot; and &quot;smart&quot; </strong>
                                 were the top adjectives used by people to describe themselves and their ideal partner.
                             </li>
-                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg black">
+                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg text-black">
                                 Only 6.5% of participants said they spent their typical Friday night studying.
                             </li>
-                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg black">
+                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg text-black">
                                 Only a few people said they preferred to be paired with someone who is less easygoing or
                                 extroverted than themselves.
                             </li>
@@ -112,7 +112,7 @@ const Stats2022 = () => {
                     </div>
                     <hr className="border-1 border-solid border-rose-300 mx-[5%] sm:mx-[10%] lg:mx-[20%]" />
                     <div className="my-8 sm:my-12">
-                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%]">
+                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%] text-black">
                             We asked participants to give the length of their longest relationship. The results indicate
                             that <strong className="text-rose-400">AAP and ILR </strong>
                             students tend to be in longer relationships.
@@ -126,7 +126,7 @@ const Stats2022 = () => {
                     </div>
                     <hr className="border-1 border-solid border-rose-300 mx-[5%] sm:mx-[10%] lg:mx-[20%]" />
                     <div className="my-8 sm:my-12">
-                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%]">
+                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%] text-black">
                             We also asked participants to give the number of people they had dated in the last five
                             years. It is interesting to observe how female and male participants, and students in
                             different colleges, gave different numbers.
@@ -150,7 +150,7 @@ const Stats2022 = () => {
                     </div>
                     <hr className="border-1 border-solid border-rose-300 mx-[5%] sm:mx-[10%] lg:mx-[20%]" />
                     <div className="my-8 sm:my-12">
-                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%]">
+                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%] text-black">
                             Participants used surprisingly similar words when asked to describe themselves in three
                             adjectives. <strong className="text-rose-400">&quot;Funny&quot; </strong>
                             took the first place, without a doubt.{' '}
@@ -164,7 +164,7 @@ const Stats2022 = () => {
                             </h3>
                             <DescribeYou />
                         </div>
-                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%]">
+                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%] text-black">
                             <strong className="text-rose-400">
                                 &quot;Funny,&quot; &quot;smart,&quot; and &quot;caring&quot;{' '}
                             </strong>
@@ -183,7 +183,7 @@ const Stats2022 = () => {
                     </div>
                     <hr className="border-1 border-solid border-rose-300 mx-[5%] sm:mx-[10%] lg:mx-[20%]" />
                     <div className="my-8 sm:my-12">
-                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%]">
+                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%] text-black">
                             People also rated whether they were more extroverted or introverted, easygoing or assertive.
                             Notice that only a few of them said they preferred to be paired with someone who is less
                             easygoing or extroverted than themselves.
@@ -205,7 +205,7 @@ const Stats2022 = () => {
                     </div>
                     <hr className="border-1 border-solid border-rose-300 mx-[5%] sm:mx-[10%] lg:mx-[20%]" />
                     <div className="my-8 sm:my-12">
-                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%]">
+                        <p className="my-4 sm:lg-7 lg:my-10 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%] text-black">
                             38.5% of participants thought that differences in political views were a deal breaker. Here
                             is how people rated their political tendencies on a scale of 1 to 10, with 1 being the
                             farthest left and 10 being the most right.
@@ -218,7 +218,7 @@ const Stats2022 = () => {
                         </div>
                     </div>
                     <hr className="border-1 border-solid border-rose-300 mx-[5%] sm:mx-[10%] lg:mx-[20%]" />
-                    <p className="mt-8 mb-4 sm:mt-12 sm:mb-0 lg:mb-4 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%]">
+                    <p className="mt-8 mb-4 sm:mt-12 sm:mb-0 lg:mb-4 max-w-4xl sm:text-lg black mx-[5%] sm:mx-[10%] lg:mx-[20%] text-black">
                         Answers to our controversial questions remained pretty consistent between 2021 and 2022.
                     </p>
                     <div className="sm:flex sm:mx-[10%] lg:mx-[20%] bg-white px-3 rounded-lg py-1">
@@ -234,7 +234,7 @@ const Stats2022 = () => {
                         </div>
                         <div className="sm:w-[50%]">
                             <div className="justify-center sm:h-20">
-                                <p className="mt-8 mb-2 sm:my-10 max-w-4xl lg:text-lg text-pmblue-500 mx-[3%] sm:mx-4 font-semibold text-center">
+                                <p className="mt-8 mb-2 sm:my-10 max-w-4xl lg:text-lg text-pmblue-500 mx-[3%] sm:mx-4 font-semibold text-center ">
                                     Would you like to be paired with someone who has mostly{' '}
                                     <span className="text-rose-400">similar or different interests</span> to you?
                                 </p>

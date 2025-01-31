@@ -19,7 +19,7 @@ const Statistics: any = (props: any) => {
                 <title>Statistics</title>
             </Head>
             <Header />
-            <div className="absolute left-[-3vw] top-24 h-screen w-[18vw] hidden lg:block z-20 pointer-events-none">
+            <div className="absolute left-[-3vw] top-12 h-screen w-[18vw] hidden lg:block z-20 pointer-events-none">
                 <Image src="/left_hearts.svg" alt="left hearts" layout='fill' priority={true} draggable='false' />
             </div>
             <div className="absolute right-0 top-0 translate-y-[200px] h-screen w-[8vw] hidden lg:block z-20 pointer-events-none">
