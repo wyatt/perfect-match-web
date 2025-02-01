@@ -104,7 +104,6 @@ const Home: NextPage = (props: any) => {
                     </div>
                 </section >
                 <div className="bg-pmpink2-500">
-                    <div className="w-full bg-pmpink-500"></div>
                     <div className="left-0 w-full overflow-hidden">
                         <svg className="relative block w-full h-[60px] md:hidden" // Adjust height as needed
                             viewBox="0 0 1200 120"
