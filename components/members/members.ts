@@ -2,7 +2,7 @@ export const team = [
     {
         Name: 'Engineering',
         Description:
-            'There are three subteams of Engineering: Web Development, Algorithms, and Data Analysis. The Web Dev subteam builds the front-end and back-end of the Perfect Match website. The Algorithms subteam improves the matching algorithm that matches students based on their preferences. The Data Analysis subteam analyzes and visualizes the data collected from the Perfect Match survey.',
+            'There are three subteams of Engineering: Web Development, Algorithms, and Data Analysis. The <strong>Web Dev</strong> subteam builds the front-end and back-end of the Perfect Match website. The <strong>Algorithms</strong> subteam improves the matching algorithm that matches students based on their preferences. The <strong>Data Analysis</strong> subteam analyzes and visualizes the data collected from the Perfect Match survey.',
         Members: [
             {
                 Name: 'Nicholas Varela',
@@ -96,7 +96,7 @@ export const team = [
     {
         Name: 'Business',
         Description:
-            'The Business team is responsible for marketing Perfect Match, coordinating events, designing branding, and new feature ideation.',
+            'There are two subteams of Business: Design and Business. The <strong>Design</strong> subteam conducts research to learn more about Perfect Match’s user in order to iterate on the product. The <strong>Business</strong> subteam is responsible for marketing Perfect Match and reaching out to potential sponsors/partners.',
         Members: [
             {
                 Name: 'Kelly Hong',
