@@ -68,36 +68,36 @@ const Statistics: any = (props: any) => {
                 </div>
             </div>
             <div>
-                <div className="w-full flex flex-col sm:flex-row items-center sm:justify-between text-white bg-pmpink2-500 sm:py-12 py-8 px-64">
+                <div className="w-full bg-pmpink2-500 py-8 sm:py-12">
+                    <div className="w-full max-w-screen-lg mx-auto flex flex-col md:flex-row items-center md:justify-between text-white px-6 sm:px-12">
 
-                    <p className="text-center sm:text-left mt-0 sm:text-3xl text-pmblue-500 font-bold mx-[5%] sm:mx-0 max-w-lg">
-                        Travel back in time to explore statistics from past years!
-                    </p>
-                    <div className="flex sm:mt-0 mt-2 gap-4">
-                        <button
-                            className="text-lg px-8 py-2 m-2 rounded-full bg-white text-red-500 border-2 border-pmblue-500 font-bold shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all hover:translate-x-[2px] hover:translate-y-[2px]
-                                    hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
-                            onClick={() => setYear(2022)}
-                        >
-                            2022
-                        </button>
-                        <button
-                            className="text-lg px-8 py-2 m-2 rounded-full bg-white text-red-500 border-2 border-pmblue-500 font-bold shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all hover:translate-x-[2px] hover:translate-y-[2px]
-                                    hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
-                            onClick={() => setYear(2023)}
-                        >
-                            2023
-                        </button>
+                        <p className="hidden lg:block text-center sm:text-left sm:text-3xl text-pmblue-500 font-bold sm:mx-0 max-w-none sm:max-w-lg">
+                            Travel back in time to explore statistics from past years!
+                        </p>
 
-                        {/* <button
-                            className="text-lg bg-rose-400 hover:bg-rose-300 text-white font-bold py-2 px-8 rounded-full m-2"
-                            onClick={() => setYear(2024)}
-                        >
-                            2024
-                        </button> */}
+                        <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-4 md:mt-0">
+                            <button
+                                className="text-lg px-6 py-2 rounded-full bg-white text-red-500 border-2 border-pmblue-500 font-bold shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all 
+                    hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)] 
+                    active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+                                onClick={() => setYear(2022)}
+                            >
+                                2022
+                            </button>
+                            <button
+                                className="text-lg px-6 py-2 rounded-full bg-white text-red-500 border-2 border-pmblue-500 font-bold shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all 
+                    hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)] 
+                    active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+                                onClick={() => setYear(2023)}
+                            >
+                                2023
+                            </button>
+                        </div>
                     </div>
-
                 </div>
+
+
+
                 <div className="bg-pmpink-500">
                     <div className="w-full bg-pmpink-500"></div>
                     <div className="left-0 w-full overflow-hidden">
