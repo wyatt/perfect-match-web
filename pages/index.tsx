@@ -142,6 +142,7 @@ const Home: NextPage = (props: any) => {
                                 <Link href="/statistics">
                                     <button
                                         className="
+                                    mt-6
                                     px-6 
                                     py-2
                                     rounded-full
