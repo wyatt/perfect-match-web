@@ -4,7 +4,7 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), {
     ssr: false,
 });
 
-const ricePurity2024 = () => {
+const ByGenderRicePurity2024 = () => {
     const series = [
         {
             name: 'Female',
@@ -20,6 +20,7 @@ const ricePurity2024 = () => {
     const options = {
         chart: {
             type: 'area',
+            fontFamily: 'Work Sans, sans-serif', // Change font family
             toolbar: {
                 show: false,
                 tools: {
@@ -35,7 +36,7 @@ const ricePurity2024 = () => {
             enabled: false,
         },
         stroke: {
-            curve: 'smooth',
+            curve: 'straight', // Disable smoothing curves
         },
         xaxis: {
             categories: [
@@ -49,17 +50,19 @@ const ricePurity2024 = () => {
                 style: {
                     fontSize: '16px',
                     colors: '#6b7280',
+                    fontFamily: 'Work Sans, sans-serif', // Change font family
                 },
             },
         },
         yaxis: {
             min: 0,
             max: 40,
-            tickAmount: 8,
+            tickAmount: 4,
             labels: {
                 style: {
-                    fontSize: '12px',
+                    fontSize: '16px',
                     colors: '#6b7280',
+                    fontFamily: 'Work Sans, sans-serif', // Change font family
                 },
                 formatter: function (value: number) {
                     return value + '%';
@@ -69,20 +72,24 @@ const ricePurity2024 = () => {
                 text: 'Percentage of Participants',
                 style: {
                     color: '#6b7280',
-                    fontSize: '14px',
+                    fontSize: '18px',
                     fontWeight: 400,
+                    fontFamily: 'Work Sans, sans-serif',
                 },
             },
         },
         legend: {
-            fontSize: '16px',
+            fontSize: '20px',
             labels: {
                 colors: '#6b7280',
+                fontFamily: 'Work Sans, sans-serif', // Change font family
             },
         },
         tooltip: {
             theme: 'dark',
-
+            style: {
+                fontFamily: 'Work Sans, sans-serif', // Change font family
+            },
             y: {
                 formatter: function (value: any) {
                     return value + '%';
@@ -98,6 +105,7 @@ const ricePurity2024 = () => {
                             rotate: -90,
                             style: {
                                 fontSize: '11px',
+                                fontFamily: 'Work Sans, sans-serif', // Change font family
                             },
                         },
                     },
@@ -115,7 +123,7 @@ const ricePurity2024 = () => {
                         },
                     },
                     legend: {
-                        fontSize: '13px',
+                        fontSize: '14px', // Adjust legend size for smaller screens
                     },
                 },
             },
@@ -125,4 +133,4 @@ const ricePurity2024 = () => {
     return <ReactApexChart type="area" series={series} options={options as ApexCharts.ApexOptions} />;
 };
 
-export default ricePurity2024;
+export default ByGenderRicePurity2024;

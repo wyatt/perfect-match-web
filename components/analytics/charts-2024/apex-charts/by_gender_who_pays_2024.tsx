@@ -4,16 +4,16 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), {
     ssr: false,
 });
 
-const NumDatedGender2024 = () => {
+const ByGenderWhoPays2024 = () => {
     const series = [
         {
             name: 'Female',
-            data: [-40.3, -30.2, -18.0, -8.0, -1.9, -1.6],
+            data: [-55.2, -17.7, -0.9, -26.3],
             color: '#fda4af',
         },
         {
             name: 'Male',
-            data: [31.2, 31.5, 21.5, 10.6, 2.9, 2.3],
+            data: [2.1, 17.6, 41.8, 38.6],
             color: '#7dd3fc',
         },
     ];
@@ -21,6 +21,7 @@ const NumDatedGender2024 = () => {
         chart: {
             type: 'bar',
             stacked: true,
+            fontFamily: 'Work Sans, sans-serif', // Change font family
             toolbar: {
                 show: false,
                 tools: {
@@ -49,18 +50,21 @@ const NumDatedGender2024 = () => {
             }
         },
         yaxis: {
-            min: -40,
-            max: 40,
+            min: -60,
+            max: 60,
             labels: {
                 style: {
-                    fontSize: '15px',
-                    colors: '#6b7280',
+                    fontSize: '18px', // Increase y-axis labels size
+                    colors: '#4b5563',
+                    fontFamily: 'Work Sans, sans-serif', // Change font family
                 },
-            },
+            }
         },
         tooltip: {
             theme: 'dark',
-
+            style: {
+                fontFamily: 'Work Sans, sans-serif', // Change font family
+            },
             shared: false,
             y: {
                 formatter: function (val: any) {
@@ -70,27 +74,27 @@ const NumDatedGender2024 = () => {
         },
         xaxis: {
             categories: [
-                '0 person',
-                '1 person',
-                '2 people',
-                '3 people',
-                '4 people',
-                '5+ people'
+                'Pays',
+                'Splits',
+                'Lets you pay',
+                'Doesnt matter'
             ],
             labels: {
                 formatter: function (val: any) {
                     return Math.abs(Math.round(val)) + '%';
                 },
                 style: {
-                    fontSize: '15px',
-                    colors: '#6b7280',
+                    fontSize: '18px', // Increase x-axis labels size
+                    colors: '#4b5563',
+                    fontFamily: 'Work Sans, sans-serif', // Change font family
                 },
-            },
+            }
         },
         legend: {
-            fontSize: '16px',
+            fontSize: '20px', // Increase legend size
             labels: {
-                colors: '#6b7280',
+                colors: '#4b5563',
+                fontFamily: 'Work Sans, sans-serif', // Change font family
             },
         },
         responsive: [
@@ -100,21 +104,33 @@ const NumDatedGender2024 = () => {
                     xaxis: {
                         labels: {
                             style: {
-                                fontSize: '11px',
+                                fontSize: '14px', // Adjust for smaller screens
+                                fontFamily: 'Work Sans, sans-serif', // Change font family
                             },
                             offsetY: -5,
+                        },
+                        title: {
+                            style: {
+                                fontSize: '14px', // Adjust for smaller screens
+                            },
                         },
                     },
                     yaxis: {
                         labels: {
                             style: {
-                                fontSize: '11px',
-                                colors: '#6b7280',
+                                fontSize: '14px', // Adjust for smaller screens
+                                colors: '#4b5563',
+                                fontFamily: 'Work Sans, sans-serif', // Change font family
+                            },
+                        },
+                        title: {
+                            style: {
+                                fontSize: '14px', // Adjust for smaller screens
                             },
                         },
                     },
                     legend: {
-                        fontSize: '12px',
+                        fontSize: '14px', // Adjust for smaller screens
                     },
                 },
             },
@@ -124,4 +140,4 @@ const NumDatedGender2024 = () => {
     return <ReactApexChart type="bar" series={series} options={options as ApexCharts.ApexOptions} />;
 };
 
-export default NumDatedGender2024;
+export default ByGenderWhoPays2024;

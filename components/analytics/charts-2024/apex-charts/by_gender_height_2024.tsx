@@ -4,7 +4,7 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), {
     ssr: false,
 });
 
-const Height2024 = () => {
+const ByGenderHeight2024 = () => {
     const series = [
         {
             name: 'Female',
@@ -182,4 +182,4 @@ const Height2024 = () => {
     return <ReactApexChart type="area" series={series} options={options as ApexCharts.ApexOptions} />;
 };
 
-export default Height2024;
+export default ByGenderHeight2024;

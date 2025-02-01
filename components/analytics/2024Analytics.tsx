@@ -4,10 +4,10 @@ import Script from 'next/script';
 import DescribeYouFemale from '@/components/analytics/charts-2023/describeYouFemale';
 import DescribeYouMale from '@/components/analytics/charts-2023/describeYouMale';
 import Year from '@/components/analytics/charts-2023/year';
-import Height2024 from '@/components/analytics/charts-2024/height2024';
-import RicePurity2024 from '@/components/analytics/charts-2024/ricePurity2024';
+import ByGenderHeight2024 from '@/components/analytics/charts-2024/apex-charts/by_gender_height_2024';
+import ByGenderRicePurity2024 from '@/components/analytics/charts-2024/apex-charts/by_gender_rice_purity_2024';
 import LongestRelationship from '@/components/analytics/charts-2023/longestRelationship';
-import NumDatedGender2024 from '@/components/analytics/charts-2024/numDated2024';
+import ByGenderNumDated2024 from '@/components/analytics/charts-2024/apex-charts/by_gender_numDated_2024';
 import Political from '@/components/analytics/charts-2023/political';
 import SimilarInterest from '@/components/analytics/charts-2023/similarInterest';
 import FirstDate from '@/components/analytics/charts-2023/firstDate';
@@ -22,15 +22,29 @@ import DateWear from '@/components/analytics/charts-2023/dateWear';
 import RelationshipType from '@/components/analytics/charts-2023/relationshipType';
 import ByStateRicePurity2024 from '@/components/analytics/charts-2024/d3-charts/by_state_rice_purity_2024';
 import ByStateDrinkOften2024 from '@/components/analytics/charts-2024/d3-charts/by_state_drinking_2024';
+import ByStatePolitics2024 from '@/components/analytics/charts-2024/d3-charts/by_state_politices_2024';
+import ByGenderWhoPays2024 from '@/components/analytics/charts-2024/apex-charts/by_gender_who_pays_2024';
+import ByGenderIck2024 from '@/components/analytics/charts-2024/apex-charts/by_gender_ick_2024';
+import ByGenderGreenflag2024 from '@/components/analytics/charts-2024/apex-charts/by_gender_greenflag_2024';
 
 const Stats2024 = () => {
-    const visualizations: Record<string, JSX.Element> = {
+    const by_state_visualizations: Record<string, JSX.Element> = {
         "What is your Rice Purity Score?": <ByStateRicePurity2024 />,
-        "How 'juice head' are you?": <ByStateDrinkOften2024 />
+        "How 'juice head' are you?": <ByStateDrinkOften2024 />,
+        "What are your political tendencies?": <ByStatePolitics2024 />
     };
 
-    // State to track selected visualization
-    const [selectedViz, setSelectedViz] = useState(Object.keys(visualizations)[0]);
+    const by_gender_visualizations: Record<string, JSX.Element> = {
+        "What is your Rice Purity Score?": <ByGenderRicePurity2024 />,
+        "How many people have you dated in the last 5 years?": <ByGenderNumDated2024 />,
+        "Your height?": <ByGenderHeight2024 />,
+        "Would you prefer that your match ___ on the first date?": <ByGenderWhoPays2024 />,
+        "What is your biggest ick in a relationship?": <ByGenderIck2024 />,
+        "What is your biggest green flag in a relationship?": <ByGenderGreenflag2024 />
+    };
+
+    const [selectedVizState, setSelectedVizState] = useState(Object.keys(by_state_visualizations)[0]);
+    const [selectedVizGender, setSelectedVizGender] = useState(Object.keys(by_gender_visualizations)[0]);
 
     return (
         <div>
@@ -42,27 +56,45 @@ const Stats2024 = () => {
                     <h2 className="mb-6 text-2xl sm:text-4xl tracking-tight font-extrabold text-rose-400 mx-[3%] sm:mx-[10%] lg:mx-[20%]">
                         Be your own cupid!
                     </h2>
-                    <div className="sm:mx-[10%] lg:mx-[20%] -mb-4 sm:my-4">
-                        <h3 className=" text-gray-500 mx-[3%] text-base sm:mx-0 font-bold mt-6 -mb-4 sm:text-lg sm:mt-8 sm:mb-0">
-                        </h3>
-                        <Height2024 />
-                        <NumDatedGender2024 />
-                        <RicePurity2024 />
+
+                    <div className="text-center mt-6">
+                        <label htmlFor="viz-select" className="text-lg font-semibold mr-4 font-dela-gothic" style={{ fontFamily: 'Dela Gothic One', fontSize: "24px" }}>
+                            Viz by Gender:
+                        </label>
+                        <select
+                            id="viz-select"
+                            value={selectedVizGender}
+                            onChange={(e) => setSelectedVizGender(e.target.value)}
+                            className="border rounded-lg px-4 py-2"
+                            style={{ fontFamily: 'Dela Gothic One', fontSize: "24px", borderColor: "darkgray", borderWidth: "2px" }}
+                        >
+                            {Object.keys(by_gender_visualizations).map((key) => (
+                                <option key={key} value={key}>
+                                    {key}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="sm:mx-[10%] lg:mx-[20%] -mb-4 sm:my-4">{by_gender_visualizations[selectedVizGender]}</div>
+
+                    <div className="text-center">
+                        <p style={{ marginTop: "-10px", fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
+                            Participants who gave their gender as non-binary individual or other are excluded due to small sample size.
+                        </p>
                     </div>
 
-                    {/* Dropdown for Visualization Selection */}
                     <div className="text-center mt-6">
-                        <label htmlFor="viz-select" className="text-lg font-semibold mr-4 font-dela-gothic" style={{ fontFamily: 'Dela Gothic One', fontSize: "28px" }}>
+                        <label htmlFor="viz-select" className="text-lg font-semibold mr-4 font-dela-gothic" style={{ fontFamily: 'Dela Gothic One', fontSize: "24px" }}>
                             Viz by State:
                         </label>
                         <select
                             id="viz-select"
-                            value={selectedViz}
-                            onChange={(e) => setSelectedViz(e.target.value)}
+                            value={selectedVizState}
+                            onChange={(e) => setSelectedVizState(e.target.value)}
                             className="border rounded-lg px-4 py-2"
-                            style={{ fontFamily: 'Dela Gothic One', fontSize: "28px", borderColor: "darkgray", borderWidth: "2px" }}
+                            style={{ fontFamily: 'Dela Gothic One', fontSize: "24px", borderColor: "darkgray", borderWidth: "2px" }}
                         >
-                            {Object.keys(visualizations).map((key) => (
+                            {Object.keys(by_state_visualizations).map((key) => (
                                 <option key={key} value={key}>
                                     {key}
                                 </option>
@@ -71,7 +103,7 @@ const Stats2024 = () => {
                     </div>
 
                     {/* Render Selected Visualization */}
-                    <div className="mt-6">{visualizations[selectedViz]}</div>
+                    <div className="mt-6">{by_state_visualizations[selectedVizState]}</div>
                 </section>
 
 
@@ -439,7 +471,7 @@ const Stats2024 = () => {
                                     </summary>
 
                                     <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
-                                        These visualizations were generated using the ApexCharts JavaScript library.
+                                        These visualizations were generated using the ApexCharts and d3 JavaScript libraries.
                                     </p>
                                 </details>
                             </div>
