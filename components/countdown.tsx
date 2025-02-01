@@ -1,6 +1,4 @@
-import { count } from 'console';
 import React from 'react';
-import Countdown, { CountdownRenderProps } from 'react-countdown';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { emojiBlast } from "emoji-blast";
@@ -170,7 +168,7 @@ const CountDown: React.FC = () => {
             }
         }, 1000);
         return () => clearInterval(timer);
-    }, []);
+    });
 
     return (
         <div className='z-10 max-w-[85vw] w-full min-w-fit h-full relative'>
