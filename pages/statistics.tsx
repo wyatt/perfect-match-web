@@ -77,16 +77,16 @@ const Statistics: any = (props: any) => {
 
                         <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-4 md:mt-0">
                             <button
-                                className="text-lg px-6 py-2 rounded-full bg-white text-red-500 border-2 border-pmblue-500 font-bold shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all 
-                    hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)] 
+                                className="text-lg px-6 py-2 rounded-full bg-white text-red-500 border-4 border-pmblue-500 font-bold shadow-[4px_4px_0px_0px_rgba(36,67,141,1)] transition-all 
+                    hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] 
                     active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
                                 onClick={() => setYear(2022)}
                             >
                                 2022
                             </button>
                             <button
-                                className="text-lg px-6 py-2 rounded-full bg-white text-red-500 border-2 border-pmblue-500 font-bold shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all 
-                    hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)] 
+                                className="text-lg px-6 py-2 rounded-full bg-white text-red-500 border-4 border-pmblue-500 font-bold shadow-[4px_4px_0px_0px_rgba(36,67,141,1)] transition-all 
+                    hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] 
                     active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
                                 onClick={() => setYear(2023)}
                             >

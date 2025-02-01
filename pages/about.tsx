@@ -27,14 +27,14 @@ const About: any = (props: any) => {
                         >
                             <div className="font-dela-gothic sm:text-lg">
                                 <h2 className="mb-6 text-2xl sm:text-3xl tracking-tigh text-pmred-500">
-                                    Cupid just got smarter 🦾💗!
+                                    Cupid just got smarter!
                                 </h2>
 
                                 <div className='font-work-sans text-pmred-500 '>
                                     <p className="sm:mb-4 mb-0 ">
                                         Perfect Match is a matchmaking survey ideated in February 2019. Our machine learning algorithm uses your survey to pair you with other Cornell students — your Perfect Matches!</p>
 
-                                    <p className="sm:mb-4 mb-0">  This year, we are back with <strong> fun survey questions, whole new branding, special “nudge your crush” feature</strong>, and more surprises to discover! Don&apos;t hesitate to get in for a Valentine&apos;s Day you won&apos;t forget!
+                                    <p className="sm:mb-4 mb-0">  This year, we are back with <strong> fun survey questions, whole new branding, special “nudge your crush” feature, and more</strong> surprises to discover! Don&apos;t hesitate to get in for a Valentine&apos;s Day you won&apos;t forget!
                                     </p>
                                     <p className='text-right font-semibold mx-auto'>Happy matching, xoxo, <br /> The Cupids💝</p>
                                     {/* <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p> */}
@@ -68,14 +68,14 @@ const About: any = (props: any) => {
                                 ></path>
                             </svg>
                         </div>
-                        <ol className="sm:border-xl-0 sm:border-t-2 border-pmpink2-500 flex sm:gap-6 mx-[10%] lg:mx-[15%]">
+                        <ol className="sm:border-xl-0 sm:border-t-0 border-pmpink2-500 flex sm:gap-6 mx-[10%] lg:mx-[15%] sm:-mt-7 sm:-mb-4">
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="relative z-10 sm:-mt-5 text-3xl -ml-1">💓</div>
-                                    <p className="work-sans text-white text-l my-2 font-bold">Feb. 3rd @ 5 PM</p>
+                                    <p className="work-sans text-white text-l my-2 font-bold mt-4">Feb. 3rd @ 5 PM</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
-                                    <h4 className="font-dela-gothic text-pmblue-500 font-bold text-large mb-1.5">PM25 is Launched!</h4>
+                                    <h4 className="font-dela-gothic text-pmblue-500 font-bold text-lg mb-1.5">PM25 is Launched!</h4>
                                     <p className="font-work-sans text-pmblue-500 mb-3">
                                         Start filling out your profile and the survey! For updates on PM25, follow us on{' '}
                                         <a
@@ -93,7 +93,7 @@ const About: any = (props: any) => {
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="relative z-10 sm:-mt-5 text-3xl">💘</div>
-                                    <p className="work-sans text-white text-l my-2 font-bold">Feb. 13th @ 12 PM</p>
+                                    <p className="work-sans text-white text-l my-2 font-bold mt-4">Feb. 13th @ Noon</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
                                     <h4 className="font-dela-gothic text-pmblue-500 font-bold text-lg mb-1.5"> PM25 Closes!</h4>
@@ -105,7 +105,7 @@ const About: any = (props: any) => {
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="relative z-10 sm:-mt-5 text-3xl">💞</div>
-                                    <p className="work-sans text-white my-2 font-bold"> Feb. 13th @ Night</p>
+                                    <p className="work-sans text-white my-2 font-bold mt-4"> Feb. 13th @ Night</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
                                     <h4 className="font-dela-gothic text-pmblue-500 font-bold text-lg mb-1.5">Matches Out!</h4>
@@ -118,7 +118,7 @@ const About: any = (props: any) => {
                             <li>
                                 <div className="flex sm:block flex-start items-center pt-2 sm:pt-0">
                                     <div className="relative z-10 sm:-mt-5 text-3xl">❤️‍🔥</div>
-                                    <p className="work-sans text-white text-l my-2 font-bold">Feb. 14th</p>
+                                    <p className="work-sans text-white text-l my-2 font-bold mt-4">Feb. 14th</p>
                                 </div>
                                 <div className="mt-0.5 ml-4 sm:ml-0 pb-5">
                                     <h4 className="font-dela-gothic text-pmblue-500 font-bold text-lg mb-1.5">Valentine&apos;s Day!</h4>
@@ -173,15 +173,18 @@ const About: any = (props: any) => {
                         </svg>
                     </div>
                     <div className="container px-5 sm:px-0 py-8 sm:py-10 mx-auto">
-                        <div className="text-center mb-15">
-                            <h2 className="dela-gothic-one mb-12 text-2xl tracking-tight font-extrabold text-pmblue-500 sm:text-4xl">
+                        <div className="font-dela-gothic text-center mb-15">
+                            <h2 className="mb-12 text-2xl tracking-tight font-extrabold text-pmblue-500 sm:text-4xl">
                                 Frequently Asked Questions
                             </h2>
                         </div>
-                        <div className="work-sans text-pmblue-500 flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+                        <div className="work-sans font-semibold text-pmblue-500 flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
                             <div className="w-full lg:w-1/2 px-4">
-                                <details className="work-sans text-pmblue-500 mb-5">
-                                    <summary className=" sm:font-semibold font-medium bg-white rounded-md py-2 px-4 cursor-pointer">
+                                <details className="mb-5 [&_summary]:list-none [&_summary::-webkit-details-marker]:hidden">
+                                    <summary className="px-6 py-2 rounded-full bg-white  text-pmred-500  border-4 border-pmblue-500 
+                                    font-bold shadow-[6px_6px_0px_0px_rgba(36,67,141,1)] transition-all hover:translate-x-[4px]
+                                    hover:translate-y-[4px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] active:translate-x-[6px]
+                                    active:translate-y-[6px] active:shadow-none cursor-pointer text-lg text-center">
                                         What is Perfect Match?
                                     </summary>
 
@@ -192,8 +195,11 @@ const About: any = (props: any) => {
                                         participants. Matches are released the weekend before Valentine&apos;s day.
                                     </p>
                                 </details>
-                                <details className="mb-5">
-                                    <summary className="sm:font-semibold font-medium bg-white rounded-md py-2 px-4 cursor-pointer">
+                                <details className="mb-5 [&_summary]:list-none [&_summary::-webkit-details-marker]:hidden">
+                                    <summary className="px-6 py-2 rounded-full bg-white  text-pmred-500  border-4 border-pmblue-500 
+                                    font-bold shadow-[6px_6px_0px_0px_rgba(36,67,141,1)] transition-all hover:translate-x-[4px]
+                                    hover:translate-y-[4px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] active:translate-x-[6px]
+                                    active:translate-y-[6px] active:shadow-none cursor-pointer text-lg text-center">
                                         How many matches will I get?
                                     </summary>
 
@@ -201,8 +207,11 @@ const About: any = (props: any) => {
                                         Most participants get between 4 and 7 matches.
                                     </p>
                                 </details>
-                                <details className="mb-5">
-                                    <summary className="sm:font-semibold font-medium bg-white rounded-md py-2 px-4 cursor-pointer">
+                                <details className="mb-5 [&_summary]:list-none [&_summary::-webkit-details-marker]:hidden">
+                                    <summary className="px-6 py-2 rounded-full bg-white  text-pmred-500  border-4 border-pmblue-500 
+                                    font-bold shadow-[6px_6px_0px_0px_rgba(36,67,141,1)] transition-all hover:translate-x-[4px]
+                                    hover:translate-y-[4px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] active:translate-x-[6px]
+                                    active:translate-y-[6px] active:shadow-none cursor-pointer text-lg text-center">
                                         What should I do when I receive my Matches?
                                     </summary>
 
@@ -211,8 +220,11 @@ const About: any = (props: any) => {
                                         provide some suggestions for how to connect when matches are released.
                                     </p>
                                 </details>
-                                <details className="mb-5">
-                                    <summary className="sm:font-semibold font-medium bg-white rounded-md py-2 px-4 cursor-pointer">
+                                <details className="mb-5 [&_summary]:list-none [&_summary::-webkit-details-marker]:hidden">
+                                    <summary className="px-6 py-2 rounded-full bg-white  text-pmred-500  border-4 border-pmblue-500 
+                                    font-bold shadow-[6px_6px_0px_0px_rgba(36,67,141,1)] transition-all hover:translate-x-[4px]
+                                    hover:translate-y-[4px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] active:translate-x-[6px]
+                                    active:translate-y-[6px] active:shadow-none cursor-pointer text-lg text-center">
                                         What is the Perfect Match team like?
                                     </summary>
 
@@ -225,8 +237,11 @@ const About: any = (props: any) => {
                                 </details>
                             </div>
                             <div className="w-full lg:w-1/2 px-4">
-                                <details className="mb-5">
-                                    <summary className="sm:font-semibold font-medium bg-white rounded-md py-2 px-4 cursor-pointer">
+                                <details className="mb-5 [&_summary]:list-none [&_summary::-webkit-details-marker]:hidden">
+                                    <summary className="px-6 py-2 rounded-full bg-white  text-pmred-500  border-4 border-pmblue-500 
+                                    font-bold shadow-[6px_6px_0px_0px_rgba(36,67,141,1)] transition-all hover:translate-x-[4px]
+                                    hover:translate-y-[4px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] active:translate-x-[6px]
+                                    active:translate-y-[6px] active:shadow-none cursor-pointer text-lg text-center">
                                         What algorithm does Perfect Match use?
                                     </summary>
 
@@ -238,8 +253,11 @@ const About: any = (props: any) => {
                                         matches based on these scores.
                                     </p>
                                 </details>
-                                <details className="mb-5">
-                                    <summary className="sm:font-semibold font-medium bg-white rounded-md py-2 px-4 cursor-pointer">
+                                <details className="mb-5 [&_summary]:list-none [&_summary::-webkit-details-marker]:hidden">
+                                    <summary className="px-6 py-2 rounded-full bg-white  text-pmred-500  border-4 border-pmblue-500 
+                                    font-bold shadow-[6px_6px_0px_0px_rgba(36,67,141,1)] transition-all hover:translate-x-[4px]
+                                    hover:translate-y-[4px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] active:translate-x-[6px]
+                                    active:translate-y-[6px] active:shadow-none cursor-pointer text-lg text-center">
                                         What happens to my data?
                                     </summary>
 
@@ -257,8 +275,11 @@ const About: any = (props: any) => {
                                         .
                                     </p>
                                 </details>
-                                <details className="mb-5">
-                                    <summary className="sm:font-semibold font-medium bg-white rounded-md py-2 px-4 cursor-pointer">
+                                <details className="mb-5 [&_summary]:list-none [&_summary::-webkit-details-marker]:hidden">
+                                    <summary className="px-6 py-2 rounded-full bg-white  text-pmred-500  border-4 border-pmblue-500 
+                                    font-bold shadow-[6px_6px_0px_0px_rgba(36,67,141,1)] transition-all hover:translate-x-[4px]
+                                    hover:translate-y-[4px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] active:translate-x-[6px]
+                                    active:translate-y-[6px] active:shadow-none cursor-pointer text-lg text-center">
                                         How can I contact the Perfect Match team?
                                     </summary>
 
@@ -284,9 +305,12 @@ const About: any = (props: any) => {
                                         !
                                     </p>
                                 </details>
-                                <details className="mb-5">
-                                    <summary className="sm:font-semibold font-medium bg-white rounded-md py-2 px-4 cursor-pointer">
-                                        How to join the Perfect Match team?
+                                <details className="mb-5 [&_summary]:list-none [&_summary::-webkit-details-marker]:hidden">
+                                    <summary className="px-6 py-2 rounded-full bg-white  text-pmred-500  border-4 border-pmblue-500 
+                                    font-bold shadow-[6px_6px_0px_0px_rgba(36,67,141,1)] transition-all hover:translate-x-[4px]
+                                    hover:translate-y-[4px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] active:translate-x-[6px]
+                                    active:translate-y-[6px] active:shadow-none cursor-pointer text-lg text-center">
+                                        How do I join the Perfect Match team?
                                     </summary>
 
                                     <p className='pt-3 pl-4'>
