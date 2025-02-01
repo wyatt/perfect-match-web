@@ -24,7 +24,6 @@ const Members: React.FC = () => {
                         </h3>
                         <p className="font-work-sans mb-12 italic text-center text-black text-sm sm:text-base"
                             dangerouslySetInnerHTML={{ __html: division.Description }} />
-
                         <div className="flex font-work-sans flex-wrap justify-center gap-10">
                             {division.Members &&
                                 division.Members.map((member) => (
