@@ -30,6 +30,9 @@ import ByCollegeSleepDuration2024 from '@/components/analytics/charts-2024/apex-
 import ByCollegeRicePurity2024 from '@/components/analytics/charts-2024/apex-charts/by_college_rice_purity_2024';
 import ByCollegeSleepTime2024 from '@/components/analytics/charts-2024/apex-charts/by_college_sleep_time_2024';
 import ByGenderLoveLanguage2024 from '@/components/analytics/charts-2024/apex-charts/by_gender_love_language_2024';
+import ByYearNumParticipants2024 from '@/components/analytics/charts-2024/apex-charts/by_year_num_participants_2024';
+import ByYearNumDated2024 from '@/components/analytics/charts-2024/apex-charts/by_year_num_dated_2024';
+import ByYearRicePurity2024 from '@/components/analytics/charts-2024/apex-charts/by_year_rice_purity_2024';
 
 const Stats2024 = () => {
     const by_state_visualizations: Record<string, JSX.Element> = {
@@ -54,9 +57,16 @@ const Stats2024 = () => {
         "What time do you go to bed?": <ByCollegeSleepTime2024 />
     };
 
+    const by_year_visualizations: Record<string, JSX.Element> = {
+        "Number of participants?": <ByYearNumParticipants2024 />,
+        "How many people have you dated in the last 5 years?": <ByYearNumDated2024 />,
+        "What is your Rice Purity Score?": <ByYearRicePurity2024 />,
+    };
+
     const [selectedVizState, setSelectedVizState] = useState(Object.keys(by_state_visualizations)[0]);
     const [selectedVizGender, setSelectedVizGender] = useState(Object.keys(by_gender_visualizations)[0]);
     const [selectedVizCollege, setSelectedVizCollege] = useState(Object.keys(by_college_visualizations)[0]);
+    const [selectedVizYear, setSelectedVizYear] = useState(Object.keys(by_year_visualizations)[0]);
 
     return (
         <div>
@@ -91,7 +101,7 @@ const Stats2024 = () => {
 
                     <div className="text-center">
                         <p style={{ marginTop: "-10px", fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
-                            Participants who gave their gender as non-binary individual or other are excluded due to small sample size.
+                            Participants who gave their gender as non-binary individual or other are not included due to small sample size.
                         </p>
                     </div>
 
@@ -139,9 +149,29 @@ const Stats2024 = () => {
 
                     <div className="text-center">
                         <p style={{ marginTop: "-10px", fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
-                            Participants who gave their gender as non-binary individual or other are excluded due to small sample size.
+                            Participants from other colleges or divisions are not included due to a small sample size.
                         </p>
                     </div>
+
+                    <div className="text-center mt-6">
+                        <label htmlFor="viz-select" className="text-lg font-semibold mr-4 font-dela-gothic" style={{ fontFamily: 'Dela Gothic One', fontSize: "24px" }}>
+                            Viz by Year:
+                        </label>
+                        <select
+                            id="viz-select"
+                            value={selectedVizYear}
+                            onChange={(e) => setSelectedVizYear(e.target.value)}
+                            className="border rounded-lg px-4 py-2"
+                            style={{ fontFamily: 'Dela Gothic One', fontSize: "24px", borderColor: "darkgray", borderWidth: "2px" }}
+                        >
+                            {Object.keys(by_year_visualizations).map((key) => (
+                                <option key={key} value={key}>
+                                    {key}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="sm:mx-[8%] lg:mx-[18%] -mb-4 sm:my-4">{by_year_visualizations[selectedVizYear]}</div>
                 </section>
 
 
