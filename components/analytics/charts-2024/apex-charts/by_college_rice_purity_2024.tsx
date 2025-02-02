@@ -4,58 +4,95 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), {
     ssr: false,
 });
 
-const ByGenderHeight2024 = () => {
+const ByCollegeRicePurity2024 = () => {
     const series = [
         {
-            name: 'Female',
-            color: '#fda4af',
-            data: [0.2,
-                0.7,
-                3.4,
-                4.5,
-                11.4,
-                13.7,
-                15.9,
-                14.1,
-                11.8,
-                9.3,
-                5.8,
-                4.9,
-                2.7,
-                0.8,
-                0.6,
-                0.1,
-                0.2,
-                0.1,
-                0,
-                0,
-                0
+            name: 'CALS',
+            color: '#ef4444',
+            data: [
+                3.6,
+                20.2,
+                24.7,
+                22.5,
+                29.1
             ],
         },
         {
-            name: 'Male',
-            color: '#7dd3fc',
-            data: [0,
-                0,
-                0,
-                0,
-                0.3,
-                0.4,
-                1.0,
-                1.9,
-                4.1,
-                7.8,
-                9.9,
-                14.6,
-                16.0,
-                11.5,
-                11.3,
-                8.1,
-                5.8,
-                4.0,
-                2.0,
-                0.7,
-                0.4],
+            name: 'AAP',
+            color: '#f97316',
+            data: [
+                4.8,
+                16.9,
+                21.7,
+                25.3,
+                31.3
+            ],
+        },
+        {
+            name: 'CAS',
+            color: '#eab308',
+            data: [
+                3.8,
+                17.4,
+                22.2,
+                25.1,
+                31.6
+            ],
+        },
+        {
+            name: 'Dyson',
+            color: '#84cc16',
+            data: [
+                3.8,
+                22.8,
+                26.1,
+                20.1,
+                27.2
+            ],
+        },
+        {
+            name: 'Engineering',
+            color: '#34d399',
+            data: [
+                2.8,
+                11.1,
+                22.7,
+                23.1,
+                40.4
+            ],
+        },
+        {
+            name: 'Hotel',
+            color: '#38bdf8',
+            data: [
+                5.4,
+                28.3,
+                28.3,
+                23.9,
+                14.1
+            ],
+        },
+        {
+            name: 'Human Ecology',
+            color: '#c084fc',
+            data: [
+                3.2,
+                16.6,
+                27.3,
+                24.8,
+                28.1
+            ],
+        },
+        {
+            name: 'ILR',
+            color: '#f472b6',
+            data: [
+                4.6,
+                21.1,
+                29.4,
+                22.0,
+                22.9
+            ],
         },
     ];
     const options = {
@@ -81,42 +118,34 @@ const ByGenderHeight2024 = () => {
         },
         xaxis: {
             categories: [
-                '58',
-                '59',
-                '60',
-                '61',
-                '62',
-                '63',
-                '64',
-                '65',
-                '66',
-                '67',
-                '68',
-                '69',
-                '70',
-                '71',
-                '72',
-                '73',
-                '74',
-                '75',
-                '76',
-                '77',
-                '78',
+                '0-20',
+                '21-40',
+                '41-60',
+                '61-80',
+                '81-100'
             ],
             labels: {
                 style: {
-                    fontSize: '16px',
+                    fontSize: '18px',
                     colors: '#6b7280',
+                },
+            },
+            title: {
+                text: 'Rice Purity Score',
+                style: {
+                    color: '#6b7280',
+                    fontSize: '18px',
+                    fontWeight: 400,
                 },
             },
         },
         yaxis: {
             min: 0,
-            max: 18,
-            tickAmount: 6,
+            max: 45,
+            tickAmount: 9,
             labels: {
                 style: {
-                    fontSize: '16px',
+                    fontSize: '18px',
                     colors: '#6b7280',
                 },
                 formatter: function (value: number) {
@@ -127,16 +156,17 @@ const ByGenderHeight2024 = () => {
                 text: 'Percentage of Participants',
                 style: {
                     color: '#6b7280',
-                    fontSize: '16px',
+                    fontSize: '18px',
                     fontWeight: 400,
                 },
             },
         },
         legend: {
-            fontSize: '20px',
+            fontSize: '22px',
             labels: {
                 colors: '#6b7280',
             },
+            position: 'top'
         },
         tooltip: {
             theme: 'dark',
@@ -145,7 +175,7 @@ const ByGenderHeight2024 = () => {
                 formatter: function (value: any) {
                     return value + '%';
                 },
-            },
+            }
         },
         responsive: [
             {
@@ -183,4 +213,4 @@ const ByGenderHeight2024 = () => {
     return <ReactApexChart type="area" series={series} options={options as ApexCharts.ApexOptions} />;
 };
 
-export default ByGenderHeight2024;
+export default ByCollegeRicePurity2024;
