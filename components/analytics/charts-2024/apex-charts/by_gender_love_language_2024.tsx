@@ -41,7 +41,7 @@ const ByGenderLoveLanguage2024 = () => {
             enabled: true,
             style: {
                 fontSize: '16px',
-                colors: ['#4b5563'],
+                colors: ['#374151'],
                 fontWeight: 400,
             },
             formatter: function (val: any) {
@@ -76,7 +76,7 @@ const ByGenderLoveLanguage2024 = () => {
             labels: {
                 style: {
                     fontSize: '18px',
-                    colors: '#4b5563',
+                    colors: '#374151',
                 },
                 formatter: function (val: any) {
                     return Math.abs(Math.round(val)) + '%';
@@ -87,7 +87,7 @@ const ByGenderLoveLanguage2024 = () => {
             labels: {
                 style: {
                     fontSize: '16px',
-                    colors: '#4b5563',
+                    colors: '#374151',
                 },
                 maxWidth: 250
             }
@@ -95,8 +95,8 @@ const ByGenderLoveLanguage2024 = () => {
         legend: {
             fontSize: '20px',
             labels: {
-                colors: '#4b5563',
-            },
+                colors: '#374151',
+            }
         }
     };
 

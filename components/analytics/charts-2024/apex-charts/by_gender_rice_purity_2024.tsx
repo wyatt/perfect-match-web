@@ -49,7 +49,7 @@ const ByGenderRicePurity2024 = () => {
             labels: {
                 style: {
                     fontSize: '16px',
-                    colors: '#6b7280',
+                    colors: '#374151',
                     fontFamily: 'Work Sans, sans-serif', // Change font family
                 },
             },
@@ -61,7 +61,7 @@ const ByGenderRicePurity2024 = () => {
             labels: {
                 style: {
                     fontSize: '16px',
-                    colors: '#6b7280',
+                    colors: '#374151',
                     fontFamily: 'Work Sans, sans-serif', // Change font family
                 },
                 formatter: function (value: number) {
@@ -71,7 +71,7 @@ const ByGenderRicePurity2024 = () => {
             title: {
                 text: 'Percentage of Participants',
                 style: {
-                    color: '#6b7280',
+                    color: '#374151',
                     fontSize: '18px',
                     fontWeight: 400,
                     fontFamily: 'Work Sans, sans-serif',
@@ -81,7 +81,7 @@ const ByGenderRicePurity2024 = () => {
         legend: {
             fontSize: '20px',
             labels: {
-                colors: '#6b7280',
+                colors: '#374151',
                 fontFamily: 'Work Sans, sans-serif', // Change font family
             },
         },
@@ -105,7 +105,7 @@ const ByGenderRicePurity2024 = () => {
                             rotate: -90,
                             style: {
                                 fontSize: '11px',
-                                fontFamily: 'Work Sans, sans-serif', // Change font family
+                                fontFamily: 'Work Sans, sans-serif',
                             },
                         },
                     },
@@ -123,7 +123,7 @@ const ByGenderRicePurity2024 = () => {
                         },
                     },
                     legend: {
-                        fontSize: '14px', // Adjust legend size for smaller screens
+                        fontSize: '14px',
                     },
                 },
             },

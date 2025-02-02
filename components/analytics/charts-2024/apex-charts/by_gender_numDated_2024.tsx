@@ -21,7 +21,7 @@ const ByGenderNumDated2024 = () => {
         chart: {
             type: 'bar',
             stacked: true,
-            fontFamily: 'Work Sans, sans-serif', // Change font family
+            fontFamily: 'Work Sans, sans-serif',
             toolbar: {
                 show: false,
                 tools: {
@@ -55,7 +55,7 @@ const ByGenderNumDated2024 = () => {
             labels: {
                 style: {
                     fontSize: '18px',
-                    colors: '#4b5563',
+                    colors: '#374151',
                     fontFamily: 'Work Sans, sans-serif',
                 },
             }
@@ -63,7 +63,7 @@ const ByGenderNumDated2024 = () => {
         tooltip: {
             theme: 'dark',
             style: {
-                fontFamily: 'Work Sans, sans-serif', // Change font family
+                fontFamily: 'Work Sans, sans-serif',
             },
             shared: false,
             y: {
@@ -86,17 +86,17 @@ const ByGenderNumDated2024 = () => {
                     return Math.abs(Math.round(val)) + '%';
                 },
                 style: {
-                    fontSize: '18px', // Increase x-axis labels size
-                    colors: '#4b5563',
-                    fontFamily: 'Work Sans, sans-serif', // Change font family
+                    fontSize: '18px',
+                    colors: '#374151',
+                    fontFamily: 'Work Sans, sans-serif',
                 },
             }
         },
         legend: {
-            fontSize: '20px', // Increase legend size
+            fontSize: '20px',
             labels: {
-                colors: '#4b5563',
-                fontFamily: 'Work Sans, sans-serif', // Change font family
+                colors: '#374151',
+                fontFamily: 'Work Sans, sans-serif',
             },
         },
         responsive: [
@@ -106,33 +106,33 @@ const ByGenderNumDated2024 = () => {
                     xaxis: {
                         labels: {
                             style: {
-                                fontSize: '14px', // Adjust for smaller screens
-                                fontFamily: 'Work Sans, sans-serif', // Change font family
+                                fontSize: '14px',
+                                fontFamily: 'Work Sans, sans-serif',
                             },
                             offsetY: -5,
                         },
                         title: {
                             style: {
-                                fontSize: '14px', // Adjust for smaller screens
+                                fontSize: '14px',
                             },
                         },
                     },
                     yaxis: {
                         labels: {
                             style: {
-                                fontSize: '14px', // Adjust for smaller screens
-                                colors: '#4b5563',
-                                fontFamily: 'Work Sans, sans-serif', // Change font family
+                                fontSize: '14px',
+                                colors: '#374151',
+                                fontFamily: 'Work Sans, sans-serif',
                             },
                         },
                         title: {
                             style: {
-                                fontSize: '14px', // Adjust for smaller screens
+                                fontSize: '14px',
                             },
                         },
                     },
                     legend: {
-                        fontSize: '14px', // Adjust for smaller screens
+                        fontSize: '14px',
                     },
                 },
             },

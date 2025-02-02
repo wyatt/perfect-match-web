@@ -29,23 +29,24 @@ interface PieDataPolitics {
 
 const ByStatePolitics2024: React.FC = () => {
     useEffect(() => {
-        const choropleth = d3.select<SVGSVGElement, unknown>("#politics-choropleth");
-        const width = +choropleth.attr("width");
-        const height = +choropleth.attr("height");
+        const politicsChoropleth = d3.select<SVGSVGElement, unknown>("#politics-choropleth");
+        const width = +politicsChoropleth.attr("width");
+        const height = +politicsChoropleth.attr("height");
         const margin = { top: 0, right: 20, bottom: 0, left: 0 };
         const mapWidth = width - margin.left - margin.right;
         const mapHeight = height - margin.top - margin.bottom;
 
-        const map = choropleth.append("g")
-            .attr("transform", `translate(${margin.left},${margin.top})`);
+        const map = politicsChoropleth.append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`)
+            .style("background", "none");
 
         const requestData = async () => {
             // Load TopoJSON and CSV data
-            const us: TopoJSON.Topology = await d3.json("/data-for-viz-2024/us-smaller.json") as TopoJSON.Topology;
+            const politicsUS: TopoJSON.Topology = await d3.json("/data-for-viz-2024/us-smaller.json") as TopoJSON.Topology;
             const aggregateDataPolitics: StateDataPolitics[] = await d3.csv<StateDataPolitics>("/data-for-viz-2024/by_state_politics_mean.csv", (d) => ({
                 state_code: d.state_code,
                 state_name: d.state_name,
-                politics_mean: +d.politics_mean, // Convert to number
+                politics_mean: +d.politics_mean,
             }));
 
             const distributionDataPolitics: DistributionDataPolitics[] = await d3.csv<DistributionDataPolitics>("/data-for-viz-2024/by_state_politics_distribution.csv", (d) => ({
@@ -63,32 +64,32 @@ const ByStatePolitics2024: React.FC = () => {
             }));
 
             // Choropleth map
-            const states = topojson.feature(us, us.objects.states as TopoJSON.GeometryCollection);
-            const statesMesh = topojson.mesh(us, us.objects.states as TopoJSON.GeometryCollection);
+            const states = topojson.feature(politicsUS, politicsUS.objects.states as TopoJSON.GeometryCollection);
+            const statesMesh = topojson.mesh(politicsUS, politicsUS.objects.states as TopoJSON.GeometryCollection);
             const projection = d3.geoAlbersUsa().fitSize([mapWidth, mapHeight], states);
-            const path = d3.geoPath().projection(projection);
+            const politicsPath = d3.geoPath().projection(projection);
 
             const blue_to_red = ["#0369a1", "#0ea5e9", "#7dd3fc", "#bae6fd", "#e0f2fe", "#fee2e2", "#fecaca", "#fca5a5", "#f87171", "#dc2626"];
 
             // Define continuous color scale for politics_mean
             const politicsColorScale = d3.scaleLinear<string>()
-                .domain([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) // Exclude 0 (suppressed data)
+                .domain([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
                 .range(blue_to_red);
 
-            const statePaths = map.selectAll<SVGPathElement, GeoJSON.Feature>("path.state")
+            const politicsStatePaths = map.selectAll<SVGPathElement, GeoJSON.Feature>("path.politics-state")
                 .data(states.features)
                 .join("path")
-                .attr("class", "state")
+                .attr("class", "politics-state")
                 .attr("fill", "lightgrey") // Default color for suppressed data
-                .attr("d", path)
-                .style("transition", "fill 1s ease-in-out")
+                .attr("d", politicsPath)
+                .style("transition", "fill 1.2s ease-in-out")
                 .style("pointer-events", "visible")
                 .style("stroke", "none");
 
             map.append("path")
                 .datum(statesMesh)
-                .attr("class", "outline")
-                .attr("d", path)
+                .attr("class", "politics-outline")
+                .attr("d", politicsPath)
                 .style("fill", "none")
                 .style("stroke", "white")
                 .style("stroke-width", "1px");
@@ -100,12 +101,12 @@ const ByStatePolitics2024: React.FC = () => {
             });
 
             // Fill states with colors based on data
-            statePaths.style("fill", (d) => {
+            politicsStatePaths.style("fill", (d) => {
                 const stateData = stateDict[d.id as string];
                 if (!stateData || stateData.politics_mean === 0) {
                     return '#e9e9e9'; // Light grey for suppressed data
                 }
-                return politicsColorScale(stateData.politics_mean); // Use continuous scale for valid data
+                return politicsColorScale(stateData.politics_mean);
             });
 
             // Tooltip setup
@@ -116,24 +117,24 @@ const ByStatePolitics2024: React.FC = () => {
 
             tooltip.append("rect")
                 .attr("fill", "white")
-                .attr("stroke", "black")
+                .attr("stroke", "#374151")
                 .attr("rx", 5)
                 .attr("ry", 5)
                 .attr("opacity", 0.9);
 
             const txt = tooltip.append("text")
-                .attr("fill", "black")
+                .style("fill", "#374151")
                 .attr("text-anchor", "middle")
                 .style("font-size", "16px")
                 .style("font-weight", "bold");
 
             const txt2 = tooltip.append("text")
-                .attr("fill", "black")
+                .style("fill", "#374151")
                 .attr("text-anchor", "middle")
                 .style("font-size", "14px");
 
             // Mouse hover events
-            statePaths.on("mouseenter", (event, d) => {
+            politicsStatePaths.on("mouseenter", (event, d) => {
                 tooltip.style("visibility", "visible");
 
                 const stateID = d.id as string;
@@ -144,7 +145,7 @@ const ByStatePolitics2024: React.FC = () => {
                 if (stateDat.politics_mean === 0) {
                     txt2.text("Data not displayed due to small sample size.");
                 } else {
-                    txt2.text(`Mean: ${stateDat.politics_mean.toFixed(2)}`);
+                    txt2.text(`Average leaning: ${stateDat.politics_mean.toFixed(2)}`);
                 }
 
                 // Position tooltip
@@ -163,7 +164,7 @@ const ByStatePolitics2024: React.FC = () => {
                     .attr("width", textWidth + padding * 2)
                     .attr("height", textHeight + padding * 2);
 
-                const [xPos, yPos] = path.centroid(d);
+                const [xPos, yPos] = politicsPath.centroid(d);
                 tooltip.attr("transform", `translate(${xPos},${yPos - textHeight - 15})`)
                     .style("visibility", "visible");
             }).on("mouseleave", () => {
@@ -233,7 +234,7 @@ const ByStatePolitics2024: React.FC = () => {
                         .style("fill", "white")
                         .text((d) => {
                             const percentage = parseFloat(d.data.value.toFixed(1));
-                            return percentage > 15 ? `${percentage}%` : "";
+                            return percentage > 12 ? `${percentage}%` : "";
                         });
 
                     // Add state label
@@ -241,7 +242,7 @@ const ByStatePolitics2024: React.FC = () => {
                         .attr("text-anchor", "middle")
                         .attr("y", -pieRadius - 10)
                         .style("font-size", "18px")
-                        .style("font-weight", "bold")
+                        .style("fill", "#374151")
                         .text(stateName);
                 });
             };
@@ -250,8 +251,8 @@ const ByStatePolitics2024: React.FC = () => {
 
             // Legend
             const legendWidth = 720;
-            const legendHeight = 80;
-            const legendPadding = 25;
+            const legendHeight = 70;
+            const legendPadding = 20;
 
             // Select legend SVG
             const legendSvg = d3.select<SVGSVGElement, unknown>("#legendsvg_politics")
@@ -271,19 +272,19 @@ const ByStatePolitics2024: React.FC = () => {
 
             // Add color stops for gradient
             legendGradient.selectAll("stop")
-                .data(d3.range(0, 1.1, 0.1)) // 0 to 1 in increments of 0.1
+                .data(d3.range(0, 1.1, 0.1))
                 .enter().append("stop")
                 .attr("offset", d => `${d * 100}%`)
-                .attr("stop-color", d => politicsColorScale(1 + d * 9)); // Scale from 1 to 10
+                .attr("stop-color", d => politicsColorScale(1 + d * 9));
 
             // Append rectangle with gradient
             legendSvg.append("rect")
                 .attr("x", legendPadding)
-                .attr("y", 10)
+                .attr("y", 5)
                 .attr("rx", 10)
                 .attr("ry", 10)
                 .attr("width", legendWidth)
-                .attr("height", 20)
+                .attr("height", 25)
                 .style("fill", "url(#politics-legend-gradient)")
                 .attr("stroke", "grey");
 
@@ -299,6 +300,7 @@ const ByStatePolitics2024: React.FC = () => {
                 .attr("y", 55)
                 .attr("text-anchor", "middle")
                 .style("font-size", "16px")
+                .style("fill", "#374151")
                 .text(d => d.toString());
 
         };
@@ -307,24 +309,25 @@ const ByStatePolitics2024: React.FC = () => {
     }, []);
 
     return (
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center" }} className="text-gray-700">
             <p style={{ fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
-                The higher the number, the more conservative; the lower the number, the more liberal.
+                The lower the number, the more liberal; the higher the number, the more conservative.
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(1050px + 300px)", margin: "10px auto", position: "relative" }}>
-                <svg id="legendsvg_politics" width="760" height="80" style={{ display: "block", margin: "0", marginTop: "10px" }}></svg>
+                <svg id="legendsvg_politics" width="760" height="70" style={{ display: "block", margin: "0", marginTop: "10px" }}></svg>
 
                 <div style={{ display: "flex", alignItems: "flex-start", position: "relative" }}>
                     {/* Choropleth */}
-                    <div style={{ textAlign: "center", marginRight: "50px" }}>
+                    <div style={{ textAlign: "center", marginRight: "40px" }}>
                         <div>
                             <h4 style={{ fontSize: "24px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Average Political Leaning Score</h4>
                         </div>
                         <svg id="politics-choropleth" height="600" width="900" style={{
                             margin: "0px -10px -30px 0",
                             outline: "none",
-                            border: "none"
+                            border: "none",
+                            background: "none"
                         }}></svg>
                     </div>
 
@@ -336,7 +339,7 @@ const ByStatePolitics2024: React.FC = () => {
                 </div>
             </div>
 
-            <p style={{ marginTop: "0px", fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
+            <p style={{ marginTop: "20px", fontSize: "16px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
         </div>
     );
 };

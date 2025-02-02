@@ -51,7 +51,7 @@ const ByYearNumDated2024 = () => {
             enabled: true,
             style: {
                 fontSize: '14px',
-                colors: ['#4b5563'],
+                colors: ['#374151'],
                 fontWeight: 400,
             },
             formatter: function (val: any) {
@@ -86,14 +86,14 @@ const ByYearNumDated2024 = () => {
             labels: {
                 style: {
                     fontSize: '18px',
-                    colors: '#4b5563',
+                    colors: '#374151',
                 }
             },
             title: {
                 text: "Numer of People Dated",
                 style: {
                     fontSize: '20px',
-                    colors: '#4b5563',
+                    colors: '#374151',
                     fontWeight: 400
                 }
             }
@@ -106,15 +106,15 @@ const ByYearNumDated2024 = () => {
                 },
                 style: {
                     fontSize: '16px',
-                    colors: '#4b5563',
+                    colors: '#374151',
                 }
             }
         },
         legend: {
             position: 'top',
-            fontSize: '20px',
+            fontSize: '22px',
             labels: {
-                colors: '#4b5563',
+                colors: '#374151',
             },
         }
     };

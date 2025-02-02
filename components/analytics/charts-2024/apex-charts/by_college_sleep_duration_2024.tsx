@@ -163,14 +163,14 @@ const ByCollegeSleepDuration2024 = () => {
             labels: {
                 style: {
                     fontSize: '18px',
-                    colors: '#6b7280',
+                    colors: '#374151',
                 },
             },
             title: {
                 text: 'Daily Sleep Duration (in Hours)',
                 style: {
-                    color: '#6b7280',
-                    fontSize: '18px',
+                    color: '#374151',
+                    fontSize: '20px',
                     fontWeight: 400,
                 },
             },
@@ -182,7 +182,7 @@ const ByCollegeSleepDuration2024 = () => {
             labels: {
                 style: {
                     fontSize: '18px',
-                    colors: '#6b7280',
+                    colors: '#374151',
                 },
                 formatter: function (value: number) {
                     return value + '%';
@@ -191,7 +191,7 @@ const ByCollegeSleepDuration2024 = () => {
             title: {
                 text: 'Percentage of Participants',
                 style: {
-                    color: '#6b7280',
+                    color: '#374151',
                     fontSize: '18px',
                     fontWeight: 400,
                 },
@@ -200,7 +200,7 @@ const ByCollegeSleepDuration2024 = () => {
         legend: {
             fontSize: '22px',
             labels: {
-                colors: '#6b7280',
+                colors: '#374151',
             },
             position: 'top'
         },

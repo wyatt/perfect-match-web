@@ -145,7 +145,7 @@ const ByCollegeSleepTime2024 = () => {
             labels: {
                 style: {
                     fontSize: '18px',
-                    colors: '#6b7280',
+                    colors: '#374151',
                 },
             }
         },
@@ -156,7 +156,7 @@ const ByCollegeSleepTime2024 = () => {
             labels: {
                 style: {
                     fontSize: '18px',
-                    colors: '#6b7280',
+                    colors: '#374151',
                 },
                 formatter: function (value: number) {
                     return value + '%';
@@ -165,7 +165,7 @@ const ByCollegeSleepTime2024 = () => {
             title: {
                 text: 'Percentage of Participants',
                 style: {
-                    color: '#6b7280',
+                    color: '#374151',
                     fontSize: '18px',
                     fontWeight: 400,
                 },
@@ -174,7 +174,7 @@ const ByCollegeSleepTime2024 = () => {
         legend: {
             fontSize: '22px',
             labels: {
-                colors: '#6b7280',
+                colors: '#374151',
             },
             position: 'top'
         },

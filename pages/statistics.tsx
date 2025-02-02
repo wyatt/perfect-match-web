@@ -12,7 +12,7 @@ const Statistics = (props: { title: string }) => {
     const [year, setYear] = useState(2024); // Default year
 
     return (
-        <div>
+        <div style={{ fontFamily: 'Work Sans' }}>
             <Head>
                 <title>{props.title}</title>
             </Head>
@@ -32,7 +32,7 @@ const Statistics = (props: { title: string }) => {
                 >
                     <div className="pb-6 pt-56 sm:pt-64 lg:pt-64 lg:pb-36">
                         <div className="max-w-xl text-center sm:text-left sm:ml-[15%] mt-8 sm:mt-0 opacity-100">
-                            <h1 className="text-2xl sm:text-3xl font-extrabold text-rose-400 lg:text-5xl opacity-100">
+                            <h1 className="text-xl sm:text-2xl text-rose-400 lg:text-4xl opacity-100" style={{ fontFamily: 'Dela Gothic One' }}>
                                 Can Love be Visualized?
                             </h1>
                             <p className="mt-4 mx-[10%] sm:mx-0 max-w-lg sm:text-lg text-gray-500 sm:leading-relaxed">

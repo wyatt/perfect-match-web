@@ -25,15 +25,16 @@ interface PieData {
 
 const ByStateRicePurity2024: React.FC = () => {
     useEffect(() => {
-        const choropleth = d3.select<SVGSVGElement, unknown>("#choropleth");
-        const width = +choropleth.attr("width");
-        const height = +choropleth.attr("height");
+        const rpChoropleth = d3.select<SVGSVGElement, unknown>("#rice-purity-choropleth");
+        const width = +rpChoropleth.attr("width");
+        const height = +rpChoropleth.attr("height");
         const margin = { top: 0, right: 20, bottom: 0, left: 0 };
         const mapWidth = width - margin.left - margin.right;
         const mapHeight = height - margin.top - margin.bottom;
 
-        const map = choropleth.append("g")
-            .attr("transform", `translate(${margin.left},${margin.top})`);
+        const map = rpChoropleth.append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`)
+            .style("background", "none");
 
         const requestData = async () => {
             // Load TopoJSON and CSV data
@@ -46,33 +47,33 @@ const ByStateRicePurity2024: React.FC = () => {
 
             const distributionData: DistributionData[] = await d3.csv<DistributionData>("/data-for-viz-2024/by_state_rice_purity_distribution.csv", (d) => ({
                 state_name: d.state_name,
-                score_range1: +d.score_range1, // Convert to number
-                score_range2: +d.score_range2, // Convert to number
-                score_range3: +d.score_range3, // Convert to number
-                score_range4: +d.score_range4, // Convert to number
-                score_range5: +d.score_range5, // Convert to number
+                score_range1: +d.score_range1,
+                score_range2: +d.score_range2,
+                score_range3: +d.score_range3,
+                score_range4: +d.score_range4,
+                score_range5: +d.score_range5,
             }));
 
             // Choropleth map
             const states = topojson.feature(us, us.objects.states as TopoJSON.GeometryCollection);
             const statesMesh = topojson.mesh(us, us.objects.states as TopoJSON.GeometryCollection);
             const projection = d3.geoAlbersUsa().fitSize([mapWidth, mapHeight], states);
-            const path = d3.geoPath().projection(projection);
+            const rppath = d3.geoPath().projection(projection);
 
-            const statePaths = map.selectAll<SVGPathElement, GeoJSON.Feature>("path.state")
+            const RPStatePaths = map.selectAll<SVGPathElement, GeoJSON.Feature>("path.rp-state")
                 .data(states.features)
                 .join("path")
-                .attr("class", "state")
+                .attr("class", "rp-state")
                 .attr("fill", "lightgrey")
-                .attr("d", path)
-                .style("transition", "fill 1s ease-in-out")
+                .attr("d", rppath)
+                .style("transition", "fill 1.2s ease-in-out")
                 .style("pointer-events", "visible")
                 .style("stroke", "none");
 
             map.append("path")
                 .datum(statesMesh)
-                .attr("class", "outline")
-                .attr("d", path)
+                .attr("class", "rp-outline")
+                .attr("d", rppath)
                 .style("fill", "none")
                 .style("stroke", "white")
                 .style("stroke-width", "1px");
@@ -92,7 +93,7 @@ const ByStateRicePurity2024: React.FC = () => {
                 .range(colors);
 
             // Fill states with colors based on data
-            statePaths.style("fill", (d) => {
+            RPStatePaths.style("fill", (d) => {
                 const stateData = stateDict[d.id as string];
                 return stateData ? colorScale(stateData.score_mode) : '#e9e9e9'; // Default to grey if no data
             });
@@ -105,24 +106,24 @@ const ByStateRicePurity2024: React.FC = () => {
 
             tooltip.append("rect")
                 .attr("fill", "white")
-                .attr("stroke", "black")
+                .attr("stroke", "#374151")
                 .attr("rx", 5)
                 .attr("ry", 5)
                 .attr("opacity", 0.9);
 
             const txt = tooltip.append("text")
-                .attr("fill", "black")
                 .attr("text-anchor", "middle")
                 .style("font-size", "16px")
+                .style("fill", "#374151")
                 .style("font-weight", "bold");
 
             const txt2 = tooltip.append("text")
-                .attr("fill", "black")
                 .attr("text-anchor", "middle")
+                .style("fill", "#374151")
                 .style("font-size", "14px");
 
             // Mouse hover events
-            statePaths.on("mouseenter", (event, d) => {
+            RPStatePaths.on("mouseenter", (event, d) => {
                 tooltip.style("visibility", "visible");
 
                 const stateID = d.id as string;
@@ -152,7 +153,7 @@ const ByStateRicePurity2024: React.FC = () => {
                     .attr("width", textWidth + padding * 2)
                     .attr("height", textHeight + padding * 2);
 
-                const [xPos, yPos] = path.centroid(d);
+                const [xPos, yPos] = rppath.centroid(d);
                 tooltip.attr("transform", `translate(${xPos},${yPos - textHeight - 15})`)
                     .style("visibility", "visible");
 
@@ -221,15 +222,16 @@ const ByStateRicePurity2024: React.FC = () => {
                         .style("fill", "white")
                         .text((d) => {
                             const percentage = parseFloat(d.data.value.toFixed(1));
-                            return percentage > 15 ? `${percentage}%` : "";
+                            return percentage > 12 ? `${percentage}%` : "";
                         });
 
                     // Add state label
                     group.append("text")
                         .attr("text-anchor", "middle")
                         .attr("y", -pieRadius - 10)
-                        .style("font-size", "18px")
                         .attr("class", "main")
+                        .style("font-size", "18px")
+                        .style("fill", "#374151")
                         .text(stateName);
                 });
             };
@@ -272,6 +274,7 @@ const ByStateRicePurity2024: React.FC = () => {
                 .attr("y", 55)
                 .attr("text-anchor", "middle")
                 .style("font-size", "16px")
+                .style("fill", "#374151")
                 .attr("class", "main")
                 .text((d) => d);
         };
@@ -280,9 +283,9 @@ const ByStateRicePurity2024: React.FC = () => {
     }, []);
 
     return (
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center" }} className="text-gray-700">
             <p style={{ fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
-                The higher the number, the purer you are; the lower your score, the more 'corrupt' or rebellious you are.
+                The lower your score, the more 'corrupt' or rebellious you are; the higher the number, the purer you are.
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(1050px + 300px)", margin: "10px auto", position: "relative" }}>
@@ -290,12 +293,12 @@ const ByStateRicePurity2024: React.FC = () => {
 
                 <div style={{ display: "flex", alignItems: "flex-start", position: "relative" }}>
                     {/* Choropleth */}
-                    <div style={{ textAlign: "center", marginRight: "50px" }}>
+                    <div style={{ textAlign: "center", marginRight: "40px" }}>
                         <div>
                             <h4 style={{ fontSize: "22px", marginTop: "0px", fontFamily: 'Dela Gothic One' }} >Most Chosen Option by State</h4>
                             <p style={{ fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Hover over a state to explore its distribution!</p>
                         </div>
-                        <svg id="choropleth" height="600" width="900" style={{
+                        <svg id="rice-purity-choropleth" height="600" width="900" style={{
                             margin: "-10px -10px -30px 0",
                             outline: "none",
                             border: "none"
@@ -310,7 +313,7 @@ const ByStateRicePurity2024: React.FC = () => {
                 </div>
             </div>
 
-            <p style={{ marginTop: "0px", fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
+            <p style={{ marginTop: "20px", fontSize: "16px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
         </div>
     );
 };

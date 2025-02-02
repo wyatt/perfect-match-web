@@ -45,7 +45,7 @@ const ByYearNumParticipants2024 = () => {
             offsetY: -27,
             style: {
                 fontSize: '18px',
-                colors: ['#6b7280'],
+                colors: ['#374151'],
                 fontWeight: 400,
             },
         },
@@ -64,7 +64,7 @@ const ByYearNumParticipants2024 = () => {
             },
             labels: {
                 style: {
-                    colors: '#6b7280',
+                    colors: '#374151',
                     fontSize: '18px',
                 },
             },

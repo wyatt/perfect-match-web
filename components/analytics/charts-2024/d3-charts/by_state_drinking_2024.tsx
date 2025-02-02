@@ -39,7 +39,7 @@ const ByStateDrinkOften2024: React.FC = () => {
                 .attr("class", "drink-state")
                 .attr("fill", "lightgrey")
                 .attr("d", drinkPath)
-                .style("transition", "fill 1s ease-in-out")
+                .style("transition", "fill 1.2s ease-in-out")
                 .style("pointer-events", "visible")
                 .style("stroke", "none");
 
@@ -76,19 +76,19 @@ const ByStateDrinkOften2024: React.FC = () => {
 
             drinkTooltip.append("rect")
                 .attr("fill", "white")
-                .attr("stroke", "black")
+                .attr("stroke", "#374151")
                 .attr("rx", 5)
                 .attr("ry", 5)
                 .attr("opacity", 0.9);
 
             const drinkTxt = drinkTooltip.append("text")
-                .attr("fill", "black")
+                .style("fill", "#374151")
                 .attr("text-anchor", "middle")
                 .style("font-size", "16px")
                 .style("font-weight", "bold");
 
             const drinkTxt2 = drinkTooltip.append("text")
-                .attr("fill", "black")
+                .style("fill", "#374151")
                 .attr("text-anchor", "middle")
                 .style("font-size", "14px");
 
@@ -178,6 +178,7 @@ const ByStateDrinkOften2024: React.FC = () => {
                 .attr("y", 55)
                 .attr("text-anchor", "middle")
                 .style("font-size", "16px")
+                .style("fill", "#374151")
                 .text(d => `${d}%`);
 
         };
@@ -186,17 +187,14 @@ const ByStateDrinkOften2024: React.FC = () => {
     }, []);
 
     return (
-
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(1050px + 300px)", margin: "10px auto", position: "relative" }}>
+        <div className="text-gray-700" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(1050px + 300px)", margin: "10px auto", position: "relative" }}>
             <h4 style={{ fontSize: "22px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Percentage of Respondents Who Drink 'Often'</h4>
             <svg id="drink-legendsvg" width="720" height="80" style={{ display: "block", margin: "0", marginTop: "10px" }}></svg>
             <svg id="drink-choropleth" height="600" width="900" style={{
-                margin: "-25px -10px 0px 0",
-                outline: "none",
-                border: "none"
+                margin: "-25px -10px 0px 0"
             }}></svg>
 
-            <p style={{ marginTop: "20px", fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
+            <p style={{ marginTop: "20px", fontSize: "16px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
         </div>
     );
 };
