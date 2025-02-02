@@ -22,7 +22,7 @@ const Members: React.FC = () => {
                         <h3 className="font-dela-gothic mb-6 text-2xl sm:text-4xl text-center font-bold text-pmblue-500 sm:mt-16 mt-10">
                             {division.Name}
                         </h3>
-                        <p className="font-work-sans mb-12 text-center text-pmblue-500 text-base font-medium max-w-3xl mx-auto px-4"
+                        <p className="font-work-sans mb-12 text-center text-pmblue-500 text-base sm:text-lg font-medium max-w-4xl mx-auto px-4"
                             dangerouslySetInnerHTML={{ __html: division.Description }} />
                         <div className="flex font-work-sans flex-wrap justify-center gap-10">
                             {division.Members &&
@@ -48,7 +48,7 @@ const Members: React.FC = () => {
                                             <p className="text-pmred-500 font-work-sans font-bold text-2xl text-center sm:mt-4 mt-3">
                                                 {member.Name}
                                             </p>
-                                            <p className="font-work-sans text-pmred-500 text-base font-medium font-semibold italic text-center">
+                                            <p className="font-work-sans text-pmred-500 text-base font-semibold italic text-center">
                                                 {member.Major}, {member.ClassYear}
                                             </p>
                                             <p className="font-work-sans text-pmblue-500 text-base font-base text-center">{member.Title1}</p>

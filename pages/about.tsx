@@ -30,7 +30,7 @@ const About: any = (props: any) => {
                                     Cupid just got smarter!
                                 </h2>
 
-                                <div className='font-work-sans text-pmred-500 '>
+                                <div className='font-work-sans text-pmred-500 text-base sm:text-lg font-medium'>
                                     <p className="sm:mb-4 mb-0 ">
                                         Perfect Match is a matchmaking survey ideated in February 2019. Our machine learning algorithm uses your survey to pair you with other Cornell students — your Perfect Matches!</p>
 
