@@ -11,7 +11,7 @@ const Members: React.FC = () => {
                         Meet the Cupids
                     </h2>
 
-                    <p className="font-work-sans text-pmblue-500 text-base italic sm:text-xl mb-10 font-medium">
+                    <p className="font-work-sans text-pmblue-500 text-base sm:text-xl mb-10 font-medium">
                         We currently have fifteen members, divided into two teams – Engineering and Business.
                     </p>
                     <hr className="border-2 border-pmred-500 w-[100%]" />
@@ -22,7 +22,7 @@ const Members: React.FC = () => {
                         <h3 className="font-dela-gothic mb-6 text-2xl sm:text-4xl text-center font-bold text-pmblue-500 sm:mt-16 mt-10">
                             {division.Name}
                         </h3>
-                        <p className="font-work-sans mb-12 italic text-center text-pmblue-500 text-base font-medium"
+                        <p className="font-work-sans mb-12 text-center text-pmblue-500 text-base sm:text-lg font-medium max-w-4xl mx-auto px-4"
                             dangerouslySetInnerHTML={{ __html: division.Description }} />
                         <div className="flex font-work-sans flex-wrap justify-center gap-10">
                             {division.Members &&
@@ -48,7 +48,7 @@ const Members: React.FC = () => {
                                             <p className="text-pmred-500 font-work-sans font-bold text-2xl text-center sm:mt-4 mt-3">
                                                 {member.Name}
                                             </p>
-                                            <p className="font-work-sans text-pmred-500 text-base font-medium text-center">
+                                            <p className="font-work-sans text-pmred-500 text-base font-semibold italic text-center">
                                                 {member.Major}, {member.ClassYear}
                                             </p>
                                             <p className="font-work-sans text-pmblue-500 text-base font-base text-center">{member.Title1}</p>
@@ -57,7 +57,9 @@ const Members: React.FC = () => {
                                     </a>
                                 ))}
                         </div>
-                        <hr className="border-2 border-pmred-500 sm:mt-16 mt-12 w-[100%]" />
+                        {idx !== team.length - 1 && (
+                            <hr className="border-2 border-pmred-500 sm:mt-16 mt-12 w-[100%]" />
+                        )}
                     </div>
                 ))}
             </div>

@@ -142,22 +142,22 @@ const Home: NextPage = (props: any) => {
                                 <Link href="/statistics">
                                     <button
                                         className="
-                                    px-6 
-                                    py-2 
                                     mt-6
-                                    rounded-full 
+                                    px-6 
+                                    py-2
+                                    rounded-full
                                     bg-white 
-                                    text-red-500 
-                                    border-2 
-                                    border-blue-500 
-                                    font-semibold
-                                    shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)]
+                                    text-pmred-500 
+                                    border-4
+                                    border-pmblue-500 
+                                    font-bold
+                                    shadow-[6px_6px_0px_0px_rgba(36,67,141,1)]
                                     transition-all
-                                    hover:translate-x-[2px]
-                                    hover:translate-y-[2px]
-                                    hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)]
-                                    active:translate-x-[4px]
-                                    active:translate-y-[4px]
+                                    hover:translate-x-[4px]
+                                    hover:translate-y-[4px]
+                                    hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)]
+                                    active:translate-x-[6px]
+                                    active:translate-y-[6px]
                                     active:shadow-none
                                 "
                                     >
