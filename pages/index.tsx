@@ -127,7 +127,9 @@ const Home: NextPage = (props: any) => {
                                             </button>
                                         </Link>
                                     ) : (
-                                        <GoogleAuth login={!props.user} />
+                                        <div className='mt-6'>
+                                            <GoogleAuth login={!props.user} />
+                                        </div>
                                     )}
 
 
