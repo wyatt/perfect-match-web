@@ -59,7 +59,7 @@ function Header(props: any) {
                                 <Link href="/about"> About</Link>
                             </li>
                             <li className="text-pmred-500 border-2 border-pmred-500 rounded-3xl px-2 py-1">
-                                <Link href="/profile"> Matches &lt;3</Link>
+                                <Link href="/profile"> Survey &lt;3</Link>
                             </li>
                             {isAdminUser && (
                                 <li className="text-pmred-500">
