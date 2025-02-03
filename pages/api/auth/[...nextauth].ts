@@ -26,7 +26,7 @@ export default NextAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
         }),
     ],
-    pages: { error: '/auth/error' },
+    pages: { signIn: '/auth/signin', error: '/auth/error' },
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
         async signIn({ profile }) {
