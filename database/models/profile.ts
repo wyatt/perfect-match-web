@@ -21,9 +21,10 @@ export interface IProfile extends Document {
         oldest: number;
     };
     activities: string[];
-    describeYourself?: { describe1: string; describe2: string; describe3: string };
-    describePartner?: { describe1: string; describe2: string; describe3: string };
+    greenFlag: string;
+    guiltyPleasure: string;
     bio?: string;
+    religion?: string[];
 }
 
 export const profileSchema: Schema = new Schema<IProfile>(
@@ -31,33 +32,26 @@ export const profileSchema: Schema = new Schema<IProfile>(
         complete: { type: Boolean, default: false },
         firstName: { type: String, trim: true, required: true },
         lastName: { type: String, trim: true, required: true },
-        gender: { type: String, enum: profile.gender },
-        genderPref: [{ type: String, enum: profile.gender }],
-        age: { type: Number, min: 17, max: 40 },
-        height: { type: Number, min: 55, max: 78 },
+        gender: { type: String, enum: profile.gender, required: true },
+        genderPref: [{ type: String, enum: profile.genderPref, required: true }],
+        age: { type: Number, min: 17, max: 40, required: true },
+        height: { type: Number, min: 55, max: 78, required: true },
         city: { type: String },
-        race: [{ type: String, enum: profile.race }],
-        year: { type: String, enum: profile.classYear },
+        race: [{ type: String, enum: profile.race, required: true }],
+        year: { type: String, enum: profile.classYear, required: true },
         college: { type: String, enum: profile.college },
         major: { type: String },
-        commitment: { type: String, enum: profile.commitment },
-        relationshipType: { type: String, enum: profile.relationshipType },
+        commitment: { type: String, enum: profile.commitment, required: true },
+        relationshipType: { type: String, enum: profile.relationshipType, required: true },
         agePref: {
-            youngest: { type: Number, min: 17, max: 40 },
-            oldest: { type: Number, min: 17, max: 40 },
+            youngest: { type: Number, min: 17, max: 40, required: true },
+            oldest: { type: Number, min: 17, max: 40, required: true },
         },
-        activities: [{ type: String, enum: profile.activities }],
-        describeYourself: {
-            describe1: { type: String },
-            describe2: { type: String },
-            describe3: { type: String },
-        },
-        describePartner: {
-            describe1: { type: String },
-            describe2: { type: String },
-            describe3: { type: String },
-        },
-        bio: { type: String },
+        activities: [{ type: String, enum: profile.activities, required: true }],
+        greenFlag: { type: String },
+        guiltyPleasure: { type: String },
+        bio: { type: String, required: true },
+        religion: [{ type: String, enum: profile.religion, required: true }],
     },
     { _id: false },
 );

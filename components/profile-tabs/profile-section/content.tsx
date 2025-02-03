@@ -16,14 +16,14 @@ export const questions = {
                         {
                             type: 'text',
                             name: 'firstName',
-                            title: 'First name',
+                            title: 'First Name',
                             isRequired: true,
                         },
                         {
                             type: 'text',
                             name: 'lastName',
                             startWithNewLine: false,
-                            title: 'Last name',
+                            title: 'Last Name',
                             isRequired: true,
                         },
                         {
@@ -81,7 +81,7 @@ export const questions = {
                             type: 'text',
                             name: 'age',
                             title: 'Age',
-                            requiredErrorText: 'You Age must be between 17 and 110',
+                            requiredErrorText: 'You Age must be between 17 and 40',
                             isRequired: true,
                             validators: [
                                 {
@@ -199,14 +199,14 @@ export const questions = {
                         {
                             type: 'text',
                             name: 'city',
-                            title: '<> Hometown',
+                            title: '<> Hometown (city)',
                             startWithNewLine: false,
                             isRequired: false,
                         },
                         {
                             type: 'checkbox',
                             name: 'race',
-                            title: 'What is your race/ethnicity? (Check all that apply)',
+                            title: 'What is your race/ethnicity? We do not use this for matching, only for internal analytics and quality assurance. (Check all that apply)',
                             isRequired: true,
                             hasOther: true,
                             choices: [
@@ -290,6 +290,7 @@ export const questions = {
                             type: 'dropdown',
                             name: 'college',
                             title: 'College',
+                            isRequired: false,
                             choices: [
                                 'Agriculture and Life Sciences',
                                 'Architecture, Art, and Planning',
@@ -409,8 +410,8 @@ export const questions = {
                                     text: 'I plan to meet my matches',
                                 },
                                 {
-                                    value: 'meetfriends',
-                                    text: 'I just want to meet new people',
+                                    value: 'socialhorizons',
+                                    text: 'I just want to expand my social horizons',
                                 },
                                 {
                                     value: 'fun',
@@ -426,20 +427,24 @@ export const questions = {
                             isRequired: true,
                             choices: [
                                 {
-                                    value: 'romantic',
-                                    text: 'Romantic',
+                                    value: 'committed',
+                                    text: 'Committed',
                                 },
                                 {
                                     value: 'casual',
                                     text: 'Casual',
                                 },
                                 {
-                                    value: 'platonic',
-                                    text: 'Platonic',
+                                    value: 'hookup',
+                                    text: 'Hookup',
                                 },
                                 {
-                                    value: 'notsure',
-                                    text: 'Not sure yet',
+                                    value: 'any',
+                                    text: 'Any',
+                                },
+                                {
+                                    value: 'unsure',
+                                    text: 'Unsure',
                                 },
                             ],
                         },
@@ -456,7 +461,7 @@ export const questions = {
                                     isRequired: true,
                                     validators: [
                                         {
-                                            requiredErrorText: 'You Age must be between 17 and 110',
+                                            requiredErrorText: 'You Age must be between 17 and 40',
                                             type: 'numeric',
                                             text: '',
                                             minValue: 17,
@@ -472,7 +477,7 @@ export const questions = {
 
                                     validators: [
                                         {
-                                            requiredErrorText: 'You Age must be between 17 and 110',
+                                            requiredErrorText: 'You Age must be between 17 and 40',
                                             type: 'numeric',
                                             text: '',
                                             minValue: 17,
@@ -522,6 +527,10 @@ export const questions = {
                                     text: 'Cultural club',
                                 },
                                 {
+                                    value: 'creativeclub',
+                                    text: 'Creative club',
+                                },
+                                {
                                     value: 'otherclub',
                                     text: 'Other club',
                                 },
@@ -541,63 +550,40 @@ export const questions = {
                             hasNone: true,
                         },
                         {
-                            type: 'multipletext',
-                            name: 'describeYourself',
-                            title: 'Choose the best three adjectives to describe your personality.',
-                            items: [
-                                {
-                                    name: 'describe1',
-                                    title: 'First Word',
-                                    inputType: 'text',
-                                    isRequired: true,
-                                },
-                                {
-                                    name: 'describe2',
-                                    title: 'Second Word',
-                                    inputType: 'text',
-                                    isRequired: true,
-                                },
-                                {
-                                    name: 'describe3',
-                                    title: 'Third Word',
-                                    inputType: 'text',
-                                    isRequired: true,
-                                },
-                            ],
+                            type: 'text',
+                            name: 'greenFlag',
+                            title: '<> What\'s your biggest green flag?'
                         },
                         {
-                            type: 'multipletext',
-                            name: 'describePartner',
-                            title: 'Choose the best three adjectives to describe the personality of your ideal partner.',
-                            items: [
-                                {
-                                    name: 'describe1',
-                                    title: 'First Word',
-                                    inputType: 'text',
-                                    isRequired: true,
-                                },
-                                {
-                                    name: 'describe2',
-                                    title: 'Second Word',
-                                    inputType: 'text',
-                                    isRequired: true,
-                                },
-                                {
-                                    name: 'describe3',
-                                    title: 'Third Word',
-                                    inputType: 'text',
-                                    isRequired: true,
-                                },
-                            ],
+                            type: 'text',
+                            name: 'guiltyPleasure',
+                            title: '<> What\'s your guilty pleasure?'
                         },
                         {
                             type: 'comment',
                             name: 'bio',
                             title: '<> Bio! What should your match know about you?  Please answer one or more of the prompts below. Your bio can be as short as a sentence encouraging matches to reach out to you or as long as a few paragraphs. We will share it with your matches to help start the conversation! Need some ideas:',
                             description:
-                                'a. How would your ideal wingperson describe you?<br> b. What would you like your match to know about you? <br>c. Any bio of your choice!',
+                                'a. What would you like your match to know about you? <br>b. Hit us with your best pickup line! <br>c. Any bio of your choice!',
                             isRequired: true,
                         },
+                        {
+                            type: 'checkbox',
+                            name: 'religion',
+                            title: 'What religion(s) do you follow?',
+                            isRequired: true,
+                            hasOther: true,
+                            choices: [
+                                'Christianity',
+                                'Islam',
+                                'Hinduism',
+                                'Buddhism',
+                                'Judaism',
+                                'Atheist',
+                                'Agnostic',
+                                'Other'
+                            ]
+                        }
                     ],
                 },
             ],

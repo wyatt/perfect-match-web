@@ -1,5 +1,7 @@
 //-------------------------Profile Enums--------------------------------
-export const gender = ['male', 'female', 'nonbinary', 'anyone', 'other'];
+export const gender = ['male', 'female', 'nonbinary', 'other'];
+
+export const genderPref = ['male', 'female', 'nonbinary', 'anyone'];
 
 export const classYear = ['freshman', 'sophomore', 'junior', 'senior', 'masters', 'phd', 'faculty', 'alumni'];
 
@@ -29,9 +31,9 @@ export const college = [
     'Other',
 ];
 
-export const commitment = ['plantomeet', 'willsee', 'meetfriends', 'fun'];
+export const commitment = ['plantomeet', 'socialhorizons', 'fun'];
 
-export const relationshipType = ['romantic', 'casual', 'platonic'];
+export const relationshipType = ['committed', 'casual', 'hookup', 'any', 'unsure'];
 
 export const activities = [
     'athlete',
@@ -42,7 +44,20 @@ export const activities = [
     'clubsports',
     'socialclub',
     'culturalclub',
+    'creativeclub',
     'otherclub',
     'ra',
+    'research',
     'ta',
+];
+
+export const religion = [
+    'Christianity',
+    'Islam',
+    'Hinduism',
+    'Buddhism',
+    'Judaism',
+    'Atheist',
+    'Agnostic',
+    'Other'
 ];
