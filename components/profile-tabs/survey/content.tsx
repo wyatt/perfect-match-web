@@ -26,7 +26,7 @@ export const questions = {
                                     type: 'expression',
                                     text: 'Please enter at least one method of contact',
                                     expression:
-                                        '{contact.fb} notempty or {contact.insta} notempty or {contact.linkedin} notempty or {contact.snapchat} notempty or {contact.twitter} notempty or {contact.phone} notempty or {contact.other} notempty',
+                                        '{contact.phone} notempty or {contact.insta} notempty or {contact.snapchat} notempty or {contact.wechat} notempty or {contact.fb} notempty or {contact.email} notempty or {contact.other} notempty',
                                 },
                             ],
                             items: [
@@ -202,6 +202,35 @@ export const questions = {
                             text: 'Okenshields is the best dining hall',
                         },
                     ],
+                },
+                {
+                    type: 'radiogroup',
+                    name: 'bathroom',
+                    title: 'What is your go-to bathroom?',
+                    isRequired: true,
+                    hasOther: true,
+                    choices: [
+                        {
+                            value: 'uris',
+                            text: 'Uris'
+                        },
+                        {
+                            value: 'psb',
+                            text: 'PSB'
+                        },
+                        {
+                            value: 'tang',
+                            text: 'Tang'
+                        },
+                        {
+                            value: 'mvr',
+                            text: "MVR"
+                        },
+                        {
+                            value: 'own',
+                            text: 'My own...'
+                        }
+                    ]
                 },
                 {
                     type: 'radiogroup',
@@ -633,7 +662,7 @@ export const questions = {
                     name: 'sleeptime',
                     title: 'What time do you go to bed?',
                     isRequired: true,
-                    choices: ['7pm', '8pm', '9pm', '10pm', '11pm', '12am', '1am', '2am', '3am', '4am', '5am', '6am'],
+                    choices: ['6pm', '7pm', '8pm', '9pm', '10pm', '11pm', '12am', '1am', '2am', '3am', '4am', '5am', '6am'],
                 },
                 {
                     type: 'dropdown',

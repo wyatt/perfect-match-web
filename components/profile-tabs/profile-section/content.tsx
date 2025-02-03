@@ -427,7 +427,7 @@ export const questions = {
                         {
                             type: 'radiogroup',
                             name: 'relationshipType',
-                            title: 'What type of relationship are you looking for with you match??',
+                            title: 'What type of relationship are you looking for with your match?',
                             isRequired: true,
                             choices: [
                                 {
