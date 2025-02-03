@@ -85,18 +85,48 @@ const Home: NextPage = (props: any) => {
                         <div className="lg:w-1/2">
                             <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
                                 <div className="">
-                                    <h1 className="text-4xl text-[#00438D] font-normal font-family-dela sm:text-3xl lg:text-5xl font-dela-gothic sm:mt-5">
-                                        We know you&#39;ve
+                                    <h1 className="text-4xl text-[#00438D] font-family-dela sm:text-3xl lg:text-5xl font-dela-gothic sm:mt-5">
+                                        Perfect Match
                                         <br />
-                                        been waiting
+                                        is open <strong className='text-pmred-500'> NOW! </strong>
                                     </h1>
                                 </div>
                                 <div className='work-sans'>
                                     <p className="text-lg text-pmblue-500 mt-4 lg:max-w-lg lg:text-left text-center lg:text-xl sm:leading-relaxed">
-                                        Perfect Match opens <strong> February 3rd</strong>
+                                        The form closes <strong className="italic"> Feburary 13th at Noon </strong>
+                                        <br />
+                                        Be sure to fill it in time so you&apos;re not alone on Valentine&apos;s Day ;&#41;
+                                        <br />
+                                        <strong> {currentCount}</strong> Cornellians have already filled it out.
+
                                     </p>
-                                    <p className="text-lg mt-1 text-pmblue-500 lg:max-w-lg lg:text-left text-center lg:text-xl sm:leading-relaxed">
-                                        We&#39;ll see you back then ;&#41; </p>
+                                    <Link href="/profile">
+                                        <button
+                                            className="
+                                    mt-6
+                                    px-6 
+                                    py-2
+                                    rounded-full
+                                    bg-white 
+                                    text-pmred-500 
+                                    border-4
+                                    border-pmblue-500 
+                                    font-bold
+                                    shadow-[6px_6px_0px_0px_rgba(36,67,141,1)]
+                                    transition-all
+                                    hover:translate-x-[4px]
+                                    hover:translate-y-[4px]
+                                    hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)]
+                                    active:translate-x-[6px]
+                                    active:translate-y-[6px]
+                                    active:shadow-none
+                                "
+                                        >
+                                            fill out Perfect Match
+                                        </button>
+                                    </Link>
+
+
                                 </div>
                             </div>
 
