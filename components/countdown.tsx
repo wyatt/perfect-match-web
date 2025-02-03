@@ -6,6 +6,7 @@ import { emojiBlast } from "emoji-blast";
 const CountDown: React.FC = () => {
     const countdownDate = new Date('Feb 13, 2025 12:00:00 EST');
 
+
     type RemainingTime = {
         days: number;
         hours: number;
@@ -160,15 +161,17 @@ const CountDown: React.FC = () => {
     }
 
     useEffect(() => {
+        setHasMounted(true);
         const timer = setInterval(() => {
-            setTimeRemaining(calculateTimeRemaining(countdownDate));
-            if (timeRemaining.total <= 1) {
+            const newTime = calculateTimeRemaining(countdownDate);
+            setTimeRemaining(newTime);
+            if (newTime.total <= 1) {
                 setCompleted(true);
                 clearInterval(timer);
             }
         }, 1000);
         return () => clearInterval(timer);
-    });
+    }, []);
 
     return (
         <div className='z-10 max-w-[85vw] w-full min-w-fit h-full relative'>
@@ -183,21 +186,21 @@ const CountDown: React.FC = () => {
                     <div className="flex items-center justify-center h-full w-[90%] bg-[#00162F] text-white text-3xl rounded-lg lg:p-2">
                         <div className="flex items-center text-3xl sm:text-4xl space-x-2 px-4 md:px-2 font-press-start lg:text-6xl w-full justify-center">
                             <div className="flex flex-col items-center">
-                                <span className={completed ? 'animate-flash' : ''}>{easterEggTextDisplay ? '0' : (days > 0 ? days : hours)}</span>
+                                <span className={completed ? 'animate-flash' : ''}>{hasMounted ? (easterEggTextDisplay ? '0' : (days > 0 ? days : hours)) : '0'}</span>
                                 <span className="text-[10px] leading-5 sm:text-sm lg:text-base tracking-wider">{easterEggTextDisplay ? 'I' : (days > 0 ? 'days' : 'hours')}</span>
                             </div>
                             <div className="flex flex-col items-center text-center w-fit">
                                 <span className='text-lg lg:text-3xl -mx-3'>:</span>
                             </div>
                             <div className="flex flex-col items-center">
-                                <span className={completed ? 'animate-flash' : ''}>{easterEggTextDisplay ? '-' : (days > 0 ? hours : minutes)}</span>
+                                <span className={completed ? 'animate-flash' : ''}>{hasMounted ? (easterEggTextDisplay ? '-' : (days > 0 ? hours : minutes)) : '0'}</span>
                                 <span className="text-[10px] leading-5 sm:text-sm lg:text-base tracking-wider">{easterEggTextDisplay ? "Can't" : (days > 0 ? 'hours' : 'minutes')}</span>
                             </div>
                             <div className="flex flex-col items-center text-center w-fit">
                                 <span className='text-lg lg:text-3xl -mx-3'>:</span>
                             </div>
                             <div className="flex flex-col items-center">
-                                <span className={completed ? 'animate-flash' : ''}>{easterEggTextDisplay ? '0' : (days > 0 ? minutes : seconds)}</span>
+                                <span className={completed ? 'animate-flash' : ''}>{hasMounted ? (easterEggTextDisplay ? '0' : (days > 0 ? minutes : seconds)) : '0'}</span>
                                 <span className="text-[10px] leading-5 sm:text-sm lg:text-base tracking-wider">{easterEggTextDisplay ? "Wait" : (days > 0 ? 'minutes' : 'seconds')}</span>
                             </div>
                         </div>
