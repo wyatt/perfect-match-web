@@ -100,31 +100,37 @@ const Home: NextPage = (props: any) => {
                                         <strong> {currentCount}</strong> Cornellians have already filled it out.
 
                                     </p>
-                                    <Link href="/profile">
-                                        <button
-                                            className="
-                                    mt-6
-                                    px-6 
-                                    py-2
-                                    rounded-full
-                                    bg-white 
-                                    text-pmred-500 
-                                    border-4
-                                    border-pmblue-500 
-                                    font-bold
-                                    shadow-[6px_6px_0px_0px_rgba(36,67,141,1)]
-                                    transition-all
-                                    hover:translate-x-[4px]
-                                    hover:translate-y-[4px]
-                                    hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)]
-                                    active:translate-x-[6px]
-                                    active:translate-y-[6px]
-                                    active:shadow-none
-                                "
-                                        >
-                                            fill out Perfect Match
-                                        </button>
-                                    </Link>
+                                    {!props.user ? (
+                                        <Link href="/profile">
+                                            <button
+                                                className="
+                mt-6
+                px-6 
+                py-2
+                rounded-full
+                bg-white 
+                text-pmred-500 
+                border-4
+                border-pmblue-500 
+                font-bold
+                shadow-[6px_6px_0px_0px_rgba(36,67,141,1)]
+                transition-all
+                hover:translate-x-[4px]
+                hover:translate-y-[4px]
+                hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)]
+                active:translate-x-[6px]
+                active:translate-y-[6px]
+                active:shadow-none
+            "
+                                            >
+                                                Fill Out Perfect Match
+                                            </button>
+                                        </Link>
+                                    ) : (
+                                        <GoogleAuth login={!props.user} />
+                                    )}
+
+
 
 
                                 </div>
