@@ -5,7 +5,7 @@ import { emojiBlast } from "emoji-blast";
 
 const CountDown: React.FC = () => {
     const countdownDate = new Date('Feb 13, 2025 12:00:00 EST');
-
+    const [hasMounted, setHasMounted] = useState(false);
 
     type RemainingTime = {
         days: number;
