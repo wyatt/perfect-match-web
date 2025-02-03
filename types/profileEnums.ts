@@ -1,21 +1,5 @@
 //-------------------------Profile Enums--------------------------------
-export const gender = ['male', 'female', 'nonbinary', 'other'];
-
-export const genderPref = ['male', 'female', 'nonbinary', 'anyone'];
-
 export const classYear = ['freshman', 'sophomore', 'junior', 'senior', 'masters', 'phd', 'faculty', 'alumni'];
-
-export const race = [
-    'white',
-    'black',
-    'eastasian',
-    'southasian',
-    'latino',
-    'native_american',
-    'hawaiian',
-    'middle_eastern',
-    'other',
-];
 
 export const college = [
     'Agriculture and Life Sciences',
@@ -49,15 +33,4 @@ export const activities = [
     'ra',
     'research',
     'ta',
-];
-
-export const religion = [
-    'Christianity',
-    'Islam',
-    'Hinduism',
-    'Buddhism',
-    'Judaism',
-    'Atheist',
-    'Agnostic',
-    'Other'
 ];

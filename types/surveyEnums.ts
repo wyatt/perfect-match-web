@@ -14,7 +14,7 @@ export const northVsWest = ['north', 'west'];
 
 export const trilliumOrTerrace = ['trillium', 'terrace'];
 
-export const celciusOrCoffee = ['celcius', 'coffee'];
+export const celsiusOrCoffee = ['celsius', 'coffee'];
 
 export const walkOrBus = ['walk', 'bus'];
 
@@ -76,7 +76,7 @@ export const waketime = ['3am', '4am', '5am', '6am', '7am', '8am', '9am', '10am'
 
 export const plans = ['shift', 'flow', 'cancel', 'new'];
 
-export const humor = ['pranks', 'sarcastic', 'puns', 'deprecating', 'improv', 'references'];
+export const humor = ['pranks', 'sarcastic', 'puns', 'deprecating', 'improv', 'references', 'darkhumor'];
 
 export const sociability = ['party', 'activities', 'in_touch', 'popular', 'canceled', 'homebody'];
 
