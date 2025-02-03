@@ -4,20 +4,26 @@ import * as survey from '../../types/surveyEnums';
 export interface ISurvey extends Document {
     complete: boolean;
     contact: {
-        fb: string;
-        insta: string;
-        twitter: string;
-        snapchat: string;
-        linkedin: string;
         phone: string;
+        insta: string;
+        snapchat: string;
+        wechat: string;
+        fb: string;
+        email: string;
         other: string;
     };
-    faction: string;
-    libraryRanking: number;
-    clothDate: string;
-    alternative: string;
+    lockIn: string;
+    redFlagClub: string;
+    worstFirstKiss: string;
     task: string;
-    study: string;
+    hill: string;
+    bathroom: string;
+    olinVsUris: string;
+    northVsWest: string;
+    trilliumOrTerrace: string;
+    celsiusOrCoffee: string;
+    walkOrBus: string;
+    fallOrSpring: string;
     interests: string[];
     music: string[];
     hookupsong: string;
@@ -26,21 +32,12 @@ export interface ISurvey extends Document {
     whopays: string;
     ick: string;
     greenflag: string;
-    lovelanguage: string[];
-    quality: string;
+    lovelanguage: string;
     sleeptime: string;
     waketime: string;
-    perfectDay: string;
     plans: string;
     humor: string[];
     sociability: string[];
-    // not using the below for Year 2024--->
-    meal: string;
-    startover: string;
-    timeormoney: string;
-    slopeDay: string;
-    workTo: string;
-    // <---not using the above for Year 2024
     p1: string;
     p2: string;
     p3: string;
@@ -52,39 +49,28 @@ export interface ISurvey extends Document {
     p9: string;
     p10: string;
     p11: string;
-    // not using the below for Year 2024--->
-    p12: string;
-    p13: string;
-    p14: string;
-    p15: string;
-    p16: string;
-    p17: string;
-    p18: string;
-    p19: string;
-    // <---not using the above for Year 2024
     generalPersonality: string;
     introvert: number;
     introvert_same: string;
     easygoing: number;
     easygoing_same: string;
+    whySingle: string;
     numdated: number;
     longestrelationship: number;
     ricePurity: string;
-    pairedwith: string;
-    // not using the below for Year 2024--->
-    apps: string[];
-    // <---not using the above for Year 2024
     politics: number;
     politically_active: number;
     habits: {
         drinking: string;
         smoking: string;
+        zyns: string;
         weed: string;
         other: string;
     };
     partner_habits: {
         drinking: string;
         smoking: string;
+        zyns: string;
         weed: string;
         other: string;
     };
@@ -95,91 +81,77 @@ export const surveySchema: Schema = new Schema<ISurvey>(
     {
         complete: { type: Boolean, default: false },
         contact: {
-            fb: { type: String },
-            insta: { type: String },
-            twitter: { type: String },
-            snapchat: { type: String },
-            linkedin: { type: String },
             phone: { type: String },
+            insta: { type: String },
+            snapchat: { type: String },
+            wechat: { type: String },
+            fb: { type: String },
+            email: { type: String },
             other: { type: String },
         },
-        faction: { type: String, enum: survey.faction },
-        libraryRanking: { type: Number, min: 1, max: 10 },
-        clothDate: { type: String, enum: survey.clothDate },
-        alternative: { type: String, enum: survey.alternative },
-        task: { type: String, enum: survey.task },
-        study: { type: String, enum: survey.study },
-        interests: [{ type: String, enum: survey.interests }],
-        music: [{ type: String, enum: survey.music }],
-        hookupsong: { type: String },
-        tv: { type: String, enum: survey.tv },
-        date: { type: String, enum: survey.date },
-        whopays: { type: String, enum: survey.whopays },
-        ick: { type: String, enum: survey.ick },
-        greenflag: { type: String, enum: survey.greenflag },
-        lovelanguage: [{ type: String, enum: survey.lovelanguage }],
-        quality: { type: String, enum: survey.quality },
-        sleeptime: { type: String, enum: survey.sleeptime },
-        waketime: { type: String, enum: survey.waketime },
-        perfectDay: { type: String, enum: survey.perfectDay },
-        plans: { type: String, enum: survey.plans },
-        humor: [{ type: String, enum: survey.humor }],
-        sociability: [{ type: String, enum: survey.sociability }],
-        // not using the below for Year 2024--->
-        meal: { type: String, enum: survey.meal },
-        slopeDay: { type: String },
-        workTo: { type: String, enum: survey.workto },
-        startover: { type: String, enum: ['yes', 'no'] },
-        timeormoney: { type: String, enum: survey.timeormoney },
-        // <---not using the above for Year 2024
-        p1: { type: String, enum: survey.range },
-        p2: { type: String, enum: survey.range },
-        p3: { type: String, enum: survey.range },
-        p4: { type: String, enum: survey.range },
-        p5: { type: String, enum: survey.range },
-        p6: { type: String, enum: survey.range },
-        p7: { type: String, enum: survey.range },
-        p8: { type: String, enum: survey.range },
-        p9: { type: String, enum: survey.range },
-        p10: { type: String, enum: survey.range },
-        p11: { type: String, enum: survey.range },
-        // not using the below for Year 2024--->
-        p12: { type: String, enum: survey.range },
-        p13: { type: String, enum: survey.range },
-        p14: { type: String, enum: survey.range },
-        p15: { type: String, enum: survey.range },
-        p16: { type: String, enum: survey.range },
-        p17: { type: String, enum: survey.range },
-        p18: { type: String, enum: survey.range },
-        p19: { type: String, enum: survey.range },
-        // <---not using the above for Year 2024
-        generalPersonality: { type: String, enum: ['similar', 'different'] },
-        introvert: { type: Number, min: 1, max: 10 },
-        introvert_same: { type: String, enum: survey.panel },
-        easygoing: { type: Number, min: 1, max: 10 },
-        easygoing_same: { type: String, enum: survey.panel },
-        numdated: { type: Number, min: 0 },
-        longestrelationship: { type: Number, min: 0, max: 144 },
-        ricePurity: { type: String, enum: survey.ricePurity },
-        pairedwith: { type: String, enum: ['similar', 'different', 'either'] },
-        // not using the below for Year 2024--->
-        apps: [{ type: String, enum: survey.apps }],
-        // <---not using the above for Year 2024
-        politics: { type: Number, min: 1, max: 10 },
-        politically_active: { type: Number, min: 1, max: 5 },
+        lockIn: { type: String, enum: survey.lockIn, required: true },
+        redFlagClub: { type: String, enum: survey.redFlagClub, required: true },
+        worstFirstKiss: { type: String, enum: survey.worstFirstKiss, required: true },
+        task: { type: String, enum: survey.task, required: true },
+        hill: { type: String, enum: survey.hill, required: true },
+        bathroom: { type: String, required: true },
+        olinVsUris: { type: String, enum: survey.olinVsUris, required: true },
+        northVsWest: { type: String, enum: survey.northVsWest, required: true },
+        trilliumOrTerrace: { type: String, enum: survey.trilliumOrTerrace, required: true },
+        celsiusOrCoffee: { type: String, enum: survey.celsiusOrCoffee, required: true },
+        walkOrBus: { type: String, enum: survey.walkOrBus, required: true },
+        fallOrSpring: { type: String, enum: survey.fallOrSpring, required: true },
+        interests: [{ type: String, enum: survey.interests, required: true }],
+        music: [{ type: String, enum: survey.music, required: true }],
+        hookupsong: { type: String, required: true },
+        tv: { type: String, enum: survey.tv, required: true },
+        date: { type: String, enum: survey.date, required: true },
+        whopays: { type: String, enum: survey.whopays, required: true },
+        ick: { type: String, enum: survey.ick, required: true },
+        greenflag: { type: String, enum: survey.greenflag, required: true },
+        lovelanguage: { type: String, enum: survey.lovelanguage, required: true },
+        sleeptime: { type: String, enum: survey.sleeptime, required: true },
+        waketime: { type: String, enum: survey.waketime, required: true },
+        plans: { type: String, enum: survey.plans, required: true },
+        humor: [{ type: String, enum: survey.humor, required: true }],
+        sociability: [{ type: String, enum: survey.sociability, required: true }],
+        p1: { type: String, enum: survey.range, required: true },
+        p2: { type: String, enum: survey.range, required: true },
+        p3: { type: String, enum: survey.range, required: true },
+        p4: { type: String, enum: survey.range, required: true },
+        p5: { type: String, enum: survey.range, required: true },
+        p6: { type: String, enum: survey.range, required: true },
+        p7: { type: String, enum: survey.range, required: true },
+        p8: { type: String, enum: survey.range, required: true },
+        p9: { type: String, enum: survey.range, required: true },
+        p10: { type: String, enum: survey.range, required: true },
+        p11: { type: String, enum: survey.range, required: true },
+        generalPersonality: { type: String, enum: survey.generalPersonality, required: true },
+        introvert: { type: Number, min: 1, max: 10, required: true },
+        introvert_same: { type: String, enum: survey.introvert_same, required: true },
+        easygoing: { type: Number, min: 1, max: 10, required: true },
+        easygoing_same: { type: String, enum: survey.easygoing_same, required: true },
+        whySingle: { type: String, enum: survey.whySingle, required: true },
+        numdated: { type: Number, min: 0, max: 200, required: true },
+        longestrelationship: { type: Number, min: 0, max: 300, required: true },
+        ricePurity: { type: String, enum: survey.ricePurity, required: true },
+        politics: { type: Number, min: 1, max: 10, required: true },
+        politically_active: { type: Number, min: 1, max: 5, required: true },
         habits: {
-            drinking: { type: String, enum: survey.habits },
-            smoking: { type: String, enum: survey.habits },
-            weed: { type: String, enum: survey.habits },
-            other: { type: String, enum: survey.habits },
+            drinking: { type: String, enum: survey.habits, required: true },
+            smoking: { type: String, enum: survey.habits, required: true },
+            zyns: { type: String, enum: survey.habits, required: true },
+            weed: { type: String, enum: survey.habits, required: true },
+            other: { type: String, enum: survey.habits, required: true },
         },
         partner_habits: {
-            drinking: { type: String, enum: survey.habits },
-            smoking: { type: String, enum: survey.habits },
-            weed: { type: String, enum: survey.habits },
-            other: { type: String, enum: survey.habits },
+            drinking: { type: String, enum: survey.partner_habits, required: true },
+            smoking: { type: String, enum: survey.partner_habits, required: true },
+            zyns: { type: String, enum: survey.partner_habits, required: true },
+            weed: { type: String, enum: survey.partner_habits, required: true },
+            other: { type: String, enum: survey.partner_habits, required: true },
         },
-        deal_breakers: [{ type: String, enum: survey.deal_breakers }],
+        deal_breakers: [{ type: String, enum: survey.deal_breakers, required: true }],
     },
     { _id: false },
 );

@@ -1,14 +1,24 @@
-export const faction = ['noshower', 'dyson', 'med', 'phil', 'none'];
+export const lockIn = ['cocktail', 'olin', 'adwhite', 'mann', 'dorm'];
 
-export const clothDate = ['gries', 'jersey', 'vest', 'letterman', 'none'];
+export const redFlagClub = ['greeklife', 'projectteam', 'bizclub', 'performance', 'perfectmatch'];
 
-export const alternative = ['drunk', 'gothics', 'basement', 'oken', 'hinge', 'none'];
+export const worstFirstKiss = ['uris', 'okenshields', 'duffield', '7/11', 'barton'];
 
-export const task = ['hookup', 'bridge', 'stacks', 'flirt', 'none'];
+export const task = ['bridge', 'stacks', 'picnic', 'ra'];
 
-export const study = ['duff', 'cock', 'psb', 'lib', 'goldwin', 'room', 'none'];
+export const hill = ['slopeday', 'terrace', 'bizvsstem', 'okenshields'];
 
-export const workto = ['work', 'live', 'none'];
+export const olinVsUris = ['olin', 'uris'];
+
+export const northVsWest = ['north', 'west'];
+
+export const trilliumOrTerrace = ['trillium', 'terrace'];
+
+export const celsiusOrCoffee = ['celsius', 'coffee'];
+
+export const walkOrBus = ['walk', 'bus'];
+
+export const fallOrSpring = ['fall', 'spring'];
 
 export const interests = [
     'travel',
@@ -21,100 +31,69 @@ export const interests = [
     'film',
     'sports',
     'games',
-    'none',
 ];
 
-export const music = ['pop', 'rock', 'indie', 'rap', 'jazz', 'blues', 'r&b', 'none'];
+export const music = [
+    'pop',
+    'rock',
+    'indie',
+    'rap',
+    'jazz',
+    'blues',
+    'reggaeton',
+    'r&b',
+    'classical',
+    'kpop',
+    'edm',
+    'afrobeat',
+    'house',
+    'country',
+];
 
-export const tv = ['white', 'bear', 'ted', 'succession', 'percy', 'lastofus', 'singles', 'boys', 'none'];
+export const tv = [
+    'squid',
+    'singlesInferno',
+    'xoKitty',
+    'himym',
+    'breakingBad',
+    'gameOfThrones',
+    'jjk',
+];
 
-export const date = ['coffee', 'cinema', 'commons', 'dininghall', 'fishbowl', 'none'];
+export const date = ['farm', 'catCafe', 'market', 'gorge', 't&b', 'levelb'];
 
 export const whopays = ['pays', 'splits', 'youpay', 'doesntmatter'];
 
-export const ick = ['westchester', 'astrology', 'beerpongball', 'footballteam', 'gymrat'];
+export const ick = ['crystals', 'tipper', 'westchester', 'plane', 'sportsteam'];
 
-export const greenflag = ['gcaldate', 'petlike', 'screentime', 'smellsgood', 'gymrat'];
+export const greenflag = ['gcaldate', 'petlike', 'screentime', 'smellsgood', 'gymrat', 'kids', 'gpa'];
 
 export const lovelanguage = ['acts', 'quality', 'gifts', 'touch', 'words', 'unsure'];
 
-export const sleeptime = [
-    '7pm',
-    '8pm',
-    '9pm',
-    '10pm',
-    '11pm',
-    '12am',
-    '1am',
-    '2am',
-    '3am',
-    '4am',
-    '5am',
-    '6am',
-    'none',
-];
+export const sleeptime = ['7pm', '8pm', '9pm', '10pm', '11pm', '12am', '1am', '2am', '3am', '4am', '5am', '6am'];
 
-export const waketime = [
-    '3am',
-    '4am',
-    '5am',
-    '6am',
-    '7am',
-    '8am',
-    '9am',
-    '10am',
-    '11am',
-    '12pm',
-    '1pm',
-    '2pm',
-    '3pm',
-    'none',
-];
+export const waketime = ['3am', '4am', '5am', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm'];
 
-export const plans = ['shify', 'flow', 'cancel', 'new', 'none'];
+export const plans = ['shift', 'flow', 'cancel', 'new'];
 
-export const meal = ['political', 'artist', 'athlete', 'scientist', 'entrepreneur', 'actor', 'none'];
+export const humor = ['pranks', 'sarcastic', 'puns', 'deprecating', 'improv', 'references', 'darkhumor'];
 
-export const perfectDay = [
-    'outdoor',
-    'netflix',
-    'newppl',
-    'newfood',
-    'museums',
-    'gaming',
-    'sleep',
-    'friends',
-    'city',
-    'study',
-    'none',
-];
+export const sociability = ['party', 'activities', 'in_touch', 'popular', 'canceled', 'homebody'];
 
-export const timeormoney = ['time', 'money', 'influence', 'none'];
+export const range = ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'];
 
-export const quality = ['reliability', 'humor', 'thoughtfulness', 'independence', 'none'];
+export const generalPersonality = ['simlar', 'different', 'either'];
 
-export const humor = [
-    'physical',
-    'witty',
-    'puns',
-    'observational',
-    'deprecating',
-    'improv',
-    'surreal',
-    'cultural',
-    'none',
-];
+export const introvert_same = ['same', 'less', 'more', 'doesnt_matter'];
 
-export const sociability = ['skilled', 'party', 'storyteller', 'in_touch', 'popular', 'energetic', 'none'];
+export const easygoing_same = ['same', 'less', 'more', 'doesnt_matter'];
 
-export const range = ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree', 'none'];
+export const whySingle = ['soulmate', 'commitment', 'lockedIn', 'noRizz', 'idk'];
 
-export const panel = ['same', 'less', 'more', 'doesnt_matter', 'none'];
+export const ricePurity = ['0-20', '21-40', '41-60', '61-80', '81-100', 'Skip'];
 
-export const ricePurity = ['0-20', '21-40', '41-60', '61-80', '81-100', 'none'];
+export const habits = ['never', 'rarely', 'sometimes', 'often', 'very_frequently'];
 
-export const apps = ['tinder', 'bumble', 'grindr', 'hinge', 'none'];
+export const partner_habits = ['never', 'rarely', 'sometimes', 'often', 'dont_care'];
 
-export const habits = ['never', 'rarely', 'sometimes', 'often', 'very_frequently', 'dont_care', 'none'];
-
-export const deal_breakers = ['politics', 'social', 'none'];
+export const deal_breakers = ['politics', 'religion', 'social'];
