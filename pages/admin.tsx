@@ -258,7 +258,7 @@ export default function AdminPanel() {
                                             </div>
                                             <div>
                                                 <p className="text-black-500 font-semibold">Love Languages</p>
-                                                <p>{user.survey?.lovelanguage?.join(", ") || "N/A"}</p>
+                                                <p>{user.survey?.lovelanguage || "N/A"}</p>
                                             </div>
                                             <div>
                                                 <p className="text-black-500 font-semibold">Habits</p>
