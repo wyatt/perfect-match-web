@@ -161,7 +161,7 @@ const Home: NextPage = (props: any) => {
                                     active:shadow-none
                                 "
                                     >
-                                        last years stats
+                                        last year&apos;s stats
                                     </button>
                                 </Link>
                             </div>
