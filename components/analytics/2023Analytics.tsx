@@ -352,7 +352,7 @@ const Stats2023 = () => {
                             <div className="justify-center sm:h-20">
                                 <p className="mt-8 mb-2 sm:my-10 max-w-4xl lg:text-lg text-pmblue-500 mx-[3%] sm:mx-0 font-semibold text-center">
                                     What <span className="text-rose-400">type of relationship</span> are you looking for
-                                    with you match?
+                                    with your match?
                                 </p>
                             </div>
                             <div>
