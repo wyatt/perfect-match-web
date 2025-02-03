@@ -593,7 +593,7 @@ export const questions = {
                 {
                     type: 'radiogroup',
                     name: 'lovelanguage',
-                    title: 'What`s your most important love language?',
+                    title: 'What\'s your most important love language?',
                     isRequired: true,
                     choices: [
                         {
