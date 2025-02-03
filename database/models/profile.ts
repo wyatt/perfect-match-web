@@ -13,7 +13,7 @@ export interface IProfile extends Document {
     race: string[];
     year: string;
     college: string;
-    major?: string;
+    major?: [string];
     commitment: string;
     relationshipType: string;
     agePref: {
@@ -40,7 +40,7 @@ export const profileSchema: Schema = new Schema<IProfile>(
         race: [{ type: String }],
         year: { type: String, enum: profile.classYear },
         college: { type: String, enum: profile.college },
-        major: { type: String },
+        major: [{ type: String }],
         commitment: { type: String, enum: profile.commitment },
         relationshipType: { type: String, enum: profile.relationshipType },
         agePref: {

@@ -74,6 +74,17 @@ const Status: any = (props: any) => {
                                         ? 'You are currently opted-in to our 2025 matching process.'
                                         : 'You are currently opted-out to our 2025 matching process.'}
                                 </p>
+                                {/* Preview Link
+                                {props.surveyComplete && (
+                                    <a
+                                        href={previewLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-blue-500 underline"
+                                    >
+                                        Click here to preview your responses
+                                    </a>
+                                )} */}
                             </section>
 
                             <button
@@ -84,6 +95,7 @@ const Status: any = (props: any) => {
                                 {props.optIn ? 'Opt-Out' : 'Opt-In'}
                             </button>
                         </dd>
+
                     </dl>
                 </div>
             </div>
