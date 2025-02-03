@@ -375,14 +375,14 @@ export default function AdminPanel() {
                                         <div className="font-medium">
                                             {user.profile?.firstName || ''} {user.profile?.lastName || ''}
                                             {user.profile?.complete && user.survey?.complete ? (
-                                                <span className="bg-gradient-to-l from-purple-400 to-green-500 font-bold bg-clip-text text-transparent ml-3">≛ Fully Completed ≛</span>
+                                                <span className="bg-gradient-to-r from-purple-400 to-green-500 text-sm font-bold bg-clip-text text-transparent ml-3">≛ Fully Completed ≛</span>
                                             ) : (
                                                 <>
                                                     {user.profile?.complete && (
-                                                        <span className="ml-2 text-purple-600 text-sm">✦ Profile Completed</span>
+                                                        <span className="ml-2 text-purple-600 text-sm font-semibold">✦ Profile Completed</span>
                                                     )}
                                                     {user.survey?.complete && (
-                                                        <span className="ml-2 text-green-600 text-sm">✓ Survey Completed</span>
+                                                        <span className="ml-2 text-green-600 text-sm font-semibold">✓ Survey Completed</span>
                                                     )}
                                                 </>
                                             )}
