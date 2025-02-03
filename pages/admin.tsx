@@ -16,6 +16,7 @@ export default function AdminPanel() {
     const [userCount, setUserCount] = useState(0);
     const [optInCount, setOptInCount] = useState(0);
     const [profiledCount, setProfiledCount] = useState(0);
+    const [surveyedCount, setSurveyedCount] = useState(0);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
@@ -28,9 +29,11 @@ export default function AdminPanel() {
     const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
 
     const displayDatas: DisplayData[] = [
-        ["Users", userCount, ["#f3d1c1", "#f094ab"]],
-        ["Opted-In", optInCount, ["#99c6f5", "#5397e0"]],
-        ["Completed Profiles", profiledCount, ["#96d7d1", "#71d5c1"]]];
+        ["Users", userCount, ["#99c6f5", "#5397e0"]],
+        ["Opted-In", optInCount, ["#f3d1c1", "#f094ab"]],
+        ["Completed Profiles", profiledCount, ["#d8b5ff", "#a890fe"]],
+        ["Completed Surveys", surveyedCount, ["#96d7d1", "#71d5c1"]],
+    ];
 
     const navItems = [["Dashboard", "/admin"], ["API-Docs", "/api-docs"]];
 
@@ -54,15 +57,17 @@ export default function AdminPanel() {
                 fetch('api/users/count'),
                 fetch('api/users/count?status=opted_in'),
                 fetch('api/users/count?status=profiled'),
+                fetch('api/users/count?status=surveyed')
             ]);
             if (!responses.every(res => res.ok)) {
                 const failedResponse = responses.find(res => !res.ok);
                 throw new Error(failedResponse?.status === 401 ? 'Unauthorized' : 'Failed to fetch users');
             }
-            const [countResponse, optInResponse, profiledResponse] = await Promise.all(responses.map(res => res.json()));
+            const [countResponse, optInResponse, profiledResponse, surveyedResponse] = await Promise.all(responses.map(res => res.json()));
             setUserCount(countResponse);
             setOptInCount(optInResponse);
             setProfiledCount(profiledResponse);
+            setSurveyedCount(surveyedResponse);
         } catch (err: any) {
             setError(err.message);
         } finally {
@@ -327,7 +332,7 @@ export default function AdminPanel() {
                 </ul>
             </nav>
             <div className='mx-auto px-4 md:px-8 lg:px-12 py-4'>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                     {/* <DataCard gradientColors={["#f3d1c1", "#f094ab"]} >
                         <div className='px-5 py-8'>
                             <div className="text-1xl md:text-3xl font-normal">Users</div>
@@ -369,9 +374,18 @@ export default function AdminPanel() {
                                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                                         <div className="font-medium">
                                             {user.profile?.firstName || ''} {user.profile?.lastName || ''}
-                                            {user.profile?.complete &&
-                                                <span className="ml-2 text-green-600 text-sm">✓ Complete</span>
-                                            }
+                                            {user.profile?.complete && user.survey?.complete ? (
+                                                <span className="bg-gradient-to-l from-purple-400 to-green-500 font-bold bg-clip-text text-transparent ml-3">≛ Fully Completed ≛</span>
+                                            ) : (
+                                                <>
+                                                    {user.profile?.complete && (
+                                                        <span className="ml-2 text-purple-600 text-sm">✦ Profile Completed</span>
+                                                    )}
+                                                    {user.survey?.complete && (
+                                                        <span className="ml-2 text-green-600 text-sm">✓ Survey Completed</span>
+                                                    )}
+                                                </>
+                                            )}
                                         </div>
                                         <div className="text-gray-600">{user.email}</div>
                                     </div>
