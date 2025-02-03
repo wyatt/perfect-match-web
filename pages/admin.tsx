@@ -184,6 +184,10 @@ export default function AdminPanel() {
                                             </p>
                                         </div>
                                         <div>
+                                            <p className="text-black-500 font-semibold">Religion</p>
+                                            <p>{user.profile?.religion || "N/A"}</p>
+                                        </div>
+                                        <div>
                                             <p className="text-black-500 font-semibold">Location</p>
                                             <p>{user.profile?.city || "N/A"}</p>
                                         </div>
