@@ -39,7 +39,7 @@ function Header(props: any) {
                         <Toggle />
                     </div>
                     <div className="hidden justify-between font-work-sans items-center w-full sm:block sm:w-auto sm:order-1">
-                        <ul className="flex flex-col mt-4 text-gray-500 font-medium sm:flex-row sm:space-x-6 sm:mt-0 md:space-x-9 text-lg">
+                        <ul className="flex flex-col mt-4 text-gray-500 font-medium sm:flex-row sm:space-x-6 sm:mt-0 md:space-x-9 text-lg items-center">
                             <li className="text-pmred-500">
                                 <Link href="/">Home</Link>
                             </li>
@@ -57,6 +57,9 @@ function Header(props: any) {
                             </li>
                             <li className="text-pmred-500">
                                 <Link href="/about"> About</Link>
+                            </li>
+                            <li className="text-pmred-500 border-2 border-pmred-500 rounded-3xl px-2 py-1">
+                                <Link href="/profile"> Matches &lt;3</Link>
                             </li>
                             {isAdminUser && (
                                 <li className="text-pmred-500">
