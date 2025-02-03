@@ -467,7 +467,7 @@ const Stats2023 = () => {
                                     </p>
                                     <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
                                         Anonymized statistics are published each year on our website and provided to
-                                        media and student groups for publications. In the past, these are included
+                                        media and student groups for publications. In the past, these have included
                                         Cornell Daily Sun, Big Red Heads, Cornell Chronicle, etc.
                                     </p>
                                     <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
