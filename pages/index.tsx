@@ -175,9 +175,6 @@ const Home: NextPage = (props: any) => {
                                     >
                                         last year&apos;s stats
                                     </button>
-                                    <Button bold={true}>
-                                        last year&#39;s stats
-                                    </Button>
                                 </Link>
                             </div>
                         </div>
