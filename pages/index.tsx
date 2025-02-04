@@ -14,6 +14,7 @@ import BestAlternative from '@/components/analytics/apex-charts/bestAlternative'
 import Countdown from '@/components/countdown';
 import SpotifyPlaylist from '@/components/playlist'
 import SpotifyPlaylistNarrow from '@/components/playlist-narrow';
+import { Button } from '@/components/general';
 
 
 const Home: NextPage = (props: any) => {
@@ -102,66 +103,20 @@ const Home: NextPage = (props: any) => {
                                     </p>
                                     {!props.user ? (
                                         <Link href="/profile">
-                                            <button
-                                                className="
-                                                        mt-6
-                                                        px-6 
-                                                        py-2
-                                                        rounded-full
-                                                        bg-white 
-                                                        text-pmred-500 
-                                                        border-4
-                                                        border-pmblue-500 
-                                                        font-bold
-                                                        shadow-[6px_6px_0px_0px_rgba(36,67,141,1)]
-                                                        transition-all
-                                                        hover:translate-x-[4px]
-                                                        hover:translate-y-[4px]
-                                                        hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)]
-                                                        active:translate-x-[6px]
-                                                        active:translate-y-[6px]
-                                                        active:shadow-none
-                                                    "
-                                            >
+                                            <Button >
                                                 Fill Out Perfect Match
-                                            </button>
+                                            </Button>
                                         </Link>
                                     ) : (
 
                                         <div className="mt-1 space-y-4 ">
                                             <Link href="/profile">
-                                                <button
-                                                    className="
-                                                            mt-6
-                                                            px-6 
-                                                            py-2
-                                                            rounded-full
-                                                            bg-white 
-                                                            text-pmred-500 
-                                                            border-4
-                                                            border-pmblue-500 
-                                                            font-bold
-                                                            shadow-[6px_6px_0px_0px_rgba(36,67,141,1)]
-                                                            transition-all
-                                                            hover:translate-x-[4px]
-                                                            hover:translate-y-[4px]
-                                                            hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)]
-                                                            active:translate-x-[6px]
-                                                            active:translate-y-[6px]
-                                                            active:shadow-none
-                                                        "
-                                                >
+                                                <Button >
                                                     Fill Out Perfect Match
-                                                </button>
-
-
+                                                </Button>
                                             </Link>
                                             <GoogleAuth login={!props.user} />
                                         </div>
-
-
-
-
                                     )}
 
 
@@ -210,29 +165,9 @@ const Home: NextPage = (props: any) => {
                                         Last year we matched over <strong>5,000 students!</strong> Don&#39;t believe us? Check out our statistics. </p>
                                 </div>
                                 <Link href="/statistics">
-                                    <button
-                                        className="
-                                    mt-6
-                                    px-6 
-                                    py-2
-                                    rounded-full
-                                    bg-white 
-                                    text-pmred-500 
-                                    border-4
-                                    border-pmblue-500 
-                                    font-bold
-                                    shadow-[6px_6px_0px_0px_rgba(36,67,141,1)]
-                                    transition-all
-                                    hover:translate-x-[4px]
-                                    hover:translate-y-[4px]
-                                    hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)]
-                                    active:translate-x-[6px]
-                                    active:translate-y-[6px]
-                                    active:shadow-none
-                                "
-                                    >
-                                        last years stats
-                                    </button>
+                                    <Button >
+                                        Fill Out Perfect Match
+                                    </Button>
                                 </Link>
                             </div>
                         </div>
