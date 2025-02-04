@@ -77,8 +77,8 @@ const Statistics: any = (props: any) => {
                         </p>
 
                         <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-4 md:mt-0">
-                            <Button onClick={() => setYear(2022)}>2022</Button>
-                            <Button onClick={() => setYear(2023)}>2023</Button>
+                            <Button bold={true} onClick={() => setYear(2022)}>2022</Button>
+                            <Button bold={true} onClick={() => setYear(2023)}>2023</Button>
                         </div>
                     </div>
                 </div>
