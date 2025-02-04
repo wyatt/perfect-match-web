@@ -312,6 +312,7 @@ export const questions = {
                             name: 'major',
                             title: '<> Major',
                             isRequired: true,
+                            optionsCaption: '',
                             multiSelect: true,
                             hasOther: true,
                             storeOthersAsComment: false,
@@ -566,7 +567,7 @@ export const questions = {
                         {
                             type: "comment",
                             name: "bio",
-                            title: "Bio! What should your match know about you? Please answer one or more of the prompts below. <i>Your bio should be between 50-250 characters</i>. We will share it with your matches to help start the conversation! Here are some ideas:",
+                            title: "<> Bio! What should your match know about you? Please answer one or more of the prompts below. <i>Your bio should be between 50-250 characters</i>. We will share it with your matches to help start the conversation! Here are some ideas:",
                             description: "a. What would you like your match to know about you? <br>b. Hit us with your best pickup line! <br>c. Any bio of your choice!",
                             isRequired: true,
                             maxLength: 250,

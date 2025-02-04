@@ -65,3 +65,8 @@ a {
 .mutual-crush-glow {
     animation: pulse-glow 1s infinite alternate;
 }
+
+.sv-dropdown__filter-string-input {
+    width: 100% !important;
+    min-width: 200px !important;
+}
