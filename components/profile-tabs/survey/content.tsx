@@ -587,7 +587,7 @@ export const questions = {
                 {
                     type: 'radiogroup',
                     name: 'greenflag',
-                    title: 'What’s your biggest green flag in a relationship?',
+                    title: 'What’s the biggest green flag you look for in a partner?',
                     isRequired: true,
                     choices: [
                         {
