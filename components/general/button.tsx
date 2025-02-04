@@ -5,16 +5,19 @@ interface ButtonProps {
     textColor?: 'text-white' | 'text-black' | 'text-red' | 'text-pmred-500' | string;
     px?: number;
     py?: number;
+    mt?: number;
     border?: number;
+    shadow?: number;
+    bold?: boolean;
     className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, onClick, bgColor, textColor, px, py, border, className }) => {
+const Button: React.FC<ButtonProps> = ({ children, onClick, bgColor, textColor, px, py, mt, border, shadow, bold, className }) => {
     return (
         <button
             onClick={onClick}
             className={`
-                    mt-6
+                    mt-${mt || 6}
                     px-${px || 6}
                     py-${py || 2}
                     rounded-full
@@ -22,8 +25,8 @@ const Button: React.FC<ButtonProps> = ({ children, onClick, bgColor, textColor, 
                     ${textColor || 'text-pmred-500'}
                     border-${border || 4}
                     border-pmblue-500 
-                    font-bold
-                    shadow-[6px_6px_0px_0px_rgba(36,67,141,1)]
+                    ${bold ? 'font-bold' : 'font-medium'}
+                    shadow-[${shadow || '6'}px_${shadow || '6'}px_0px_0px_rgba(36,67,141,1)]
                     transition-all
                     hover:translate-x-[4px]
                     hover:translate-y-[4px]
