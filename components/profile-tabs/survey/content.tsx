@@ -26,7 +26,7 @@ export const questions = {
                                     type: 'expression',
                                     text: 'Please enter at least one method of contact',
                                     expression:
-                                        '{contact.fb} notempty or {contact.insta} notempty or {contact.linkedin} notempty or {contact.snapchat} notempty or {contact.twitter} notempty or {contact.phone} notempty or {contact.other} notempty',
+                                        '{contact.phone} notempty or {contact.insta} notempty or {contact.snapchat} notempty or {contact.wechat} notempty or {contact.fb} notempty or {contact.email} notempty or {contact.other} notempty',
                                 },
                             ],
                             items: [
@@ -44,7 +44,7 @@ export const questions = {
                                 },
                                 {
                                     name: 'wechat',
-                                    title: 'Wechat username',
+                                    title: 'WeChat username',
                                 },
                                 {
                                     name: 'fb',
@@ -205,6 +205,35 @@ export const questions = {
                 },
                 {
                     type: 'radiogroup',
+                    name: 'bathroom',
+                    title: 'What is your go-to bathroom?',
+                    isRequired: true,
+                    hasOther: true,
+                    choices: [
+                        {
+                            value: 'uris',
+                            text: 'Uris'
+                        },
+                        {
+                            value: 'psb',
+                            text: 'PSB'
+                        },
+                        {
+                            value: 'tang',
+                            text: 'Tang'
+                        },
+                        {
+                            value: 'mvr',
+                            text: "MVR"
+                        },
+                        {
+                            value: 'own',
+                            text: 'My own...'
+                        }
+                    ]
+                },
+                {
+                    type: 'radiogroup',
                     name: 'olinVsUris',
                     title: 'Olin or Uris?',
                     isRequired: true,
@@ -254,12 +283,12 @@ export const questions = {
                 {
                     type: 'radiogroup',
                     name: 'celciusOrCoffee',
-                    title: 'Celcius or Coffee?',
+                    title: 'Celsius or Coffee?',
                     isRequired: true,
                     choices: [
                         {
-                            value: 'celcius',
-                            text: 'Celcius',
+                            value: 'celsius',
+                            text: 'Celsius',
                         },
                         {
                             value: 'coffee',
@@ -313,6 +342,7 @@ export const questions = {
                     type: 'checkbox',
                     name: 'interests',
                     title: '<> I am passionate about... (Select your top 3, and feel free to elaborate on them in your bio!)',
+                    maxSelectedChoices: 3,
                     isRequired: true,
                     choices: [
                         {
@@ -423,7 +453,7 @@ export const questions = {
                 },
                 {
                     name: 'hookupsong',
-                    isRequired: true,
+                    isRequired: false,
 
                     type: 'text',
                     title: 'The most recent song on my hook-up playlist is…',
@@ -557,7 +587,7 @@ export const questions = {
                 {
                     type: 'radiogroup',
                     name: 'greenflag',
-                    title: 'What’s your biggest green flag in a relationship?',
+                    title: 'What’s the biggest green flag you look for in a partner?',
                     isRequired: true,
                     choices: [
                         {
@@ -574,11 +604,11 @@ export const questions = {
                         },
                         {
                             value: 'smellsgood',
-                            text: 'Smells Good',
+                            text: 'Smells good',
                         },
                         {
                             value: 'gymrat',
-                            text: 'Gym go-er',
+                            text: 'Gym goer',
                         },
                         {
                             value: 'kids',
@@ -632,7 +662,7 @@ export const questions = {
                     name: 'sleeptime',
                     title: 'What time do you go to bed?',
                     isRequired: true,
-                    choices: ['7pm', '8pm', '9pm', '10pm', '11pm', '12am', '1am', '2am', '3am', '4am', '5am', '6am'],
+                    choices: ['6pm', '7pm', '8pm', '9pm', '10pm', '11pm', '12am', '1am', '2am', '3am', '4am', '5am', '6am'],
                 },
                 {
                     type: 'dropdown',
@@ -709,6 +739,10 @@ export const questions = {
                             value: 'references',
                             text: 'Pop culture references',
                         },
+                        {
+                            value: 'darkhumor',
+                            text: 'Dark humor'
+                        }
                     ],
                 },
                 {
@@ -977,7 +1011,7 @@ export const questions = {
                 {
                     type: 'text',
                     name: 'longestrelationship',
-                    title: 'How many months was your longest relationship?',
+                    title: 'How many months was your longest relationship? (put 0 if not applicable)',
                     requiredErrorText: 'You answer must be between 0 and 300',
                     isRequired: true,
                     validators: [
@@ -992,7 +1026,7 @@ export const questions = {
                 {
                     type: 'dropdown',
                     name: 'ricePurity',
-                    title: 'What is your [Rice Purity Score](https://ricepuritytest.com)?',
+                    title: 'What is your <a style="color: #f7a4af" href="https://ricepuritytest.com"><u>Rice Purity Score?</u></a>',
                     isRequired: true,
                     choices: ['0-20', '21-40', '41-60', '61-80', '81-100', 'Skip'],
                 },
@@ -1161,7 +1195,7 @@ export const questions = {
                 {
                     type: 'html',
                     name: 'disregard1',
-                    html: 'Disclaimer: <br><i>Perfect Match does not take any responsibility and is not liable for any distress caused through the use of our service. By responding to this form, you are giving Perfect Match the right to process your data and match you with another individual at Cornell. Perfect Match takes precautions to protect your privacy and to keep your information secure. We strive to be transparent in the way we process your data and will be sharing our project’s process with you soon!</i>',
+                    html: 'Disclaimer: <br><i>Perfect Match does not take any responsibility and is not liable for any distress caused through the use of our service. By responding to this form, you are giving Perfect Match the right to process your data and match you with another individual at Cornell. Perfect Match takes precautions to protect your privacy and to keep your information secure. We strive to be transparent in the way we process your data. Please see our <a href="/about" style="color: #24438d" target="_blank"><u>about page</u></a> for more information.</i>',
                 },
             ],
         },

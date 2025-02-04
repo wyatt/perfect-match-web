@@ -1,5 +1,6 @@
 import React from 'react';
 import { signIn, signOut, getSession } from 'next-auth/react';
+import { Button } from '@/components/general';
 
 type AuthProps = {
     login: boolean;
@@ -9,16 +10,15 @@ const GoogleAuth = (props: AuthProps) => {
     const auth = () => {
         props.login
             ? signIn('google', {
-                  callbackUrl: process.env.NEXT_PUBLIC_API_URL + '/profile',
-              })
+                callbackUrl: process.env.NEXT_PUBLIC_API_URL + '/profile',
+            })
             : signOut();
     };
 
     return (
         <div>
-            <button
-                type="button"
-                className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+            <Button
+                className="inline-flex items-center"
                 onClick={() => auth()}
             >
                 <svg
@@ -37,8 +37,8 @@ const GoogleAuth = (props: AuthProps) => {
                     ></path>
                 </svg>
                 {props.login ? 'Sign in with Google' : 'Sign Out'}
-            </button>
-        </div>
+            </Button >
+        </div >
     );
 };
 

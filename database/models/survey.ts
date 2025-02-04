@@ -17,10 +17,11 @@ export interface ISurvey extends Document {
     worstFirstKiss: string;
     task: string;
     hill: string;
+    bathroom: string;
     olinVsUris: string;
     northVsWest: string;
     trilliumOrTerrace: string;
-    celciusOrCoffee: string;
+    celsiusOrCoffee: string;
     walkOrBus: string;
     fallOrSpring: string;
     interests: string[];
@@ -93,10 +94,11 @@ export const surveySchema: Schema = new Schema<ISurvey>(
         worstFirstKiss: { type: String, enum: survey.worstFirstKiss, required: true },
         task: { type: String, enum: survey.task, required: true },
         hill: { type: String, enum: survey.hill, required: true },
+        bathroom: { type: String, required: true },
         olinVsUris: { type: String, enum: survey.olinVsUris, required: true },
         northVsWest: { type: String, enum: survey.northVsWest, required: true },
         trilliumOrTerrace: { type: String, enum: survey.trilliumOrTerrace, required: true },
-        celciusOrCoffee: { type: String, enum: survey.celciusOrCoffee, required: true },
+        celsiusOrCoffee: { type: String, enum: survey.celsiusOrCoffee, required: true },
         walkOrBus: { type: String, enum: survey.walkOrBus, required: true },
         fallOrSpring: { type: String, enum: survey.fallOrSpring, required: true },
         interests: [{ type: String, enum: survey.interests, required: true }],

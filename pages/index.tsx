@@ -14,7 +14,7 @@ import BestAlternative from '@/components/analytics/apex-charts/bestAlternative'
 import Countdown from '@/components/countdown';
 import SpotifyPlaylist from '@/components/playlist'
 import SpotifyPlaylistNarrow from '@/components/playlist-narrow';
-
+import { Button } from '@/components/general';
 
 const Home: NextPage = (props: any) => {
     const { data: currentCount, error } = useSWR('/api/users/count', fetcher, {
@@ -85,18 +85,30 @@ const Home: NextPage = (props: any) => {
                         <div className="lg:w-1/2">
                             <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
                                 <div className="">
-                                    <h1 className="text-4xl text-[#00438D] font-normal font-family-dela sm:text-3xl lg:text-5xl font-dela-gothic sm:mt-5">
-                                        We know you&#39;ve
+                                    <h1 className="text-4xl text-[#00438D] font-family-dela sm:text-3xl lg:text-5xl font-dela-gothic sm:mt-5">
+                                        Perfect Match
                                         <br />
-                                        been waiting
+                                        is open <strong className='text-pmred-500'> NOW! </strong>
                                     </h1>
                                 </div>
                                 <div className='work-sans'>
                                     <p className="text-lg text-pmblue-500 mt-4 lg:max-w-lg lg:text-left text-center lg:text-xl sm:leading-relaxed">
-                                        Perfect Match opens <strong> February 3rd</strong>
+                                        The form closes <strong className="italic"> Feburary 13th at Noon </strong>
+                                        <br />
+                                        Be sure to fill it in time so you&apos;re not alone on Valentine&apos;s Day ;&#41;
+                                        <br />
+                                        <strong> {currentCount}</strong> Cornellians have already filled it out.
+
                                     </p>
-                                    <p className="text-lg mt-1 text-pmblue-500 lg:max-w-lg lg:text-left text-center lg:text-xl sm:leading-relaxed">
-                                        We&#39;ll see you back then ;&#41; </p>
+                                    {!props.user ? (
+                                        <GoogleAuth login={!props.user} />
+                                    ) : (
+                                        <Link href="/profile">
+                                            <Button bold={true} >
+                                                fill Out Perfect Match
+                                            </Button>
+                                        </Link>
+                                    )}
                                 </div>
                             </div>
 
@@ -163,6 +175,9 @@ const Home: NextPage = (props: any) => {
                                     >
                                         last year&apos;s stats
                                     </button>
+                                    <Button bold={true}>
+                                        last year&#39;s stats
+                                    </Button>
                                 </Link>
                             </div>
                         </div>

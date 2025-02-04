@@ -4,6 +4,7 @@ import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { isAdmin } from '@/utils/admins';
+import { signOut } from 'next-auth/react';
 
 function Header(props: any) {
     const { data: sessions, status } = useSession();
@@ -39,7 +40,7 @@ function Header(props: any) {
                         <Toggle />
                     </div>
                     <div className="hidden justify-between font-work-sans items-center w-full sm:block sm:w-auto sm:order-1">
-                        <ul className="flex flex-col mt-4 text-gray-500 font-medium sm:flex-row sm:space-x-6 sm:mt-0 md:space-x-9 text-lg">
+                        <ul className="flex flex-col mt-4 text-gray-500 font-medium sm:flex-row sm:space-x-6 sm:mt-0 md:space-x-9 text-lg items-center">
                             <li className="text-pmred-500">
                                 <Link href="/">Home</Link>
                             </li>
@@ -58,6 +59,29 @@ function Header(props: any) {
                             <li className="text-pmred-500">
                                 <Link href="/about"> About</Link>
                             </li>
+                            <li className="text-pmred-500 border-2 border-pmred-500 rounded-3xl px-2 py-1 hover:bg-pmred-500 hover:text-white transition-all duration-200 ease-in-out">
+                                <Link href="/profile"> Survey &lt;3</Link>
+                            </li>
+                            {status === 'authenticated' && (
+                                <li className="text-pmred-500 hover:text-red-500 ease-in-out transition-all duration-200">
+                                    <button className="inline-flex items-center justify-center " onClick={() => signOut()}>
+                                        <svg
+                                            className="mr-2 -ml-1 w-4 h-4"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fab"
+                                            data-icon="google"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 488 512"
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
+                                            ></path>
+                                        </svg>Sign Out</button>
+                                </li>
+                            )}
                             {isAdminUser && (
                                 <li className="text-pmred-500">
                                     <Link href="/admin"> Admin</Link>
@@ -80,7 +104,7 @@ function Header(props: any) {
                                 href="https://forms.gle/Jv5th8zbajVF6qN6A"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="flex items-center text-pmred-500 justify-center rounded-md border border-transparent bg-white sm:px-4 md:px-2 mb-1 text-sm font-work-sans text-pmpink2-500 shadow-sm sm:text-lg md:text-base"
+                                className="flex items-centerjustify-center rounded-md border border-transparent bg-white sm:px-4 md:px-2 mb-1 text-sm font-work-sans text-pmred-500 shadow-sm sm:text-lg md:text-base"
                             >
                                 Apply Here!
                             </a>
@@ -88,7 +112,7 @@ function Header(props: any) {
                     </div>
                 </div>
             </div>
-        </header>
+        </header >
     );
 }
 
