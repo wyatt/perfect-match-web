@@ -9,6 +9,7 @@ import Stats2023 from '@/components/analytics/2023Analytics';
 import Stats2022 from '@/components/analytics/2022Analytics';
 import { Stats } from 'fs';
 import { useState } from 'react';
+import { Button } from '@/components/general';
 
 const Statistics: any = (props: any) => {
     const [year, setYear] = useState(2023);
@@ -76,22 +77,8 @@ const Statistics: any = (props: any) => {
                         </p>
 
                         <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-4 md:mt-0">
-                            <button
-                                className="text-lg px-6 py-2 rounded-full bg-white text-red-500 border-4 border-pmblue-500 font-bold shadow-[4px_4px_0px_0px_rgba(36,67,141,1)] transition-all 
-                    hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] 
-                    active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
-                                onClick={() => setYear(2022)}
-                            >
-                                2022
-                            </button>
-                            <button
-                                className="text-lg px-6 py-2 rounded-full bg-white text-red-500 border-4 border-pmblue-500 font-bold shadow-[4px_4px_0px_0px_rgba(36,67,141,1)] transition-all 
-                    hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] 
-                    active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
-                                onClick={() => setYear(2023)}
-                            >
-                                2023
-                            </button>
+                            <Button onClick={() => setYear(2022)}>2022</Button>
+                            <Button onClick={() => setYear(2023)}>2023</Button>
                         </div>
                     </div>
                 </div>
