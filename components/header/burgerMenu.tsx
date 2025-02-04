@@ -30,6 +30,10 @@ const Toggle = () => {
                                 <li className="text-pmred-500 text-xl font-medium mt-5 mb-5">
                                     <Link href="/about">About</Link>
                                 </li>
+                                <li className="text-pmred-500 text-xl font-medium mt-5 mb-5">
+                                    <Link href="/profile">Survey</Link>
+                                </li>
+
                             </ul>
                             <hr className="border-2 border-pmpink2-500" />
                         </nav>
