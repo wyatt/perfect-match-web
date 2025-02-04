@@ -16,7 +16,6 @@ import SpotifyPlaylist from '@/components/playlist'
 import SpotifyPlaylistNarrow from '@/components/playlist-narrow';
 import { Button } from '@/components/general';
 
-
 const Home: NextPage = (props: any) => {
     const { data: currentCount, error } = useSWR('/api/users/count', fetcher, {
         refreshInterval: 60000,
@@ -102,26 +101,14 @@ const Home: NextPage = (props: any) => {
 
                                     </p>
                                     {!props.user ? (
+                                        <GoogleAuth login={!props.user} />
+                                    ) : (
                                         <Link href="/profile">
-                                            <Button >
-                                                Fill Out Perfect Match
+                                            <Button bold={true} >
+                                                Fill Out Perfect Match!
                                             </Button>
                                         </Link>
-                                    ) : (
-
-                                        <div className="mt-1 space-y-4 ">
-                                            <Link href="/profile">
-                                                <Button >
-                                                    Fill Out Perfect Match
-                                                </Button>
-                                            </Link>
-                                            <GoogleAuth login={!props.user} />
-                                        </div>
                                     )}
-
-
-
-
                                 </div>
                             </div>
 
@@ -165,7 +152,7 @@ const Home: NextPage = (props: any) => {
                                         Last year we matched over <strong>5,000 students!</strong> Don&#39;t believe us? Check out our statistics. </p>
                                 </div>
                                 <Link href="/statistics">
-                                    <Button >
+                                    <Button bold={true}>
                                         Fill Out Perfect Match
                                     </Button>
                                 </Link>
