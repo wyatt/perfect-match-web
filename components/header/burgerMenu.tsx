@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { isAdmin } from '@/utils/admins';
+import { signOut } from 'next-auth/react';
 
 const Toggle = () => {
     const [show, toggleShow] = React.useState(true);
