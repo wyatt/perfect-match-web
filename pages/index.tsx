@@ -105,7 +105,7 @@ const Home: NextPage = (props: any) => {
                                     ) : (
                                         <Link href="/profile">
                                             <Button bold={true} >
-                                                Fill Out Perfect Match!
+                                                fill Out Perfect Match
                                             </Button>
                                         </Link>
                                     )}
@@ -153,7 +153,7 @@ const Home: NextPage = (props: any) => {
                                 </div>
                                 <Link href="/statistics">
                                     <Button bold={true}>
-                                        Fill Out Perfect Match
+                                        last year&#39;s stats
                                     </Button>
                                 </Link>
                             </div>
