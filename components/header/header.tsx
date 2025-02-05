@@ -104,7 +104,7 @@ function Header(props: any) {
                                 href="https://forms.gle/Jv5th8zbajVF6qN6A"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="flex items-centerjustify-center rounded-md border border-transparent bg-white sm:px-4 md:px-2 mb-1 text-sm font-work-sans text-pmred-500 shadow-sm sm:text-lg md:text-base"
+                                className="flex items-center justify-center rounded-md border border-transparent bg-white sm:px-4 md:px-2 mb-1 text-sm font-work-sans text-pmred-500 shadow-sm sm:text-lg md:text-base"
                             >
                                 Apply Here!
                             </a>
