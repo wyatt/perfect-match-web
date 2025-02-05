@@ -360,7 +360,7 @@ const Stats2022 = () => {
                                     </p>
                                     <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
                                         For media requests, please reach out at{' '}
-                                        <Link href="mailto:cornell.perfectmatch@gmail.com">cornell.perfectmatch@gmail.com</Link>.
+                                        <Link className="underline" href="mailto:perfectmatch@cornell.edu">perfectmatch@cornell.edu</Link>.
                                     </p>
                                 </details>
                                 <details className="mb-5 [&_summary]:list-none [&_summary::-webkit-details-marker]:hidden">
@@ -376,7 +376,7 @@ const Stats2022 = () => {
                                         you may have regarding data privacy. In fact, feedback from the Cornell
                                         community already has and will continue to be used in to improve our algorithm
                                         and measures to protect privacy. We can be reached at{' '}
-                                        <Link href="mailto:cornell.perfectmatch@gmail.com">cornell.perfectmatch@gmail.com</Link>.
+                                        <Link className="underline" href="mailto:perfectmatch@cornell.edu">perfectmatch@cornell.edu</Link>.
                                     </p>
                                 </details>
                             </div>
