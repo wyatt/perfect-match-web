@@ -194,10 +194,10 @@ const Stats2024 = () => {
                 </section>
 
                 <section className="bg-white pt-12 sm:pt-16 lg:pt-20 sm:pb-5 pb-1 text-gray-700">
-                    <h2 className="mb-6 text-2xl sm:text-4xl tracking-tight text-rose-400 mx-[3%] sm:mx-[10%] lg:mx-[20%]" style={{ fontFamily: 'Dela Gothic One' }}>
+                    <h2 className="mb-6 text-xl sm:text-3xl tracking-tight text-rose-400 mx-[3%] sm:mx-[10%] lg:mx-[20%]" style={{ fontFamily: 'Dela Gothic One' }}>
                         About Crushes 💓
                     </h2>
-                    <div className="mx-[3%] sm:mx-[10%] lg:mx-[20%] sm:text-lg">
+                    <div className="mx-[3%] sm:mx-[10%] lg:mx-[20%]">
                         <p>
                             💌 PM lets you secretly list your crush&#40;es&#41;, boosting your chances of matching
                             with them! 💘 In PM24, we introduced a fun new feature - <strong className="text-rose-400">&quot;Nudge Your Crush&quot;</strong> -
@@ -206,16 +206,16 @@ const Stats2024 = () => {
                             some connections! ✨💕
                         </p>
                         <ul className="list-disc mb-8 sm:mb-12 ml-4">
-                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg">
+                            <li className="my-3 lg:my-5 max-w-4xl">
                                 <strong className="text-rose-400 text-xl">18.9%</strong> of you listed at least one crush in your response. 💘
                             </li>
-                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg">
+                            <li className="my-3 lg:my-5 max-w-4xl">
                                 <strong className="text-rose-400 text-xl">47.8%</strong> of those who listed a crush opted for Nudge Your Crush ✉️✨
                             </li>
-                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg">
+                            <li className="my-3 lg:my-5 max-w-4xl">
                                 <strong className="text-rose-400 text-xl">72</strong> pairs of crush matches were made! 💞
                             </li>
-                            <li className="my-3 lg:my-5 max-w-4xl sm:text-lg">
+                            <li className="my-3 lg:my-5 max-w-4xl">
                                 <strong className="text-rose-400 text-xl">16</strong> mutual crushes found their match! 😍💕
                             </li>
                         </ul>
