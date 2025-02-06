@@ -93,7 +93,7 @@ const Home: NextPage = (props: any) => {
                                 </div>
                                 <div className='work-sans'>
                                     <p className="text-lg text-pmblue-500 mt-4 lg:max-w-lg lg:text-left text-center lg:text-xl sm:leading-relaxed">
-                                        The form closes <strong className="italic"> Feburary 13th at Noon </strong>
+                                        The form closes <strong className="italic"> February 13th at Noon </strong>
                                         <br />
                                         Be sure to fill it in time so you&apos;re not alone on Valentine&apos;s Day ;&#41;
                                         <br />
