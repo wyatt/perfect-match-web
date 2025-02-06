@@ -188,7 +188,7 @@ const ByStateDrinkOften2024: React.FC = () => {
 
     return (
         <div className="text-gray-700" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(1050px + 300px)", margin: "10px auto", position: "relative" }}>
-            <h4 style={{ fontSize: "22px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Percentage of Respondents Who Drink 'Often'</h4>
+            <h4 style={{ fontSize: "22px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Percentage of Respondents Who Drink &apos;Often&apos;</h4>
             <svg id="drink-legendsvg" width="720" height="80" style={{ display: "block", margin: "0", marginTop: "10px" }}></svg>
             <svg id="drink-choropleth" height="600" width="900" style={{
                 margin: "-25px -10px 0px 0"
