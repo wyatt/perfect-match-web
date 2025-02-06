@@ -54,7 +54,7 @@ const ByGenderWhoPays2024 = () => {
             max: 60,
             labels: {
                 style: {
-                    fontSize: '18px',
+                    fontSize: '15px',
                     colors: '#4b5563',
                     fontFamily: 'Work Sans, sans-serif',
                 },
@@ -84,14 +84,14 @@ const ByGenderWhoPays2024 = () => {
                     return Math.abs(Math.round(val)) + '%';
                 },
                 style: {
-                    fontSize: '18px',
+                    fontSize: '15px',
                     colors: '#4b5563',
                     fontFamily: 'Work Sans, sans-serif',
                 },
             }
         },
         legend: {
-            fontSize: '20px',
+            fontSize: '16px',
             labels: {
                 colors: '#4b5563',
                 fontFamily: 'Work Sans, sans-serif',

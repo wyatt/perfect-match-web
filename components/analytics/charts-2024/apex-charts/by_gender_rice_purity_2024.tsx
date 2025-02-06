@@ -48,7 +48,7 @@ const ByGenderRicePurity2024 = () => {
             ],
             labels: {
                 style: {
-                    fontSize: '16px',
+                    fontSize: '15px',
                     colors: '#374151',
                     fontFamily: 'Work Sans, sans-serif', // Change font family
                 },
@@ -60,7 +60,7 @@ const ByGenderRicePurity2024 = () => {
             tickAmount: 4,
             labels: {
                 style: {
-                    fontSize: '16px',
+                    fontSize: '15px',
                     colors: '#374151',
                     fontFamily: 'Work Sans, sans-serif', // Change font family
                 },
@@ -72,14 +72,14 @@ const ByGenderRicePurity2024 = () => {
                 text: 'Percentage of Participants',
                 style: {
                     color: '#374151',
-                    fontSize: '18px',
+                    fontSize: '15px',
                     fontWeight: 400,
                     fontFamily: 'Work Sans, sans-serif',
                 },
             },
         },
         legend: {
-            fontSize: '20px',
+            fontSize: '16px',
             labels: {
                 colors: '#374151',
                 fontFamily: 'Work Sans, sans-serif', // Change font family

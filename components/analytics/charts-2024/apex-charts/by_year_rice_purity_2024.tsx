@@ -50,14 +50,14 @@ const ByYearRicePurity2024 = () => {
         dataLabels: {
             enabled: true,
             style: {
-                fontSize: '14px',
+                fontSize: '12px',
                 colors: ['#374151'],
                 fontWeight: 400,
             },
             formatter: function (val: any) {
                 return Math.abs(Math.round(val)) + '%';
             },
-            offsetY: -20,
+            offsetY: -15,
             offsetX: 2
         },
         stroke: {
@@ -85,14 +85,14 @@ const ByYearRicePurity2024 = () => {
             ],
             labels: {
                 style: {
-                    fontSize: '18px',
+                    fontSize: '15px',
                     colors: '#374151',
                 }
             },
             title: {
                 text: "Rice Purity Score (Higher = More Innocent)",
                 style: {
-                    fontSize: '20px',
+                    fontSize: '15px',
                     colors: '#374151',
                     fontWeight: 400
                 }
@@ -105,14 +105,14 @@ const ByYearRicePurity2024 = () => {
                     return value + '%';
                 },
                 style: {
-                    fontSize: '16px',
+                    fontSize: '15px',
                     colors: '#374151',
                 }
             }
         },
         legend: {
             position: 'top',
-            fontSize: '22px',
+            fontSize: '16px',
             labels: {
                 colors: '#374151',
             },

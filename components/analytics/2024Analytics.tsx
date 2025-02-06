@@ -71,7 +71,7 @@ const Stats2024 = () => {
                 <section className="bg-white pt-12 sm:pt-16 lg:pt-20 sm:pb-5 pb-1">
 
                     <div className="text-center mt-6">
-                        <label htmlFor="viz-select" className="text-lg font-semibold mr-4 font-dela-gothic text-gray-700" style={{ fontFamily: 'Dela Gothic One', fontSize: "24px" }}>
+                        <label htmlFor="viz-select" className="text-lg font-semibold mr-4 font-dela-gothic text-gray-700" style={{ fontFamily: 'Dela Gothic One', fontSize: "18px" }}>
                             Viz by Gender:
                         </label>
                         <select
@@ -79,7 +79,7 @@ const Stats2024 = () => {
                             value={selectedVizGender}
                             onChange={(e) => setSelectedVizGender(e.target.value)}
                             className="border rounded-lg px-4 py-2 text-gray-700"
-                            style={{ fontFamily: 'Dela Gothic One', fontSize: "24px", borderColor: "darkgray", borderWidth: "2px" }}
+                            style={{ fontFamily: 'Dela Gothic One', fontSize: "18px", borderColor: "darkgray", borderWidth: "2px" }}
                         >
                             {Object.keys(by_gender_visualizations).map((key) => (
                                 <option key={key} value={key}>
@@ -90,9 +90,11 @@ const Stats2024 = () => {
                     </div>
 
                     {selectedVizGender === "What is your Rice Purity Score?" && (
-                        <p className="text-gray-700 text-lg sm:mx-[10%] lg:mx-[17%] mt-6">
-                            The lower your score, the more &apos;corrupt&apos; or rebellious you are; the higher the number, the purer you are.
-                        </p>
+                        <div className="text-center">
+                            <p className="text-gray-700 sm:mx-[10%] lg:mx-[10%] mt-6">
+                                The lower your score, the more &apos;corrupt&apos; or rebellious you are; the higher the number, the purer you are.
+                            </p>
+                        </div>
                     )}
 
                     <div className="sm:mx-[10%] lg:mx-[20%] -mb-4 sm:my-4">{by_gender_visualizations[selectedVizGender]}</div>
@@ -106,7 +108,7 @@ const Stats2024 = () => {
                     <hr className="border-1 border-solid border-rose-300 mx-[3%] sm:mx-[10%] lg:mx-[20%] my-24" />
 
                     <div className="text-center mt-6">
-                        <label htmlFor="viz-select" className="text-lg font-semibold mr-4 font-dela-gothic text-gray-700" style={{ fontFamily: 'Dela Gothic One', fontSize: "24px" }}>
+                        <label htmlFor="viz-select" className="text-lg font-semibold mr-4 font-dela-gothic text-gray-700" style={{ fontFamily: 'Dela Gothic One', fontSize: "18px" }}>
                             Viz by State:
                         </label>
                         <select
@@ -114,7 +116,7 @@ const Stats2024 = () => {
                             value={selectedVizState}
                             onChange={(e) => setSelectedVizState(e.target.value)}
                             className="border rounded-lg px-4 py-2 text-gray-700"
-                            style={{ fontFamily: 'Dela Gothic One', fontSize: "24px", borderColor: "darkgray", borderWidth: "2px" }}
+                            style={{ fontFamily: 'Dela Gothic One', fontSize: "18px", borderColor: "darkgray", borderWidth: "2px" }}
                         >
                             {Object.keys(by_state_visualizations).map((key) => (
                                 <option key={key} value={key}>
@@ -124,12 +126,12 @@ const Stats2024 = () => {
                         </select>
                     </div>
 
-                    <div className="mt-6">{by_state_visualizations[selectedVizState]}</div>
+                    <div className="mt-2">{by_state_visualizations[selectedVizState]}</div>
 
                     <hr className="border-1 border-solid border-rose-300 mx-[3%] sm:mx-[10%] lg:mx-[20%] my-24" />
 
                     <div className="text-center mt-6">
-                        <label htmlFor="viz-select" className="text-lg font-semibold mr-4 font-dela-gothic text-gray-700" style={{ fontFamily: 'Dela Gothic One', fontSize: "24px" }}>
+                        <label htmlFor="viz-select" className="text-lg font-semibold mr-4 font-dela-gothic text-gray-700" style={{ fontFamily: 'Dela Gothic One', fontSize: "18px" }}>
                             Viz by College:
                         </label>
                         <select
@@ -137,7 +139,7 @@ const Stats2024 = () => {
                             value={selectedVizCollege}
                             onChange={(e) => setSelectedVizCollege(e.target.value)}
                             className="border rounded-lg px-4 py-2 text-gray-700"
-                            style={{ fontFamily: 'Dela Gothic One', fontSize: "24px", borderColor: "darkgray", borderWidth: "2px" }}
+                            style={{ fontFamily: 'Dela Gothic One', fontSize: "18px", borderColor: "darkgray", borderWidth: "2px" }}
                         >
                             {Object.keys(by_college_visualizations).map((key) => (
                                 <option key={key} value={key}>
@@ -146,12 +148,14 @@ const Stats2024 = () => {
                             ))}
                         </select>
                         {selectedVizCollege === "What is your Rice Purity Score?" && (
-                            <p className="text-gray-700 text-lg sm:mx-[10%] lg:mx-[17%] mt-6">
-                                The lower your score, the more &apos;corrupt&apos; or rebellious you are; the higher the number, the purer you are.
-                            </p>
+                            <div className="text-center">
+                                <p className="text-gray-700 sm:mx-[10%] lg:mx-[10%] mt-6">
+                                    The lower your score, the more &apos;corrupt&apos; or rebellious you are; the higher the number, the purer you are.
+                                </p>
+                            </div>
                         )}
                         <div className="text-center text-gray-700">
-                            <p style={{ marginTop: "24px", fontSize: "22px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
+                            <p style={{ marginTop: "24px", fontSize: "16px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
                                 ❗Hover over the college names below to explore the distributions❗
                             </p>
                         </div>
@@ -167,7 +171,7 @@ const Stats2024 = () => {
                     <hr className="border-1 border-solid border-rose-300 mx-[3%] sm:mx-[10%] lg:mx-[20%] my-24" />
 
                     <div className="text-center mt-6">
-                        <label htmlFor="viz-select" className="text-lg font-semibold mr-4 font-dela-gothic text-gray-700" style={{ fontFamily: 'Dela Gothic One', fontSize: "24px" }}>
+                        <label htmlFor="viz-select" className="text-lg font-semibold mr-4 font-dela-gothic text-gray-700" style={{ fontFamily: 'Dela Gothic One', fontSize: "18px" }}>
                             Viz by Year:
                         </label>
                         <select
@@ -175,7 +179,7 @@ const Stats2024 = () => {
                             value={selectedVizYear}
                             onChange={(e) => setSelectedVizYear(e.target.value)}
                             className="border rounded-lg px-4 py-2 text-gray-700"
-                            style={{ fontFamily: 'Dela Gothic One', fontSize: "24px", borderColor: "darkgray", borderWidth: "2px" }}
+                            style={{ fontFamily: 'Dela Gothic One', fontSize: "18px", borderColor: "darkgray", borderWidth: "2px" }}
                         >
                             {Object.keys(by_year_visualizations).map((key) => (
                                 <option key={key} value={key}>

@@ -113,14 +113,14 @@ const ByStateRicePurity2024: React.FC = () => {
 
             const txt = tooltip.append("text")
                 .attr("text-anchor", "middle")
-                .style("font-size", "16px")
+                .style("font-size", "14px")
                 .style("fill", "#374151")
                 .style("font-weight", "bold");
 
             const txt2 = tooltip.append("text")
                 .attr("text-anchor", "middle")
                 .style("fill", "#374151")
-                .style("font-size", "14px");
+                .style("font-size", "13px");
 
             // Mouse hover events
             RPStatePaths.on("mouseenter", (event, d) => {
@@ -181,8 +181,8 @@ const ByStateRicePurity2024: React.FC = () => {
             });
 
             const defaultStates = ["New York", "Colorado", "Florida"];
-            const pieRadius = 85;
-            const pieHeight = 210;
+            const pieRadius = 68;
+            const pieHeight = 168;
             const pieSvg = d3.select<SVGSVGElement, unknown>("#pies");
 
             const pie = d3.pie<PieData>().value((d) => d.value).sort(null);
@@ -218,7 +218,7 @@ const ByStateRicePurity2024: React.FC = () => {
                             return `translate(${x * offset}, ${y * offset})`;
                         })
                         .attr("text-anchor", "middle")
-                        .style("font-size", "14px")
+                        .style("font-size", "12px")
                         .style("fill", "white")
                         .text((d) => {
                             const percentage = parseFloat(d.data.value.toFixed(1));
@@ -230,7 +230,7 @@ const ByStateRicePurity2024: React.FC = () => {
                         .attr("text-anchor", "middle")
                         .attr("y", -pieRadius - 10)
                         .attr("class", "main")
-                        .style("font-size", "18px")
+                        .style("font-size", "15px")
                         .style("fill", "#374151")
                         .text(stateName);
                 });
@@ -239,8 +239,8 @@ const ByStateRicePurity2024: React.FC = () => {
             drawPies(defaultStates);
 
             // Legend
-            const legendWidth = 900;
-            const legendHeight = 80;
+            const legendWidth = 720;
+            const legendHeight = 55;
 
             const legendSvg = d3.select<SVGSVGElement, unknown>("#legendsvg")
                 .append("svg")
@@ -260,7 +260,7 @@ const ByStateRicePurity2024: React.FC = () => {
                 .attr("x", (d) => legendScale(d) || 0)
                 .attr("y", 10)
                 .attr("width", legendScale.bandwidth())
-                .attr("height", 25)
+                .attr("height", 18)
                 .attr("stroke", "grey")
                 .attr("rx", 3)
                 .attr("ry", 3)
@@ -271,9 +271,9 @@ const ByStateRicePurity2024: React.FC = () => {
                 .enter()
                 .append("text")
                 .attr("x", (d) => (legendScale(d) || 0) + legendScale.bandwidth() / 2)
-                .attr("y", 55)
+                .attr("y", 48)
                 .attr("text-anchor", "middle")
-                .style("font-size", "16px")
+                .style("font-size", "15px")
                 .style("fill", "#374151")
                 .attr("class", "main")
                 .text((d) => d);
@@ -284,21 +284,21 @@ const ByStateRicePurity2024: React.FC = () => {
 
     return (
         <div style={{ textAlign: "center" }} className="text-gray-700">
-            <p style={{ fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
+            <p style={{ fontSize: "16px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
                 The lower your score, the more &apos;corrupt&apos; or rebellious you are; the higher the number, the purer you are.
             </p>
 
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(1050px + 300px)", margin: "10px auto", position: "relative" }}>
-                <svg id="legendsvg" width="900" height="80" style={{ display: "block", margin: "0", marginTop: "5px" }}></svg>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(750px + 50px)", margin: "0px auto", position: "relative" }}>
+                <svg id="legendsvg" width="720" height="64" style={{ display: "block", margin: "0", marginTop: "5px" }}></svg>
 
                 <div style={{ display: "flex", alignItems: "flex-start", position: "relative" }}>
                     {/* Choropleth */}
                     <div style={{ textAlign: "center", marginRight: "40px" }}>
                         <div>
-                            <h4 style={{ fontSize: "22px", marginTop: "0px", fontFamily: 'Dela Gothic One' }} >Most Chosen Option by State</h4>
-                            <p style={{ fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Hover over a state to explore its distribution!</p>
+                            <h4 style={{ fontSize: "18px", marginTop: "0px", fontFamily: 'Dela Gothic One' }} >Most Chosen Option by State</h4>
+                            <p style={{ fontSize: "15px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Hover over a state to explore its distribution!</p>
                         </div>
-                        <svg id="rice-purity-choropleth" height="600" width="900" style={{
+                        <svg id="rice-purity-choropleth" height="480" width="720" style={{
                             margin: "-10px -10px -30px 0",
                             outline: "none",
                             border: "none"
@@ -307,13 +307,13 @@ const ByStateRicePurity2024: React.FC = () => {
 
                     {/* Pie Chart */}
                     <div style={{ textAlign: "center", marginLeft: "0px" }}>
-                        <h4 style={{ marginLeft: "-110px", fontSize: "22px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Distribution</h4>
-                        <svg id="pies" width="300" height="620"></svg>
+                        <h4 style={{ marginLeft: "-50px", fontSize: "18px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Distribution</h4>
+                        <svg id="pies" width="200" height="510"></svg>
                     </div>
                 </div>
             </div>
 
-            <p style={{ marginTop: "20px", fontSize: "14px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
+            <p style={{ marginTop: "0px", fontSize: "14px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
         </div>
     );
 };

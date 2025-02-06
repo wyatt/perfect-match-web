@@ -40,7 +40,7 @@ const ByGenderIck2024 = () => {
         dataLabels: {
             enabled: true,
             style: {
-                fontSize: '16px',
+                fontSize: '14px',
                 colors: ['#374151'],
                 fontWeight: 400,
             },
@@ -74,7 +74,7 @@ const ByGenderIck2024 = () => {
             ],
             labels: {
                 style: {
-                    fontSize: '18px',
+                    fontSize: '15px',
                     colors: '#374151',
                 },
                 formatter: function (val: any) {
@@ -85,14 +85,14 @@ const ByGenderIck2024 = () => {
         yaxis: {
             labels: {
                 style: {
-                    fontSize: '16px',
+                    fontSize: '14px',
                     colors: '#374151',
                 },
                 maxWidth: 250
             }
         },
         legend: {
-            fontSize: '20px',
+            fontSize: '16px',
             labels: {
                 colors: '#374151',
             },

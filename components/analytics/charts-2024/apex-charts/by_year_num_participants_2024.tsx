@@ -42,9 +42,9 @@ const ByYearNumParticipants2024 = () => {
             formatter: function (val: any) {
                 return val;
             },
-            offsetY: -27,
+            offsetY: -22,
             style: {
-                fontSize: '18px',
+                fontSize: '16px',
                 colors: ['#374151'],
                 fontWeight: 400,
             },
@@ -65,7 +65,7 @@ const ByYearNumParticipants2024 = () => {
             labels: {
                 style: {
                     colors: '#374151',
-                    fontSize: '18px',
+                    fontSize: '15px',
                 },
             },
         },

@@ -56,7 +56,6 @@ const ByStateDrinkOften2024: React.FC = () => {
                 drinkStateDict[d.state_code] = d;
             });
 
-            const maxDrinkPercentage = d3.max(drinkAggregateData, d => d.often_percentage > -1 ? d.often_percentage : 0) || 100;
             const drinkColorScale = d3.scaleSequential(d3.interpolateRgb("#ffffff", "#eb5000"))
                 .domain([28, 72]);
 
@@ -84,13 +83,13 @@ const ByStateDrinkOften2024: React.FC = () => {
             const drinkTxt = drinkTooltip.append("text")
                 .style("fill", "#374151")
                 .attr("text-anchor", "middle")
-                .style("font-size", "16px")
+                .style("font-size", "14px")
                 .style("font-weight", "bold");
 
             const drinkTxt2 = drinkTooltip.append("text")
                 .style("fill", "#374151")
                 .attr("text-anchor", "middle")
-                .style("font-size", "14px");
+                .style("font-size", "13px");
 
             // Mouse hover events
             drinkStatePaths.on("mouseenter", (event, d) => {
@@ -131,17 +130,16 @@ const ByStateDrinkOften2024: React.FC = () => {
             });
 
             // Legend
-            const legendWidth = 720;
-            const legendHeight = 80;
-            const legendPadding = 25;
+            const legendWidth = 700;
+            const legendHeight = 60;
+            const legendPadding = 35;
 
             const drinkLegendSvg = d3.select<SVGSVGElement, unknown>("#drink-legendsvg")
                 .append("svg")
                 .attr("id", "drink-legend")
                 .attr("width", legendWidth + legendPadding * 2)
                 .attr("height", legendHeight)
-                .style("overflow", "visible")
-                .attr("preserveAspectRatio", "xMidYMid meet");
+                .style("overflow", "visible");
 
             const drinkLegendScale = d3.scaleLinear()
                 .domain([28, 72])
@@ -161,9 +159,9 @@ const ByStateDrinkOften2024: React.FC = () => {
 
             drinkLegendSvg.append("rect")
                 .attr("x", legendPadding)
-                .attr("y", 10)
-                .attr("width", legendWidth - legendPadding * 2)
-                .attr("height", 25)
+                .attr("y", 5)
+                .attr("width", legendWidth)
+                .attr("height", 15)
                 .style("fill", "url(#drink-legend-gradient)")
                 .attr("rx", 10)
                 .attr("ry", 10)
@@ -175,9 +173,9 @@ const ByStateDrinkOften2024: React.FC = () => {
                 .data(legendLabels)
                 .enter().append("text")
                 .attr("x", d => drinkLegendScale(d))
-                .attr("y", 55)
+                .attr("y", 35)
                 .attr("text-anchor", "middle")
-                .style("font-size", "16px")
+                .style("font-size", "15px")
                 .style("fill", "#374151")
                 .text(d => `${d}%`);
 
@@ -187,11 +185,11 @@ const ByStateDrinkOften2024: React.FC = () => {
     }, []);
 
     return (
-        <div className="text-gray-700" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(1050px + 300px)", margin: "10px auto", position: "relative" }}>
-            <h4 style={{ fontSize: "22px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Percentage of Respondents Who Drink &apos;Often&apos;</h4>
-            <svg id="drink-legendsvg" width="720" height="80" style={{ display: "block", margin: "0", marginTop: "10px" }}></svg>
-            <svg id="drink-choropleth" height="600" width="900" style={{
-                margin: "-25px -10px 0px 0"
+        <div className="text-gray-700" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(750px + 300px)", margin: "10px auto", position: "relative" }}>
+            <h4 style={{ fontSize: "18px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Percentage of Respondents Who Drink &apos;Often&apos;</h4>
+            <svg id="drink-legendsvg" width="770" height="55" style={{ display: "block", margin: "0", marginTop: "10px" }}></svg>
+            <svg id="drink-choropleth" height="480" width="720" style={{
+                margin: "-15px -10px 0px 0"
             }}></svg>
 
             <p style={{ marginTop: "20px", fontSize: "14px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>

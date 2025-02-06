@@ -125,13 +125,13 @@ const ByStatePolitics2024: React.FC = () => {
             const txt = tooltip.append("text")
                 .style("fill", "#374151")
                 .attr("text-anchor", "middle")
-                .style("font-size", "16px")
+                .style("font-size", "14px")
                 .style("font-weight", "bold");
 
             const txt2 = tooltip.append("text")
                 .style("fill", "#374151")
                 .attr("text-anchor", "middle")
-                .style("font-size", "14px");
+                .style("font-size", "13px");
 
             // Mouse hover events
             politicsStatePaths.on("mouseenter", (event, d) => {
@@ -189,8 +189,8 @@ const ByStatePolitics2024: React.FC = () => {
             });
 
             const defaultStatesPolitics = ["California", "Connecticut", "Texas"];
-            const pieRadius = 85;
-            const pieHeight = 210;
+            const pieRadius = 68;
+            const pieHeight = 168;
             const pieSvg = d3.select<SVGSVGElement, unknown>("#pies_politics");
 
             const pie = d3.pie<PieDataPolitics>().value((d) => d.value).sort(null);
@@ -230,7 +230,7 @@ const ByStatePolitics2024: React.FC = () => {
                             return `translate(${x * offset}, ${y * offset})`;
                         })
                         .attr("text-anchor", "middle")
-                        .style("font-size", "14px")
+                        .style("font-size", "12px")
                         .style("fill", "white")
                         .text((d) => {
                             const percentage = parseFloat(d.data.value.toFixed(1));
@@ -241,7 +241,7 @@ const ByStatePolitics2024: React.FC = () => {
                     group.append("text")
                         .attr("text-anchor", "middle")
                         .attr("y", -pieRadius - 10)
-                        .style("font-size", "18px")
+                        .style("font-size", "15px")
                         .style("fill", "#374151")
                         .text(stateName);
                 });
@@ -250,9 +250,9 @@ const ByStatePolitics2024: React.FC = () => {
             drawPiesPolitics(defaultStatesPolitics);
 
             // Legend
-            const legendWidth = 720;
-            const legendHeight = 70;
-            const legendPadding = 20;
+            const legendWidth = 700;
+            const legendHeight = 55;
+            const legendPadding = 35;
 
             // Select legend SVG
             const legendSvg = d3.select<SVGSVGElement, unknown>("#legendsvg_politics")
@@ -284,7 +284,7 @@ const ByStatePolitics2024: React.FC = () => {
                 .attr("rx", 10)
                 .attr("ry", 10)
                 .attr("width", legendWidth)
-                .attr("height", 25)
+                .attr("height", 15)
                 .style("fill", "url(#politics-legend-gradient)")
                 .attr("stroke", "grey");
 
@@ -297,9 +297,9 @@ const ByStatePolitics2024: React.FC = () => {
                 .data(d3.range(1, 11)) // Numbers 1 to 10
                 .enter().append("text")
                 .attr("x", d => legendScale(d))
-                .attr("y", 55)
+                .attr("y", 35)
                 .attr("text-anchor", "middle")
-                .style("font-size", "16px")
+                .style("font-size", "15px")
                 .style("fill", "#374151")
                 .text(d => d.toString());
 
@@ -310,20 +310,20 @@ const ByStatePolitics2024: React.FC = () => {
 
     return (
         <div style={{ textAlign: "center" }} className="text-gray-700">
-            <p style={{ fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
+            <p style={{ fontSize: "16px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
                 The lower the number, the more liberal; the higher the number, the more conservative.
             </p>
 
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(1050px + 300px)", margin: "10px auto", position: "relative" }}>
-                <svg id="legendsvg_politics" width="760" height="70" style={{ display: "block", margin: "0", marginTop: "10px" }}></svg>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(750px + 50px)", margin: "0px auto", position: "relative" }}>
+                <svg id="legendsvg_politics" width="770" height="64" style={{ display: "block", margin: "0", marginTop: "5px" }}></svg>
 
                 <div style={{ display: "flex", alignItems: "flex-start", position: "relative" }}>
                     {/* Choropleth */}
                     <div style={{ textAlign: "center", marginRight: "40px" }}>
                         <div>
-                            <h4 style={{ fontSize: "24px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Average Political Leaning Score</h4>
+                            <h4 style={{ fontSize: "18px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Average Political Leaning Score</h4>
                         </div>
-                        <svg id="politics-choropleth" height="600" width="900" style={{
+                        <svg id="politics-choropleth" height="480" width="720" style={{
                             margin: "0px -10px -30px 0",
                             outline: "none",
                             border: "none",
@@ -333,13 +333,13 @@ const ByStatePolitics2024: React.FC = () => {
 
                     {/* Pie Chart */}
                     <div style={{ textAlign: "center", marginLeft: "0px" }}>
-                        <h4 style={{ marginLeft: "-110px", fontSize: "24px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Distribution</h4>
-                        <svg id="pies_politics" width="300" height="620"></svg>
+                        <h4 style={{ marginLeft: "-50px", fontSize: "18px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Distribution</h4>
+                        <svg id="pies_politics" width="200" height="510"></svg>
                     </div>
                 </div>
             </div>
 
-            <p style={{ marginTop: "20px", fontSize: "14px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
+            <p style={{ marginTop: "0px", fontSize: "14px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
         </div>
     );
 };
