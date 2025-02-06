@@ -194,7 +194,7 @@ const ByStateDrinkOften2024: React.FC = () => {
                 margin: "-25px -10px 0px 0"
             }}></svg>
 
-            <p style={{ marginTop: "20px", fontSize: "16px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
+            <p style={{ marginTop: "20px", fontSize: "14px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
         </div>
     );
 };

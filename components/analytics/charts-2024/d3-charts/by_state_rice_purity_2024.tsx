@@ -285,7 +285,7 @@ const ByStateRicePurity2024: React.FC = () => {
     return (
         <div style={{ textAlign: "center" }} className="text-gray-700">
             <p style={{ fontSize: "18px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
-                The lower your score, the more 'corrupt' or rebellious you are; the higher the number, the purer you are.
+                The lower your score, the more &apos;corrupt&apos; or rebellious you are; the higher the number, the purer you are.
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(1050px + 300px)", margin: "10px auto", position: "relative" }}>
@@ -313,7 +313,7 @@ const ByStateRicePurity2024: React.FC = () => {
                 </div>
             </div>
 
-            <p style={{ marginTop: "20px", fontSize: "16px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
+            <p style={{ marginTop: "20px", fontSize: "14px", marginBottom: "0px", fontFamily: 'Work Sans' }}>Data for regions, including those outside the U.S., has been omitted if the sample size is too small to be representative.</p>
         </div>
     );
 };

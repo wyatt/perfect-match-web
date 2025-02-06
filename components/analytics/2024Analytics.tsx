@@ -58,7 +58,7 @@ const Stats2024 = () => {
             <Script src="https://d3js.org/topojson.v3.min.js" />
             <div>
 
-                <section className="bg-white pt-12 sm:pt-16 lg:pt-20 sm:pb-5 pb-1">
+                <section className="bg-white pt-12 sm:pt-16 lg:pt-20 sm:pb-5 pb-1 text-gray-700">
                     <p className="my-8 sm:lg-8 lg:my-10 sm:text-lg text-gray-700 mx-[3%] sm:mx-[10%] lg:mx-[20%]" style={{ fontFamily: 'Work Sans' }}>
                         In 2024, we received <strong className="text-rose-400"> 3,983 </strong>
                         valid responses — representing <strong className="text-rose-400">1/4</strong> of
@@ -88,10 +88,17 @@ const Stats2024 = () => {
                             ))}
                         </select>
                     </div>
+
+                    {selectedVizGender === "What is your Rice Purity Score?" && (
+                        <p className="text-gray-700 text-lg sm:mx-[10%] lg:mx-[17%] mt-6">
+                            The lower your score, the more &apos;corrupt&apos; or rebellious you are; the higher the number, the purer you are.
+                        </p>
+                    )}
+
                     <div className="sm:mx-[10%] lg:mx-[20%] -mb-4 sm:my-4">{by_gender_visualizations[selectedVizGender]}</div>
 
                     <div className="text-center text-gray-700">
-                        <p style={{ marginTop: "-10px", fontSize: "16px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
+                        <p style={{ marginTop: "-10px", fontSize: "14px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
                             Participants who gave their gender as non-binary individual or other are not included due to small sample size.
                         </p>
                     </div>
@@ -138,6 +145,11 @@ const Stats2024 = () => {
                                 </option>
                             ))}
                         </select>
+                        {selectedVizCollege === "What is your Rice Purity Score?" && (
+                            <p className="text-gray-700 text-lg sm:mx-[10%] lg:mx-[17%] mt-6">
+                                The lower your score, the more &apos;corrupt&apos; or rebellious you are; the higher the number, the purer you are.
+                            </p>
+                        )}
                         <div className="text-center text-gray-700">
                             <p style={{ marginTop: "24px", fontSize: "22px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
                                 ❗Hover over the college names below to explore the distributions❗
@@ -147,7 +159,7 @@ const Stats2024 = () => {
                     <div className="sm:mx-[8%] lg:mx-[16%] -mb-4 sm:my-4">{by_college_visualizations[selectedVizCollege]}</div>
 
                     <div className="text-center text-gray-700">
-                        <p style={{ marginTop: "-10px", fontSize: "16px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
+                        <p style={{ marginTop: "-10px", fontSize: "14px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
                             Participants from other colleges or divisions are not included due to a small sample size.
                         </p>
                     </div>
