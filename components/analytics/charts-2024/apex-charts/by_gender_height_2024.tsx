@@ -8,7 +8,7 @@ const ByGenderHeight2024 = () => {
     const series = [
         {
             name: 'Female',
-            color: '#fda4af',
+            color: '#fb7185',
             data: [0.2,
                 0.7,
                 3.4,
@@ -34,7 +34,7 @@ const ByGenderHeight2024 = () => {
         },
         {
             name: 'Male',
-            color: '#7dd3fc',
+            color: '#38bdf8',
             data: [0,
                 0,
                 0,
@@ -106,7 +106,7 @@ const ByGenderHeight2024 = () => {
             labels: {
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                 },
             },
         },
@@ -117,7 +117,7 @@ const ByGenderHeight2024 = () => {
             labels: {
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                 },
                 formatter: function (value: number) {
                     return value + '%';
@@ -126,7 +126,7 @@ const ByGenderHeight2024 = () => {
             title: {
                 text: 'Percentage of Participants',
                 style: {
-                    color: '#374151',
+                    color: '#24438d',
                     fontSize: '15px',
                     fontWeight: 400,
                 },
@@ -135,7 +135,7 @@ const ByGenderHeight2024 = () => {
         legend: {
             fontSize: '16px',
             labels: {
-                colors: '#374151',
+                colors: '#24438d',
             },
         },
         tooltip: {

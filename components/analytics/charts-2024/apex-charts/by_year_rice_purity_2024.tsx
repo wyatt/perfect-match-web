@@ -9,22 +9,22 @@ const ByYearRicePurity2024 = () => {
         {
             name: 'Freshman',
             data: [1.9, 9.2, 16.9, 27.2, 44.8],
-            color: '#fda4af',
+            color: '#fb7185',
         },
         {
             name: 'Sophomore',
             data: [2.4, 16.9, 24.0, 24.7, 32.1],
-            color: '#fdba74',
+            color: '#fb923c',
         },
         {
             name: 'Junior',
             data: [5.0, 18.8, 26.6, 21.8, 27.7],
-            color: '#fde047',
+            color: '#facc15',
         },
         {
             name: 'Senior',
             data: [5.1, 24.7, 29.3, 20.5, 20.4],
-            color: '#86efac',
+            color: '#4ade80',
         }
     ];
     const options = {
@@ -51,7 +51,7 @@ const ByYearRicePurity2024 = () => {
             enabled: true,
             style: {
                 fontSize: '12px',
-                colors: ['#374151'],
+                colors: ['#24438d'],
                 fontWeight: 400,
             },
             formatter: function (val: any) {
@@ -86,14 +86,14 @@ const ByYearRicePurity2024 = () => {
             labels: {
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                 }
             },
             title: {
                 text: "Rice Purity Score (Higher = More Innocent)",
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    color: '#24438d',
                     fontWeight: 400
                 }
             }
@@ -106,7 +106,7 @@ const ByYearRicePurity2024 = () => {
                 },
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                 }
             }
         },
@@ -114,7 +114,7 @@ const ByYearRicePurity2024 = () => {
             position: 'top',
             fontSize: '16px',
             labels: {
-                colors: '#374151',
+                colors: '#24438d',
             },
         }
     };

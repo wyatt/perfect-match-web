@@ -26,7 +26,7 @@ const FirstDate = () => {
             'Dining Hall',
             'Frat annex',
         ],
-        colors: ['#fda4af', '#fdba74', '#fde047', '#86efac', '#7dd3fc', '#c4b5fd', '#f0abfc'],
+        colors: ['#fb7185', '#fb923c', '#facc15', '#4ade80', '#38bdf8', '#c4b5fd', '#f0abfc'],
         plotOptions: {
             pie: {
                 dataLabels: {

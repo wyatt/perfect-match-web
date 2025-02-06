@@ -19,13 +19,13 @@ const Political = () => {
         colors: [
             '#0ea5e9',
             '#38bdf8',
-            '#7dd3fc',
+            '#38bdf8',
             '#bae6fd',
             '#e0f2fe',
             '#fff1f2',
             '#ffe4e6',
             '#fecdd3',
-            '#fda4af',
+            '#fb7185',
             '#f43f5e',
         ],
         legend: {

@@ -106,7 +106,7 @@ const ByStateRicePurity2024: React.FC = () => {
 
             tooltip.append("rect")
                 .attr("fill", "white")
-                .attr("stroke", "#374151")
+                .attr("stroke", "#24438d")
                 .attr("rx", 5)
                 .attr("ry", 5)
                 .attr("opacity", 0.9);
@@ -114,12 +114,12 @@ const ByStateRicePurity2024: React.FC = () => {
             const txt = tooltip.append("text")
                 .attr("text-anchor", "middle")
                 .style("font-size", "14px")
-                .style("fill", "#374151")
+                .style("fill", "#24438d")
                 .style("font-weight", "bold");
 
             const txt2 = tooltip.append("text")
                 .attr("text-anchor", "middle")
-                .style("fill", "#374151")
+                .style("fill", "#24438d")
                 .style("font-size", "13px");
 
             // Mouse hover events
@@ -231,7 +231,7 @@ const ByStateRicePurity2024: React.FC = () => {
                         .attr("y", -pieRadius - 10)
                         .attr("class", "main")
                         .style("font-size", "15px")
-                        .style("fill", "#374151")
+                        .style("fill", "#24438d")
                         .text(stateName);
                 });
             };
@@ -274,7 +274,7 @@ const ByStateRicePurity2024: React.FC = () => {
                 .attr("y", 48)
                 .attr("text-anchor", "middle")
                 .style("font-size", "15px")
-                .style("fill", "#374151")
+                .style("fill", "#24438d")
                 .attr("class", "main")
                 .text((d) => d);
         };
@@ -283,7 +283,7 @@ const ByStateRicePurity2024: React.FC = () => {
     }, []);
 
     return (
-        <div style={{ textAlign: "center" }} className="text-gray-700">
+        <div style={{ textAlign: "center" }} className="text-pmblue-500">
             <p style={{ fontSize: "16px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
                 The lower your score, the more &apos;corrupt&apos; or rebellious you are; the higher the number, the purer you are.
             </p>

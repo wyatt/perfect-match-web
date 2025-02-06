@@ -9,7 +9,7 @@ const LongestRelationship = () => {
         {
             name: 'Median longest relationship duration',
             data: [5, 4, 4, 4, 5, 3, 6, 6, 13],
-            color: '#fdba74',
+            color: '#fb923c',
         },
     ];
     const options = {

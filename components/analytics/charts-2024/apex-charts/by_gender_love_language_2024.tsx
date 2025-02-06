@@ -9,12 +9,12 @@ const ByGenderLoveLanguage2024 = () => {
         {
             name: 'Female',
             data: [17.3, 1.9, 48.8, 17.4, 11.6, 3.0],
-            color: '#fda4af',
+            color: '#fb7185',
         },
         {
             name: 'Male',
             data: [7.8, 0.7, 48.9, 29.0, 7.2, 6.4],
-            color: '#7dd3fc',
+            color: '#38bdf8',
         },
     ];
     const options = {
@@ -41,7 +41,7 @@ const ByGenderLoveLanguage2024 = () => {
             enabled: true,
             style: {
                 fontSize: '14px',
-                colors: ['#374151'],
+                colors: ['#24438d'],
                 fontWeight: 400,
             },
             formatter: function (val: any) {
@@ -76,7 +76,7 @@ const ByGenderLoveLanguage2024 = () => {
             labels: {
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                 },
                 formatter: function (val: any) {
                     return Math.abs(Math.round(val)) + '%';
@@ -87,7 +87,7 @@ const ByGenderLoveLanguage2024 = () => {
             labels: {
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                 },
                 maxWidth: 250
             }
@@ -95,7 +95,7 @@ const ByGenderLoveLanguage2024 = () => {
         legend: {
             fontSize: '16px',
             labels: {
-                colors: '#374151',
+                colors: '#24438d',
             }
         }
     };

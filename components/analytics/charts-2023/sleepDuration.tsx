@@ -9,7 +9,7 @@ const SleepDuration = () => {
         {
             name: 'Average sleep duration',
             data: [6.96, 7.66, 7.83, 7.84, 7.84, 7.86, 7.91, 8.06, 8.13, 8.28, 8.77],
-            color: '#86efac',
+            color: '#4ade80',
         },
     ];
     const options = {

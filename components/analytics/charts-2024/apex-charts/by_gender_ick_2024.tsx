@@ -9,12 +9,12 @@ const ByGenderIck2024 = () => {
         {
             name: 'Female',
             data: [9.3, 31.2, 31.8, 19.3, 8.6],
-            color: '#fda4af',
+            color: '#fb7185',
         },
         {
             name: 'Male',
             data: [11.9, 53.0, 16.4, 14.5, 4.2],
-            color: '#7dd3fc',
+            color: '#38bdf8',
         },
     ];
     const options = {
@@ -41,7 +41,7 @@ const ByGenderIck2024 = () => {
             enabled: true,
             style: {
                 fontSize: '14px',
-                colors: ['#374151'],
+                colors: ['#24438d'],
                 fontWeight: 400,
             },
             formatter: function (val: any) {
@@ -75,7 +75,7 @@ const ByGenderIck2024 = () => {
             labels: {
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                 },
                 formatter: function (val: any) {
                     return Math.abs(Math.round(val)) + '%';
@@ -86,7 +86,7 @@ const ByGenderIck2024 = () => {
             labels: {
                 style: {
                     fontSize: '14px',
-                    colors: '#374151',
+                    colors: '#24438d',
                 },
                 maxWidth: 250
             }
@@ -94,7 +94,7 @@ const ByGenderIck2024 = () => {
         legend: {
             fontSize: '16px',
             labels: {
-                colors: '#374151',
+                colors: '#24438d',
             },
         }
     };

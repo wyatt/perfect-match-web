@@ -22,7 +22,7 @@ const Quality = () => {
             type: 'donut',
         },
         labels: ['Thoughtfulness', 'Reliability', 'Humor', 'Independence'],
-        colors: ['#fda4af', '#86efac', '#fde047', '#7dd3fc'],
+        colors: ['#fb7185', '#4ade80', '#facc15', '#38bdf8'],
         plotOptions: {
             pie: {
                 dataLabels: {

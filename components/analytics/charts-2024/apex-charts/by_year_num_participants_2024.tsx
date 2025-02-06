@@ -16,7 +16,7 @@ const ByYearNumParticipants2024 = () => {
             enabled: true,
             theme: 'dark',
         },
-        colors: ['#fda4af', '#fdba74', '#fde047', '#86efac', '#7dd3fc', '#c4b5fd'],
+        colors: ['#fb7185', '#fb923c', '#facc15', '#4ade80', '#38bdf8', '#c4b5fd'],
         chart: {
             height: 100,
             type: 'bar',
@@ -45,7 +45,7 @@ const ByYearNumParticipants2024 = () => {
             offsetY: -22,
             style: {
                 fontSize: '16px',
-                colors: ['#374151'],
+                colors: ['#24438d'],
                 fontWeight: 400,
             },
         },
@@ -64,7 +64,7 @@ const ByYearNumParticipants2024 = () => {
             },
             labels: {
                 style: {
-                    colors: '#374151',
+                    colors: '#24438d',
                     fontSize: '15px',
                 },
             },

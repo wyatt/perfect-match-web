@@ -68,7 +68,7 @@ const IckLive = () => {
                 show: false,
             },
         },
-        colors: ['#fda4af', '#86efac', '#fde047', '#7dd3fc', '#fdba74'],
+        colors: ['#fb7185', '#4ade80', '#facc15', '#38bdf8', '#fb923c'],
         xaxis: {
             categories: Object.keys(ickCount || {}),
             labels: {

@@ -33,7 +33,7 @@ const Pie = () => {
             'Drunk texted their ex last night',
             'Matched with your roommate on Hinge',
         ],
-        colors: ['#fda4af', '#fdba74', '#fde047', '#86efac', '#7dd3fc'],
+        colors: ['#fb7185', '#fb923c', '#facc15', '#4ade80', '#38bdf8'],
         plotOptions: {
             pie: {
                 dataLabels: {

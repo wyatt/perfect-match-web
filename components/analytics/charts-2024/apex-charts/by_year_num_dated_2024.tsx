@@ -9,22 +9,22 @@ const ByYearNumDated2024 = () => {
         {
             name: 'Freshman',
             data: [45.1, 29.1, 16.8, 5.8, 3.2],
-            color: '#fda4af',
+            color: '#fb7185',
         },
         {
             name: 'Sophomore',
             data: [40.2, 30.6, 17.0, 8.5, 3.4],
-            color: '#fdba74',
+            color: '#fb923c',
         },
         {
             name: 'Junior',
             data: [34.1, 31.5, 19.9, 9.2, 5.3],
-            color: '#fde047',
+            color: '#facc15',
         },
         {
             name: 'Senior',
             data: [28.0, 32.6, 23.8, 11.7, 4],
-            color: '#86efac',
+            color: '#4ade80',
         }
     ];
     const options = {
@@ -51,7 +51,7 @@ const ByYearNumDated2024 = () => {
             enabled: true,
             style: {
                 fontSize: '12px',
-                colors: ['#374151'],
+                colors: ['#24438d'],
                 fontWeight: 400,
             },
             formatter: function (val: any) {
@@ -86,14 +86,14 @@ const ByYearNumDated2024 = () => {
             labels: {
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                 }
             },
             title: {
                 text: "Number of People Dated",
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    color: '#24438d',
                     fontWeight: 400
                 }
             }
@@ -106,7 +106,7 @@ const ByYearNumDated2024 = () => {
                 },
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                 }
             }
         },
@@ -114,7 +114,7 @@ const ByYearNumDated2024 = () => {
             position: 'top',
             fontSize: '16px',
             labels: {
-                colors: '#374151',
+                colors: '#24438d',
             },
         }
     };

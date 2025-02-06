@@ -91,7 +91,7 @@ const Home: NextPage = (props: any) => {
                                         is open <strong className='text-pmred-500'> NOW! </strong>
                                     </h1>
                                 </div>
-                                <div className='work-sans'>
+                                <div className='font-work-sans'>
                                     <p className="text-lg text-pmblue-500 mt-4 lg:max-w-lg lg:text-left text-center lg:text-xl sm:leading-relaxed">
                                         The form closes <strong className="italic"> February 13th at Noon </strong>
                                         <br />

@@ -22,7 +22,7 @@ const RelationshipType = () => {
             type: 'donut',
         },
         labels: ['Romantic', 'Casual', 'Platonic'],
-        colors: ['#fda4af', '#86efac', '#fde047'],
+        colors: ['#fb7185', '#4ade80', '#facc15'],
         plotOptions: {
             pie: {
                 dataLabels: {

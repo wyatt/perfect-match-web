@@ -75,19 +75,19 @@ const ByStateDrinkOften2024: React.FC = () => {
 
             drinkTooltip.append("rect")
                 .attr("fill", "white")
-                .attr("stroke", "#374151")
+                .attr("stroke", "#24438d")
                 .attr("rx", 5)
                 .attr("ry", 5)
                 .attr("opacity", 0.9);
 
             const drinkTxt = drinkTooltip.append("text")
-                .style("fill", "#374151")
+                .style("fill", "#24438d")
                 .attr("text-anchor", "middle")
                 .style("font-size", "14px")
                 .style("font-weight", "bold");
 
             const drinkTxt2 = drinkTooltip.append("text")
-                .style("fill", "#374151")
+                .style("fill", "#24438d")
                 .attr("text-anchor", "middle")
                 .style("font-size", "13px");
 
@@ -176,7 +176,7 @@ const ByStateDrinkOften2024: React.FC = () => {
                 .attr("y", 35)
                 .attr("text-anchor", "middle")
                 .style("font-size", "15px")
-                .style("fill", "#374151")
+                .style("fill", "#24438d")
                 .text(d => `${d}%`);
 
         };
@@ -185,7 +185,7 @@ const ByStateDrinkOften2024: React.FC = () => {
     }, []);
 
     return (
-        <div className="text-gray-700" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(750px + 300px)", margin: "10px auto", position: "relative" }}>
+        <div className="text-pmblue-500" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "calc(750px + 300px)", margin: "10px auto", position: "relative" }}>
             <h4 style={{ fontSize: "18px", marginTop: "0px", fontFamily: 'Dela Gothic One' }}>Percentage of Respondents Who Drink &apos;Often&apos;</h4>
             <svg id="drink-legendsvg" width="770" height="55" style={{ display: "block", margin: "0", marginTop: "10px" }}></svg>
             <svg id="drink-choropleth" height="480" width="720" style={{

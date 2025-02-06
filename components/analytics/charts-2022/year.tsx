@@ -12,7 +12,7 @@ const Year = () => {
         },
     ];
     const options = {
-        colors: ['#fda4af', '#fdba74', '#fde047', '#86efac', '#7dd3fc', '#c4b5fd'],
+        colors: ['#fb7185', '#fb923c', '#facc15', '#4ade80', '#38bdf8', '#c4b5fd'],
         chart: {
             height: 350,
             type: 'bar',

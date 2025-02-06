@@ -127,13 +127,13 @@ const ByCollegeRicePurity2024 = () => {
             labels: {
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                 },
             },
             title: {
                 text: 'Rice Purity Score',
                 style: {
-                    color: '#374151',
+                    color: '#24438d',
                     fontSize: '15px',
                     fontWeight: 400,
                 },
@@ -146,7 +146,7 @@ const ByCollegeRicePurity2024 = () => {
             labels: {
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                 },
                 formatter: function (value: number) {
                     return value + '%';
@@ -155,7 +155,7 @@ const ByCollegeRicePurity2024 = () => {
             title: {
                 text: 'Percentage of Participants',
                 style: {
-                    color: '#374151',
+                    color: '#24438d',
                     fontSize: '15px',
                     fontWeight: 400,
                 },
@@ -164,7 +164,7 @@ const ByCollegeRicePurity2024 = () => {
         legend: {
             fontSize: '16px',
             labels: {
-                colors: '#374151',
+                colors: '#24438d',
             },
             position: 'top'
         },

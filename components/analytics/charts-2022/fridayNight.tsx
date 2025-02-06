@@ -18,7 +18,7 @@ const FridayNight = () => {
             type: 'donut',
         },
         labels: ["Netflix & PJ's", 'Mixer or date night', 'Frat party', 'Bar hopping', 'Netflix & chill', 'Studying'],
-        colors: ['#fda4af', '#fdba74', '#fde047', '#86efac', '#7dd3fc', '#c4b5fd'],
+        colors: ['#fb7185', '#fb923c', '#facc15', '#4ade80', '#38bdf8', '#c4b5fd'],
         plotOptions: {
             pie: {
                 dataLabels: {

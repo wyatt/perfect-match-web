@@ -9,12 +9,12 @@ const ByGenderNumDated2024 = () => {
         {
             name: 'Female',
             data: [-40.3, -30.2, -18.0, -8.0, -1.9, -1.6],
-            color: '#fda4af',
+            color: '#fb7185',
         },
         {
             name: 'Male',
             data: [31.2, 31.5, 21.5, 10.6, 2.9, 2.3],
-            color: '#7dd3fc',
+            color: '#38bdf8',
         },
     ];
     const options = {
@@ -55,7 +55,7 @@ const ByGenderNumDated2024 = () => {
             labels: {
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                     fontFamily: 'Work Sans, sans-serif',
                 },
             }
@@ -87,7 +87,7 @@ const ByGenderNumDated2024 = () => {
                 },
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                     fontFamily: 'Work Sans, sans-serif',
                 },
             }
@@ -95,7 +95,7 @@ const ByGenderNumDated2024 = () => {
         legend: {
             fontSize: '16px',
             labels: {
-                colors: '#374151',
+                colors: '#24438d',
                 fontFamily: 'Work Sans, sans-serif',
             },
         },
@@ -121,7 +121,7 @@ const ByGenderNumDated2024 = () => {
                         labels: {
                             style: {
                                 fontSize: '14px',
-                                colors: '#374151',
+                                colors: '#24438d',
                                 fontFamily: 'Work Sans, sans-serif',
                             },
                         },

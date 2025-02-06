@@ -9,12 +9,12 @@ const NumDatedGender = () => {
         {
             name: 'Male',
             data: [-29.2, -30.1, -23.2, -9.7, -3.5, -1.9, -1.5, -0.8],
-            color: '#7dd3fc',
+            color: '#38bdf8',
         },
         {
             name: 'Female',
             data: [38.7, 28.5, 19.7, 8.5, 2.7, 1.0, 0.7, 0.2],
-            color: '#fda4af',
+            color: '#fb7185',
         },
     ];
     const options = {

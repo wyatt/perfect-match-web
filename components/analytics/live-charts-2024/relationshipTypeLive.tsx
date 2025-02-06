@@ -33,7 +33,7 @@ const RelationshipTypeLive = () => {
             },
         },
         labels: Object.keys(typeCount || {}),
-        colors: ['#fda4af', '#fde047', '#86efac', '#7dd3fc'],
+        colors: ['#fb7185', '#facc15', '#4ade80', '#38bdf8'],
         plotOptions: {
             pie: {
                 dataLabels: {

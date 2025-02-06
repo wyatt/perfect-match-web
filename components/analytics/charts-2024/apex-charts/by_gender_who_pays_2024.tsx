@@ -9,12 +9,12 @@ const ByGenderWhoPays2024 = () => {
         {
             name: 'Female',
             data: [-55.2, -17.7, -0.9, -26.3],
-            color: '#fda4af',
+            color: '#fb7185',
         },
         {
             name: 'Male',
             data: [2.1, 17.6, 41.8, 38.6],
-            color: '#7dd3fc',
+            color: '#38bdf8',
         },
     ];
     const options = {
@@ -47,7 +47,7 @@ const ByGenderWhoPays2024 = () => {
                 lines: {
                     show: false,
                 },
-            }
+            },
         },
         yaxis: {
             min: -60,
@@ -55,7 +55,7 @@ const ByGenderWhoPays2024 = () => {
             labels: {
                 style: {
                     fontSize: '15px',
-                    colors: '#4b5563',
+                    colors: '#24438d',
                     fontFamily: 'Work Sans, sans-serif',
                 },
             }
@@ -85,7 +85,7 @@ const ByGenderWhoPays2024 = () => {
                 },
                 style: {
                     fontSize: '15px',
-                    colors: '#4b5563',
+                    colors: '#24438d',
                     fontFamily: 'Work Sans, sans-serif',
                 },
             }
@@ -93,7 +93,7 @@ const ByGenderWhoPays2024 = () => {
         legend: {
             fontSize: '16px',
             labels: {
-                colors: '#4b5563',
+                colors: '#24438d',
                 fontFamily: 'Work Sans, sans-serif',
             },
         },
@@ -119,7 +119,7 @@ const ByGenderWhoPays2024 = () => {
                         labels: {
                             style: {
                                 fontSize: '14px',
-                                colors: '#4b5563',
+                                colors: '#24438d',
                                 fontFamily: 'Work Sans, sans-serif',
                             },
                         },

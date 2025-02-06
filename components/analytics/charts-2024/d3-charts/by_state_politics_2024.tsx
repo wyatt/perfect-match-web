@@ -69,7 +69,7 @@ const ByStatePolitics2024: React.FC = () => {
             const projection = d3.geoAlbersUsa().fitSize([mapWidth, mapHeight], states);
             const politicsPath = d3.geoPath().projection(projection);
 
-            const blue_to_red = ["#0369a1", "#0ea5e9", "#7dd3fc", "#bae6fd", "#e0f2fe", "#fee2e2", "#fecaca", "#fca5a5", "#f87171", "#dc2626"];
+            const blue_to_red = ["#0369a1", "#0ea5e9", "#38bdf8", "#bae6fd", "#e0f2fe", "#fee2e2", "#fecaca", "#fca5a5", "#f87171", "#dc2626"];
 
             // Define continuous color scale for politics_mean
             const politicsColorScale = d3.scaleLinear<string>()
@@ -117,19 +117,19 @@ const ByStatePolitics2024: React.FC = () => {
 
             tooltip.append("rect")
                 .attr("fill", "white")
-                .attr("stroke", "#374151")
+                .attr("stroke", "#24438d")
                 .attr("rx", 5)
                 .attr("ry", 5)
                 .attr("opacity", 0.9);
 
             const txt = tooltip.append("text")
-                .style("fill", "#374151")
+                .style("fill", "#24438d")
                 .attr("text-anchor", "middle")
                 .style("font-size", "14px")
                 .style("font-weight", "bold");
 
             const txt2 = tooltip.append("text")
-                .style("fill", "#374151")
+                .style("fill", "#24438d")
                 .attr("text-anchor", "middle")
                 .style("font-size", "13px");
 
@@ -242,7 +242,7 @@ const ByStatePolitics2024: React.FC = () => {
                         .attr("text-anchor", "middle")
                         .attr("y", -pieRadius - 10)
                         .style("font-size", "15px")
-                        .style("fill", "#374151")
+                        .style("fill", "#24438d")
                         .text(stateName);
                 });
             };
@@ -300,7 +300,7 @@ const ByStatePolitics2024: React.FC = () => {
                 .attr("y", 35)
                 .attr("text-anchor", "middle")
                 .style("font-size", "15px")
-                .style("fill", "#374151")
+                .style("fill", "#24438d")
                 .text(d => d.toString());
 
         };
@@ -309,7 +309,7 @@ const ByStatePolitics2024: React.FC = () => {
     }, []);
 
     return (
-        <div style={{ textAlign: "center" }} className="text-gray-700">
+        <div style={{ textAlign: "center" }} className="text-pmblue-500">
             <p style={{ fontSize: "16px", marginBottom: "0px", fontFamily: 'Work Sans' }}>
                 The lower the number, the more liberal; the higher the number, the more conservative.
             </p>

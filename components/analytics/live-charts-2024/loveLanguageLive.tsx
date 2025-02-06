@@ -33,7 +33,7 @@ const LoveLanguageLive = () => {
             },
         },
         labels: Object.keys(Count || {}),
-        colors: ['#fda4af', '#86efac', '#fde047', '#7dd3fc', '#fdba74', '#c4b5fd', '#f0abfc'],
+        colors: ['#fb7185', '#4ade80', '#facc15', '#38bdf8', '#fb923c', '#c4b5fd', '#f0abfc'],
         plotOptions: {
             pie: {
                 dataLabels: {

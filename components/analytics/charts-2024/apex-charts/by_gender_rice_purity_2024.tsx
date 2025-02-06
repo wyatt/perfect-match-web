@@ -8,12 +8,12 @@ const ByGenderRicePurity2024 = () => {
     const series = [
         {
             name: 'Female',
-            color: '#fda4af',
+            color: '#fb7185',
             data: [3.2, 16.1, 23.3, 23.5, 33.9]
         },
         {
             name: 'Male',
-            color: '#7dd3fc',
+            color: '#38bdf8',
             data: [4.3, 18.3, 25.8, 23.7, 27.9],
         },
     ];
@@ -49,7 +49,7 @@ const ByGenderRicePurity2024 = () => {
             labels: {
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                     fontFamily: 'Work Sans, sans-serif', // Change font family
                 },
             },
@@ -61,7 +61,7 @@ const ByGenderRicePurity2024 = () => {
             labels: {
                 style: {
                     fontSize: '15px',
-                    colors: '#374151',
+                    colors: '#24438d',
                     fontFamily: 'Work Sans, sans-serif', // Change font family
                 },
                 formatter: function (value: number) {
@@ -71,7 +71,7 @@ const ByGenderRicePurity2024 = () => {
             title: {
                 text: 'Percentage of Participants',
                 style: {
-                    color: '#374151',
+                    color: '#24438d',
                     fontSize: '15px',
                     fontWeight: 400,
                     fontFamily: 'Work Sans, sans-serif',
@@ -81,7 +81,7 @@ const ByGenderRicePurity2024 = () => {
         legend: {
             fontSize: '16px',
             labels: {
-                colors: '#374151',
+                colors: '#24438d',
                 fontFamily: 'Work Sans, sans-serif', // Change font family
             },
         },
