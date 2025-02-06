@@ -4,7 +4,7 @@ import authOptions from './auth/[...nextauth]';
 import { getUser, updateProfile } from '@/controllers';
 import { Session } from 'next-auth';
 import { connect } from '@/database';
-import { Profile } from '@/types/users';
+import { User } from '@/types/users';
 
 /**
  * API handler to manage user profiles.
@@ -13,10 +13,10 @@ import { Profile } from '@/types/users';
  * Depending on the request method, it either retrieves or updates the user's profile.
  *
  * @param {NextApiRequest} req - The API request object.
- * @param {NextApiResponse<Profile | String>} res - The API response object used to return the user profile or an error message.
+ * @param {NextApiResponse<User | String>} res - The API response object used to return the user or an error message.
  * @returns {Promise<void>} - A promise that resolves when the response is sent.
  */
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Profile | String>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<User | String>) {
     const session: Session = (await unstable_getServerSession(req, res, authOptions))!;
     if (!session) return res.status(401).send('Unauthorized');
 
@@ -25,12 +25,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const { method } = req;
     switch (method) {
         case 'GET': {
-            const profile = await getUser(session.user);
-            return res.status(200).json(profile);
+            const user = await getUser(session.user);
+            return res.status(200).json(user);
         }
         case 'POST': {
-            const profile = await updateProfile(session.user, JSON.parse(req.body));
-            return res.status(200).json(profile);
+            const user = await updateProfile(session.user, JSON.parse(req.body));
+            return res.status(200).json(user);
         }
         default:
             return res.status(405).send('Method Not Allowed');

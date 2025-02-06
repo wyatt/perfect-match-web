@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { unstable_getServerSession } from 'next-auth/next';
-import authOptions from './auth/[...nextauth]';
+import authOptions from '../auth/[...nextauth]';
 import { getUsers } from '@/controllers';
 import { Session } from 'next-auth';
 import { connect } from '@/database';
@@ -15,6 +15,10 @@ import { User } from '@/types/users';
  *
  * @param {NextApiRequest} req - The API request object.
  * @param {NextApiResponse<User[] | String>} res - The API response object used to return the list of users or an error message.
+ * @param {Object} req.query - The query parameters for the request.
+ * @param {string} [req.query.page='1'] - The page number for pagination.
+ * @param {string} [req.query.limit='0'] - The number of users to return per page.
+ * @param {string} [req.query.searchTerm=''] - The search term to filter users.
  * @returns {Promise<void>} - A promise that resolves when the response is sent.
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse<User[] | String>) {
@@ -26,6 +30,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
     await connect();
 
-    const users = await getUsers();
+    const { page = '1', limit = '0', searchTerm = '' } = req.query;
+
+    const users = await getUsers(Number(page), Number(limit), searchTerm as string);
     return res.status(200).json(users);
 }

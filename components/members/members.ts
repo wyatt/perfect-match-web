@@ -2,12 +2,12 @@ export const team = [
     {
         Name: 'Engineering',
         Description:
-            'There are three subteams of Engineering: Web Development, Algorithms, and Data Analysis. The Web Dev subteam builds the front-end and back-end of the Perfect Match website. The Algorithms subteam improves the matching algorithm that matches students based on their preferences. The Data Analysis subteam analyzes and visualizes the data collected from the Perfect Match survey.',
+            'There are three subteams of Engineering: Web Development, Algorithms, and Data Analysis. The <strong>Web Dev</strong> subteam builds the front-end and back-end of the Perfect Match website. The <strong>Algorithms</strong> subteam improves the matching algorithm that matches students based on their preferences. The <strong>Data Analysis</strong> subteam analyzes and visualizes the data collected from the Perfect Match survey.',
         Members: [
             {
                 Name: 'Nicholas Varela',
                 ClassYear: 2025,
-                Major: 'CS & Government',
+                Major: 'CS & Gov',
                 Img: '/members/nick.jpg',
                 Linkedin: 'https://www.linkedin.com/in/nicholas-varela',
                 Title1: 'Engineering Team Lead',
@@ -41,19 +41,10 @@ export const team = [
             {
                 Name: 'Daniel Chuang',
                 ClassYear: 2026,
-                Major: 'CS & Math & Government',
+                Major: 'CS & Math & Gov',
                 Img: '/members/daniel.png',
                 Linkedin: 'https://www.linkedin.com/in/daniel-chuang-7a1bb920b/',
                 Title1: 'Data Analysis Subteam Head',
-            },
-            {
-                Name: 'Samantha Smith',
-                ClassYear: 2026,
-                Major: 'Information Science',
-                Img: '/members/sam.jpeg',
-                Linkedin:
-                    'https://www.linkedin.com/in/samantha-smith-057302251/?profileId=ACoAAD4owcMBUJd9F2pVXmgf5ClwGk_KIu2gmrM/',
-                Title1: 'Web Dev Subteam Member & Designer',
             },
             {
                 Name: 'Cindy Li',
@@ -96,7 +87,7 @@ export const team = [
     {
         Name: 'Business',
         Description:
-            'The Business team is responsible for marketing Perfect Match and reaching out to potential sponsors.',
+            'There are two subteams of Business: Design and Business. The <strong>Design</strong> subteam conducts research to learn more about Perfect Match’s user in order to iterate on the product. The <strong>Business</strong> subteam is responsible for marketing Perfect Match and reaching out to potential sponsors/partners.',
         Members: [
             {
                 Name: 'Kelly Hong',
@@ -108,7 +99,7 @@ export const team = [
                 Title2: 'Designer',
             },
             {
-                Name: 'Samantha Smith',
+                Name: 'Sam Smith',
                 ClassYear: 2026,
                 Major: 'Information Science',
                 Img: '/members/sam.jpeg',
@@ -120,7 +111,7 @@ export const team = [
             {
                 Name: 'Elif Yilmaz',
                 ClassYear: 2027,
-                Major: 'Economics and Government',
+                Major: 'Econ & Gov',
                 Img: '/members/elif.png',
                 Linkedin:
                     ' https://www.linkedin.com/in/elif-naz-yilmaz/',
@@ -136,22 +127,22 @@ export const team = [
                 Title1: 'Designer',
             },
             {
-                Name: 'Carl Hu',
-                ClassYear: 2028,
-                Major: 'CS + Cognitive Science',
-                Img: '/members/carl.png',
-                Linkedin:
-                    'https://www.linkedin.com/in/carl-hu/',
-                Title1: 'Business Team Member',
-            },
-            {
                 Name: 'Lydia Lin',
                 ClassYear: 2025,
-                Major: 'MPS Information Science',
+                Major: 'MPS Info Sci',
                 Img: '/members/lydia.png',
                 Linkedin:
                     'https://www.linkedin.com/in/lydia-lin-42a977325/',
                 Title1: 'Designer',
+            },
+            {
+                Name: 'Carl Hu',
+                ClassYear: 2028,
+                Major: 'CS & Cog Sci',
+                Img: '/members/carl.png',
+                Linkedin:
+                    'https://www.linkedin.com/in/carl-hu/',
+                Title1: 'Business Team Member',
             }
             // {
             //     Name: 'Lucy Yang',

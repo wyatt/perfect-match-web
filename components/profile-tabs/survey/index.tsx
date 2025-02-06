@@ -23,6 +23,9 @@ const SurveyComponent = (props: any) => {
     survey.onPartialSend.add(saveSurveyData);
     survey.onValueChanged.add(saveSurveyData);
     survey.onCurrentPageChanged.add(saveSurveyData);
+    survey.onCurrentPageChanged.add(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
     const prevData = JSON.stringify(props.survey);
 

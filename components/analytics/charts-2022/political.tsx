@@ -46,7 +46,7 @@ const Political = () => {
         },
         grid: {
             padding: {
-                bottom: -100,
+                bottom: -250,
             },
         },
         dataLabels: {

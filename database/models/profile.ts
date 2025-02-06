@@ -13,7 +13,7 @@ export interface IProfile extends Document {
     race: string[];
     year: string;
     college: string;
-    major?: string;
+    major?: [string];
     commitment: string;
     relationshipType: string;
     agePref: {
@@ -21,25 +21,26 @@ export interface IProfile extends Document {
         oldest: number;
     };
     activities: string[];
-    describeYourself?: { describe1: string; describe2: string; describe3: string };
-    describePartner?: { describe1: string; describe2: string; describe3: string };
+    greenFlag: string;
+    guiltyPleasure: string;
     bio?: string;
+    religion?: string[];
 }
 
 export const profileSchema: Schema = new Schema<IProfile>(
     {
         complete: { type: Boolean, default: false },
         firstName: { type: String, trim: true, required: true },
-        lastName: { type: String, trim: true, required: true },
-        gender: { type: String, enum: profile.gender },
-        genderPref: [{ type: String, enum: profile.gender }],
+        lastName: { type: String, trim: true },
+        gender: { type: String },
+        genderPref: [{ type: String }],
         age: { type: Number, min: 17, max: 40 },
         height: { type: Number, min: 55, max: 78 },
         city: { type: String },
-        race: [{ type: String, enum: profile.race }],
+        race: [{ type: String }],
         year: { type: String, enum: profile.classYear },
         college: { type: String, enum: profile.college },
-        major: { type: String },
+        major: [{ type: String }],
         commitment: { type: String, enum: profile.commitment },
         relationshipType: { type: String, enum: profile.relationshipType },
         agePref: {
@@ -47,17 +48,10 @@ export const profileSchema: Schema = new Schema<IProfile>(
             oldest: { type: Number, min: 17, max: 40 },
         },
         activities: [{ type: String, enum: profile.activities }],
-        describeYourself: {
-            describe1: { type: String },
-            describe2: { type: String },
-            describe3: { type: String },
-        },
-        describePartner: {
-            describe1: { type: String },
-            describe2: { type: String },
-            describe3: { type: String },
-        },
+        greenFlag: { type: String },
+        guiltyPleasure: { type: String },
         bio: { type: String },
+        religion: [{ type: String }],
     },
     { _id: false },
 );

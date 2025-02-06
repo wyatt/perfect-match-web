@@ -9,7 +9,7 @@ export const questions = {
     pages: [
         {
             name: 'Welcome',
-            title: 'Perfect Match 2024',
+            title: 'Perfect Match 2025',
             description: 'Elements marked <> will be shared with your matches.',
 
             elements: [
@@ -26,33 +26,33 @@ export const questions = {
                                     type: 'expression',
                                     text: 'Please enter at least one method of contact',
                                     expression:
-                                        '{contact.fb} notempty or {contact.insta} notempty or {contact.linkedin} notempty or {contact.snapchat} notempty or {contact.twitter} notempty or {contact.phone} notempty or {contact.other} notempty',
+                                        '{contact.phone} notempty or {contact.insta} notempty or {contact.snapchat} notempty or {contact.wechat} notempty or {contact.fb} notempty or {contact.email} notempty or {contact.other} notempty',
                                 },
                             ],
                             items: [
                                 {
-                                    name: 'fb',
-                                    title: 'Facebook profile link',
+                                    name: 'phone',
+                                    title: 'Phone number',
                                 },
                                 {
                                     name: 'insta',
                                     title: 'Instagram handle',
                                 },
                                 {
-                                    name: 'twitter',
-                                    title: 'Twitter handle',
-                                },
-                                {
                                     name: 'snapchat',
                                     title: 'Snapchat username',
                                 },
                                 {
-                                    name: 'linkedin',
-                                    title: 'LinkedIn profile link',
+                                    name: 'wechat',
+                                    title: 'WeChat username',
                                 },
                                 {
-                                    name: 'phone',
-                                    title: 'Phone number',
+                                    name: 'fb',
+                                    title: 'Facebook profile link',
+                                },
+                                {
+                                    name: 'email',
+                                    title: 'Email / GCal Invite',
                                 },
                                 {
                                     name: 'other',
@@ -73,146 +73,263 @@ export const questions = {
             elements: [
                 {
                     type: 'radiogroup',
-                    name: 'faction',
-                    title: 'What’s the most traumatizing Cornell faction your prospective match could belong to?',
+                    name: 'lockIn',
+                    title: 'Best place to lock-in?',
                     isRequired: true,
                     choices: [
                         {
-                            value: 'noshower',
-                            text: 'Near the top of the class for engineering talent, near the bottom for shower frequency',
+                            value: 'cocktail',
+                            text: 'Cocktail Lounge',
                         },
                         {
-                            value: 'dyson',
-                            text: 'Stress-free Dyson pupil, but claims to have a “genuine interest” in Discounted Cash Flow models.',
+                            value: 'olin',
+                            text: 'Olin Stacks',
                         },
                         {
-                            value: 'med',
-                            text: 'Pre-med who spends all their time complaining about CHEM 2070 on Sidechat.',
+                            value: 'adwhite',
+                            text: 'AD White',
                         },
                         {
-                            value: 'phil',
-                            text: 'Philosophy major that can’t pay the bills but declares their love to you in a timeless sonnet.',
-                        },
-                    ],
-                },
-                {
-                    type: 'dropdown',
-                    name: 'libraryRanking',
-                    title: "If they’re a 5 in the Hotel Library, they're a _ in Duffield.",
-                    isRequired: true,
-                    choices: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-                },
-                {
-                    type: 'radiogroup',
-                    name: 'clothDate',
-                    title: 'Worst thing your match could wear on a date:',
-                    isRequired: true,
-                    choices: [
-                        {
-                            value: 'gries',
-                            text: 'David Gries 73 Years of Programming Experience T-Shirt',
+                            value: 'mann',
+                            text: 'Mann',
                         },
                         {
-                            value: 'jersey',
-                            text: 'Cornell Hockey Jersey with some residual fish guts from the Cornell-Harvard game',
-                        },
-                        {
-                            value: 'vest',
-                            text: 'Patagonia Vest from their past internship',
-                        },
-                        {
-                            value: 'letterman',
-                            text: 'Scarsdale High School T-Shirt',
+                            value: 'dorm',
+                            text: 'My cozy dorm'
                         },
                     ],
                 },
                 {
                     type: 'radiogroup',
-                    name: 'alternative',
-                    title: 'Choose the best alternative. Your match is a 10, but they ____.',
+                    name: 'redFlagClub',
+                    title: 'What club is the biggest red flag?',
                     isRequired: true,
                     choices: [
                         {
-                            value: 'drunk',
-                            text: 'Drunk texted their ex last night',
+                            value: 'greeklife',
+                            text: 'Greek life',
                         },
                         {
-                            value: 'gothics',
-                            text: 'Lives in the Gothics',
+                            value: 'projectteam',
+                            text: 'Engineering Project Team',
                         },
                         {
-                            value: 'basement',
-                            text: 'Enjoys studying in the Olin Basement',
+                            value: 'bizclub',
+                            text: 'Business club / frat',
                         },
                         {
-                            value: 'oken',
-                            text: 'Eats at Okenshields everyday',
+                            value: 'performance',
+                            text: 'Performance-related club (dance, a capella, etc)',
                         },
                         {
-                            value: 'hinge',
-                            text: 'Got matched with your roommate on Hinge',
+                            value: 'perfectmatch',
+                            text: 'Perfect Match Team'
+                        },
+                    ],
+                },
+                {
+                    type: 'radiogroup',
+                    name: 'worstFirstKiss',
+                    title: 'Worst place to have your first kiss?',
+                    isRequired: true,
+                    choices: [
+                        {
+                            value: 'uris',
+                            text: 'Uris G01 in a full lecture',
+                        },
+                        {
+                            value: 'okenshields',
+                            text: 'Okenshields wok line',
+                        },
+                        {
+                            value: 'duffield',
+                            text: 'Duffield during project team fest',
+                        },
+                        {
+                            value: '7/11',
+                            text: '7/11 after Level B',
+                        },
+                        {
+                            value: 'barton',
+                            text: 'Barton Hall during career fair'
                         },
                     ],
                 },
                 {
                     type: 'radiogroup',
                     name: 'task',
-                    title: 'In the next year, I want to complete this task from the 161 Things Every Cornellian Should Do. ',
+                    title: 'Next year, I want to complete this task (from 161 Things Every Cornellian Should Do)',
                     isRequired: true,
                     choices: [
                         {
-                            value: 'hookup',
-                            text: 'Hook up with your T.A.',
-                        },
-                        {
                             value: 'bridge',
-                            text: 'Kiss on the suspension bridge at midnight',
+                            text: '“Kiss on the suspension bridge at midnight.”',
                         },
                         {
                             value: 'stacks',
-                            text: 'Make the library into your bedroom and have sex in the stacks',
+                            text: '“Have sex in the stacks.”',
                         },
                         {
-                            value: 'flirt',
-                            text: 'Flirt with your professor',
+                            value: 'picnic',
+                            text: '“Have a midnight picnic in the Ag Quad”',
+                        },
+                        {
+                            value: 'ra',
+                            text: '“Drink with your R.A.”',
                         },
                     ],
                 },
                 {
                     type: 'radiogroup',
-                    name: 'study',
-                    title: 'Late night study sesh on campus. Where?',
+                    name: 'hill',
+                    title: 'What Cornell hill would you die on?',
                     isRequired: true,
                     choices: [
                         {
-                            value: 'duff',
-                            text: 'Duffield',
+                            value: 'slopeday',
+                            text: 'Slope day isn’t worth the hype',
                         },
                         {
-                            value: 'cock',
-                            text: 'Cocktail',
+                            value: 'terrace',
+                            text: 'Terrace is overrated',
+                        },
+                        {
+                            value: 'bizvsstem',
+                            text: 'Business is harder than STEM',
+                        },
+                        {
+                            value: 'okenshields',
+                            text: 'Okenshields is the best dining hall',
+                        },
+                    ],
+                },
+                {
+                    type: 'radiogroup',
+                    name: 'bathroom',
+                    title: 'Top-tier, shit-worthy bathroom?',
+                    isRequired: true,
+                    hasOther: true,
+                    choices: [
+                        {
+                            value: 'uris',
+                            text: 'Uris'
                         },
                         {
                             value: 'psb',
-                            text: 'PSB',
+                            text: 'PSB'
                         },
                         {
-                            value: 'lib',
-                            text: 'Library',
+                            value: 'tang',
+                            text: 'Tang'
                         },
                         {
-                            value: 'goldwin',
-                            text: 'Goldwin Classroom',
+                            value: 'mvr',
+                            text: "MVR"
                         },
                         {
-                            value: 'room',
-                            text: 'My Cozy Room',
+                            value: 'own',
+                            text: 'My own...'
+                        }
+                    ]
+                },
+                {
+                    type: 'radiogroup',
+                    name: 'olinVsUris',
+                    title: 'Olin or Uris?',
+                    isRequired: true,
+                    choices: [
+                        {
+                            value: 'olin',
+                            text: 'Olin',
                         },
+                        {
+                            value: 'uris',
+                            text: 'Uris',
+                        }
+                    ],
+                },
+                {
+                    type: 'radiogroup',
+                    name: 'northVsWest',
+                    title: 'North or West?',
+                    isRequired: true,
+                    choices: [
+                        {
+                            value: 'north',
+                            text: 'North',
+                        },
+                        {
+                            value: 'west',
+                            text: 'West',
+                        }
+                    ],
+                },
+                {
+                    type: 'radiogroup',
+                    name: 'trilliumOrTerrace',
+                    title: 'Trillium or Terrace?',
+                    isRequired: true,
+                    choices: [
+                        {
+                            value: 'trillium',
+                            text: 'Trillium',
+                        },
+                        {
+                            value: 'terrace',
+                            text: 'Terrace',
+                        }
+                    ],
+                },
+                {
+                    type: 'radiogroup',
+                    name: 'celciusOrCoffee',
+                    title: 'Celsius or Coffee?',
+                    isRequired: true,
+                    choices: [
+                        {
+                            value: 'celsius',
+                            text: 'Celsius',
+                        },
+                        {
+                            value: 'coffee',
+                            text: 'Coffee',
+                        }
+                    ],
+                },
+                {
+                    type: 'radiogroup',
+                    name: 'walkOrBus',
+                    title: 'Walk or Bus?',
+                    isRequired: true,
+                    choices: [
+                        {
+                            value: 'walk',
+                            text: 'Walk',
+                        },
+                        {
+                            value: 'bus',
+                            text: 'Bus',
+                        }
+                    ],
+                },
+                {
+                    type: 'radiogroup',
+                    name: 'fallOrSpring',
+                    title: 'Fall Semester or Spring Semester?',
+                    isRequired: true,
+                    choices: [
+                        {
+                            value: 'fall',
+                            text: 'Fall',
+                        },
+                        {
+                            value: 'spring',
+                            text: 'Spring',
+                        }
                     ],
                 },
             ],
         },
-
         {
             name: 'Interests',
             elements: [
@@ -225,6 +342,7 @@ export const questions = {
                     type: 'checkbox',
                     name: 'interests',
                     title: '<> I am passionate about... (Select your top 3, and feel free to elaborate on them in your bio!)',
+                    maxSelectedChoices: 3,
                     isRequired: true,
                     choices: [
                         {
@@ -319,14 +437,26 @@ export const questions = {
                             value: 'edm',
                             text: 'EDM',
                         },
+                        {
+                            value: 'afrobeat',
+                            text: 'Afrobeat',
+                        },
+                        {
+                            value: 'house',
+                            text: 'House',
+                        },
+                        {
+                            value: 'country',
+                            text: 'Country',
+                        },
                     ],
                 },
                 {
                     name: 'hookupsong',
-                    isRequired: true,
+                    isRequired: false,
 
                     type: 'text',
-                    title: 'The First Song of My Hook-Up Playlist Is…',
+                    title: 'The most recent song on my hook-up playlist is…',
                 },
             ],
         },
@@ -340,36 +470,32 @@ export const questions = {
                     isRequired: true,
                     choices: [
                         {
-                            value: 'white',
-                            text: 'White Lotus',
+                            value: 'squid',
+                            text: 'Squid Game',
                         },
                         {
-                            value: 'bear',
-                            text: 'The Bear',
-                        },
-                        {
-                            value: 'ted',
-                            text: 'Ted Lasso',
-                        },
-                        {
-                            value: 'succession',
-                            text: 'Succession',
-                        },
-                        {
-                            value: 'percy',
-                            text: 'Percy Jackson',
-                        },
-                        {
-                            value: 'lastofus',
-                            text: 'Last Of Us',
-                        },
-                        {
-                            value: 'singles',
+                            value: 'singlesInferno',
                             text: 'Singles Inferno',
                         },
                         {
-                            value: 'boys',
-                            text: 'The Boys',
+                            value: 'xoKitty',
+                            text: 'XO Kitty',
+                        },
+                        {
+                            value: 'himym',
+                            text: 'How I Met Your Mother',
+                        },
+                        {
+                            value: 'breakingBad',
+                            text: 'Breaking Bad',
+                        },
+                        {
+                            value: 'gameOfThrones',
+                            text: 'Game of Thrones',
+                        },
+                        {
+                            value: 'jjk',
+                            text: 'Jujutsu Kaisen',
                         },
                     ],
                 },
@@ -380,24 +506,28 @@ export const questions = {
                     isRequired: true,
                     choices: [
                         {
-                            value: 'coffee',
-                            text: 'Coffee on campus',
+                            value: 'farm',
+                            text: 'Indian Creek Farm',
                         },
                         {
-                            value: 'cinema',
-                            text: 'Cornell Cinema',
+                            value: 'catCafe',
+                            text: 'Alley Cat Cafe',
                         },
                         {
-                            value: 'commons',
-                            text: 'Restaurant in the Commons',
+                            value: 'market',
+                            text: 'Farmer\'s Market',
                         },
                         {
-                            value: 'dininghall',
-                            text: 'Dining hall',
+                            value: 'gorge',
+                            text: 'Gorge Walk',
                         },
                         {
-                            value: 'fishbowl',
-                            text: 'Pushing fishbowl',
+                            value: 't&b',
+                            text: 'Thompson and Bleeker',
+                        },
+                        {
+                            value: 'levelb',
+                            text: 'Level B',
                         },
                     ],
                 },
@@ -431,32 +561,33 @@ export const questions = {
                     title: 'What’s your biggest ick in a relationship?',
                     isRequired: true,
                     choices: [
+                        //Owns Spiritual Crystals, Bad Tipper, From Westchester, Claps when the plane lands, Calls their favorite sports team ‘we’
+                        {
+                            value: 'crystals',
+                            text: 'Owns Spiritual Crystals',
+                        },
+                        {
+                            value: 'tipper',
+                            text: 'Bad Tipper',
+                        },
                         {
                             value: 'westchester',
                             text: 'From Westchester',
                         },
                         {
-                            value: 'astrology',
-                            text: 'Believes in astrology',
+                            value: 'plane',
+                            text: 'Claps when the plane lands',
                         },
                         {
-                            value: 'beerpongball',
-                            text: 'Chasing a beer pong ball',
-                        },
-                        {
-                            value: 'footballteam',
-                            text: 'Referring to their football team as ‘we’',
-                        },
-                        {
-                            value: 'gymrat',
-                            text: 'Gym rat',
+                            value: 'sportsteam',
+                            text: 'Calls their favorite sports team \'we\'',
                         },
                     ],
                 },
                 {
                     type: 'radiogroup',
                     name: 'greenflag',
-                    title: 'What’s your biggest green flag in a relationship?',
+                    title: 'What’s the biggest green flag you look for in a partner?',
                     isRequired: true,
                     choices: [
                         {
@@ -473,18 +604,26 @@ export const questions = {
                         },
                         {
                             value: 'smellsgood',
-                            text: 'Smells Good',
+                            text: 'Smells good',
                         },
                         {
                             value: 'gymrat',
-                            text: 'Gym Rat',
+                            text: 'Gym goer',
+                        },
+                        {
+                            value: 'kids',
+                            text: 'Good with kids',
+                        },
+                        {
+                            value: 'gpa',
+                            text: '4.0 GPA',
                         },
                     ],
                 },
                 {
                     type: 'radiogroup',
                     name: 'lovelanguage',
-                    title: 'What`s your most important love language?',
+                    title: 'What\'s your most important love language?',
                     isRequired: true,
                     choices: [
                         {
@@ -513,30 +652,6 @@ export const questions = {
                         },
                     ],
                 },
-                {
-                    type: 'radiogroup',
-                    name: 'quality',
-                    title: 'What quality do you value most?',
-                    isRequired: true,
-                    choices: [
-                        {
-                            value: 'reliability',
-                            text: 'Reliability',
-                        },
-                        {
-                            value: 'humor',
-                            text: 'Humor',
-                        },
-                        {
-                            value: 'thoughtfulness',
-                            text: 'Thoughtfulness',
-                        },
-                        {
-                            value: 'independence',
-                            text: 'Independence',
-                        },
-                    ],
-                },
             ],
         },
         {
@@ -547,7 +662,7 @@ export const questions = {
                     name: 'sleeptime',
                     title: 'What time do you go to bed?',
                     isRequired: true,
-                    choices: ['7pm', '8pm', '9pm', '10pm', '11pm', '12am', '1am', '2am', '3am', '4am', '5am', '6am'],
+                    choices: ['6pm', '7pm', '8pm', '9pm', '10pm', '11pm', '12am', '1am', '2am', '3am', '4am', '5am', '6am'],
                 },
                 {
                     type: 'dropdown',
@@ -568,54 +683,6 @@ export const questions = {
                         '1pm',
                         '2pm',
                         '3pm',
-                    ],
-                },
-                {
-                    type: 'radiogroup',
-                    name: 'perfectDay',
-                    title: 'What would your perfect day look like?',
-                    isRequired: true,
-                    choices: [
-                        {
-                            value: 'outdoor',
-                            text: 'Going on an outdoor adventure',
-                        },
-                        {
-                            value: 'netflix',
-                            text: 'Watching Netflix',
-                        },
-                        {
-                            value: 'newppl',
-                            text: 'Meeting new people',
-                        },
-                        {
-                            value: 'newfood',
-                            text: 'Trying new cuisines',
-                        },
-                        {
-                            value: 'museums',
-                            text: 'Visiting museums',
-                        },
-                        {
-                            value: 'gaming',
-                            text: 'Playing video games',
-                        },
-                        {
-                            value: 'sleep',
-                            text: 'Sleeping',
-                        },
-                        {
-                            value: 'friends',
-                            text: 'Hanging out with close friends',
-                        },
-                        {
-                            value: 'city',
-                            text: 'Exploring a city',
-                        },
-                        {
-                            value: 'study',
-                            text: 'Studying',
-                        },
                     ],
                 },
                 {
@@ -649,20 +716,16 @@ export const questions = {
                     isRequired: true,
                     choices: [
                         {
-                            value: 'physical',
-                            text: 'Physical, slapstick, pranks ',
+                            value: 'pranks',
+                            text: 'Planning pranks',
                         },
                         {
-                            value: 'witty',
-                            text: 'Witty, dry, sarcastic',
+                            value: 'sarcastic',
+                            text: 'Sarcastic',
                         },
                         {
                             value: 'puns',
                             text: 'Punny',
-                        },
-                        {
-                            value: 'observational',
-                            text: 'Observational',
                         },
                         {
                             value: 'deprecating',
@@ -670,22 +733,22 @@ export const questions = {
                         },
                         {
                             value: 'improv',
-                            text: 'Improvisational',
+                            text: 'Committing to the bit',
                         },
                         {
-                            value: 'surreal',
-                            text: 'Surreal, absurd',
+                            value: 'references',
+                            text: 'Pop culture references',
                         },
                         {
-                            value: 'cultural',
-                            text: 'Highbrow, literary, cultural references',
-                        },
+                            value: 'darkhumor',
+                            text: 'Dark humor'
+                        }
                     ],
                 },
                 {
                     type: 'checkbox',
                     name: 'sociability',
-                    title: 'How would you describe your social presence? (Check all that apply)',
+                    title: 'Which of these phrases resonate with you? (Check all that apply)',
                     isRequired: true,
                     hasNone: true,
                     choices: [
@@ -694,17 +757,25 @@ export const questions = {
                             text: 'I like parties',
                         },
                         {
-                            value: 'storyteller',
-                            text: 'I am a good storyteller',
+                            value: 'activities',
+                            text: 'I enjoy laid-back activities',
                         },
                         {
                             value: 'in_touch',
-                            text: 'I am good at keeping in touch ',
+                            text: 'I\'m not on social media',
                         },
                         {
                             value: 'popular',
                             text: 'I consider myself to be popular',
                         },
+                        {
+                            value: 'canceled',
+                            text: 'I secretly cheer when my plans get cancelled'
+                        },
+                        {
+                            value: 'homebody',
+                            text: 'I\'m a homebody'
+                        }
                     ],
                 },
             ],
@@ -890,6 +961,33 @@ export const questions = {
                         },
                     ],
                 },
+                {
+                    type: 'radio',
+                    name: 'whySingle',
+                    isRequired: true,
+                    choices: [
+                        {
+                            value: 'soulmate',
+                            text: 'I haven’t found my soul mate yet'
+                        },
+                        {
+                            value: 'commitment',
+                            text: '#commitmentissues'
+                        },
+                        {
+                            value: 'lockedIn',
+                            text: 'Too locked in'
+                        },
+                        {
+                            value: 'noRizz',
+                            text: 'No rizz'
+                        },
+                        {
+                            value: 'idk',
+                            text: 'Idk man'
+                        }
+                    ]
+                }
             ],
         },
         {
@@ -913,45 +1011,24 @@ export const questions = {
                 {
                     type: 'text',
                     name: 'longestrelationship',
-                    title: 'How many months was your longest relationship?',
-                    requiredErrorText: 'You relationship must be between 0 and 144',
+                    title: 'How many months was your longest relationship? (put 0 if not applicable)',
+                    requiredErrorText: 'You answer must be between 0 and 300',
                     isRequired: true,
                     validators: [
                         {
                             type: 'numeric',
                             text: '',
                             minValue: 0,
-                            maxValue: 200,
+                            maxValue: 300,
                         },
                     ],
                 },
                 {
                     type: 'dropdown',
                     name: 'ricePurity',
-                    title: 'What is your Rice Purity Score?',
+                    title: 'What is your <a style="color: #f7a4af" href="https://ricepuritytest.com"><u>Rice Purity Score?</u></a>',
                     isRequired: true,
-                    choices: ['0-20', '21-40', '41-60', '61-80', '81-100'],
-                },
-
-                {
-                    type: 'radiogroup',
-                    name: 'pairedwith',
-                    title: 'I would like to be paired with someone who...',
-                    isRequired: true,
-                    choices: [
-                        {
-                            value: 'similar',
-                            text: 'Has mostly similar interests to me',
-                        },
-                        {
-                            value: 'different',
-                            text: 'Has mostly different interests than me',
-                        },
-                        {
-                            value: 'either',
-                            text: 'I am fine with either',
-                        },
-                    ],
+                    choices: ['0-20', '21-40', '41-60', '61-80', '81-100', 'Skip'],
                 },
                 // {
                 //     type: 'checkbox',
@@ -1029,7 +1106,11 @@ export const questions = {
                         },
                         {
                             value: 'smoking',
-                            text: 'Cigarettes/E-cigs ',
+                            text: 'Cigarettes/E-cigs',
+                        },
+                        {
+                            value: 'zyns',
+                            text: 'Nicotine Pouches (e.g. Zyns)',
                         },
                         {
                             value: 'weed',
@@ -1077,6 +1158,10 @@ export const questions = {
                             text: 'Cigarettes/E-cigs ',
                         },
                         {
+                            value: 'zyns',
+                            text: 'Nicotine Pouches (e.g. Zyns)',
+                        },
+                        {
                             value: 'weed',
                             text: 'Marijuana',
                         },
@@ -1097,6 +1182,10 @@ export const questions = {
                             text: 'Difference in political views',
                         },
                         {
+                            value: 'religion',
+                            text: 'Difference in religious views',
+                        },
+                        {
                             value: 'social',
                             text: 'Difference in social habits',
                         },
@@ -1106,7 +1195,7 @@ export const questions = {
                 {
                     type: 'html',
                     name: 'disregard1',
-                    html: 'Disclaimer: <br><i>Perfect Match does not take any responsibility and is not liable for any distress caused through the use of our service. By responding to this form, you are giving Perfect Match the right to process your data and match you with another individual at Cornell. Perfect Match takes precautions to protect your privacy and to keep your information secure. We strive to be transparent in the way we process your data and will be sharing our project’s process with you soon!</i>',
+                    html: 'Disclaimer: <br><i>Perfect Match does not take any responsibility and is not liable for any distress caused through the use of our service. By responding to this form, you are giving Perfect Match the right to process your data and match you with another individual at Cornell. Perfect Match takes precautions to protect your privacy and to keep your information secure. We strive to be transparent in the way we process your data. Please see our <a href="/about" style="color: #24438d" target="_blank"><u>about page</u></a> for more information.</i>',
                 },
             ],
         },
