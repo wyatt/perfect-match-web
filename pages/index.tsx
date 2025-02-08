@@ -105,7 +105,7 @@ const Home: NextPage = (props: any) => {
                                     ) : (
                                         <Link href="/profile">
                                             <Button bold={true} >
-                                                fill Out Perfect Match
+                                                fill out Perfect Match
                                             </Button>
                                         </Link>
                                     )}
