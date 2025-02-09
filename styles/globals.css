@@ -66,13 +66,6 @@ a {
     animation: pulse-glow 1s infinite alternate;
 }
 
-svg,
-div {
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
 .main {
     font-family: 'Work Sans'
 }
