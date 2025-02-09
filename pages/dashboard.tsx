@@ -2,7 +2,7 @@ import Head from 'next/head';
 import type { NextPage } from 'next';
 import { getSession } from 'next-auth/react';
 import { Footer } from '@/components/footer';
-import LiveDashboard from '@/components/analytics/live-dashboard';
+import LiveDashboard from '@/components/analytics/2024live-dashboard';
 import { Header } from '@/components/header';
 import { fetcher } from '@/utils/fetch';
 import useSWR from 'swr';

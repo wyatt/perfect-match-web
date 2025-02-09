@@ -51,10 +51,10 @@ const SurveyComponent = (props: any) => {
     });
 
     var defaultThemeColors = Survey.StylesManager.ThemeColors['default'];
-    defaultThemeColors['$main-color'] = '#fda4af';
-    defaultThemeColors['$main-hover-color'] = '#fda4af';
-    defaultThemeColors['$header-color'] = '#fda4af';
-    defaultThemeColors['$primary'] = '#fda4af';
+    defaultThemeColors['$main-color'] = '#fb7185';
+    defaultThemeColors['$main-hover-color'] = '#fb7185';
+    defaultThemeColors['$header-color'] = '#fb7185';
+    defaultThemeColors['$primary'] = '#fb7185';
     defaultThemeColors['$error-color'] = '#fecdd3';
     defaultThemeColors['$error-background-color'] = '#fecdd3';
     defaultThemeColors['$answer-background-color'] = '#rgba(255, 157, 165, 0.5)';

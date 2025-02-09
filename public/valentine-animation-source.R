@@ -95,7 +95,7 @@ saveGIF({
     p <- ggplot(heart_full[seq(num_hearts), ], 
                 aes(x, y, color = z1, size = z2)) + 
       geom_point(pch = -1 * as.hexmode(9829)) + 
-      scale_color_gradient(limits = c(0, 1), low = "#fda4af", high ="white") + 
+      scale_color_gradient(limits = c(0, 1), low = "#fb7185", high ="white") + 
       scale_size(limits = c(0, 3), range = c(2,25)) + 
       theme_light() +
       coord_cartesian(xlim = c(-1.5, 1.5), ylim = c(-1.25, 1.5))+
