@@ -7,15 +7,33 @@ import Link from 'next/link';
 import Stats2023 from '@/components/analytics/2023Analytics';
 import Stats2022 from '@/components/analytics/2022Analytics';
 import Stats2024 from '@/components/analytics/2024Analytics';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/general';
 
 const Statistics = (props: { title: string }) => {
     const [year, setYear] = useState(2024); // Default year
 
+    useEffect(() => {
+        // Currently, hide the 2024 data on mobile until responsive design is implemented
+        if (typeof window !== 'undefined') {
+            const isMobile = window.innerWidth < 768;
+            console.log(isMobile);
+            console.log(window.innerWidth);
+            setYear(isMobile ? 2023 : 2024);
+
+            const handleResize = () => {
+                const isMobile = window.innerWidth < 768;
+                setYear(isMobile ? 2023 : 2024);
+            };
+
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }
+    }, []);
+
     return (
 
-        <div style={{ fontFamily: 'Work Sans' }}>
+        <div className='font-work-sans overflow-x-hidden'>
             <Head>
                 <title>{props.title}</title>
             </Head>
@@ -65,8 +83,19 @@ const Statistics = (props: { title: string }) => {
                             Travel back in time to explore statistics from past years!
                         </p>
 
-                        <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-4 md:mt-0">
+                        <div className="hidden md:flex flex-wrap justify-center md:justify-start gap-4 mt-4 md:mt-0">
                             {[2022, 2023, 2024].map((y) => (
+                                <Button
+                                    key={y}
+                                    onClick={() => setYear(y)}
+                                    bold={true}
+                                >
+                                    {y}
+                                </Button>
+                            ))}
+                        </div>
+                        <div className='flex md:hidden flex-wrap justify-center md:justify-start gap-4 mt-4 md:mt-0'>
+                            {[2022, 2023].map((y) => (
                                 <Button
                                     key={y}
                                     onClick={() => setYear(y)}
