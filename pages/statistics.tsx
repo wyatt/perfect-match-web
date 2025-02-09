@@ -1,4 +1,5 @@
 import styles from '@/styles/Home.module.css';
+import Image from 'next/image';
 import Head from 'next/head';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
@@ -6,47 +7,73 @@ import Link from 'next/link';
 import Stats2023 from '@/components/analytics/2023Analytics';
 import Stats2022 from '@/components/analytics/2022Analytics';
 import Stats2024 from '@/components/analytics/2024Analytics';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/general';
 
 const Statistics = (props: { title: string }) => {
     const [year, setYear] = useState(2024); // Default year
 
+    useEffect(() => {
+        // Currently, hide the 2024 data on mobile until responsive design is implemented
+        if (typeof window !== 'undefined') {
+            const isMobile = window.innerWidth < 768;
+            console.log(isMobile);
+            console.log(window.innerWidth);
+            setYear(isMobile ? 2023 : 2024);
+
+            const handleResize = () => {
+                const isMobile = window.innerWidth < 768;
+                setYear(isMobile ? 2023 : 2024);
+            };
+
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }
+    }, []);
+
     return (
-        <div style={{ fontFamily: 'Work Sans' }}>
+
+        <div className='font-work-sans overflow-x-hidden'>
             <Head>
                 <title>{props.title}</title>
             </Head>
             <Header />
-            <div className="bg-white sm:py-14 lg:py-10 sm:pr-4 pt-6">
-                <section
-                    className="sm:mr-0"
-                    style={{
-                        paddingBottom: '20px',
-                        paddingTop: '20px',
-                        height: '100%',
-                        backgroundSize: 'contain',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'right top',
-                        backgroundImage: 'url("/valentine.png")', // Ensure correct asset path
-                    }}
-                >
-                    <div className="pb-6 pt-56 sm:pt-64 lg:pt-64 lg:pb-36">
-                        <div className="max-w-xl text-center sm:text-left sm:ml-[15%] mt-8 sm:mt-0 opacity-100">
-                            <h1 className="text-xl sm:text-2xl text-pmred-500 lg:text-4xl opacity-100 font-dela-gothic">
-                                Can Love be Visualized?
-                            </h1>
-                            <p className="mt-4 mx-[10%] sm:mx-0 max-w-lg sm:text-lg text-pmred-500 sm:leading-relaxed font-work-sans">
-                                <strong>
-                                    Perhaps not without daydreaming about your crush, but your survey responses can!
-                                </strong>{' '}
-                                Join us on this journey to learn about some of the preferences and habits we&apos;ve
-                                discovered from several years of survey responses!
-                            </p>
-                        </div>
-                    </div>
-                </section>
+
+            <div className="absolute left-[-3vw] top-12 h-screen w-[18vw] hidden lg:block z-20 pointer-events-none">
+                <Image src="/left_hearts.svg" alt="left hearts" layout='fill' priority={true} draggable='false' />
             </div>
+            <div className="absolute right-0 top-0 translate-y-[200px] h-screen w-[8vw] hidden lg:block z-20 pointer-events-none">
+                <Image src="/right_hearts.svg" alt="right hearts" layout='fill' priority={true} draggable='false' />
+            </div>
+
+            <section
+                className="sm:mr-0"
+                style={{
+                    // paddingBottom: '10px',
+                    // paddingTop: '10px',
+                    height: '100%',
+                    backgroundSize: 'contain',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right top',
+                    // backgroundImage: 'url("valentine.png")',
+                }}
+            >
+                <div className="pb-6 pt-24 sm:pt-32 lg:pt-32 lg:pb-36">
+                    <div className="max-w-xl text-center sm:text-left sm:ml-[15%] mt-8 sm:mt-0 opacity-100">
+                        <h1 className="text-4xl sm:text-3xl font-dela-gothic text-pmblue-500 lg:text-5xl opacity-100">
+                            Can Love be Visualized?
+                        </h1>
+                        <p className="font:semibold mt-4 mx-[10%] sm:mx-0 max-w-lg sm:text-lg text-pmblue-500 sm:leading-relaxed">
+                            <strong>
+                                Perhaps not without daydreaming about your crush, but your survey responses can!
+                            </strong>{' '}
+                            Join us on this journey to learn about some of the preferences and habits we&apos;ve
+                            discovered from several years of survey responses!
+                        </p>
+                    </div>
+                </div>
+            </section>
+
 
             <div>
                 <div className="w-full bg-pmpink2-500 py-8 sm:py-12">
@@ -56,8 +83,19 @@ const Statistics = (props: { title: string }) => {
                             Travel back in time to explore statistics from past years!
                         </p>
 
-                        <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-4 md:mt-0">
+                        <div className="hidden md:flex flex-wrap justify-center md:justify-start gap-4 mt-4 md:mt-0">
                             {[2022, 2023, 2024].map((y) => (
+                                <Button
+                                    key={y}
+                                    onClick={() => setYear(y)}
+                                    bold={true}
+                                >
+                                    {y}
+                                </Button>
+                            ))}
+                        </div>
+                        <div className='flex md:hidden flex-wrap justify-center md:justify-start gap-4 mt-4 md:mt-0'>
+                            {[2022, 2023].map((y) => (
                                 <Button
                                     key={y}
                                     onClick={() => setYear(y)}
