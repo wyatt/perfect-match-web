@@ -8,7 +8,7 @@ import { Match } from './models/match';
 import { ObjectId } from 'mongodb';
 
 const matchRevealData =
-    'id email profile.name profile.firstName profile.year profile.major profile.firstName profile.city profile.describeYourself profile.describePartner profile.bio survey.hookupsong survey.hookupsongURL survey.contact';
+    'id email profile.name profile.firstName profile.year profile.major profile.firstName profile.city profile.describeYourself profile.describePartner profile.bio survey.hookupsong survey.hookupsongURL survey.contact survey.greenflag survey.interests profile.guiltyPleasure profile.relationshipType survey.humor survey.date survey.introvert';
 
 /**
  * Populates match data with specific fields from the User model.

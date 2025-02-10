@@ -23,9 +23,9 @@ const Profile: NextPage = (props: any) => {
                 <section className="bg-white ">
                     <div className="px-4 font-dela-gothic items-center sm:pt-16 sm:pb-10 py-10 sm:px-14 mx-auto max-w-screen-xl lg:grid lg:grid-cols-1">
                         <h1 className="text-2xl sm:text-3xl text-pmpink2-500">
-                            Welcome Back, {data.profile.firstName}!
+                            Hey, {data.profile.firstName},
                         </h1>
-                        <p className="mt-1 text-xl font-work-sans font-bold text-gray-500">Let&apos;s get matching!</p>
+                        <p className="mt-1 text-xl font-work-sans font-bold text-gray-500"> Your Matches are here</p>
                     </div>
                 </section>
             </div>

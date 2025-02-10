@@ -222,87 +222,135 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     const mutualCrushGlowClass = mutualCrush ? 'mutual-crush-glow' : '';
 
     return (
-        <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex">
-            <div
-                className={`items-center rounded-lg shadow-xl mx-[2%] sm:flex sm:w-3/4 lg:2/3 lg:max-w-3xl sm:mx-auto ${mutualCrushGlowClass}`}
-            >
-                <div className="flex sm:contents">
-                    <div className="text-8xl mt-4 sm:mt-0 sm:text-9xl mx-auto sm:ml-8 sm:mr-0">{matchEmoji}</div>
-                </div>
-                <div className="p-3 pt-1 sm:pl-6 sm:pr-10 sm:py-5 lg:pl-10">
-                    {mutualCrush && (
-                        <div className="p-3 mb-4 rounded-lg bg-pink-100 border border-pink-200 text-pink-500">
-                            <p>
-                                💌 There was no need for us to execute the algorithm, as your compatibility was
-                                unmistakable - indeed, a mutual crush. Now, what comes next is not for us to dictate -
-                                take the next step and go on a date ❤️‍🔥!
-                            </p>
-                        </div>
-                    )}
-                    <h3 className="text-3xl font-bold font-botracking-tight text-gray-500">
-                        <span className={color[Math.floor(Math.random() * (6 - 0 + 1) + 0)]}>
-                            {matchData.profile.firstName}
-                        </span>
-                    </h3>
-                    <hr className="h-0.5 my-2 bg-rose-200 border-0"></hr>
-                    <p className="text-gray-500">
+        <div>
+            {/* Front of Card  */}
+            <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex">
+                <div
+                    className={`items-center rounded-lg shadow-xl mx-[2%] sm:flex sm:w-3/4 lg:2/3 lg:max-w-3xl sm:mx-auto ${mutualCrushGlowClass}`}
+                >
+                    <div className="flex sm:contents">
+                        <div className="text-8xl mt-4 sm:mt-0 sm:text-9xl mx-auto sm:ml-8 sm:mr-0">{matchEmoji}</div>
+                    </div>
+                    <div className="p-3 pt-1 sm:pl-6 sm:pr-10 sm:py-5 lg:pl-10">
+                        {mutualCrush && (
+                            <div className="p-3 mb-4 rounded-lg bg-pink-100 border border-pink-200 text-pink-500">
+                                <p>
+                                    💌 There was no need for us to execute the algorithm, as your compatibility was
+                                    unmistakable - indeed, a mutual crush. Now, what comes next is not for us to dictate -
+                                    take the next step and go on a date ❤️‍🔥!
+                                </p>
+                            </div>
+                        )}
+                        <h3 className="text-3xl font-bold font-botracking-tight text-gray-500">
+                            <span className={color[Math.floor(Math.random() * (6 - 0 + 1) + 0)]}>
+                                {matchData.profile.firstName}
+                            </span>
+                        </h3>
+                        <hr className="h-0.5 my-2 bg-rose-200 border-0"></hr>
+                        {/* <p className="text-gray-500">
                         📚 {matchData.profile.year.charAt(0).toUpperCase() + matchData.profile.year.slice(1)},{' '}
                         {matchData.profile.major.charAt(0).toUpperCase() + matchData.profile.major.slice(1)}
-                    </p>
-                    <p className="text-gray-500 ">📍 {matchData.profile.city}</p>
-                    <p className="mt-3 sm:mt-4 mb-2 text-gray-500">
-                        Three words to describe me:{' '}
-                        <span className="font-bold">{matchData.profile?.describeYourself?.describe1}</span>,{' '}
-                        <span className="font-bold">{matchData.profile?.describeYourself?.describe2}</span>,{' '}
-                        <span className="font-bold">{matchData.profile?.describeYourself?.describe3}</span>
-                    </p>
-                    <p className="mt-2 sm:mt-2 mb-2 text-gray-500">
-                        First song on my hookup playlist:
-                        <span className="font-bold"> {matchData.survey?.hookupsong}</span>
-                    </p>
-                    <p className="mb-2 sm:mb-2 text-gray-500">
-                        Bio: <span className="font-bold">{matchData.profile.bio}</span>
-                    </p>
-                    {contact.insta && (
-                        <p className="mb-4 sm:mb-3 text-gray-500">
-                            Instagram: <span className="font-bold">{contact.insta}</span>
+                    </p> */}
+                        <p className="text-gray-500 "><strong>City: </strong>{matchData.profile.city} <strong> Green Flag: </strong>{matchData.survey.greenflag}</p>
+                        <p className="text-gray-500 "> Guilty Pleasure: {matchData.profile.guiltyPleasure}</p>
+                        <p className="mt-3 sm:mt-4 mb-2 text-gray-500">
+                            {matchData.profile.bio}
                         </p>
-                    )}
-                    {contact.fb && (
-                        <p className="mb-4 sm:mb-3 text-gray-500">
-                            Facebook: <span className="font-bold">{contact.fb}</span>
-                        </p>
-                    )}
-                    {contact.twitter && (
-                        <p className="mb-4 sm:mb-3 text-gray-500">
-                            Twitter: <span className="font-bold">{contact.twitter}</span>
-                        </p>
-                    )}
-                    {contact.linkedin && (
-                        <p className="mb-4 sm:mb-3 text-gray-500">
-                            LinkedIn: <span className="font-bold">{contact.linkedin}</span>
-                        </p>
-                    )}
-                    {contact.phone && (
-                        <p className="mb-4 sm:mb-3 text-gray-500">
-                            Phone Number: <span className="font-bold">{contact.phone}</span>
-                        </p>
-                    )}
-                    {contact.snap && (
-                        <p className="mb-4 sm:mb-3 text-gray-500">
-                            Snapchat: <span className="font-bold">{contact.snap}</span>
-                        </p>
-                    )}
-                    {contact.other && (
-                        <p className="mb-4 sm:mb-3 text-gray-500">
-                            Other: <span className="font-bold">{contact?.other}</span>
-                        </p>
-                    )}
-                    <div className="w-1/2">{renderSongSection()}</div>
-                    {/* <MatchFeedback matchID={matchID} matchFeedback={matchFeedback} refresh={refresh} /> */}
+
+
+                        {/* <div className="w-1/2">{renderSongSection()}</div> */}
+                        {/* <MatchFeedback matchID={matchID} matchFeedback={matchFeedback} refresh={refresh} /> */}
+                        <p className="text-gray-500 ">Interests: {matchData.survey.interests.join(', ')}</p>
+                        <p className="text-gray-500 ">Looking For: {matchData.profile.relationshipType}</p>
+
+
+
+                    </div>
+
                 </div>
-            </div>
+
+            </div >
+
+            {/* Back of Card  */}
+
+
+            <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex">
+                <div
+                    className={`items-center rounded-lg shadow-xl mx-[2%] sm:flex sm:w-3/4 lg:2/3 lg:max-w-3xl sm:mx-auto ${mutualCrushGlowClass}`}
+                >
+                    <div className="flex sm:contents">
+                    </div>
+                    <div className="p-3 pt-1 sm:pl-6 sm:pr-10 sm:py-5 lg:pl-10">
+                        {mutualCrush && (
+                            <div className="p-3 mb-4 rounded-lg bg-pink-100 border border-pink-200 text-pink-500">
+                                <p>
+                                    💌 There was no need for us to execute the algorithm, as your compatibility was
+                                    unmistakable - indeed, a mutual crush. Now, what comes next is not for us to dictate -
+                                    take the next step and go on a date ❤️‍🔥!
+                                </p>
+                            </div>
+                        )}
+
+                        <hr className="h-0.5 my-2 bg-rose-200 border-0"></hr>
+                        {/* <p className="text-gray-500">
+                        📚 {matchData.profile.year.charAt(0).toUpperCase() + matchData.profile.year.slice(1)},{' '}
+                        {matchData.profile.major.charAt(0).toUpperCase() + matchData.profile.major.slice(1)}
+                    </p> */}
+                        <p className="text-gray-500 ">Back of the Card***</p>
+
+
+                        {contact.insta && (
+                            <p className="mb-4 sm:mb-3 text-gray-500">
+                                Instagram: <span className="font-bold">{contact.insta}</span>
+                            </p>
+                        )}
+                        {contact.fb && (
+                            <p className="mb-4 sm:mb-3 text-gray-500">
+                                Facebook: <span className="font-bold">{contact.fb}</span>
+                            </p>
+                        )}
+                        {contact.twitter && (
+                            <p className="mb-4 sm:mb-3 text-gray-500">
+                                Twitter: <span className="font-bold">{contact.twitter}</span>
+                            </p>
+                        )}
+                        {contact.linkedin && (
+                            <p className="mb-4 sm:mb-3 text-gray-500">
+                                LinkedIn: <span className="font-bold">{contact.linkedin}</span>
+                            </p>
+                        )}
+                        {contact.phone && (
+                            <p className="mb-4 sm:mb-3 text-gray-500">
+                                Phone Number: <span className="font-bold">{contact.phone}</span>
+                            </p>
+                        )}
+                        {contact.snap && (
+                            <p className="mb-4 sm:mb-3 text-gray-500">
+                                Snapchat: <span className="font-bold">{contact.snap}</span>
+                            </p>
+                        )}
+                        {contact.other && (
+                            <p className="mb-4 sm:mb-3 text-gray-500">
+                                Other: <span className="font-bold">{contact?.other}</span>
+                            </p>
+                        )}
+                        {/* <div className="w-1/2">{renderSongSection()}</div> */}
+                        {/* <MatchFeedback matchID={matchID} matchFeedback={matchFeedback} refresh={refresh} /> */}
+                        <p className="text-gray-500 ">My Sense of Humor is: {matchData.survey.humor.join(', ')}</p>
+                        <p className="text-gray-500 ">Where I would go on a first date {matchData.survey.date}</p>
+                        <p className="text-gray-500 ">1 = Introvert, 10 = Extrovert, I'm a {matchData.survey.introvert}</p>
+                        <p className="text-gray-500 ">A green flag to me in a relationship:  {matchData.survey.greenflag}</p>
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div >
         </div>
+
     );
 }
 
