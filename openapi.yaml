@@ -163,6 +163,14 @@ components:
                 overallStatus:
                     type: string
                     enum: ['pending', 'complete', 'partial']
+                poked:
+                    type: boolean
+                score:
+                    type: number
+                mutual:
+                    type: boolean
+                superMatch:
+                    type: boolean
         MatchFeedback:
             type: object
             properties:
@@ -374,6 +382,28 @@ paths:
                 '401':
                     description: Unauthorized access.
 
+    /api/poke:
+        post:
+            summary: Poke a match
+            description: Pokes a match to initiate a conversation.
+            operationId: pokeMatch
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            required:
+                                - matchEmail
+                            properties:
+                                matchEmail:
+                                    type: string
+                                    format: objectId
+            responses:
+                '200':
+                    description: Match poked successfully!
+                '400':
+                    description: Bad request, invalid inputs
     /api/restrict:
         post:
             summary: Update user's restrictions
@@ -423,28 +453,28 @@ paths:
             operationId: getUsersByPage
             parameters:
                 - in: query
-                name: page
-                schema:
-                    type: integer
-                    example: 1
-                required: false
-                description: Page number for pagination.
-                default: 1
+                  name: page
+                  schema:
+                  type: integer
+                  example: 1
+                  required: false
+                  description: Page number for pagination.
+                  default: 1
                 - in: query
-                name: limit
-                schema:
-                    type: integer
-                    example: 10
-                required: false
-                description: Number of users per page.
-                default: 0
+                  name: limit
+                  schema:
+                  type: integer
+                  example: 10
+                  required: false
+                  description: Number of users per page.
+                  default: 0
                 - in: query
-                name: searchTerm
-                schema:
-                    type: string
-                    example: John
-                required: false
-                description: Search term to filter users for matching name or email.
+                  name: searchTerm
+                  schema:
+                      type: string
+                      example: John
+                  required: false
+                  description: Search term to filter users for matching name or email.
             responses:
                 '200':
                     description: List of users retrieved successfully.
@@ -466,17 +496,17 @@ paths:
             operationId: getUserCount
             parameters:
                 - in: query
-                name: status
-                schema:
-                    type: string
-                    enum: [opted_in, profiled]
-                    example: opted_in
-                required: false
-                description: |
-                    Filter users by status:
-                    - `opted_in`: Count of users who have opted in.
-                    - `profiled`: Count of users who have completed their profile.
-                    - Undefined: Total count of all users.
+                  name: status
+                  schema:
+                      type: string
+                      enum: [opted_in, profiled]
+                      example: opted_in
+                  required: false
+                  description: |
+                      Filter users by status:
+                      - `opted_in`: Count of users who have opted in.
+                      - `profiled`: Count of users who have completed their profile.
+                      - Undefined: Total count of all users.
             responses:
                 '200':
                     description: Total user count

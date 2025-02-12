@@ -2,81 +2,193 @@
 <html>
 
 <head>
-    <title>A Gentle Nudge: New Options on Your Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{user}} Just Poked You! 👋</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
     <style>
         body {
-            font-family: 'Garamond', serif;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #fff;
         }
 
-        a {
-            color: #fa435f;
-            text-decoration: none;
-            cursor: pointer;
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffe6ea 0%, #fff1f3 100%);
+            position: relative;
+            overflow: hidden;
         }
 
-        b {
-            color: #fa435f;
+        .floating-heart {
+            position: absolute;
+            color: #ff0033;
+            opacity: 0.1;
+            font-size: 40px;
+            z-index: 0;
         }
 
         .header {
-            background-color: #FB7185;
-            padding: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
         }
 
-        .header h2 {
-            text-align: left;
-            margin: 0;
-            color: #fff;
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            color: #ff0033;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(255, 0, 51, 0.2);
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 35px;
+            border-radius: 20px;
+            margin: 20px 0;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(255, 0, 51, 0.1);
+            border: 2px solid rgba(255, 0, 51, 0.1);
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            color: #ff0033;
+            font-size: 26px;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff0033, #ff3366);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            margin: 25px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 0, 51, 0.3);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 0, 51, 0.4);
         }
 
         .footer {
-            background-color: #FB7185;
-            padding: 10px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 0, 51, 0.1);
         }
 
-        .footer h3 {
-            text-align: left;
-            margin: 0;
-            color: #fff;
+        .emphasis {
+            color: #ff0033;
+            font-weight: 600;
         }
 
-        .pink-line {
-            height: 25px;
-            background-color: #FB7185;
-            margin: 10px 0;
+        .heart-divider {
+            text-align: center;
+            color: #ff0033;
+            font-size: 24px;
+            margin: 20px 0;
+            letter-spacing: 10px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 15px;
+                margin: 0;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .content {
+                padding: 20px;
+                margin: 10px 0;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+
+            .button {
+                width: 100%;
+                padding: 12px 25px;
+                font-size: 13px;
+                text-align: center;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <div class="container">
-            <h2>Your Crush, Your Choice!</h2>
+    <div class="container">
+        <div class="header">
+            <div class="logo">Perfect Match</div>
+        </div>
+
+        <div class="content">
+            <h1>✨ Someone Special Just Poked You! 👋</h1>
+
+            <p>Hey <span class="emphasis">{{name}}</span>,</p>
+
+            <p>You've been <span class="emphasis">poked</span>! A little nudge from <span
+                    class="emphasis">{{user}}</span> who matched with you on
+                Perfect Match just sent you a little nudge—a sign, a spark, a chance at something fun (or maybe even
+                something magical ✨).</p>
+
+            <div class="heart-divider">❤ ❤ ❤</div>
+
+            <p>Let's be real—they're probably hoping this is the start of something great. So why not see where it goes?
+            </p>
+
+            <p>Send them a text message, a DM, or maybe even a formal Google Calendar invite for <span
+                    class="emphasis">flirting purposes</span>—whatever suits your style!</p>
+
+            <p>Fate has nudged you—will you nudge back? Your Perfect Match is waiting. Don't leave them hanging! 💫</p>
+
+            <div class="heart-divider">❤ ❤ ❤</div>
+
+            <p>With love,<br>
+                <span class="emphasis">The Perfect Match Team</span>
+            </p>
+        </div>
+
+        <div class="footer">
+            © 2025 Perfect Match. All rights reserved.<br>
+            Spreading love, one poke at a time. ❤
         </div>
     </div>
-    <p>Hello hello!</p>
-    <p>Hope you're enjoying the buzz around campus! Quick update from us at Perfect Match: we've cooked up a little
-        something called “Nudge Your Crush” – and it's already turning heads!</p>
-    <p>It's simple and sweet: if you're curious whether your crush might be a match, we can send them an
-        <b>anonymous</b> nudge
-        to take the survey. If they list you too – bingo, it's a match!
-    </p>
-    <p>But we hit pause because we need a thumbs-up
-        (or down) from you:</p>
-    👍 [I'm In - Nudge Away!] – Give us the green light, and we'll send a gentle anonymous hint to your crush. Who knows
-    where a little nudge might lead?
-    <br>
-    👎 [I'll Skip] – No, I would rather stay single this Valentine's.
-
-    <p>No pressure, just a fun way to possibly connect. And remember, it's all anonymous – so no worries about
-        awkwardness.</p>
-    </p>
-
-    <p>Best Regards,<br>
-        The Perfect Match Team</p>
-    P.S. This is all in good fun, and you're in control. Your secret's safe, either way!
-
-    <div class="pink-line"></div>
 </body>
 
 </html>

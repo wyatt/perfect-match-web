@@ -25,21 +25,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
     const body = JSON.parse(req.body);
     let template = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/poke_email.html`).then(res => res.text());
-    template = template.replaceAll('USER', user?.name!);
+    template = template.replaceAll('{{user}}', user?.name!);
 
-    const match_poked = body.match;
-    const user_matches = (await getUser(user)).matchReviews;
+    const matchPoked = body.matchEmail;
+    const userMatches = (await getUser(user)).matchReviews;
 
-    for (const match of user_matches) {
-        if (match.partnerAId === match_poked || match.partnerBId === match_poked) {
-            const matchProfile = await getUser(match.partnerAId === match_poked ? match.partnerBId : match.partnerAId);
-            const match_email = matchProfile.email;
-            template = template.replaceAll('MATCH', matchProfile.profile.firstName);
+    for (const match of userMatches) {
+        if (match.partnerAId.email === matchPoked || match.partnerBId.email === matchPoked) {
+            const matchProfile = match.partnerAId.email === matchPoked ? match.partnerAId : match.partnerBId;
+            template = template.replaceAll('{{name}}', matchProfile.profile.firstName);
             const emailParams = {
-                Destination: { ToAddresses: [match_email] },
+                Destination: { ToAddresses: [matchPoked] },
                 Message: {
                     Body: { Html: { Charset: 'UTF-8', Data: template }, },
-                    Subject: { Charset: 'UTF-8', Data: 'You have been poked!' }
+                    Subject: { Charset: 'UTF-8', Data: `💘 Psst… ${user?.name!} Just Poked You! 💘` }
                 },
                 Source: 'Perfect Match <perfectmatch@cornell.edu>'
             };
@@ -47,5 +46,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             await sesClient.send(command);
         }
     }
-    return res.status(200).send('Email sent');
+    return res.status(200).send('Match poked successfully!');
 }
