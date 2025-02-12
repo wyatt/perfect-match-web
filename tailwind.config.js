@@ -39,10 +39,19 @@ module.exports = {
                     '0%': { transform: 'rotateY(0)' },
                     '100%': { transform: 'rotateY(0.5turn)' },
                 },
+                'pulse-glow': {
+                    '0%': {
+                        boxShadow: '0 0 0 0px rgba(250, 67, 95, 0.7)',
+                    },
+                    '100%': {
+                        boxShadow: '0 0 0 60px rgba(0, 0, 0, 0)',
+                    },
+                },
             },
             animation: {
                 flash: 'flash 1s steps(1, end) infinite',
                 flip: 'flip 1s ease-in-out infinite',
+                'pulse-glow': 'pulse-glow 1s infinite alternate',
             },
         },
     },

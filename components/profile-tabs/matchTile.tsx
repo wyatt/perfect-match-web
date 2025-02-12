@@ -219,7 +219,6 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
         }
     };
 
-    const mutualCrushGlowClass = mutualCrush ? 'mutual-crush-glow' : '';
     const [showBack, setShowBack] = useState(false);
 
     const handleFlip = () => {
@@ -237,7 +236,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
         `} onClick={handleFlip}>
             {/* Front of Card  */}
             <div className={`h-full top-0 bottom-0 left-0 right-0 gap-8 md:grid-cols-1 
-                items-center rounded-lg shadow-xl backface-hidden ${mutualCrushGlowClass} 
+                items-center rounded-lg shadow-xl backface-hidden ${mutualCrush ? 'animate-pulse-glow' : ''} 
                  grid absolute sm:flex`}>
                 <div className="flex sm:contents">
                     <div className="text-8xl mt-4 sm:mt-0 sm:text-9xl mx-auto sm:ml-8 sm:mr-0">{matchEmoji}</div>
@@ -279,8 +278,8 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
 
             {/* Back of Card  */}
 
-            <div className={`h-full top-0 bottom-0 left-0 right-0 gap-8 md:grid-cols-1 
-                items-center rounded-lg shadow-xl backface-hidden rotate-y-half ${mutualCrushGlowClass} 
+            <div className={`h-full top-0 bottom-0 left-0 right-0 gap-8 md:grid-cols-1
+                items-center rounded-lg shadow-xl backface-hidden rotate-y-half ${mutualCrush ? 'animate-pulse-glow' : ''}
                  grid absolute sm:flex`}>
                 <div className="flex sm:contents">
                 </div>
