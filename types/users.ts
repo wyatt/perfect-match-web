@@ -25,9 +25,8 @@ export type Crushes = {
 export type Forbidden = {
     _id: string;
 };
-export type Matches = {
-    _id: string;
-};
+
+export interface Matches extends User { }
 
 export type Review = {
     overallRating: number;
@@ -43,6 +42,10 @@ export type MatchReview = {
     _id: string;
     partnerAId: Matches;
     partnerBId: Matches;
-    partnerAReview: Review;
-    partnerBReview: Review;
+    partnerAFeedback: Review;
+    partnerBFeedback: Review;
+    overallStatus: 'pending' | 'complete' | 'partial';
+    poked: boolean;
+    mutual: boolean;
+    score: number;
 };
