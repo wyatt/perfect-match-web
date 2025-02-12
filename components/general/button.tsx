@@ -14,11 +14,16 @@ interface ButtonProps {
     className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, onClick, bgColor, textColor, px, py, mt, border, shadow, bold, className }) => {
-    return (
-        <button
-            onClick={onClick}
-            className={`
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+    (
+        { children, onClick, bgColor, textColor, px, py, mt, border, shadow, bold, className },
+        ref
+    ) => {
+        return (
+            <button
+                ref={ref}
+                onClick={onClick}
+                className={`
                     mt-${mt || 6}
                     px-${px || 6}
                     py-${py || 2}
@@ -38,10 +43,11 @@ const Button: React.FC<ButtonProps> = ({ children, onClick, bgColor, textColor, 
                     active:shadow-none 
                     ${className || ''}
                 `}
-        >
-            {children || ''}
-        </button>
-    );
-}
+            >
+                {children || ''}
+            </button>
+        );
+    }
+);
 
 export default Button;
