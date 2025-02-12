@@ -8,7 +8,8 @@ function Matches({ matches, userId, refresh, matchCount }: any) {
     console.log('matches', matchCount);
     const showNote = matchCount > 8 ? "" : "hidden"
     return (
-        <div>
+        <div className='grid grid-cols-1g gap-4 [grid-auto-rows:900px] sm:[grid-auto-rows:500px] '>
+            {/* Manually Setting Height for Match Card */}
 
             {matches.map((match: any, index: number) => {
                 const matchData = match.partnerAId._id === userId ? match.partnerBId : match.partnerAId;
