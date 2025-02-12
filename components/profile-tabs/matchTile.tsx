@@ -342,7 +342,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                     {/* <MatchFeedback matchID={matchID} matchFeedback={matchFeedback} refresh={refresh} /> */}
                     <p className="text-gray-500 ">My Sense of Humor is: {matchData.survey.humor.join(', ')}</p>
                     <p className="text-gray-500 ">Where I would go on a first date {matchData.survey.date}</p>
-                    <p className="text-gray-500 ">1 = Introvert, 10 = Extrovert, I'm a {matchData.survey.introvert}</p>
+                    <p className="text-gray-500 ">1 = Introvert, 10 = Extrovert, I&apos;m a {matchData.survey.introvert}</p>
                     <p className="text-gray-500 ">A green flag to me in a relationship:  {matchData.survey.greenflag}</p>
                 </div>
             </div >
