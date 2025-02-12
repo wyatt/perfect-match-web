@@ -26,7 +26,7 @@ export type Forbidden = {
     _id: string;
 };
 
-interface Matches extends User { }
+export interface Matches extends User { }
 
 export type Review = {
     overallRating: number;
