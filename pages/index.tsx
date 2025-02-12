@@ -86,21 +86,18 @@ const Home: NextPage = (props: any) => {
                             <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
                                 <div className="">
                                     <h1 className="text-4xl text-[#00438D] font-family-dela sm:text-3xl lg:text-5xl font-dela-gothic sm:mt-5">
-                                        Perfect Match
-                                        <br />
-                                        is open <strong className='text-pmred-500'> NOW! </strong>
+                                        That&#39;s a wrap!
                                     </h1>
                                 </div>
                                 <div className='font-work-sans'>
                                     <p className="text-lg text-pmblue-500 mt-4 lg:max-w-lg lg:text-left text-center lg:text-xl sm:leading-relaxed">
-                                        The form closes <strong className="italic"> February 13th at Noon </strong>
-                                        <br />
-                                        Be sure to fill it in time so you&apos;re not alone on Valentine&apos;s Day ;&#41;
-                                        <br />
-                                        <strong> {currentCount}</strong> Cornellians have already filled it out.
+                                        Thank you for all who signed up. Our cupids are hard at work matching you up. Check back tonight for your matches!
+                                        <br></br>
+                                        <br></br>
+                                        <strong> {currentCount}</strong> Cornellians are being matched!
 
                                     </p>
-                                    {!props.user ? (
+                                    {/* {!props.user ? (
                                         <GoogleAuth login={!props.user} />
                                     ) : (
                                         <Link href="/profile">
@@ -108,7 +105,7 @@ const Home: NextPage = (props: any) => {
                                                 fill out Perfect Match
                                             </Button>
                                         </Link>
-                                    )}
+                                    )} */}
                                 </div>
                             </div>
 
