@@ -1,6 +1,8 @@
+import React from "react";
+
 interface ButtonProps {
     children?: React.ReactNode;
-    onClick?: () => void;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
     bgColor?: 'bg-pmred-500' | 'bg-red-500' | 'bg-blue-500' | 'bg-white' | string;
     textColor?: 'text-white' | 'text-black' | 'text-red' | 'text-pmred-500' | string;
     px?: number;
