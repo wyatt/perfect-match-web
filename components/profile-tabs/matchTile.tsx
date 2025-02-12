@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Review } from '../../types/users';
 import Iframe from 'react-iframe';
+import Button from '@/components/general/button';
 
 const emoji = ['😃', '😆', '😄', '😆', '😊', '😎', '😳', '🤗'];
 const color = [
@@ -221,12 +222,17 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
 
     const [showBack, setShowBack] = useState(false);
 
-    const handleFlip = () => {
+    const handleFlip = (): void => {
         const selection = window.getSelection();
         if (selection && selection.toString().length > 0) {
             return;
         }
         setShowBack(!showBack);
+    }
+
+    const handlePoke = (e: React.MouseEvent<HTMLButtonElement>): void => {
+        e.stopPropagation();
+        console.log('Poked!');
     }
 
     return (
@@ -278,12 +284,10 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
 
             {/* Back of Card  */}
 
-            <div className={`h-full top-0 bottom-0 left-0 right-0 gap-8 md:grid-cols-1
+            <div className={`h-full top-0 bottom-0 left-0 right-0 gap-8 md:grid-cols-1 grid absolute sm:flex
                 items-center rounded-lg shadow-xl backface-hidden rotate-y-half ${mutualCrush ? 'animate-pulse-glow' : ''}
-                 grid absolute sm:flex`}>
-                <div className="flex sm:contents">
-                </div>
-                <div className="p-3 pt-1 sm:pl-6 sm:pr-10 sm:py-5 lg:pl-10">
+                p-3 pt-1 sm:pl-6 sm:pr-10 sm:py-5 lg:pl-10`}>
+                <div className="">
                     {mutualCrush && (
                         <div className="p-3 mb-4 rounded-lg bg-pink-100 border border-pink-200 text-pink-500">
                             <p>
@@ -344,8 +348,9 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                     <p className="text-gray-500 ">1 = Introvert, 10 = Extrovert, I&apos;m a {matchData.survey.introvert}</p>
                     <p className="text-gray-500 ">A green flag to me in a relationship:  {matchData.survey.greenflag}</p>
                 </div>
+                <Button bold={true} mt={1} onClick={handlePoke}>POKE to See More!</Button>
             </div >
-        </div>
+        </div >
 
     );
 }
