@@ -91,7 +91,7 @@ const Home: NextPage = (props: any) => {
                                 </div>
                                 <div className='font-work-sans'>
                                     <p className="text-lg text-pmblue-500 mt-4 lg:max-w-lg lg:text-left text-center lg:text-xl sm:leading-relaxed">
-                                        Matches are great, but connections don’t happen without a little courage! So go ahead—send a text or slide into those DMs.
+                                        Matches are great, but connections don&apos;t happen without a little courage! So go ahead—send a text or slide into those DMs.
                                         Because the only thing sadder than an unopened message… is a love story that never got a chance to begin.
                                         <br />
                                         <br />
