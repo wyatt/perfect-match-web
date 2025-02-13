@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import { Review } from '../../types/users';
 import Iframe from 'react-iframe';
+import Button from '@/components/general/button';
+import Popup from '@/components/general/popup';
 import Image from 'next/image';
 import Link from 'next/link';
+
 
 const emoji = ['😃', '😆', '😄', '😆', '😊', '😎', '😳', '🤗'];
 const color = [
@@ -188,7 +191,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     const matchEmoji = useMemo(() => {
         return emoji[Math.floor(Math.random() * emoji.length)];
     }, []);
-    console.log(matchData);
+
     // Function to render the play button or emoji for the hookupsong
     const renderSongSection = () => {
         if (matchData.survey.hookupsongURL) {
@@ -221,26 +224,57 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
         }
     };
 
-    const mutualCrushGlowClass = mutualCrush ? 'mutual-crush-glow' : '';
+    const [showBack, setShowBack] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
+    const buttonRef = React.createRef<HTMLButtonElement>();
     const [cardHeight, setCardHeight] = useState(0);
     const cardRef = useRef<HTMLDivElement>(null);
     const backRef = useRef<HTMLDivElement>(null);
-    const poked = false;
+    const poked = useState(false);
 
-    useEffect(() => {
+    const handleFlip = (): void => {
+        const selection = window.getSelection();
+        if (selection && selection.toString().length > 0) {
+            return;
+        }
+        setShowPopup(false);
+        setShowBack(!showBack);
+    }
+
+    const handlePop = (e: React.MouseEvent<HTMLButtonElement>): void => {
+        e.stopPropagation();
+        setShowPopup(!showPopup);
+    }
+
+    const handlePoke = (): void => {
+        fetch(`/api/poke/`, {
+            method: 'POST',
+            body: JSON.stringify({ matchEmail: matchData.email }),
+        }).then((res) => {
+            if (!res.ok) alert('Failed to poke match. Please try again later or contact us for help.');
+            setShowPopup(false);
+        });
+    }
+
+     useEffect(() => {
         if (cardRef.current && backRef.current) {
             setCardHeight(cardRef.current.offsetHeight);
             backRef.current.style.height = `${cardRef.current.offsetHeight}px`;
         }
     }, [cardRef, backRef, mutualCrush]);
+    
     return (
-        <div>
+        <div className={`relative sm:w-3/4 lg:w-2/3 lg:max-w-3xl mx-[2%] sm:mx-auto perspective-400 
+        transform-3d transition-transform duration-1000 ease-in-out
+        ${showBack ? 'rotate-y-half' : 'rotate-y-0'}
+        `} onClick={handleFlip}>
             {/* Front of Card  */}
-            <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex" >
+            <div className={`absolute h-full top-0 bottom-0 left-0 right-0 grid gap-8 mb-6 
+            lg:mb-16 md:grid-cols-1 sm:flex backface-hidden ${mutualCrush ? 'animate-pulse-glow' : ''}`} >
                 <div
                     ref={cardRef}
                     className={`flex flex-col bg-white rounded-lg border-2 border-pmblue-500 sm:w-full mx-auto lg:w-3/4 h-auto
-                    shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)] ${mutualCrushGlowClass}`}
+                    shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)]`}
                 >
                     <div className="relative pt-6 px-10 w-full z-10">
                         {superMatch && (platonic ? (
@@ -386,7 +420,6 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                         <p className="text-left">Looking For: <span style={{ color: '#F4001F' }}>{matchData.profile.relationshipType}</span></p>
                     </div>
                 </div>
-
             </div >
 
             {/* Back of Card  */}
@@ -394,8 +427,8 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
             <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex">
                 <div
                     ref={backRef}
-                    className={`flex flex-col bg-white rounded-lg border-2 border-pmblue-500 sm:w-full mx-auto lg:w-3/4 h-auto
-                    shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)] ${mutualCrushGlowClass}`}
+                    className={`h-full absolute top-0 bottom-0 left-0 right-0 flex flex-col bg-white rounded-lg border-2 border-pmblue-500 sm:w-full mx-auto lg:w-3/4 h-auto
+                    shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)] backface-hidden rotate-y-half ${mutualCrush ? 'animate-pulse-glow' : ''}`}
                 >
                     <div className=" pt-6 px-10 w-full z-10">
                         {mutualCrush && (
@@ -498,13 +531,28 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                             </div>
                             <div className=" justify-center font-work-sans text-lg font-semibold items-center min-w-[250px]">
                                 <div>
-                                    <Link href="">
-                                        <button className="px-6 py-2 rounded-full text-pmred-500 border-4 border-pmblue-500 bg-white
-                                    font-bold shadow-[6px_6px_0px_0px_rgba(36,67,141,1)] transition-all hover:translate-x-[4px]
-                                    hover:translate-y-[4px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] active:translate-x-[6px]
-                                    active:translate-y-[6px] active:shadow-none cursor-pointer text-xl text-center">
-                                            POKE to see more!</button>
-                                    </Link>
+                                    <Button bold={true} mt={1} onClick={handlePop} ref={buttonRef}>POKE to See More!</Button>
+                                    {showPopup && (
+                                        <Popup triggerRef={buttonRef} placement="top" open={showPopup} arrowHeight={35} arrowWidth={30}>
+                                            <div className='max-w-[40vw] lg:max-w-[30vw] min-w-64 font-work-sans text-center text-sm md:text-base
+                                            bg-pmblue-500 border border-[#ccc] p-3 rounded-3xl shadow 
+                                             '>
+                                                <div className='flex flex-col items-center justify-center mx-6 my-3'>
+                                                    <div className='font-bold text-lg md:text-xl mb-5 drop-shadow-[6px_6px_0_[pmblue-500]]'>👉 WHAT&apos;S A POKE 👈</div>
+                                                    <div>By poking your match, we’ll send an email letting them know you’re curious about them 👀
+                                                        <br />
+                                                        <br />
+                                                        In return, you unlock the locked info about your match! Note this is not anonymous,
+                                                        meaning if you chose to poke a match, they will know which match poked them.
+                                                    </div>
+                                                    <div className='grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 justify-center mt-5'>
+                                                        <Button bold={true} mt={5} onClick={handlePoke}>Poke My Match!</Button>
+                                                        <Button bold={true} mt={5} >Go Back</Button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </Popup>
+                                    )}
                                 </div>
                                 <div>
                                     <p className="mt-2 text-pmpink2-500 text-xs">*note: poking is <u>not</u> anonymous</p>
@@ -523,7 +571,6 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                     </div>
                     {/* <div className="w-1 /2">{renderSongSection()}</div> */}
                     {/* <MatchFeedback matchID={matchID} matchFeedback={matchFeedback} refresh={refresh} /> */}
-
                 </div>
             </div >
         </div >
