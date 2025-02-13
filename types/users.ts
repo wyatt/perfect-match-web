@@ -48,4 +48,6 @@ export type MatchReview = {
     poked: boolean;
     mutual: boolean;
     score: number;
+    superMatch: boolean;
+    platonic: boolean;
 };
