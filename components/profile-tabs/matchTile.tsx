@@ -232,7 +232,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
             setCardHeight(cardRef.current.offsetHeight);
             backRef.current.style.height = `${cardRef.current.offsetHeight}px`;
         }
-    }, [cardRef, backRef]);
+    }, [cardRef, backRef, mutualCrush]);
     return (
         <div>
             {/* Front of Card  */}
