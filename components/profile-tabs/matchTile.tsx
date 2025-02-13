@@ -227,8 +227,8 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
             {/* Front of Card  */}
             <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex" >
                 <div
-                    className={`flex flex-col bg-white rounded-lg border-2 border-pmblue-500 shadow-xl sm:w-full mx-auto lg:w-3/4 
-                    shadow-[0px_4px_8px_rgba(0,0,0,0.25),18px_12px_0px_rgba(36,67,141,1)] ${mutualCrushGlowClass}`}
+                    className={`flex flex-col bg-white rounded-lg border-2 border-pmblue-500 sm:w-full mx-auto lg:w-3/4 h-auto
+                    shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)] ${mutualCrushGlowClass}`}
                 >
                     <div className="relative pt-6 px-10 w-full z-10">
                         {superMatch && (platonic ? (
@@ -239,7 +239,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                 <Image src="/supermatchstamp.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
                             </div>))}
                         {mutualCrush && (
-                            <div className="p-3 mb-4 rounded-lg bg-pink-100 border border-pink-200 text-pink-500">
+                            <div className="px-6 py-3 mb-3 -mx-3 rounded-md bg-pmpink-500 font-semibold font-work-sans border-0 text-pmblue-500 text-left">
                                 <p>
                                     💌 There was no need for us to execute the algorithm, as your compatibility was
                                     unmistakable - indeed, a mutual crush. Now, what comes next is not for us to dictate -
@@ -247,6 +247,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                 </p>
                             </div>
                         )}
+                        {/* "mx-6 relative rounded-md w-auto mb-5 h-auto mt-3 px-6 py-3 font-work-sans text-lg font-semibold text-pmblue-500 bg-pmpink-500" */}
                         <div className="flex justify-center items-center w-full">
                             <div className="ml-[94px] w-full">
                                 <h3 className="text-4xl font-bold w-full text-pmred-500">
