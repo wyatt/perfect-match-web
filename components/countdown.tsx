@@ -205,7 +205,7 @@ const CountDown: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-[10%] relative flex-row'>
+                    <div className='w-[10%] relative flex flex-col justify-end'>
                         <div className='h-1/2'>
                             <div className='absolute top-0 -right-[5%]'>
                                 <div className='grid grid-cols-2 gap-2'>
@@ -215,10 +215,10 @@ const CountDown: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="my-1 flex flex-col space-y-2 justify-center items-center">
+                        <div className="my-1 flex flex-col space-y-2 items-center mt-auto">
                             <button
                                 className="
-                                w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-red-500 border-2 border-blue-600 font-semibold
+                                w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-red-500 border-2 border-blue-600 font-semibold
                                 shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all
                                 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)]
                                 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
@@ -226,7 +226,7 @@ const CountDown: React.FC = () => {
                             ></button>
                             <button
                                 className="
-                                w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-blue-500 border-2 border-blue-600 font-semibold
+                                w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-blue-500 border-2 border-blue-600 font-semibold
                                 shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all
                                 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)]
                                 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
@@ -234,7 +234,7 @@ const CountDown: React.FC = () => {
                             ></button>
                             <button
                                 className="
-                                w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-red-500 border-2 border-blue-600 font-semibold
+                                w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-red-500 border-2 border-blue-600 font-semibold
                                 shadow-[4px_4px_0px_0px_rgba(59,130,246,0.5)] transition-all
                                 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(59,130,246,0.5)]
                                 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"

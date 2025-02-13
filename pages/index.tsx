@@ -10,7 +10,7 @@ import styles from '@/styles/Home.module.css';
 import Link from 'next/link';
 import Script from 'next/script';
 import Image from 'next/image';
-import BestAlternative from '@/components/analytics/apex-charts/bestAlternative';
+import demo from 'public/feedback-demo.gif';
 import Countdown from '@/components/countdown';
 import SpotifyPlaylist from '@/components/playlist'
 import SpotifyPlaylistNarrow from '@/components/playlist-narrow';
@@ -91,9 +91,9 @@ const Home: NextPage = (props: any) => {
                                         is open <strong className='text-pmred-500'> NOW! </strong>
                                     </h1>
                                 </div>
-                                <div className='work-sans'>
+                                <div className='font-work-sans'>
                                     <p className="text-lg text-pmblue-500 mt-4 lg:max-w-lg lg:text-left text-center lg:text-xl sm:leading-relaxed">
-                                        The form closes <strong className="italic"> Feburary 13th at Noon </strong>
+                                        The form closes <strong className="italic"> February 13th at Noon </strong>
                                         <br />
                                         Be sure to fill it in time so you&apos;re not alone on Valentine&apos;s Day ;&#41;
                                         <br />
@@ -105,7 +105,7 @@ const Home: NextPage = (props: any) => {
                                     ) : (
                                         <Link href="/profile">
                                             <Button bold={true} >
-                                                fill Out Perfect Match
+                                                fill out Perfect Match
                                             </Button>
                                         </Link>
                                     )}

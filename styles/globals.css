@@ -65,3 +65,7 @@ a {
 .mutual-crush-glow {
     animation: pulse-glow 1s infinite alternate;
 }
+
+.main {
+    font-family: 'Work Sans'
+}

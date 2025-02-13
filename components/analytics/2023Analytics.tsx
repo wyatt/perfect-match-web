@@ -1,23 +1,23 @@
 import React from 'react';
 import Link from 'next/link';
-import DescribeYouFemale from '@/components/analytics/apex-charts/describeYouFemale';
-import DescribeYouMale from '@/components/analytics/apex-charts/describeYouMale';
-import Year from '@/components/analytics/apex-charts/year';
-import Height from '@/components/analytics/apex-charts/height';
-import LongestRelationship from '@/components/analytics/apex-charts/longestRelationship';
-import NumDatedGender from '@/components/analytics/apex-charts/numDated';
-import Political from '@/components/analytics/apex-charts/political';
-import SimilarInterest from '@/components/analytics/apex-charts/similarInterest';
-import FirstDate from '@/components/analytics/apex-charts/firstDate';
-import Quality from '@/components/analytics/apex-charts/quality';
-import WakeTime from '@/components/analytics/apex-charts/wakeTime';
-import SleepDuration from '@/components/analytics/apex-charts/sleepDuration';
-import AgePrefToggle from '@/components/analytics/apex-charts/toggleSwitchAgePref';
-import Faction from '@/components/analytics/apex-charts/faction';
-import CompleteTask from '@/components/analytics/apex-charts/completeTask';
-import BestAlternativeBar from '@/components/analytics/apex-charts/bestAlternativeBar';
-import DateWear from '@/components/analytics/apex-charts/dateWear';
-import RelationshipType from '@/components/analytics/apex-charts/relationshipType';
+import DescribeYouFemale from '@/components/analytics/charts-2023/describeYouFemale';
+import DescribeYouMale from '@/components/analytics/charts-2023/describeYouMale';
+import Year from '@/components/analytics/charts-2023/year';
+import Height from '@/components/analytics/charts-2023/height';
+import LongestRelationship from '@/components/analytics/charts-2023/longestRelationship';
+import NumDatedGender from '@/components/analytics/charts-2023/numDated';
+import Political from '@/components/analytics/charts-2023/political';
+import SimilarInterest from '@/components/analytics/charts-2023/similarInterest';
+import FirstDate from '@/components/analytics/charts-2023/firstDate';
+import Quality from '@/components/analytics/charts-2023/quality';
+import WakeTime from '@/components/analytics/charts-2023/wakeTime';
+import SleepDuration from '@/components/analytics/charts-2023/sleepDuration';
+import AgePrefToggle from '@/components/analytics/charts-2023/toggleSwitchAgePref';
+import Faction from '@/components/analytics/charts-2023/faction';
+import CompleteTask from '@/components/analytics/charts-2023/completeTask';
+import BestAlternativeBar from '@/components/analytics/charts-2023/bestAlternativeBar';
+import DateWear from '@/components/analytics/charts-2023/dateWear';
+import RelationshipType from '@/components/analytics/charts-2023/relationshipType';
 
 const Stats2023 = () => {
     const [show, toggleShow] = React.useState(true);
@@ -398,100 +398,6 @@ const Stats2023 = () => {
                         Thanks for taking Perfect Match this year and don&apos;t be afraid to shoot your shot!
                     </p>
 
-                </section>
-                <section id="privacy" className="text-black bg-pmpink2-500">
-                    <div className="container px-5 sm:px-0 py-16 sm:py-24 mx-auto">
-                        <div className="text-center mb-15">
-                            <h2 className="mb-12 text-2xl tracking-tight font-extrabold text-red-500 sm:text-4xl">
-                                FAQ&apos;s about User Privacy
-                            </h2>
-                        </div>
-                        <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-                            <div className="w-full lg:w-1/2 px-4">
-                                <details className="mb-5">
-                                    <summary className="font-semibold  bg-white rounded-md py-2 px-4 cursor-pointer">
-                                        Are my survey responses visible to others?
-                                    </summary>
-
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
-                                        Absolutely not! All user data collected from our surveys is anonymized, and then
-                                        privately stored. Only your name and provided contact information is shared, and
-                                        that is only with your matches.
-                                    </p>
-                                </details>
-                                <details className="mb-5">
-                                    <summary className="font-semibold bg-white rounded-md py-2 px-4 cursor-pointer">
-                                        Can I be identified from these statistics?
-                                    </summary>
-
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
-                                        <strong>
-                                            Preserving the privacy of our participants is our utmost concern and is
-                                            rooted behind every decision made in crafting these visualizations.
-                                        </strong>{' '}
-                                        We have taken several measures to remove any identifiable characteristics from
-                                        the data we have collected, and the resulting datasets are randomly shuffled.
-                                    </p>
-                                </details>
-                                <details className="mb-5">
-                                    <summary className="font-semibold  bg-white rounded-md py-2 px-4 cursor-pointer">
-                                        How are these visualizations generated?
-                                    </summary>
-
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
-                                        These visualizations were generated using the ApexCharts JavaScript library.
-                                    </p>
-                                </details>
-                            </div>
-                            <div className="w-full lg:w-1/2 px-4">
-                                <details className="mb-5">
-                                    <summary className="font-semibold  bg-white rounded-md py-2 px-4 cursor-pointer">
-                                        Is my data sold to third-party advertisers?
-                                    </summary>
-
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
-                                        Absolutely not! All of your data is stored privately and will not be viewed by
-                                        any third party.
-                                    </p>
-                                </details>
-                                <details className="mb-5">
-                                    <summary className="font-semibold  bg-white rounded-md py-2 px-4 cursor-pointer">
-                                        What happens to my data?
-                                    </summary>
-
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
-                                        Your data is safe with us! We will never share your data with a third party
-                                        advertisers, and we will only interact with your information as needed to
-                                        resolve user issues. We may collect anonymous statistics to improve our
-                                        algorithm, but your identity will always be separated from such reports.
-                                    </p>
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
-                                        Anonymized statistics are published each year on our website and provided to
-                                        media and student groups for publications. In the past, these have included
-                                        Cornell Daily Sun, Big Red Heads, Cornell Chronicle, etc.
-                                    </p>
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
-                                        For media requests, please reach out at{' '}
-                                        <Link href="mailto:perfectmatch@cornell.edu">perfectmatch@cornell.edu</Link>.
-                                    </p>
-                                </details>
-                                <details className="mb-5">
-                                    <summary className="font-semibold  bg-white rounded-md py-2 px-4 cursor-pointer">
-                                        Who can I contact if I have a privacy concern?
-                                    </summary>
-
-                                    <p style={{ paddingTop: '10px', paddingLeft: '15px' }}>
-                                        We greatly encourage you to reach out to us with any questions or concerns that
-                                        you may have regarding data privacy. In fact, feedback from the Cornell
-                                        community already has and will continue to be used in to improve our algorithm
-                                        and measures to protect privacy. We can be reached at{' '}
-                                        <Link href="mailto:perfectmatch@cornell.edu">perfectmatch@cornell.edu</Link>.
-                                    </p>
-                                </details>
-                            </div>
-                        </div>
-
-                    </div>
                 </section>
             </div>{' '}
         </div>

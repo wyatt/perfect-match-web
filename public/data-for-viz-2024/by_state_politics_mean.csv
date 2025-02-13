@@ -1,0 +1,52 @@
+state_name,state_code,state_short,politics_mean
+Alabama,1,AL,0
+Alaska,2,AK,0
+Arizona,4,AZ,4.0
+Arkansas,5,AR,0
+California,6,CA,3.6
+Colorado,8,CO,3.8
+Connecticut,9,CT,4.2
+Delaware,10,DE,0
+District of Columbia,11,DC,3
+Florida,12,FL,4.0
+Georgia,13,GA,3.1
+Hawaii,15,HI,0
+Idaho,16,ID,0
+Illinois,17,IL,3.4
+Indiana,18,IN,0
+Iowa,19,IA,0
+Kansas,20,KS,0
+Kentucky,21,KY,0
+Louisiana,22,LA,0
+Maine,23,ME,0
+Maryland,24,MD,3.5
+Massachusetts,25,MA,3.5
+Michigan,26,MI,4.0
+Minnesota,27,MN,3.3
+Mississippi,28,MS,0
+Missouri,29,MO,0
+Montana,30,MT,0
+Nebraska,31,NE,0
+Nevada,32,NV,0
+New Hampshire,33,NH,0
+New Jersey,34,NJ,3.9
+New Mexico,35,NM,0
+New York,36,NY,3.7
+North Carolina,37,NC,3.3
+North Dakota,38,ND,0
+Ohio,39,OH,3.7
+Oklahoma,40,OK,0
+Oregon,41,OR,2.9
+Pennsylvania,42,PA,3.6
+Rhode Island,44,RI,0
+South Carolina,45,SC,0
+South Dakota,46,SD,0
+Tennessee,47,TN,0
+Texas,48,TX,3.6
+Utah,49,UT,0
+Vermont,50,VT,0
+Virginia,51,VA,0
+Washington,53,WA,3.3
+West Virginia,54,WV,0
+Wisconsin,55,WI,0
+Wyoming,56,WY,0

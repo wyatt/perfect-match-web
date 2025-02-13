@@ -65,7 +65,7 @@
 .layer2 {
     width: 10rem;
     height: 10rem;
-    background-color: #fda4af;
+    background-color: #fb7185;
     position: relative;
     transform: rotate(45deg);
     animation: hbeat 1.5s linear 10;
@@ -75,7 +75,7 @@
     content: '';
     width: 100%;
     height: 100%;
-    background-color: #fda4af;
+    background-color: #fb7185;
     position: absolute;
     border-radius: 50%;
     transform: translateY(-50%);
@@ -85,7 +85,7 @@
     content: '';
     width: 100%;
     height: 100%;
-    background-color: #fda4af;
+    background-color: #fb7185;
     position: absolute;
     border-radius: 50%;
     transform: translateX(-50%);
@@ -209,7 +209,7 @@
 .layer2_fading {
     width: 10rem;
     height: 10rem;
-    background-color: #fda4af;
+    background-color: #fb7185;
     position: relative;
     transform: rotate(45deg);
     box-shadow:
@@ -224,7 +224,7 @@
     content: '';
     width: 100%;
     height: 100%;
-    background-color: #fda4af;
+    background-color: #fb7185;
     position: absolute;
     border-radius: 50%;
     transform: translateY(-50%);
@@ -234,7 +234,7 @@
     content: '';
     width: 100%;
     height: 100%;
-    background-color: #fda4af;
+    background-color: #fb7185;
     position: absolute;
     border-radius: 50%;
     transform: translateX(-50%);
@@ -486,6 +486,7 @@
 }
 
 @media screen and (max-width: 1024px) {
+
     .layer4_fading,
     .layer3_fading,
     .layer1_fading,
