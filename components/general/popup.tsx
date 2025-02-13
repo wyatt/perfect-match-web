@@ -1,37 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import {
     useFloating,
     offset,
-    flip,
+    arrow,
+    FloatingArrow,
+    useTransitionStyles,
     shift,
-    autoUpdate,
 } from "@floating-ui/react";
-import { set } from "mongoose";
 
 interface PopupProps {
     triggerRef: React.RefObject<HTMLElement>;
     children: React.ReactNode;
     open: boolean;
     placement?: "top" | "bottom" | "left" | "right";
+    arrowWidth?: number;
+    arrowHeight?: number;
 }
 
-const Popup: React.FC<PopupProps> = ({ triggerRef, children, open, placement = "bottom" }) => {
+const Popup: React.FC<PopupProps> = ({ triggerRef, children, open, placement = "bottom", arrowWidth = 20, arrowHeight = 16 }) => {
+
+    const arrowRef = useRef(null);
+
     const {
-        x,
-        y,
-        strategy,
-        update,
-        refs: { reference, floating, setReference, setFloating }
+        x, y, strategy, update, context, middlewareData, floatingStyles,
+        refs: { floating, setReference, setFloating }
     } = useFloating({
         placement,
-        middleware: [offset(5), flip(), shift()],
+        open: open,
+        middleware: [offset(arrowHeight), shift(), arrow({ element: arrowRef }),],
+
     });
 
-    useEffect(() => {
-        if (open && triggerRef.current && floating.current) {
-            return autoUpdate(triggerRef.current, floating.current, update);
-        }
-    }, [open, triggerRef, floating, update]);
+    const arrowX = middlewareData.arrow?.x ?? 0;
+    const arrowY = middlewareData.arrow?.y ?? 0;
+    const transformX = arrowX + arrowWidth / 2;
+    const transformY = arrowY + arrowHeight;
 
     useEffect(() => {
         if (triggerRef.current) {
@@ -39,24 +42,32 @@ const Popup: React.FC<PopupProps> = ({ triggerRef, children, open, placement = "
         }
     }, [triggerRef, setReference]);
 
+    const { isMounted, styles } = useTransitionStyles(context, {
+        initial: {
+            transform: "scale(0)",
+        },
+        common: ({ side }) => ({
+            transformOrigin: {
+                top: `${transformX}px calc(100% + ${arrowHeight}px)`,
+                bottom: `${transformX}px ${-arrowHeight}px`,
+                left: `calc(100% + ${arrowHeight}px) ${transformY}px`,
+                right: `${-arrowHeight}px ${transformY}px`,
+            }[side],
+        }),
+    });
+
     return (
         <>
-            {open && (
+            {isMounted && (
                 <div
                     ref={setFloating}
-                    style={{
-                        position: strategy,
-                        top: y ?? 0,
-                        left: x ?? 0,
-                        background: "white",
-                        border: "1px solid #ccc",
-                        padding: "8px",
-                        borderRadius: "4px",
-                        boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-                    }}
+                    style={floatingStyles}
                 >
-                    {children}
-                </div>
+                    <div style={styles} className="bg-[#24438d] border border-[#ccc] p-3 rounded shadow">
+                        <FloatingArrow ref={arrowRef} context={context} width={arrowWidth} height={arrowHeight} fill="#24438d" />
+                        {children}
+                    </div>
+                </div >
             )}
         </>
     );
