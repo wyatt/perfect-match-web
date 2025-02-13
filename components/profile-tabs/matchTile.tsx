@@ -227,9 +227,6 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     const [showBack, setShowBack] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
     const buttonRef = React.createRef<HTMLButtonElement>();
-    const [cardHeight, setCardHeight] = useState(0);
-    const cardRef = useRef<HTMLDivElement>(null);
-    const backRef = useRef<HTMLDivElement>(null);
     const poked = useState(false);
 
     const handleFlip = (): void => {
@@ -257,19 +254,22 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     }
 
     return (
-        <div className={`relative sm:w-3/4 lg:w-2/3 lg:max-w-3xl mx-[2%] sm:mx-auto perspective-400 h-auto
+        <div className={`relative sm:w-3/4 lg:w-2/3 lg:max-w-3xl mx-[2%] sm:mx-auto perspective-400
         transform-3d transition-transform duration-1000 ease-in-out
         ${showBack ? 'rotate-y-half' : 'rotate-y-0'}
         `} onClick={handleFlip}>
             {/* Front of Card  */}
-            <div className={`absolute h-full top-0 bottom-0 left-0 right-0 grid gap-8 mb-6 
-            lg:mb-16 md:grid-cols-1 sm:flex backface-hidden`}  >
+            <div className={`h-full w-full absolute top-0 bottom-0 left-0 right-0
+            shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)] 
+            rounded-lg border-2 border-pmblue-500
+            sm:flex backface-hidden 
+            ${showBack ? 'pointer-events-none' : 'pointer-events-auto'}`}>
                 <div
-                    ref={cardRef}
-                    className={`flex flex-col bg-white rounded-lg border-2 border-pmblue-500 mx-auto h-auto
-                    shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)] ${mutualCrush ? 'animate-pulse-glow' : ''}`}
+                    className={`flex flex-col bg-white rounded-lg mx-auto w-full h-full
+                        ${mutualCrush ? 'animate-pulse-glow' : ''}
+                    `}
                 >
-                    <div className="relative pt-6 px-10 w-full z-10">
+                    <div className="relative pt-6 px-10 w-full z-10 h-3/4">
                         {superMatch && (platonic ? (
                             <div className="-z-10 absolute -top-[0px] -left-[0px] h-[220px] w-[220px] hidden lg:block pointer-events-none">
                                 <Image src="/supermatchstampplatonic.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
@@ -305,11 +305,11 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                         📚 {matchData.profile.year.charAt(0).toUpperCase() + matchData.profile.year.slice(1)},{' '}
                         {matchData.profile.major.charAt(0).toUpperCase() + matchData.profile.major.slice(1)}
                     </p> */}
-                        <div className="mt-4 flex justify-end items-center w-full font-work-sans text-xl font-semibold gap-8">
-                            <div className="flex sm:contents">
-                                <div className="mt-0 text-[170px]">{matchEmoji}</div>
+                        <div className="mt-4 flex h-1/2 min-h-fit justify-end items-center w-full font-work-sans text-xl font-semibold gap-8">
+                            <div className="flex sm:contents w-1/4">
+                                <div className="my-[60px] text-[170px]">{matchEmoji}</div>
                             </div>
-                            <div className="text-pmblue-500 flex flex-col gap-2">
+                            <div className="text-pmblue-500 flex flex-col gap-2 w-3/4">
                                 <div className="flex justify-start gap-2 flex-wrap text-lg/6">
                                     <div className="flex items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 22 27" fill="none">
@@ -417,60 +417,58 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
 
             {/* Back of Card  */}
 
-            <div className="h-full grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex backface-hidden rotate-y-half">
+            <div className={`h-full w-full absolute top-0 bottom-0 left-0 right-0
+            shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)] 
+            rounded-lg border-2 border-pmblue-500 rotate-y-half
+            sm:flex backface-hidden 
+            ${showBack ? 'pointer-events-auto' : 'pointer-events-none'}`}>
                 <div
-                    ref={backRef}
-                    className={`h-full absolute top-0 bottom-0 left-0 right-0 flex flex-col bg-white rounded-lg border-2 border-pmblue-500 mx-auto
-                    shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)]  ${mutualCrush ? 'animate-pulse-glow' : ''}`}
+                    className={`flex flex-col bg-white rounded-lg mx-auto w-full h-full
+                        ${mutualCrush ? 'animate-pulse-glow' : ''}
+                    `}
                 >
-                    <div className=" pt-6 px-10 w-full z-10">
-                        {mutualCrush && (
-                            <div className="px-6 py-3 mb-3 -mx-3 rounded-md bg-pmpink-500 font-semibold font-work-sans border-0 text-pmblue-500 text-left">
-                                <p>
-                                    💌 There was no need for us to execute the algorithm, as your compatibility was
-                                    unmistakable - indeed, a mutual crush. Now, what comes next is not for us to dictate -
-                                    take the next step and go on a date ❤️‍🔥!
-                                </p>
-                            </div>
-                        )}
-                        {/* <p className="text-gray-500">
+                    <div className=" pt-6 w-full z-10 h-1/4">
+                        <div className="px-10">
+                            {/* <p className="text-gray-500">
                         📚 {matchData.profile.year.charAt(0).toUpperCase() + matchData.profile.year.slice(1)},{' '}
                         {matchData.profile.major.charAt(0).toUpperCase() + matchData.profile.major.slice(1)}
                     </p> */}
-                        <div className=" flex justify-center items-center w-full">
-                            {platonic ?
-                                (<div className="w-fit h-auto items-center">
-                                    <Image src="/matchcardheartsplatonic.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
-                                </div>) :
-                                (<div className="w-fit h-auto items-center">
-                                    <Image src="/matchcardhearts.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
-                                </div>)}
-                            <div className="w-full">
-                                <h3 className="text-4xl font-bold w-full text-pmred-500">
-                                    {matchData.profile.firstName}
-                                </h3>
+                            <div className=" flex justify-center items-center w-full">
+                                {platonic ?
+                                    (<div className="w-fit h-auto items-center">
+                                        <Image src="/matchcardheartsplatonic.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
+                                    </div>) :
+                                    (<div className="w-fit h-auto items-center">
+                                        <Image src="/matchcardhearts.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
+                                    </div>)}
+                                <div className="w-full">
+                                    <h3 className="text-4xl font-bold w-full text-pmred-500 text-center">
+                                        {matchData.profile.firstName}
+                                    </h3>
+                                </div>
+                                {platonic ?
+                                    (<div className="w-fit h-auto items-center">
+                                        <Image src="/matchcardheartsplatonic.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
+                                    </div>) :
+                                    (<div className="w-fit h-auto items-center">
+                                        <Image src="/matchcardhearts.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
+                                    </div>)}
                             </div>
-                            {platonic ?
-                                (<div className="w-fit h-auto items-center">
-                                    <Image src="/matchcardheartsplatonic.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
-                                </div>) :
-                                (<div className="w-fit h-auto items-center">
-                                    <Image src="/matchcardhearts.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
-                                </div>)}
+                        </div>
+                        <div className='mt-6'>
+                            {platonic ? (<div className="w-full h-auto z-10">
+                                <Image src="/pokestripeplatonic.svg" alt="poke to unlock" height={60} width={913} loading='lazy' draggable='false' />
+                            </div>) :
+                                (<div className="w-full h-auto z-10">
+                                    <Image src="/pokestripe.svg" alt="poke to unlock" height={60} width={913} loading='lazy' draggable='false' />
+                                </div>)
+                            }
                         </div>
                     </div>
-                    <div className='mt-6'>
-                        {platonic ? (<div className="w-full h-auto z-10">
-                            <Image src="/pokestripeplatonic.svg" alt="poke to unlock" height={60} width={913} loading='lazy' draggable='false' />
-                        </div>) :
-                            (<div className="w-full h-auto z-10">
-                                <Image src="/pokestripe.svg" alt="poke to unlock" height={60} width={913} loading='lazy' draggable='false' />
-                            </div>)
-                        }
-                    </div>
-                    <div className=" pt-3 px-10 w-full z-10">
-                        <div className="flex justify-start items-center w-full font-work-sans font-semibold gap-8 ">
-                            <div className="text-pmblue-500 flex flex-col gap-2 text-xl gap-2 justify-start w-full">
+
+                    <div className=" pt-3 px-10 w-full z-10 h-3/4">
+                        <div className="flex justify-start items-center w-full font-work-sans font-semibold gap-8 h-1/2">
+                            <div className="text-pmblue-500 flex flex-col gap-2 text-xl justify-start w-full">
                                 {contact.insta && (<div className="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 42 43" fill="none">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M27.4545 5.99414C29.73 5.99414 31.9122 6.89805 33.5211 8.50701C35.1301 10.116 36.034 12.2982 36.034 14.5736V28.3007C36.034 30.5762 35.1301 32.7584 33.5211 34.3673C31.9122 35.9763 29.73 36.8802 27.4545 36.8802H13.7274C11.452 36.8802 9.26978 35.9763 7.66082 34.3673C6.05185 32.7584 5.14795 30.5762 5.14795 28.3007V14.5736C5.14795 12.2982 6.05185 10.116 7.66082 8.50701C9.26978 6.89805 11.452 5.99414 13.7274 5.99414H27.4545ZM27.4545 9.42592H13.7274C12.3622 9.42592 11.0528 9.96827 10.0875 10.9336C9.12208 11.899 8.57973 13.2084 8.57973 14.5736V28.3007C8.57973 29.666 9.12208 30.9753 10.0875 31.9407C11.0528 32.9061 12.3622 33.4484 13.7274 33.4484H27.4545C28.8198 33.4484 30.1291 32.9061 31.0945 31.9407C32.0599 30.9753 32.6022 29.666 32.6022 28.3007V14.5736C32.6022 13.2084 32.0599 11.899 31.0945 10.9336C30.1291 9.96827 28.8198 9.42592 27.4545 9.42592ZM20.591 14.5736C22.4113 14.5736 24.1571 15.2967 25.4443 16.5839C26.7314 17.8711 27.4545 19.6168 27.4545 21.4372C27.4545 23.2575 26.7314 25.0033 25.4443 26.2904C24.1571 27.5776 22.4113 28.3007 20.591 28.3007C18.7706 28.3007 17.0249 27.5776 15.7377 26.2904C14.4505 25.0033 13.7274 23.2575 13.7274 21.4372C13.7274 19.6168 14.4505 17.8711 15.7377 16.5839C17.0249 15.2967 18.7706 14.5736 20.591 14.5736ZM20.591 18.0054C19.6808 18.0054 18.8079 18.3669 18.1643 19.0105C17.5208 19.6541 17.1592 20.527 17.1592 21.4372C17.1592 22.3473 17.5208 23.2202 18.1643 23.8638C18.8079 24.5074 19.6808 24.869 20.591 24.869C21.5011 24.869 22.374 24.5074 23.0176 23.8638C23.6612 23.2202 24.0228 22.3473 24.0228 21.4372C24.0228 20.527 23.6612 19.6541 23.0176 19.0105C22.374 18.3669 21.5011 18.0054 20.591 18.0054ZM28.3125 11.9998C28.7676 11.9998 29.204 12.1805 29.5258 12.5023C29.8476 12.8241 30.0284 13.2606 30.0284 13.7157C30.0284 14.1707 29.8476 14.6072 29.5258 14.929C29.204 15.2508 28.7676 15.4315 28.3125 15.4315C27.8574 15.4315 27.421 15.2508 27.0992 14.929C26.7774 14.6072 26.5966 14.1707 26.5966 13.7157C26.5966 13.2606 26.7774 12.8241 27.0992 12.5023C27.421 12.1805 27.8574 11.9998 28.3125 11.9998Z" fill="#00438D" />
@@ -552,18 +550,16 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                 </div>
                             </div>
                         </div>
+                        <div className="relative rounded-md w-auto mb-5 h-auto mt-3 px-6 py-3 font-work-sans text-lg font-semibold text-pmblue-500 bg-pmpink-500">
+                            {!poked && <div className="absolute top-0 right-[40px] h-[100px] w-[90px] hidden lg:block pointer-events-none">
+                                <Image src="/pokelock.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
+                            </div>}
+                            <p className="text-left">My Sense of Humor is: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.humor.join(', ')}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.humor.join(', ')}</span>)}</p>
+                            <p className="text-left">Where I would go on a first date: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.date}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.date}</span>)}</p>
+                            <p className="text-left">1 = Introvert, 10 = Extrovert, I&apos;m a: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.introvert}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.introvert}</span>)}</p>
+                            <p className="text-left">A green flag to me in a relationship: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.greenflag}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.greenflag}</span>)}</p>
+                        </div>
                     </div>
-                    <div className="mx-6 relative rounded-md w-auto mb-5 h-auto mt-3 px-6 py-3 font-work-sans text-lg font-semibold text-pmblue-500 bg-pmpink-500">
-                        {!poked && <div className="absolute top-0 right-[40px] h-[100px] w-[90px] hidden lg:block pointer-events-none">
-                            <Image src="/pokelock.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
-                        </div>}
-                        <p className="text-left">My Sense of Humor is: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.humor.join(', ')}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.humor.join(', ')}</span>)}</p>
-                        <p className="text-left">Where I would go on a first date: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.date}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.date}</span>)}</p>
-                        <p className="text-left">1 = Introvert, 10 = Extrovert, I&apos;m a: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.introvert}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.introvert}</span>)}</p>
-                        <p className="text-left">A green flag to me in a relationship: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.greenflag}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.greenflag}</span>)}</p>
-                    </div>
-                    {/* <div className="w-1 /2">{renderSongSection()}</div> */}
-                    {/* <MatchFeedback matchID={matchID} matchFeedback={matchFeedback} refresh={refresh} /> */}
                 </div>
             </div >
         </div >
