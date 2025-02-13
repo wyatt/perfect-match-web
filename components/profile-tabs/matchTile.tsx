@@ -270,14 +270,17 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                     `}
                 >
                     <div className="relative pt-6 px-10 w-full z-10 h-3/4">
-                        {superMatch && (platonic ? (
-                            <div className="-z-10 absolute -top-[0px] -left-[0px] h-[220px] w-[220px] hidden lg:block pointer-events-none">
-                                <Image src="/supermatchstampplatonic.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
-                            </div>) :
-                            (<div className="-z-10 absolute -top-[0px] -left-[0px] h-[220px] w-[220px] hidden lg:block pointer-events-none">
-                                <Image src="/supermatchstamp.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
-                            </div>))}
-                        {mutualCrush && (
+                        {mutualCrush ? (<div className="-z-10 absolute -top-[0px] -left-[0px] h-[220px] w-[220px] hidden lg:block pointer-events-none">
+                            <Image src="/mutualcrushstamp.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
+                        </div>) :
+                            (superMatch && (platonic ? (
+                                <div className="-z-10 absolute -top-[0px] -left-[0px] h-[220px] w-[220px] hidden lg:block pointer-events-none">
+                                    <Image src="/supermatchstampplatonic.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
+                                </div>) :
+                                (<div className="-z-10 absolute -top-[0px] -left-[0px] h-[220px] w-[220px] hidden lg:block pointer-events-none">
+                                    <Image src="/supermatchstamp.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
+                                </div>)))}
+                        {/* {mutualCrush && (
                             <div className="px-6 py-3 mb-3 -mx-3 rounded-md bg-pmpink-500 font-semibold font-work-sans border-0 text-pmblue-500 text-left">
                                 <p>
                                     💌 There was no need for us to execute the algorithm, as your compatibility was
@@ -285,7 +288,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                     take the next step and go on a date ❤️‍🔥!
                                 </p>
                             </div>
-                        )}
+                        )} */}
                         {/* "mx-6 relative rounded-md w-auto mb-5 h-auto mt-3 px-6 py-3 font-work-sans text-lg font-semibold text-pmblue-500 bg-pmpink-500" */}
                         <div className="flex justify-center items-center w-full">
                             <div className="ml-[94px] w-full">
@@ -396,14 +399,16 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
 
 
                     </div>
-                    {superMatch ? (platonic ? (<div className="w-full h-auto mt-4 z-10">
+                    {mutualCrush ? (<div className="w-full h-auto mt-4 z-10">
+                        <Image src="/mutualcrushstripe.svg" alt="mutual crush" height={40} width={913} loading='lazy' draggable='false' />
+                    </div>) : (superMatch ? (platonic ? (<div className="w-full h-auto mt-4 z-10">
                         <Image src="/supermatchstripeplatonic.svg" alt="platonic super match" height={40} width={913} loading='lazy' draggable='false' />
                     </div>) :
                         (<div className="w-full h-auto mt-4 z-10">
                             <Image src="/supermatchstripe.svg" alt="super match" height={40} width={913} loading='lazy' draggable='false' />
                         </div>))
                         : (platonic ? (<hr className="z-10 mt-6 mb-2 border-pmorange-500 border-8"></hr>) :
-                            (<hr className="z-10 mt-6 mb-2 border-pmpink2-500 border-8"></hr>))}
+                            (<hr className="z-10 mt-6 mb-2 border-pmpink2-500 border-8"></hr>)))}
 
                     <div className="mx-6 relative rounded-md w-auto mb-5 h-auto mt-3 px-6 py-3 font-work-sans text-lg font-semibold text-pmblue-500 bg-pmpink-500">
                         <div className="absolute -top-[120px] -right-[20px] h-[150px] w-[220px] hidden lg:block pointer-events-none">
