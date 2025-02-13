@@ -187,7 +187,7 @@ function MatchFeedback({ matchID, matchFeedback, refresh }: any) {
     );
 }
 
-function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutualCrush, superMatch, platonic }: any) {
+function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutualCrush, superMatch, platonic, matchPoked }: any) {
     const matchEmoji = useMemo(() => {
         return emoji[Math.floor(Math.random() * emoji.length)];
     }, []);
@@ -230,7 +230,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     const [cardHeight, setCardHeight] = useState(0);
     const cardRef = useRef<HTMLDivElement>(null);
     const backRef = useRef<HTMLDivElement>(null);
-    const poked = useState(false);
+    const [poked, setPoked] = useState(matchPoked);
 
     const handleFlip = (): void => {
         const selection = window.getSelection();
@@ -252,17 +252,18 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
             body: JSON.stringify({ matchEmail: matchData.email }),
         }).then((res) => {
             if (!res.ok) alert('Failed to poke match. Please try again later or contact us for help.');
+            else setPoked(true);
             setShowPopup(false);
         });
     }
 
-     useEffect(() => {
+    useEffect(() => {
         if (cardRef.current && backRef.current) {
             setCardHeight(cardRef.current.offsetHeight);
             backRef.current.style.height = `${cardRef.current.offsetHeight}px`;
         }
     }, [cardRef, backRef, mutualCrush]);
-    
+
     return (
         <div className={`relative sm:w-3/4 lg:w-2/3 lg:max-w-3xl mx-[2%] sm:mx-auto perspective-400 
         transform-3d transition-transform duration-1000 ease-in-out

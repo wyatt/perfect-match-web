@@ -34,6 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
     for (const match of userMatches) {
         if (match.partnerAId.email === matchPoked || match.partnerBId.email === matchPoked) {
+            if (match.poked) return res.status(400).send('Match already poked!');
             const matchProfile = match.partnerAId.email === matchPoked ? match.partnerAId : match.partnerBId;
             template = template.replaceAll('{{name}}', matchProfile.profile.firstName);
             const emailParams = {

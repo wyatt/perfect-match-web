@@ -21,7 +21,10 @@ function Matches({ matches, userId, refresh, matchCount }: any) {
                         matchID={match._id}
                         matchData={matchData}
                         contact={matchData.survey.contact}
+                        superMatch={match.superMatch}
                         matchFeedback={matchFeedback}
+                        platonic={match.platonic}
+                        matchPoked={match.poked}
                         refresh={refresh}
                         mutualCrush={mutualCrush}
                     />
