@@ -86,18 +86,17 @@ const Home: NextPage = (props: any) => {
                             <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
                                 <div className="">
                                     <h1 className="text-4xl text-[#00438D] font-family-dela sm:text-3xl lg:text-5xl font-dela-gothic sm:mt-5">
-                                        Perfect Match
-                                        <br />
-                                        is open <strong className='text-pmred-500'> NOW! </strong>
+                                        Your <div className='text-pmred-500'> Perfect Matches </div> have been released!
                                     </h1>
                                 </div>
                                 <div className='font-work-sans'>
                                     <p className="text-lg text-pmblue-500 mt-4 lg:max-w-lg lg:text-left text-center lg:text-xl sm:leading-relaxed">
-                                        The form closes <strong className="italic"> February 13th at Noon </strong>
+                                        Matches are great, but connections don&apos;t happen without a little courage! So go ahead—send a text or slide into those DMs.
+                                        Because the only thing sadder than an unopened message… is a love story that never got a chance to begin.
                                         <br />
-                                        Be sure to fill it in time so you&apos;re not alone on Valentine&apos;s Day ;&#41;
                                         <br />
-                                        <strong> {currentCount}</strong> Cornellians have already filled it out.
+                                        <strong> 5052 </strong> Cornellians Matched!
+                                        <br />
 
                                     </p>
                                     {!props.user ? (
@@ -105,10 +104,11 @@ const Home: NextPage = (props: any) => {
                                     ) : (
                                         <Link href="/profile">
                                             <Button bold={true} >
-                                                fill out Perfect Match
+                                                see my matches!
                                             </Button>
                                         </Link>
                                     )}
+
                                 </div>
                             </div>
 
@@ -164,7 +164,7 @@ const Home: NextPage = (props: any) => {
                         <Image src="/bear.svg" alt="bear" height={396} width={504} loading='lazy' draggable='false' />
                     </div>
                 </section >
-            </div>
+            </div >
             <div className="bg-pmpink-500">
                 <div className="left-0 w-full relative h-[60px]">
                     <svg className="absolute top-1 w-full h-[60px] z-100 md:hidden" // Adjust height as needed
