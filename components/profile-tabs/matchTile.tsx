@@ -256,25 +256,18 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
         });
     }
 
-     useEffect(() => {
-        if (cardRef.current && backRef.current) {
-            setCardHeight(cardRef.current.offsetHeight);
-            backRef.current.style.height = `${cardRef.current.offsetHeight}px`;
-        }
-    }, [cardRef, backRef, mutualCrush]);
-    
     return (
-        <div className={`relative sm:w-3/4 lg:w-2/3 lg:max-w-3xl mx-[2%] sm:mx-auto perspective-400 
+        <div className={`relative sm:w-3/4 lg:w-2/3 lg:max-w-3xl mx-[2%] sm:mx-auto perspective-400 h-auto
         transform-3d transition-transform duration-1000 ease-in-out
         ${showBack ? 'rotate-y-half' : 'rotate-y-0'}
         `} onClick={handleFlip}>
             {/* Front of Card  */}
             <div className={`absolute h-full top-0 bottom-0 left-0 right-0 grid gap-8 mb-6 
-            lg:mb-16 md:grid-cols-1 sm:flex backface-hidden ${mutualCrush ? 'animate-pulse-glow' : ''}`} >
+            lg:mb-16 md:grid-cols-1 sm:flex backface-hidden`}  >
                 <div
                     ref={cardRef}
-                    className={`flex flex-col bg-white rounded-lg border-2 border-pmblue-500 sm:w-full mx-auto lg:w-3/4 h-auto
-                    shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)]`}
+                    className={`flex flex-col bg-white rounded-lg border-2 border-pmblue-500 mx-auto h-auto
+                    shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)] ${mutualCrush ? 'animate-pulse-glow' : ''}`}
                 >
                     <div className="relative pt-6 px-10 w-full z-10">
                         {superMatch && (platonic ? (
@@ -424,11 +417,11 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
 
             {/* Back of Card  */}
 
-            <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex">
+            <div className="h-full grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex backface-hidden rotate-y-half">
                 <div
                     ref={backRef}
-                    className={`h-full absolute top-0 bottom-0 left-0 right-0 flex flex-col bg-white rounded-lg border-2 border-pmblue-500 sm:w-full mx-auto lg:w-3/4 h-auto
-                    shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)] backface-hidden rotate-y-half ${mutualCrush ? 'animate-pulse-glow' : ''}`}
+                    className={`h-full absolute top-0 bottom-0 left-0 right-0 flex flex-col bg-white rounded-lg border-2 border-pmblue-500 mx-auto
+                    shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)]  ${mutualCrush ? 'animate-pulse-glow' : ''}`}
                 >
                     <div className=" pt-6 px-10 w-full z-10">
                         {mutualCrush && (
