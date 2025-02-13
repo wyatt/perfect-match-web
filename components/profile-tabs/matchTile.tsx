@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Review } from '../../types/users';
 import Iframe from 'react-iframe';
 import Button from '@/components/general/button';
+import Popup from '@/components/general/popup';
 
 const emoji = ['😃', '😆', '😄', '😆', '😊', '😎', '😳', '🤗'];
 const color = [
@@ -221,18 +222,25 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     };
 
     const [showBack, setShowBack] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
+    const buttonRef = React.createRef<HTMLButtonElement>();
 
     const handleFlip = (): void => {
         const selection = window.getSelection();
         if (selection && selection.toString().length > 0) {
             return;
         }
+        setShowPopup(false);
         setShowBack(!showBack);
     }
 
-    const handlePoke = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    const handlePop = (e: React.MouseEvent<HTMLButtonElement>): void => {
         e.stopPropagation();
-        console.log('Poked!');
+        setShowPopup(!showPopup);
+    }
+
+    const handlePoke = (): void => {
+        setShowPopup(false);
     }
 
     return (
@@ -348,7 +356,30 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                     <p className="text-gray-500 ">1 = Introvert, 10 = Extrovert, I&apos;m a {matchData.survey.introvert}</p>
                     <p className="text-gray-500 ">A green flag to me in a relationship:  {matchData.survey.greenflag}</p>
                 </div>
-                <Button bold={true} mt={1} onClick={handlePoke}>POKE to See More!</Button>
+                <div>
+                    <Button bold={true} mt={1} onClick={handlePop} ref={buttonRef}>POKE to See More!</Button>
+                    {showPopup && (
+                        <Popup triggerRef={buttonRef} placement="top" open={showPopup} arrowHeight={35} arrowWidth={30}>
+                            <div className='max-w-[40vw] lg:max-w-[30vw] min-w-64 font-work-sans text-center text-sm md:text-base
+                            bg-pmblue-500 border border-[#ccc] p-3 rounded-3xl shadow 
+                             '>
+                                <div className='flex flex-col items-center justify-center mx-6 my-3'>
+                                    <div className='font-bold text-lg md:text-xl mb-5 drop-shadow-[6px_6px_0_[pmblue-500]]'>👉 WHAT&apos;S A POKE 👈</div>
+                                    <div>By poking your match, we’ll send an email letting them know you’re curious about them 👀
+                                        <br />
+                                        <br />
+                                        In return, you unlock the locked info about your match! Note this is not anonymous,
+                                        meaning if you chose to poke a match, they will know which match poked them.
+                                    </div>
+                                    <div className='grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 justify-center mt-5'>
+                                        <Button bold={true} mt={5} onClick={handlePoke}>Poke My Match!</Button>
+                                        <Button bold={true} mt={5} >Go Back</Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </Popup>
+                    )}
+                </div>
             </div >
         </div >
 
