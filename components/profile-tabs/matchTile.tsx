@@ -518,7 +518,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                         </div>}
                         <p className="text-left">My Sense of Humor is: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.humor.join(', ')}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.humor.join(', ')}</span>)}</p>
                         <p className="text-left">Where I would go on a first date: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.date}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.date}</span>)}</p>
-                        <p className="text-left">1 = Introvert, 10 = Extrovert, I'm a: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.introvert}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.introvert}</span>)}</p>
+                        <p className="text-left">1 = Introvert, 10 = Extrovert, I&apos;m a: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.introvert}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.introvert}</span>)}</p>
                         <p className="text-left">A green flag to me in a relationship: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.greenflag}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.greenflag}</span>)}</p>
                     </div>
                     {/* <div className="w-1 /2">{renderSongSection()}</div> */}
