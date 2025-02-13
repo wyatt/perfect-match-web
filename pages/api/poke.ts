@@ -25,20 +25,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
     const body = JSON.parse(req.body);
     let template = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/poke_email.html`).then(res => res.text());
-    template = template.replaceAll('{{user}}', user?.name!);
 
     const matchPoked = body.matchEmail;
-    const userMatches = (await getUser(user)).matchReviews;
+    const userProfile = await getUser(user);
+    const userMatches = userProfile.matchReviews;
+    template = template.replaceAll('{{user}}', userProfile.profile.firstName);
+
 
     for (const match of userMatches) {
         if (match.partnerAId.email === matchPoked || match.partnerBId.email === matchPoked) {
             const matchProfile = match.partnerAId.email === matchPoked ? match.partnerAId : match.partnerBId;
             template = template.replaceAll('{{name}}', matchProfile.profile.firstName);
             const emailParams = {
-                Destination: { ToAddresses: [matchPoked] },
+                // Change this to the email of the user being poked (matchPoked)
+                Destination: { ToAddresses: ['perfectmatch@cornell.edu'] },
                 Message: {
                     Body: { Html: { Charset: 'UTF-8', Data: template }, },
-                    Subject: { Charset: 'UTF-8', Data: `💘 Psst… ${user?.name!} Just Poked You! 💘` }
+                    Subject: { Charset: 'UTF-8', Data: `💘 Psst… ${userProfile.profile.firstName} Just Poked You! 💘` }
                 },
                 Source: 'Perfect Match <perfectmatch@cornell.edu>'
             };

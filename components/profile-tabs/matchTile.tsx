@@ -188,7 +188,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     const matchEmoji = useMemo(() => {
         return emoji[Math.floor(Math.random() * emoji.length)];
     }, []);
-    console.log(matchData);
+
     // Function to render the play button or emoji for the hookupsong
     const renderSongSection = () => {
         if (matchData.survey.hookupsongURL) {
@@ -240,8 +240,15 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     }
 
     const handlePoke = (): void => {
-        setShowPopup(false);
+        fetch(`/api/poke/`, {
+            method: 'POST',
+            body: JSON.stringify({ matchEmail: matchData.email }),
+        }).then((res) => {
+            if (!res.ok) alert('Failed to poke match. Please try again later or contact us for help.');
+            setShowPopup(false);
+        });
     }
+
 
     return (
         <div className={`relative sm:w-3/4 lg:w-2/3 lg:max-w-3xl mx-[2%] sm:mx-auto perspective-400 
