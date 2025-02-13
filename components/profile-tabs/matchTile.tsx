@@ -1,7 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import { Review } from '../../types/users';
 import Iframe from 'react-iframe';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const emoji = ['😃', '😆', '😄', '😆', '😊', '😎', '😳', '🤗'];
 const color = [
@@ -221,12 +222,23 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     };
 
     const mutualCrushGlowClass = mutualCrush ? 'mutual-crush-glow' : '';
+    const [cardHeight, setCardHeight] = useState(0);
+    const cardRef = useRef<HTMLDivElement>(null);
+    const backRef = useRef<HTMLDivElement>(null);
+    const poked = false;
 
+    useEffect(() => {
+        if (cardRef.current && backRef.current) {
+            setCardHeight(cardRef.current.offsetHeight);
+            backRef.current.style.height = `${cardRef.current.offsetHeight}px`;
+        }
+    }, [cardRef, backRef]);
     return (
         <div>
             {/* Front of Card  */}
             <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex" >
                 <div
+                    ref={cardRef}
                     className={`flex flex-col bg-white rounded-lg border-2 border-pmblue-500 sm:w-full mx-auto lg:w-3/4 h-auto
                     shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)] ${mutualCrushGlowClass}`}
                 >
@@ -379,16 +391,15 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
 
             {/* Back of Card  */}
 
-
             <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-1 sm:flex">
                 <div
-                    className={`items-center rounded-lg shadow-xl mx-[2%] sm:flex sm:w-3/4 lg:2/3 lg:max-w-3xl sm:mx-auto ${mutualCrushGlowClass}`}
+                    ref={backRef}
+                    className={`flex flex-col bg-white rounded-lg border-2 border-pmblue-500 sm:w-full mx-auto lg:w-3/4 h-auto
+                    shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25),18px_12px_0px_0px_rgba(36,67,141,1)] ${mutualCrushGlowClass}`}
                 >
-                    <div className="flex sm:contents">
-                    </div>
-                    <div className="p-3 pt-1 sm:pl-6 sm:pr-10 sm:py-5 lg:pl-10">
+                    <div className=" pt-6 px-10 w-full z-10">
                         {mutualCrush && (
-                            <div className="p-3 mb-4 rounded-lg bg-pink-100 border border-pink-200 text-pink-500">
+                            <div className="px-6 py-3 mb-3 -mx-3 rounded-md bg-pmpink-500 font-semibold font-work-sans border-0 text-pmblue-500 text-left">
                                 <p>
                                     💌 There was no need for us to execute the algorithm, as your compatibility was
                                     unmistakable - indeed, a mutual crush. Now, what comes next is not for us to dictate -
@@ -396,64 +407,124 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                 </p>
                             </div>
                         )}
-
-                        <hr className="h-0.5 my-2 bg-rose-200 border-0"></hr>
                         {/* <p className="text-gray-500">
                         📚 {matchData.profile.year.charAt(0).toUpperCase() + matchData.profile.year.slice(1)},{' '}
                         {matchData.profile.major.charAt(0).toUpperCase() + matchData.profile.major.slice(1)}
                     </p> */}
-                        <p className="text-gray-500 ">Back of the Card***</p>
-
-
-                        {contact.insta && (
-                            <p className="mb-4 sm:mb-3 text-gray-500">
-                                Instagram: <span className="font-bold">{contact.insta}</span>
-                            </p>
-                        )}
-                        {contact.fb && (
-                            <p className="mb-4 sm:mb-3 text-gray-500">
-                                Facebook: <span className="font-bold">{contact.fb}</span>
-                            </p>
-                        )}
-                        {contact.twitter && (
-                            <p className="mb-4 sm:mb-3 text-gray-500">
-                                Twitter: <span className="font-bold">{contact.twitter}</span>
-                            </p>
-                        )}
-                        {contact.linkedin && (
-                            <p className="mb-4 sm:mb-3 text-gray-500">
-                                LinkedIn: <span className="font-bold">{contact.linkedin}</span>
-                            </p>
-                        )}
-                        {contact.phone && (
-                            <p className="mb-4 sm:mb-3 text-gray-500">
-                                Phone Number: <span className="font-bold">{contact.phone}</span>
-                            </p>
-                        )}
-                        {contact.snap && (
-                            <p className="mb-4 sm:mb-3 text-gray-500">
-                                Snapchat: <span className="font-bold">{contact.snap}</span>
-                            </p>
-                        )}
-                        {contact.other && (
-                            <p className="mb-4 sm:mb-3 text-gray-500">
-                                Other: <span className="font-bold">{contact?.other}</span>
-                            </p>
-                        )}
-                        {/* <div className="w-1/2">{renderSongSection()}</div> */}
-                        {/* <MatchFeedback matchID={matchID} matchFeedback={matchFeedback} refresh={refresh} /> */}
-                        <p className="text-gray-500 ">My Sense of Humor is: {matchData.survey.humor.join(', ')}</p>
-                        <p className="text-gray-500 ">Where I would go on a first date {matchData.survey.date}</p>
-                        <p className="text-gray-500 ">1 = Introvert, 10 = Extrovert, I'm a {matchData.survey.introvert}</p>
-                        <p className="text-gray-500 ">A green flag to me in a relationship:  {matchData.survey.greenflag}</p>
-
-
-
-
+                        <div className=" flex justify-center items-center w-full">
+                            {platonic ?
+                                (<div className="w-fit h-auto items-center">
+                                    <Image src="/matchcardheartsplatonic.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
+                                </div>) :
+                                (<div className="w-fit h-auto items-center">
+                                    <Image src="/matchcardhearts.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
+                                </div>)}
+                            <div className="w-full">
+                                <h3 className="text-4xl font-bold w-full text-pmred-500">
+                                    {matchData.profile.firstName}
+                                </h3>
+                            </div>
+                            {platonic ?
+                                (<div className="w-fit h-auto items-center">
+                                    <Image src="/matchcardheartsplatonic.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
+                                </div>) :
+                                (<div className="w-fit h-auto items-center">
+                                    <Image src="/matchcardhearts.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
+                                </div>)}
+                        </div>
                     </div>
+                    <div className='mt-6'>
+                        {platonic ? (<div className="w-full h-auto z-10">
+                            <Image src="/pokestripeplatonic.svg" alt="poke to unlock" height={60} width={913} loading='lazy' draggable='false' />
+                        </div>) :
+                            (<div className="w-full h-auto z-10">
+                                <Image src="/pokestripe.svg" alt="poke to unlock" height={60} width={913} loading='lazy' draggable='false' />
+                            </div>)
+                        }
+                    </div>
+                    <div className=" pt-3 px-10 w-full z-10">
+                        <div className="flex justify-start items-center w-full font-work-sans font-semibold gap-8 ">
+                            <div className="text-pmblue-500 flex flex-col gap-2 text-xl gap-2 justify-start w-full">
+                                {contact.insta && (<div className="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 42 43" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M27.4545 5.99414C29.73 5.99414 31.9122 6.89805 33.5211 8.50701C35.1301 10.116 36.034 12.2982 36.034 14.5736V28.3007C36.034 30.5762 35.1301 32.7584 33.5211 34.3673C31.9122 35.9763 29.73 36.8802 27.4545 36.8802H13.7274C11.452 36.8802 9.26978 35.9763 7.66082 34.3673C6.05185 32.7584 5.14795 30.5762 5.14795 28.3007V14.5736C5.14795 12.2982 6.05185 10.116 7.66082 8.50701C9.26978 6.89805 11.452 5.99414 13.7274 5.99414H27.4545ZM27.4545 9.42592H13.7274C12.3622 9.42592 11.0528 9.96827 10.0875 10.9336C9.12208 11.899 8.57973 13.2084 8.57973 14.5736V28.3007C8.57973 29.666 9.12208 30.9753 10.0875 31.9407C11.0528 32.9061 12.3622 33.4484 13.7274 33.4484H27.4545C28.8198 33.4484 30.1291 32.9061 31.0945 31.9407C32.0599 30.9753 32.6022 29.666 32.6022 28.3007V14.5736C32.6022 13.2084 32.0599 11.899 31.0945 10.9336C30.1291 9.96827 28.8198 9.42592 27.4545 9.42592ZM20.591 14.5736C22.4113 14.5736 24.1571 15.2967 25.4443 16.5839C26.7314 17.8711 27.4545 19.6168 27.4545 21.4372C27.4545 23.2575 26.7314 25.0033 25.4443 26.2904C24.1571 27.5776 22.4113 28.3007 20.591 28.3007C18.7706 28.3007 17.0249 27.5776 15.7377 26.2904C14.4505 25.0033 13.7274 23.2575 13.7274 21.4372C13.7274 19.6168 14.4505 17.8711 15.7377 16.5839C17.0249 15.2967 18.7706 14.5736 20.591 14.5736ZM20.591 18.0054C19.6808 18.0054 18.8079 18.3669 18.1643 19.0105C17.5208 19.6541 17.1592 20.527 17.1592 21.4372C17.1592 22.3473 17.5208 23.2202 18.1643 23.8638C18.8079 24.5074 19.6808 24.869 20.591 24.869C21.5011 24.869 22.374 24.5074 23.0176 23.8638C23.6612 23.2202 24.0228 22.3473 24.0228 21.4372C24.0228 20.527 23.6612 19.6541 23.0176 19.0105C22.374 18.3669 21.5011 18.0054 20.591 18.0054ZM28.3125 11.9998C28.7676 11.9998 29.204 12.1805 29.5258 12.5023C29.8476 12.8241 30.0284 13.2606 30.0284 13.7157C30.0284 14.1707 29.8476 14.6072 29.5258 14.929C29.204 15.2508 28.7676 15.4315 28.3125 15.4315C27.8574 15.4315 27.421 15.2508 27.0992 14.929C26.7774 14.6072 26.5966 14.1707 26.5966 13.7157C26.5966 13.2606 26.7774 12.8241 27.0992 12.5023C27.421 12.1805 27.8574 11.9998 28.3125 11.9998Z" fill="#00438D" />
+                                    </svg>
+                                    <p className="ml-2 text-left">Ins: @{contact.insta} </p>
+                                </div>)}
+                                {contact.phone && (<div className="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="32" viewBox="0 0 42 42" fill="none">
+                                        <path d="M13.7272 5.17578C14.5852 5.17578 18.017 12.8973 18.017 13.7552C18.017 15.4711 15.4431 17.187 14.5852 18.9029C13.7272 20.6188 15.4431 22.3347 17.159 24.0506C17.8282 24.7198 20.5908 27.4824 22.3067 26.6244C24.0226 25.7665 25.7385 23.1926 27.4544 23.1926C28.3123 23.1926 36.0338 26.6244 36.0338 27.4824C36.0338 30.9142 33.46 33.488 30.8862 34.3459C28.3123 35.2039 26.5964 35.2039 23.1646 34.3459C19.7329 33.488 17.159 32.6301 12.8693 28.3403C8.57957 24.0506 7.72162 21.4768 6.86367 18.045C6.00573 14.6132 6.00573 12.8973 6.86367 10.3235C7.72162 7.74962 10.2955 5.17578 13.7272 5.17578Z" stroke="#00438D" stroke-width="3.43178" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M24.0225 12.1074C25.1549 12.6393 26.1845 13.36 27.0424 14.2351C27.8832 15.0759 28.5867 16.0883 29.1015 17.1865" stroke="#00438D" stroke-width="3.43178" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M25.7383 5.60449C28.1577 6.23937 30.3197 7.49197 32.0356 9.20787C33.7343 10.9238 34.9869 13.0686 35.6047 15.4709" stroke="#00438D" stroke-width="3.43178" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <p className="ml-2 text-left">Tel: {contact.phone} </p>
+                                </div>)}
+                                {contact.fb && (<div className="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 21 22" fill="none">
+                                        <circle cx="8.47521" cy="8.70519" r="7.19444" stroke="#00438D" stroke-width="2.5" />
+                                        <path d="M18.147 21.2C18.6352 21.6881 19.4267 21.6881 19.9148 21.2C20.403 20.7118 20.403 19.9204 19.9148 19.4322L18.147 21.2ZM12.6054 15.6583L18.147 21.2L19.9148 19.4322L14.3731 13.8905L12.6054 15.6583Z" fill="#00438D" />
+                                    </svg>
+                                    <p className="ml-2 text-left">Fbk: {contact.fb} </p>
+                                </div>)}
+                                {contact.twitter && (<div className="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 21 22" fill="none">
+                                        <circle cx="8.47521" cy="8.70519" r="7.19444" stroke="#00438D" stroke-width="2.5" />
+                                        <path d="M18.147 21.2C18.6352 21.6881 19.4267 21.6881 19.9148 21.2C20.403 20.7118 20.403 19.9204 19.9148 19.4322L18.147 21.2ZM12.6054 15.6583L18.147 21.2L19.9148 19.4322L14.3731 13.8905L12.6054 15.6583Z" fill="#00438D" />
+                                    </svg>
+                                    <p className="ml-2 text-left">Twt: {contact.twitter} </p>
+                                </div>)}
+                                {contact.linkedin && (<div className="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 21 22" fill="none">
+                                        <circle cx="8.47521" cy="8.70519" r="7.19444" stroke="#00438D" stroke-width="2.5" />
+                                        <path d="M18.147 21.2C18.6352 21.6881 19.4267 21.6881 19.9148 21.2C20.403 20.7118 20.403 19.9204 19.9148 19.4322L18.147 21.2ZM12.6054 15.6583L18.147 21.2L19.9148 19.4322L14.3731 13.8905L12.6054 15.6583Z" fill="#00438D" />
+                                    </svg>
+                                    <p className="ml-2 text-left">L: {contact.linkedin} </p>
+                                </div>)}
+                                {contact.snap && (<div className="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 21 22" fill="none">
+                                        <circle cx="8.47521" cy="8.70519" r="7.19444" stroke="#00438D" stroke-width="2.5" />
+                                        <path d="M18.147 21.2C18.6352 21.6881 19.4267 21.6881 19.9148 21.2C20.403 20.7118 20.403 19.9204 19.9148 19.4322L18.147 21.2ZM12.6054 15.6583L18.147 21.2L19.9148 19.4322L14.3731 13.8905L12.6054 15.6583Z" fill="#00438D" />
+                                    </svg>
+                                    <p className="ml-2 text-left">Snp: {contact.snap} </p>
+                                </div>)}
+
+                                {contact.other && (<div className="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 21 22" fill="none">
+                                        <circle cx="8.47521" cy="8.70519" r="7.19444" stroke="#00438D" stroke-width="2.5" />
+                                        <path d="M18.147 21.2C18.6352 21.6881 19.4267 21.6881 19.9148 21.2C20.403 20.7118 20.403 19.9204 19.9148 19.4322L18.147 21.2ZM12.6054 15.6583L18.147 21.2L19.9148 19.4322L14.3731 13.8905L12.6054 15.6583Z" fill="#00438D" />
+                                    </svg>
+                                    <p className="ml-2 text-left">Other: {contact.other} </p>
+                                </div>)}
+                            </div>
+                            <div className=" justify-center font-work-sans text-lg font-semibold items-center min-w-[250px]">
+                                <div>
+                                    <Link href="">
+                                        <button className="px-6 py-2 rounded-full text-pmred-500 border-4 border-pmblue-500 bg-white
+                                    font-bold shadow-[6px_6px_0px_0px_rgba(36,67,141,1)] transition-all hover:translate-x-[4px]
+                                    hover:translate-y-[4px] hover:shadow-[2px_2px_0px_0px_rgba(36,67,141,1)] active:translate-x-[6px]
+                                    active:translate-y-[6px] active:shadow-none cursor-pointer text-xl text-center">
+                                            POKE to see more!</button>
+                                    </Link>
+                                </div>
+                                <div>
+                                    <p className="mt-2 text-pmpink2-500 text-xs">*note: poking is <u>not</u> anonymous</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mx-6 relative rounded-md w-auto mb-5 h-auto mt-3 px-6 py-3 font-work-sans text-lg font-semibold text-pmblue-500 bg-pmpink-500">
+                        {!poked && <div className="absolute top-0 right-[40px] h-[100px] w-[90px] hidden lg:block pointer-events-none">
+                            <Image src="/pokelock.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
+                        </div>}
+                        <p className="text-left">My Sense of Humor is: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.humor.join(', ')}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.humor.join(', ')}</span>)}</p>
+                        <p className="text-left">Where I would go on a first date: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.date}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.date}</span>)}</p>
+                        <p className="text-left">1 = Introvert, 10 = Extrovert, I'm a: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.introvert}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.introvert}</span>)}</p>
+                        <p className="text-left">A green flag to me in a relationship: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.greenflag}</span>) : (<span style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.greenflag}</span>)}</p>
+                    </div>
+                    {/* <div className="w-1 /2">{renderSongSection()}</div> */}
+                    {/* <MatchFeedback matchID={matchID} matchFeedback={matchFeedback} refresh={refresh} /> */}
 
                 </div>
-
             </div >
         </div >
 
