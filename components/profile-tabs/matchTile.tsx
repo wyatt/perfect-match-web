@@ -270,41 +270,30 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                     `}
                 >
                     <div className="relative pt-6 px-10 w-full z-10 h-3/4">
-                        {superMatch && (platonic ? (
-                            <div className="-z-10 absolute -top-[0px] -left-[0px] h-[220px] w-[220px] hidden lg:block pointer-events-none">
-                                <Image src="/supermatchstampplatonic.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
-                            </div>) :
-                            (<div className="-z-10 absolute -top-[0px] -left-[0px] h-[220px] w-[220px] hidden lg:block pointer-events-none">
-                                <Image src="/supermatchstamp.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
-                            </div>))}
-                        {mutualCrush && (
-                            <div className="px-6 py-3 mb-3 -mx-3 rounded-md bg-pmpink-500 font-semibold font-work-sans border-0 text-pmblue-500 text-left">
-                                <p>
-                                    💌 There was no need for us to execute the algorithm, as your compatibility was
-                                    unmistakable - indeed, a mutual crush. Now, what comes next is not for us to dictate -
-                                    take the next step and go on a date ❤️‍🔥!
-                                </p>
-                            </div>
-                        )}
-                        {/* "mx-6 relative rounded-md w-auto mb-5 h-auto mt-3 px-6 py-3 font-work-sans text-lg font-semibold text-pmblue-500 bg-pmpink-500" */}
-                        <div className="flex justify-center items-center w-full">
-                            <div className="ml-[94px] w-full">
-                                <h3 className="text-4xl font-bold w-full text-pmred-500">
-                                    {matchData.profile.firstName}
-                                </h3>
-                            </div>
-                            {platonic ?
-                                (<div className="w-fit h-auto items-center">
-                                    <Image src="/matchcardheartsplatonic.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
+                        <div className='h-1/4'>
+                            {superMatch && (platonic ? (
+                                <div className="-z-10 absolute -top-[0px] -left-[0px] h-[220px] w-[220px] hidden lg:block pointer-events-none">
+                                    <Image src="/supermatchstampplatonic.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
                                 </div>) :
-                                (<div className="w-fit h-auto items-center">
-                                    <Image src="/matchcardhearts.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
-                                </div>)}
+                                (<div className="-z-10 absolute -top-[0px] -left-[0px] h-[220px] w-[220px] hidden lg:block pointer-events-none">
+                                    <Image src="/supermatchstamp.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
+                                </div>))}
+                            {/* "mx-6 relative rounded-md w-auto mb-5 h-auto mt-3 px-6 py-3 font-work-sans text-lg font-semibold text-pmblue-500 bg-pmpink-500" */}
+                            <div className="flex justify-center items-center w-full">
+                                <div className="ml-[94px] w-full">
+                                    <h3 className="text-4xl font-bold w-full text-pmred-500">
+                                        {matchData.profile.firstName}
+                                    </h3>
+                                </div>
+                                {platonic ?
+                                    (<div className="w-fit h-auto items-center">
+                                        <Image src="/matchcardheartsplatonic.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
+                                    </div>) :
+                                    (<div className="w-fit h-auto items-center">
+                                        <Image src="/matchcardhearts.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
+                                    </div>)}
+                            </div>
                         </div>
-                        {/* <p className="text-gray-500">
-                        📚 {matchData.profile.year.charAt(0).toUpperCase() + matchData.profile.year.slice(1)},{' '}
-                        {matchData.profile.major.charAt(0).toUpperCase() + matchData.profile.major.slice(1)}
-                    </p> */}
                         <div className="mt-4 flex h-1/2 min-h-fit justify-end items-center w-full font-work-sans text-xl font-semibold gap-8">
                             <div className="flex sm:contents w-1/4">
                                 <div className="my-[60px] text-[170px]">{matchEmoji}</div>
