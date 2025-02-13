@@ -6,6 +6,7 @@ import {
     FloatingArrow,
     useTransitionStyles,
     shift,
+    autoUpdate,
 } from "@floating-ui/react";
 
 interface PopupProps {
@@ -42,6 +43,12 @@ const Popup: React.FC<PopupProps> = ({ triggerRef, children, open, placement = "
         }
     }, [triggerRef, setReference]);
 
+    useEffect(() => {
+        if (open && triggerRef.current && floating.current) {
+            return autoUpdate(triggerRef.current, floating.current, update);
+        }
+    }, [open, triggerRef, floating, update]);
+
     const { isMounted, styles } = useTransitionStyles(context, {
         initial: {
             transform: "scale(0)",
@@ -63,7 +70,7 @@ const Popup: React.FC<PopupProps> = ({ triggerRef, children, open, placement = "
                     ref={setFloating}
                     style={floatingStyles}
                 >
-                    <div style={styles} className="bg-[#24438d] border border-[#ccc] p-3 rounded shadow">
+                    <div style={styles} >
                         <FloatingArrow ref={arrowRef} context={context} width={arrowWidth} height={arrowHeight} fill="#24438d" />
                         {children}
                     </div>
