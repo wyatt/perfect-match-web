@@ -48,7 +48,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             };
             const command = new SendEmailCommand(emailParams);
             await sesClient.send(command);
+            return res.status(200).send('Match poked successfully!');
         }
     }
-    return res.status(200).send('Match poked successfully!');
+    return res.status(400).send('Match not found.')
 }

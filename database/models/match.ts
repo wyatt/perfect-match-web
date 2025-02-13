@@ -12,6 +12,7 @@ export interface IMatch extends Document {
     mutual: boolean;
     score: number;
     superMatch: boolean;
+    platonic: boolean;
 }
 
 const matchSchema: Schema = new Schema<IMatch>({
@@ -23,7 +24,8 @@ const matchSchema: Schema = new Schema<IMatch>({
     poked: { type: Boolean, required: true },
     mutual: { type: Boolean, required: true },
     score: { type: Number, required: true },
-    superMatch: { type: Boolean, required: true }
+    superMatch: { type: Boolean, required: true },
+    platonic: { type: Boolean, required: true }
 });
 
 export const Match = mongoose.models.Match || model<IMatch>('Match', matchSchema);
