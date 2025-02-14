@@ -187,7 +187,11 @@ function MatchFeedback({ matchID, matchFeedback, refresh }: any) {
     );
 }
 
-function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutualCrush, superMatch, platonic }: any) {
+function maskText(text: string): string {
+    return text.split('').map(char => char === ' ' ? ' ' : char === ',' ? ',' : '♥').join('');
+}
+
+function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutualCrush, superMatch, platonic, matchPoked }: any) {
     const matchEmoji = useMemo(() => {
         return emoji[Math.floor(Math.random() * emoji.length)];
     }, []);
@@ -227,7 +231,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     const [showBack, setShowBack] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
     const buttonRef = React.createRef<HTMLButtonElement>();
-    const poked = false;
+    const [poked, setPoked] = useState(matchPoked);
 
     const handleFlip = (): void => {
         const selection = window.getSelection();
@@ -249,6 +253,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
             body: JSON.stringify({ matchEmail: matchData.email }),
         }).then((res) => {
             if (!res.ok) alert('Failed to poke match. Please try again later or contact us for help.');
+            else setPoked(true);
             setShowPopup(false);
         });
     }
@@ -476,26 +481,33 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                     </svg>
                                     <p className="ml-2 text-left">Fbk: {contact.fb} </p>
                                 </div>)}
-                                {contact.twitter && (<div className="flex items-center">
+                                {contact.wechat && (<div className="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 21 22" fill="none">
                                         <circle cx="8.47521" cy="8.70519" r="7.19444" stroke="#00438D" stroke-width="2.5" />
                                         <path d="M18.147 21.2C18.6352 21.6881 19.4267 21.6881 19.9148 21.2C20.403 20.7118 20.403 19.9204 19.9148 19.4322L18.147 21.2ZM12.6054 15.6583L18.147 21.2L19.9148 19.4322L14.3731 13.8905L12.6054 15.6583Z" fill="#00438D" />
                                     </svg>
-                                    <p className="ml-2 text-left">Twt: {contact.twitter} </p>
+                                    <p className="ml-2 text-left">WeCht: {contact.wechat} </p>
                                 </div>)}
                                 {contact.linkedin && (<div className="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 21 22" fill="none">
                                         <circle cx="8.47521" cy="8.70519" r="7.19444" stroke="#00438D" stroke-width="2.5" />
                                         <path d="M18.147 21.2C18.6352 21.6881 19.4267 21.6881 19.9148 21.2C20.403 20.7118 20.403 19.9204 19.9148 19.4322L18.147 21.2ZM12.6054 15.6583L18.147 21.2L19.9148 19.4322L14.3731 13.8905L12.6054 15.6583Z" fill="#00438D" />
                                     </svg>
-                                    <p className="ml-2 text-left">L: {contact.linkedin} </p>
+                                    <p className="ml-2 text-left">LIn: {contact.linkedin} </p>
                                 </div>)}
-                                {contact.snap && (<div className="flex items-center">
+                                {contact.snapchat && (<div className="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 21 22" fill="none">
                                         <circle cx="8.47521" cy="8.70519" r="7.19444" stroke="#00438D" stroke-width="2.5" />
                                         <path d="M18.147 21.2C18.6352 21.6881 19.4267 21.6881 19.9148 21.2C20.403 20.7118 20.403 19.9204 19.9148 19.4322L18.147 21.2ZM12.6054 15.6583L18.147 21.2L19.9148 19.4322L14.3731 13.8905L12.6054 15.6583Z" fill="#00438D" />
                                     </svg>
-                                    <p className="ml-2 text-left">Snp: {contact.snap} </p>
+                                    <p className="ml-2 text-left">Snap: {contact.snapchat} </p>
+                                </div>)}
+                                {contact.email && (<div className="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 21 22" fill="none">
+                                        <circle cx="8.47521" cy="8.70519" r="7.19444" stroke="#00438D" stroke-width="2.5" />
+                                        <path d="M18.147 21.2C18.6352 21.6881 19.4267 21.6881 19.9148 21.2C20.403 20.7118 20.403 19.9204 19.9148 19.4322L18.147 21.2ZM12.6054 15.6583L18.147 21.2L19.9148 19.4322L14.3731 13.8905L12.6054 15.6583Z" fill="#00438D" />
+                                    </svg>
+                                    <p className="ml-2 text-left">Email: {contact.email} </p>
                                 </div>)}
 
                                 {contact.other && (<div className="flex items-center">
@@ -516,7 +528,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                              '>
                                                 <div className='flex flex-col items-center justify-center mx-6 my-3'>
                                                     <div className='font-bold text-base md:text-xl mb-5 drop-shadow-[6px_6px_0_[pmblue-500]]'>👉 WHAT&apos;S A POKE 👈</div>
-                                                    <div>By poking your match, we’ll send an email letting them know you’re curious about them 👀
+                                                    <div>By poking your match, we&apos;ll send an email letting them know you&apos;re curious about them 👀
                                                         <br />
                                                         <br />
                                                         In return, you unlock the locked info about your match! Note this is not anonymous,
@@ -540,10 +552,10 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                             {!poked && <div className="absolute top-0 right-[40px] h-[100px] w-[90px] hidden lg:block pointer-events-none">
                                 <Image src="/pokelock.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
                             </div>}
-                            <p className="text-left">My Sense of Humor is: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.humor.join(', ')}</span>) : (<span className="select-none" style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.humor.join(', ')}</span>)}</p>
-                            <p className="text-left">Where I would go on a first date: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.date}</span>) : (<span className="select-none" style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.date}</span>)}</p>
-                            <p className="text-left">1 = Introvert, 10 = Extrovert, I&apos;m a: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.introvert}</span>) : (<span className="select-none" style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.introvert}</span>)}</p>
-                            <p className="text-left">A green flag to me in a relationship: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.greenflag}</span>) : (<span className="select-none" style={{ color: '#F4001F', filter: 'blur(5px)' }}>{matchData.survey.greenflag}</span>)}</p>
+                            <p className="text-left">My Sense of Humor is: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.humor.join(', ')}</span>) : (<span className="select-none" style={{ color: '#F4001F', filter: 'blur(5px)' }}>{maskText(matchData.survey.humor.join(', '))}</span>)}</p>
+                            <p className="text-left">Where I would go on a first date: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.date}</span>) : (<span className="select-none" style={{ color: '#F4001F', filter: 'blur(5px)' }}>{maskText(matchData.survey.date)}</span>)}</p>
+                            <p className="text-left">1 = Introvert, 10 = Extrovert, I&apos;m a: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.introvert}</span>) : (<span className="select-none" style={{ color: '#F4001F', filter: 'blur(5px)' }}>{maskText(String(matchData.survey.introvert))}</span>)}</p>
+                            <p className="text-left">A green flag to me in a relationship: {poked ? (<span style={{ color: '#F4001F' }}>{matchData.survey.greenflag}</span>) : (<span className="select-none" style={{ color: '#F4001F', filter: 'blur(5px)' }}>{maskText(matchData.survey.greenflag)}</span>)}</p>
                         </div>
                     </div>
                 </div>
