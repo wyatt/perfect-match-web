@@ -42,7 +42,17 @@ const Profile: NextPage = (props: any) => {
                             <div className="max-w-screen-lg mx-auto">
                                 <p className="font-work-sans text-pmblue-500 text-lg sm:text-xl font-medium text-left">
                                     <Image src="/1.svg" alt="Step One" width={32} height={32} className="inline-block mr-2" />
-                                    <strong>Click</strong> on the card to flip it and <strong>see more</strong> about your match! 💫
+                                    <strong>Click</strong> on the card to flip it and <strong>see more</strong> about your match!
+                                    <div className='pl-5 inline-block'
+                                    >
+                                        <Image
+                                            src="/flip.png"
+                                            alt="Flip One"
+                                            width={96}
+                                            height={96}
+                                            className="inline-block mr-2 animate-jiggle pl-10x ml-6"
+                                        />
+                                    </div>
                                 </p>
                                 <p className="font-work-sans text-pmblue-500 text-lg sm:text-xl ml-32 font-medium text-center mt-20">
                                     <Image src="/2.svg" alt="Step Two" width={32} height={32} className="inline-block mr-2" />

@@ -5,6 +5,7 @@ module.exports = {
     content: ['./app/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     theme: {
         extend: {
+
             colors: {
                 pmpink: {
                     500: '#fce5f3',
@@ -31,6 +32,11 @@ module.exports = {
                 'press-start': ['"Press Start 2P"', 'sans-serif'],
             },
             keyframes: {
+                jiggle: {
+                    '0%, 100%': { transform: 'rotate(0deg)' },
+                    '25%': { transform: 'rotate(-5deg)' },
+                    '75%': { transform: 'rotate(5deg)' },
+                },
                 flash: {
                     '0%, 100%': { opacity: 1 },
                     '50%': { opacity: 0 },
@@ -49,9 +55,11 @@ module.exports = {
                 },
             },
             animation: {
+                jiggle: 'jiggle 0.3s ease-in-out infinite',
                 flash: 'flash 1s steps(1, end) infinite',
                 flip: 'flip 1s ease-in-out infinite',
                 'pulse-glow': 'pulse-glow 1s infinite alternate',
+
             },
         },
     },
