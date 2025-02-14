@@ -269,7 +269,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                         ${mutualCrush ? 'animate-pulse-glow' : ''}
                     `}
                 >
-                    <div className="relative pt-6 px-5 md:px-10 w-full z-10 h-[90%] md:h-3/4">
+                    <div className="relative pt-6 px-5 md:px-10 w-full z-20 lg:h-[90%] md:h-3/4">
                         {mutualCrush ? (<div className="-z-10 absolute -top-[0px] -left-[0px] h-[220px] w-[220px] block pointer-events-none">
                             <Image src="/mutualcrushstamp.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
                         </div>) :
@@ -280,10 +280,10 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                 (<div className="-z-10 absolute -top-[0px] -left-[0px] h-[220px] w-[220px] block pointer-events-none">
                                     <Image src="/supermatchstamp.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
                                 </div>)))}
-                        <div className="flex justify-end items-center w-full h-[12.5%] md:h-1/4">
+                        <div className="flex justify-end items-center w-full">
                             <div className="flex justify-between w-full md:w-[65%]">
-                                <div className="w-3/4">
-                                    <h3 className="text-4xl font-bold w-full text-pmred-500">
+                                <div className="w-3/4 ml">
+                                    <h3 className="font-dela-gothic text-center text-4xl font-bold w-full text-pmred-500">
                                         {matchData.profile.firstName}
                                     </h3>
                                 </div>
@@ -296,11 +296,11 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                     </div>)}
                             </div>
                         </div>
-                        <div className="mt-4 flex h-3/4 min-h-fit justify-end items-center w-full font-work-sans text-xl font-semibold">
+                        <div className="flex flex-col lg:flex-row md:flex-row pt-4 al gap-4 min-h-fit justify-end items-center w-full font-work-sans text-xl font-semibold">
                             <div className="flex sm:contents w-1/2 md:w-1/4">
-                                <div className="my-0 text-[120px] -ml-4 md:ml-0 md:my-[60px] md:text-[170px]">{matchEmoji}</div>
+                                <div className="my-0 text-[120px] md:text-[170px] h-full my-10">{matchEmoji}</div>
                             </div>
-                            <div className="text-pmblue-500 flex flex-col gap-2 w-1/2 md:w-3/4">
+                            <div className="text-pmblue-500 flex flex-col gap-2 md:w-3/4">
                                 <div className="flex justify-start gap-2 flex-wrap text-sm/3 md:text-lg/6">
                                     <div className="flex items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 22 27" fill="none">
@@ -380,19 +380,19 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                             </div>
                         </div>
                     </div>
-                    {mutualCrush ? (<div className="w-full h-auto z-10">
+                    {mutualCrush ? (<div className="w-full h-auto z-20 lg:mt-0 mt-2">
                         <Image src="/mutualcrushstripe.svg" alt="mutual crush" height={40} width={913} loading='lazy' draggable='false' />
-                    </div>) : (superMatch ? (platonic ? (<div className="w-full h-auto mt-4 z-10">
+                    </div>) : (superMatch ? (platonic ? (<div className="w-full h-auto mt-4 z-20">
                         <Image src="/supermatchstripeplatonic.svg" alt="platonic super match" height={40} width={913} loading='lazy' draggable='false' />
                     </div>) :
-                        (<div className="w-full h-auto mt-4 z-10">
+                        (<div className="w-full h-auto mt-4 z-20">
                             <Image src="/supermatchstripe.svg" alt="super match" height={40} width={913} loading='lazy' draggable='false' />
                         </div>))
                         : (platonic ? (<hr className="z-10 mt-6 mb-2 border-pmorange-500 border-8"></hr>) :
                             (<hr className="z-10 mt-6 mb-2 border-pmpink2-500 border-8"></hr>)))}
 
-                    <div className="mx-6 relative rounded-md w-auto mb-5 h-auto mt-3 px-6 py-3 font-work-sans text-base md:text-lg font-semibold text-pmblue-500 bg-pmpink-500">
-                        <div className="absolute -top-[120px] -right-[20px] h-[150px] w-[220px] hidden lg:block pointer-events-none">
+                    <div className="z-10 mx-6 relative rounded-md w-auto mb-5 h-auto mt-3 px-6 py-3 font-work-sans text-sm md:text-lg font-semibold text-pmblue-500 bg-pmpink-500">
+                        <div className="absolute -top-[120px] -z-20 -right-[20px] h-[150px] w-[220px] block pointer-events-none">
                             <Image src="/matchcardpmlogo.svg" alt="pm logo" layout='fill' priority={true} draggable='false' />
                         </div>
                         <p className="text-left">Interests: <span style={{ color: '#F4001F' }}>{matchData.survey.interests.join(', ')}</span></p>
@@ -428,7 +428,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                         <Image src="/matchcardhearts.svg" alt="hearts" height={35} width={130} loading='lazy' draggable='false' />
                                     </div>)}
                                 <div className="w-full">
-                                    <h3 className="text-4xl font-bold w-full text-pmred-500 text-center">
+                                    <h3 className="font-dela-gothic text-center text-4xl font-bold w-full text-pmred-500">
                                         {matchData.profile.firstName}
                                     </h3>
                                 </div>
@@ -453,8 +453,8 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                     </div>
 
                     <div className=" pt-3 px-10 w-full z-10 h-3/4">
-                        <div className="flex justify-start items-center w-full font-work-sans font-semibold gap-2 md:gap-8 h-1/2">
-                            <div className="text-pmblue-500 flex flex-col gap-2 text-xl justify-start w-full">
+                        <div className="flex flex-col lg:flex-row justify-start items-center w-full font-work-sans font-semibold gap-2 md:gap-8 ">
+                            <div className="text-pmblue-500 flex flex-col gap-2 lg:text-xl text-base justify-start w-full">
                                 {contact.insta && (<div className="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 42 43" fill="none">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M27.4545 5.99414C29.73 5.99414 31.9122 6.89805 33.5211 8.50701C35.1301 10.116 36.034 12.2982 36.034 14.5736V28.3007C36.034 30.5762 35.1301 32.7584 33.5211 34.3673C31.9122 35.9763 29.73 36.8802 27.4545 36.8802H13.7274C11.452 36.8802 9.26978 35.9763 7.66082 34.3673C6.05185 32.7584 5.14795 30.5762 5.14795 28.3007V14.5736C5.14795 12.2982 6.05185 10.116 7.66082 8.50701C9.26978 6.89805 11.452 5.99414 13.7274 5.99414H27.4545ZM27.4545 9.42592H13.7274C12.3622 9.42592 11.0528 9.96827 10.0875 10.9336C9.12208 11.899 8.57973 13.2084 8.57973 14.5736V28.3007C8.57973 29.666 9.12208 30.9753 10.0875 31.9407C11.0528 32.9061 12.3622 33.4484 13.7274 33.4484H27.4545C28.8198 33.4484 30.1291 32.9061 31.0945 31.9407C32.0599 30.9753 32.6022 29.666 32.6022 28.3007V14.5736C32.6022 13.2084 32.0599 11.899 31.0945 10.9336C30.1291 9.96827 28.8198 9.42592 27.4545 9.42592ZM20.591 14.5736C22.4113 14.5736 24.1571 15.2967 25.4443 16.5839C26.7314 17.8711 27.4545 19.6168 27.4545 21.4372C27.4545 23.2575 26.7314 25.0033 25.4443 26.2904C24.1571 27.5776 22.4113 28.3007 20.591 28.3007C18.7706 28.3007 17.0249 27.5776 15.7377 26.2904C14.4505 25.0033 13.7274 23.2575 13.7274 21.4372C13.7274 19.6168 14.4505 17.8711 15.7377 16.5839C17.0249 15.2967 18.7706 14.5736 20.591 14.5736ZM20.591 18.0054C19.6808 18.0054 18.8079 18.3669 18.1643 19.0105C17.5208 19.6541 17.1592 20.527 17.1592 21.4372C17.1592 22.3473 17.5208 23.2202 18.1643 23.8638C18.8079 24.5074 19.6808 24.869 20.591 24.869C21.5011 24.869 22.374 24.5074 23.0176 23.8638C23.6612 23.2202 24.0228 22.3473 24.0228 21.4372C24.0228 20.527 23.6612 19.6541 23.0176 19.0105C22.374 18.3669 21.5011 18.0054 20.591 18.0054ZM28.3125 11.9998C28.7676 11.9998 29.204 12.1805 29.5258 12.5023C29.8476 12.8241 30.0284 13.2606 30.0284 13.7157C30.0284 14.1707 29.8476 14.6072 29.5258 14.929C29.204 15.2508 28.7676 15.4315 28.3125 15.4315C27.8574 15.4315 27.421 15.2508 27.0992 14.929C26.7774 14.6072 26.5966 14.1707 26.5966 13.7157C26.5966 13.2606 26.7774 12.8241 27.0992 12.5023C27.421 12.1805 27.8574 11.9998 28.3125 11.9998Z" fill="#00438D" />
@@ -506,16 +506,16 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                     <p className="ml-2 text-left">Other: {contact.other} </p>
                                 </div>)}
                             </div>
-                            <div className=" justify-center font-work-sans text-lg font-semibold items-center min-w-[250px]">
+                            <div className=" justify-center pt-2 font-work-sans text-lg font-semibold items-center lg:min-w-[250px]">
                                 <div className='flex flex-col items-center justify-center'>
-                                    <Button bold={true} mt={0} onClick={handlePop} ref={buttonRef}>See More!</Button>
+                                    <Button bold={true} mt={0} onClick={handlePop} ref={buttonRef}>POKE to see more!</Button>
                                     {showPopup && (
                                         <Popup triggerRef={buttonRef} placement="top" open={showPopup} arrowHeight={35} arrowWidth={30}>
                                             <div className='max-w-[40vw] lg:max-w-[30vw] min-w-64 font-work-sans text-center text-sm md:text-base
                                             bg-pmblue-500 border border-[#ccc] p-3 rounded-3xl shadow 
                                              '>
                                                 <div className='flex flex-col items-center justify-center mx-6 my-3'>
-                                                    <div className='font-bold text-md md:text-xl mb-5 drop-shadow-[6px_6px_0_[pmblue-500]]'>👉 WHAT&apos;S A POKE 👈</div>
+                                                    <div className='font-bold text-base md:text-xl mb-5 drop-shadow-[6px_6px_0_[pmblue-500]]'>👉 WHAT&apos;S A POKE 👈</div>
                                                     <div>By poking your match, we’ll send an email letting them know you’re curious about them 👀
                                                         <br />
                                                         <br />
