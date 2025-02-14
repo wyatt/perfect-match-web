@@ -48,7 +48,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 }
                 // Email parameters
                 const emailParams = {
-                    Destination: { ToAddresses: ['perfectmatch@cornell.edu'] }, // Change this to matchEmail if needed
+                    Destination: { ToAddresses: [matchEmail] },
                     Message: {
                         Body: { Html: { Charset: 'UTF-8', Data: emailTemplate } },
                         Subject: {
