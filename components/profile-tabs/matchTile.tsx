@@ -187,7 +187,7 @@ function MatchFeedback({ matchID, matchFeedback, refresh }: any) {
     );
 }
 
-function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutualCrush, superMatch, platonic }: any) {
+function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutualCrush, superMatch, platonic, matchPoked }: any) {
     const matchEmoji = useMemo(() => {
         return emoji[Math.floor(Math.random() * emoji.length)];
     }, []);
@@ -227,7 +227,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     const [showBack, setShowBack] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
     const buttonRef = React.createRef<HTMLButtonElement>();
-    const poked = false;
+    const [poked, setPoked] = useState(matchPoked);
 
     const handleFlip = (): void => {
         const selection = window.getSelection();
@@ -249,6 +249,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
             body: JSON.stringify({ matchEmail: matchData.email }),
         }).then((res) => {
             if (!res.ok) alert('Failed to poke match. Please try again later or contact us for help.');
+            else setPoked(true);
             setShowPopup(false);
         });
     }

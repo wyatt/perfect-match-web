@@ -125,6 +125,17 @@ export const updateCrushes = async (user: any, crushes: any): Promise<UserType> 
     return doc;
 };
 
+
+/**
+ * This function updates a match document in a database with new values for pokedA and pokedB fields.
+ * @param {any} match - The match object containing the _id to match.
+ * @returns A Promise that resolves to the updated MatchReview.
+ */
+export const updateMatchPoked = async (matchId: any, pokedA: boolean, pokedB: boolean): Promise<MatchReview | any> => {
+    const doc = await Match.findOneAndUpdate({ _id: new ObjectId(matchId) }, { pokedA, pokedB }, { new: true });
+    return doc;
+}
+
 /**
  * Updates the forbidden list for a specific user.
  * @param {any} user - The user object containing the email to match.
