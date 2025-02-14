@@ -521,7 +521,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                              '>
                                                 <div className='flex flex-col items-center justify-center mx-6 my-3'>
                                                     <div className='font-bold text-md md:text-xl mb-5 drop-shadow-[6px_6px_0_[pmblue-500]]'>👉 WHAT&apos;S A POKE 👈</div>
-                                                    <div>By poking your match, we’ll send an email letting them know you’re curious about them 👀
+                                                    <div>By poking your match, we&apos;ll send an email letting them know you&apos;re curious about them 👀
                                                         <br />
                                                         <br />
                                                         In return, you unlock the locked info about your match! Note this is not anonymous,
