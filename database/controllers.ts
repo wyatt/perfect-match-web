@@ -8,7 +8,7 @@ import { Match } from './models/match';
 import { ObjectId } from 'mongodb';
 
 const matchRevealData =
-    'id email profile.name profile.firstName profile.year profile.major profile.firstName profile.city profile.describeYourself profile.describePartner profile.bio survey.hookupsong survey.hookupsongURL survey.contact';
+    'id email profile.name profile.firstName profile.year profile.major profile.firstName profile.city profile.describeYourself profile.describePartner profile.bio survey.hookupsong survey.hookupsongURL survey.contact survey.greenflag survey.interests profile.guiltyPleasure profile.relationshipType survey.humor survey.date survey.introvert';
 
 /**
  * Populates match data with specific fields from the User model.
@@ -133,6 +133,17 @@ export const updateCrushes = async (user: any, crushes: any): Promise<UserType> 
     const doc = await User.findOneAndUpdate({ email: user.email }, { crushes: crushes }, { new: true });
     return doc;
 };
+
+
+/**
+ * This function updates a match document in a database with new values for pokedA and pokedB fields.
+ * @param {any} match - The match object containing the _id to match.
+ * @returns A Promise that resolves to the updated MatchReview.
+ */
+export const updateMatchPoked = async (matchId: any, pokedA: boolean, pokedB: boolean): Promise<MatchReview | any> => {
+    const doc = await Match.findOneAndUpdate({ _id: new ObjectId(matchId) }, { pokedA, pokedB }, { new: true });
+    return doc;
+}
 
 /**
  * Updates the forbidden list for a specific user.

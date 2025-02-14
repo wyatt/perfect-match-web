@@ -41,10 +41,10 @@ const Toggle = () => {
                                 <li className="text-pmred-500 text-xl font-medium mt-5 mb-5">
                                     <Link href="/about">About</Link>
                                 </li>
-                                {/* <li className="text-pmred-500 text-xl font-medium mt-5 mb-5">
-                                    <Link href="/profile">Survey</Link>
-                                </li> */}
-                                {/* {status === 'authenticated' && (
+                                <li className="text-pmred-500 text-xl font-medium mt-5 mb-5">
+                                    <Link href="/profile">Matches</Link>
+                                </li>
+                                {status === 'authenticated' && (
                                     <li className="text-pmred-500 text-xl font-medium mt-5 mb-5 hover:text-red-500 ease-in-out transition-all duration-200">
                                         <button className="inline-flex items-center justify-center " onClick={() => signOut()}>
                                             <svg
@@ -63,7 +63,7 @@ const Toggle = () => {
                                                 ></path>
                                             </svg>Sign Out</button>
                                     </li>
-                                )} */}
+                                )}
                                 {isAdminUser && (
                                     <li className="text-pmred-500 text-xl font-medium mt-5 mb-5">
                                         <Link href="/admin"> Admin</Link>

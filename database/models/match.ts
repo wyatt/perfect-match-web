@@ -8,6 +8,12 @@ export interface IMatch extends Document {
     partnerAFeedback: IMatchFeedback;
     partnerBFeedback: IMatchFeedback;
     overallStatus: 'pending' | 'complete' | 'partial';
+    pokedA: boolean; // user A pokes then pokedA = true, and email is sent to user B
+    pokedB: boolean; // user B pokes then pokedB = true, and email is sent to user A
+    mutual: boolean;
+    score: number;
+    superMatch: boolean;
+    platonic: boolean;
 }
 
 const matchSchema: Schema = new Schema<IMatch>({
@@ -16,6 +22,12 @@ const matchSchema: Schema = new Schema<IMatch>({
     partnerAFeedback: matchFeedbackSchema,
     partnerBFeedback: matchFeedbackSchema,
     overallStatus: { type: String, required: true },
+    pokedA: { type: Boolean, required: true },
+    pokedB: { type: Boolean, required: true },
+    mutual: { type: Boolean, required: true },
+    score: { type: Number, required: true },
+    superMatch: { type: Boolean, required: true },
+    platonic: { type: Boolean, required: true },
 });
 
 export const Match = mongoose.models.Match || model<IMatch>('Match', matchSchema);

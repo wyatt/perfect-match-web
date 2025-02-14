@@ -80,32 +80,35 @@ const Home: NextPage = (props: any) => {
                 </div>
 
                 <section className="bg-pmpink2-500">
-                    <div className='flex flex-col justify-center align-middle items-center h-[75vh] lg:-[70vh] lg:flex-row lg:px-[12vw] z-20'>
-                        <div className='h-[50%] w-full lg:w-1/2 lg:mr-16 xl:mr-0 items-center justify-center flex'><Countdown /></div>
+                    <div className='flex flex-col justify-center align-middle items-center h-fit lg:h-[70vh] lg:flex-row lg:px-[12vw] z-20'>
+                        <div className='h-[50%] w-full lg:w-1/2 lg:mr-16 xl:mr-0 items-center justify-center hidden md:flex '><Countdown /></div>
                         <div className="lg:w-1/2">
                             <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
                                 <div className="">
                                     <h1 className="text-4xl text-[#00438D] font-family-dela sm:text-3xl lg:text-5xl font-dela-gothic sm:mt-5">
-                                        That&#39;s a wrap!
+                                        <div className='text-pmred-500'> Perfect Matches </div> have been released!
                                     </h1>
                                 </div>
                                 <div className='font-work-sans'>
                                     <p className="text-lg text-pmblue-500 mt-4 lg:max-w-lg lg:text-left text-center lg:text-xl sm:leading-relaxed">
-                                        Thank you for all who signed up. Our cupids are hard at work matching you up. Check back tonight for your matches!
-                                        <br></br>
-                                        <br></br>
-                                        <strong> {currentCount}</strong> Cornellians are being matched!
+                                        Go ahead—send a text or slide into those DMs.
+                                        Because the only thing sadder than an unopened message… is a love story that never got a chance to begin.
+                                        <br />
+                                        <br />
+                                        <strong> 5052 </strong> Cornellians Matched!
+                                        <br />
 
                                     </p>
-                                    {/* {!props.user ? (
+                                    {!props.user ? (
                                         <GoogleAuth login={!props.user} />
                                     ) : (
                                         <Link href="/profile">
                                             <Button bold={true} >
-                                                fill out Perfect Match
+                                                see my matches!
                                             </Button>
                                         </Link>
-                                    )} */}
+                                    )}
+
                                 </div>
                             </div>
 
@@ -181,7 +184,7 @@ const Home: NextPage = (props: any) => {
                         <Image src="/bear.svg" alt="bear" height={396} width={504} loading='lazy' draggable='false' />
                     </div>
                 </section >
-            </div>
+            </div >
             <div className="bg-pmpink-500">
                 <div className="left-0 w-full relative h-[60px]">
                     <svg className="absolute top-1 w-full h-[60px] z-100 md:hidden" // Adjust height as needed

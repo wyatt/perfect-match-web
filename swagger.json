@@ -355,6 +355,18 @@
                     "overallStatus": {
                         "type": "string",
                         "enum": ["pending", "complete", "partial"]
+                    },
+                    "poked": {
+                        "type": "boolean"
+                    },
+                    "mutual": {
+                        "type": "boolean"
+                    },
+                    "score": {
+                        "type": "number"
+                    },
+                    "superMatch": {
+                        "type": "boolean"
                     }
                 }
             },
@@ -637,6 +649,37 @@
                 },
                 "401": {
                     "description": "Unauthorized access."
+                }
+            }
+        },
+        "/api/poked": {
+            "post": {
+                "summary": "Poke a match",
+                "description": "Pokes a match to initiate a conversation.",
+                "operationId": "pokeMatch",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": ["matchEmail"],
+                                "properties": {
+                                    "matchEmail": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Match poked successfully!"
+                    },
+                    "400": {
+                        "description": "Bad request, invalid inputs."
+                    }
                 }
             }
         },
