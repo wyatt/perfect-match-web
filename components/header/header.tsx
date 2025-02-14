@@ -81,7 +81,7 @@ function Header(props: any) {
                                             ></path>
                                         </svg>Sign Out</button>
                                 </li>
-                            )} */}
+                            )}
                             {isAdminUser && (
                                 <li className="text-pmred-500">
                                     <Link href="/admin"> Admin</Link>
