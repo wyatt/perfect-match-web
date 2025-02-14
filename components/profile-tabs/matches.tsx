@@ -14,6 +14,7 @@ function Matches({ matches, userId, refresh, matchCount }: any) {
             {matches.map((match: any, index: number) => {
                 const matchData = match.partnerAId._id === userId ? match.partnerBId : match.partnerAId;
                 const matchFeedback = match.partnerAId._id === userId ? match.partnerAFeedback : match.partnerBFeedback;
+                const matchPoked = match.partnerAId._id === userId ? match.pokedA : match.pokedB;
                 const mutualCrush = match?.mutual || false;
                 return (
                     <MatchTile
@@ -24,6 +25,9 @@ function Matches({ matches, userId, refresh, matchCount }: any) {
                         matchFeedback={matchFeedback}
                         refresh={refresh}
                         mutualCrush={mutualCrush}
+                        platonic={match.platonic}
+                        superMatch={match.superMatch}
+                        matchPoked={matchPoked}
                     />
                 );
             })}

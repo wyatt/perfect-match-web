@@ -45,7 +45,8 @@ export type MatchReview = {
     partnerAFeedback: Review;
     partnerBFeedback: Review;
     overallStatus: 'pending' | 'complete' | 'partial';
-    poked: boolean;
+    pokedA: boolean;
+    pokedB: boolean;
     mutual: boolean;
     score: number;
     superMatch: boolean;
