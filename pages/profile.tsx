@@ -40,7 +40,7 @@ const Profile: NextPage = (props: any) => {
                                 Your Matches are here
                             </h2>
                             <div className="max-w-screen-lg mx-auto">
-                                <p className="font-work-sans text-pmblue-500 text-lg sm:text-xl font-medium text-left">
+                                <p className="font-work-sans text-pmblue-500 text-lg ml-14 sm:text-xl font-medium text-left">
                                     <Image src="/1.svg" alt="Step One" width={32} height={32} className="inline-block mr-2" />
                                     <strong>Click</strong> on the card to flip it and <strong>see more</strong> about your match!
                                     <div className='pl-5 inline-block'
@@ -70,7 +70,7 @@ const Profile: NextPage = (props: any) => {
             </div>
             <div>
                 {' '}
-                <section className="bg-white ">
+                <section className="bg-white pt-5">
                     <div className="gap-10 pb-5 sm:px-14 items-center mx-auto max-w-screen-xl  ">
                         <div className="bg-white font-work-sans rounded-lg h-auto">
                             <ProfileTabs user={data} refresh={refresh} />
