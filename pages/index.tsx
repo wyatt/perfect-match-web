@@ -99,7 +99,7 @@ const Home: NextPage = (props: any) => {
                                         <br />
 
                                     </p>
-                                    {/* {!props.user ? (
+                                    {!props.user ? (
                                         <GoogleAuth login={!props.user} />
                                     ) : (
                                         <Link href="/profile">
