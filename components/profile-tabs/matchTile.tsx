@@ -232,7 +232,17 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
     const [showPopup, setShowPopup] = useState(false);
     const buttonRef = React.createRef<HTMLButtonElement>();
     const [poked, setPoked] = useState(matchPoked);
+    // number of fields exists: insta, phone, snapchat, linkedin, email, fb, other, wechat = displayCount
     var displayCount = 0;
+    if (contact.insta) displayCount++;
+    if (contact.phone) displayCount++;
+    if (contact.snapchat) displayCount++;
+    if (contact.linkedin) displayCount++;
+    if (contact.email) displayCount++;
+    if (contact.fb) displayCount++;
+    if (contact.other) displayCount++;
+    if (contact.wechat) displayCount++;
+    console.log('displayCount', displayCount);
 
     const handleFlip = (): void => {
         const selection = window.getSelection();
@@ -308,17 +318,19 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                             </div>
                             <div className="text-pmblue-500 flex flex-col gap-2 md:w-3/4">
                                 <div className="flex justify-start gap-2 flex-wrap text-sm/3 md:text-lg/6">
-                                    <div className="flex items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 22 27" fill="none">
-                                            <path d="M10.6616 13.2886C11.3925 13.2886 12.0182 13.0283 12.5386 12.5079C13.0591 11.9874 13.3193 11.3617 13.3193 10.6309C13.3193 9.89999 13.0591 9.27432 12.5386 8.75385C12.0182 8.23338 11.3925 7.97314 10.6616 7.97314C9.93075 7.97314 9.30508 8.23338 8.78461 8.75385C8.26414 9.27432 8.00391 9.89999 8.00391 10.6309C8.00391 11.3617 8.26414 11.9874 8.78461 12.5079C9.30508 13.0283 9.93075 13.2886 10.6616 13.2886ZM10.6616 23.0557C13.3636 20.5751 15.368 18.3216 16.6747 16.2951C17.9814 14.2686 18.6348 12.4691 18.6348 10.8966C18.6348 8.48254 17.8651 6.50586 16.3259 4.9666C14.7866 3.42734 12.8985 2.65771 10.6616 2.65771C8.42471 2.65771 6.53663 3.42734 4.99737 4.9666C3.45811 6.50586 2.68848 8.48254 2.68848 10.8966C2.68848 12.4691 3.34183 14.2686 4.64854 16.2951C5.95525 18.3216 7.95961 20.5751 10.6616 23.0557ZM10.6616 26.5771C7.09585 23.5429 4.4326 20.7246 2.67187 18.1223C0.91113 15.5199 0.0307617 13.1114 0.0307617 10.8966C0.0307617 7.57449 1.09938 4.92785 3.23663 2.95671C5.37388 0.985569 7.84887 0 10.6616 0C13.4744 0 15.9494 0.985569 18.0866 2.95671C20.2239 4.92785 21.2925 7.57449 21.2925 10.8966C21.2925 13.1114 20.4121 15.5199 18.6514 18.1223C16.8906 20.7246 14.2274 23.5429 10.6616 26.5771Z" fill="#00438D" />
-                                        </svg>
-                                        <p className="ml-2 text-left">{matchData.profile.city} </p>
-                                    </div>
+                                    {matchData.profile.city && (
+                                        <div className="flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 22 27" fill="none">
+                                                <path d="M10.6616 13.2886C11.3925 13.2886 12.0182 13.0283 12.5386 12.5079C13.0591 11.9874 13.3193 11.3617 13.3193 10.6309C13.3193 9.89999 13.0591 9.27432 12.5386 8.75385C12.0182 8.23338 11.3925 7.97314 10.6616 7.97314C9.93075 7.97314 9.30508 8.23338 8.78461 8.75385C8.26414 9.27432 8.00391 9.89999 8.00391 10.6309C8.00391 11.3617 8.26414 11.9874 8.78461 12.5079C9.30508 13.0283 9.93075 13.2886 10.6616 13.2886ZM10.6616 23.0557C13.3636 20.5751 15.368 18.3216 16.6747 16.2951C17.9814 14.2686 18.6348 12.4691 18.6348 10.8966C18.6348 8.48254 17.8651 6.50586 16.3259 4.9666C14.7866 3.42734 12.8985 2.65771 10.6616 2.65771C8.42471 2.65771 6.53663 3.42734 4.99737 4.9666C3.45811 6.50586 2.68848 8.48254 2.68848 10.8966C2.68848 12.4691 3.34183 14.2686 4.64854 16.2951C5.95525 18.3216 7.95961 20.5751 10.6616 23.0557ZM10.6616 26.5771C7.09585 23.5429 4.4326 20.7246 2.67187 18.1223C0.91113 15.5199 0.0307617 13.1114 0.0307617 10.8966C0.0307617 7.57449 1.09938 4.92785 3.23663 2.95671C5.37388 0.985569 7.84887 0 10.6616 0C13.4744 0 15.9494 0.985569 18.0866 2.95671C20.2239 4.92785 21.2925 7.57449 21.2925 10.8966C21.2925 13.1114 20.4121 15.5199 18.6514 18.1223C16.8906 20.7246 14.2274 23.5429 10.6616 26.5771Z" fill="#00438D" />
+                                            </svg>
+                                            <p className="ml-2 text-left">{matchData.profile.city} </p>
+                                        </div>
+                                    )}
                                     <div className="flex items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 23" fill="none">
                                             <path d="M4.49941 22.2881C3.43608 22.2881 2.52858 21.9123 1.77691 21.1606C1.02525 20.4089 0.649414 19.5014 0.649414 18.4381V4.13809C0.649414 3.07475 1.02525 2.16725 1.77691 1.41559C2.52858 0.663919 3.43608 0.288086 4.49941 0.288086H18.2494V16.7881C17.7911 16.7881 17.4015 16.9485 17.0807 17.2693C16.7598 17.5902 16.5994 17.9798 16.5994 18.4381C16.5994 18.8964 16.7598 19.286 17.0807 19.6068C17.4015 19.9277 17.7911 20.0881 18.2494 20.0881V22.2881H4.49941ZM2.84941 14.9456C3.10608 14.8173 3.37191 14.7256 3.64691 14.6706C3.92191 14.6156 4.20608 14.5881 4.49941 14.5881H5.04941V2.48809H4.49941C4.04108 2.48809 3.6515 2.6485 3.33066 2.96934C3.00983 3.29017 2.84941 3.67975 2.84941 4.13809V14.9456ZM7.24941 14.5881H16.0494V2.48809H7.24941V14.5881ZM4.49941 20.0881H14.7569C14.6469 19.8314 14.5598 19.5702 14.4957 19.3043C14.4315 19.0385 14.3994 18.7498 14.3994 18.4381C14.3994 18.1448 14.4269 17.8606 14.4819 17.5856C14.5369 17.3106 14.6286 17.0448 14.7569 16.7881H4.49941C4.02275 16.7881 3.62858 16.9485 3.31691 17.2693C3.00525 17.5902 2.84941 17.9798 2.84941 18.4381C2.84941 18.9148 3.00525 19.3089 3.31691 19.6206C3.62858 19.9323 4.02275 20.0881 4.49941 20.0881Z" fill="#00438D" />
                                         </svg>
-                                        <p className="ml-2 text-left">{matchData.profile.year}, {matchData.profile.major} </p>
+                                        <p className="ml-2 text-left">{matchData.profile.year}, {matchData.profile.major.join(', ')} </p>
                                     </div>
                                     <div className="flex items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 21 22" fill="none">
@@ -462,7 +474,7 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                         </div>
                     </div>
 
-                    <div className=" pt-3 px-10 w-full z-10 h-3/4">
+                    <div className="py-8 px-10 w-full z-10 h-3/4">
                         <div className="flex flex-col lg:flex-row justify-start items-center w-full font-work-sans font-semibold gap-2 md:gap-8 ">
                             <div className="text-pmblue-500 flex flex-col gap-2 lg:text-xl text-base justify-start w-full">
                                 {contact.insta && displayCount < 4 && (<div className="flex items-center">
