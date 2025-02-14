@@ -85,7 +85,7 @@ const Home: NextPage = (props: any) => {
                         <div className="lg:w-1/2">
                             <div className="mx-2 max-w-xl text-center lg:text-left sm:mx-auto lg:ml-[17%] mt-8 sm:mt-0 opacity-100">
                                 <div className="">
-                                    <h1 className="text-4xl text-[#00438D] font-family-dela sm:text-3xl lg:text-5xl font-dela-gothic sm:mt-5">
+                                    <h1 className="text-4xl text-[#00438D] font-family-dela sm:text-3xl lg:text-4xl font-dela-gothic sm:mt-5">
                                         Your <div className='text-pmred-500'> Perfect Matches </div> have been released!
                                     </h1>
                                 </div>
