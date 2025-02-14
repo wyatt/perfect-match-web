@@ -63,7 +63,7 @@ const Toggle = () => {
                                                 ></path>
                                             </svg>Sign Out</button>
                                     </li>
-                                )} */}
+                                )}
                                 {isAdminUser && (
                                     <li className="text-pmred-500 text-xl font-medium mt-5 mb-5">
                                         <Link href="/admin"> Admin</Link>
