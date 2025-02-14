@@ -354,9 +354,13 @@ function MatchTile({ matchID, matchData, contact, matchFeedback, refresh, mutual
                                                 </defs>
                                             </svg>
                                         </div>
-                                        <div className="w-full">
-                                            <p className="ml-2 text-left text-base/5 md:text-lg/6">My green flag: <strong>{matchData.profile.greenFlag}</strong> </p>
-                                        </div>
+                                        {matchData.profile.greenFlag ? (
+                                            <div className="w-full">
+                                                <p className="ml-2 text-left text-base/5 md:text-lg/6">My green flag: <strong>{matchData.profile.greenFlag ?? ''}</strong> </p>
+                                            </div>
+                                        ) : (<div className="w-full">
+                                            <p className="ml-2 text-left text-base/5 md:text-lg/6">My green flag: <strong>{matchData.survey.greenflag ?? ''}</strong> </p>
+                                        </div>)}
                                     </div>
                                     <div className="flex items-top">
                                         <div className="mt-1">
